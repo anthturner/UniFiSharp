@@ -36,10 +36,7 @@ namespace UniFiSharp.Orchestration.Collections
             AddLocal(devices);
 
             // todo: show unadopted devices in tree
-
-            foreach (var device in this)
-                device.Converge(this);
-
+            
             if (this.Any(d => d is RoutingNetworkDevice && d.State.adopted))
                 Root = this.FirstOrDefault(d => d is RoutingNetworkDevice && d.State.adopted);
             else
@@ -47,6 +44,11 @@ namespace UniFiSharp.Orchestration.Collections
                 var parentlessDevices = this.Select(d => !HasParentDevice(d)).ToList();
                 Root = new NonUniFiDevice();
             }
+        }
+
+        public void ConvergeClients(ClientDeviceCollection clients)
+        {
+            Root.Converge(this, clients);
         }
 
         public bool HasParentDevice(INetworkDevice device)

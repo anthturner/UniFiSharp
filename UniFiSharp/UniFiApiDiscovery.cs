@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using UniFiSharp.Discovery;
+using System.Net.NetworkInformation;
 
 namespace UniFiSharp
 {
@@ -60,17 +61,21 @@ namespace UniFiSharp
 
         private async static Task<DeviceInformation> DiscoverController(IPAddress ip, int port, byte[] message, SocketFlags flags)
         {
-            var endpoint = new IPEndPoint(ip, port);
+            try
+            {
+                var endpoint = new IPEndPoint(ip, port);
 
-            var udp = new UdpClient();
-            var result = await udp.SendAsync(message, message.Length, endpoint);
+                var udp = new UdpClient();
+                var result = await udp.SendAsync(message, message.Length, endpoint);
 
-            var receiveTask = udp.ReceiveAsync();
-            await Task.WhenAny(receiveTask, Task.Delay(UDP_TIMEOUT_MS));
+                var receiveTask = udp.ReceiveAsync();
+                await Task.WhenAny(receiveTask, Task.Delay(UDP_TIMEOUT_MS));
 
-            if (receiveTask.IsCompleted)
-                return await DeviceInformation.Parse(receiveTask.Result.RemoteEndPoint, receiveTask.Result.Buffer);
-            return null;
+                if (receiveTask.IsCompleted)
+                    return await DeviceInformation.Parse(receiveTask.Result.RemoteEndPoint, receiveTask.Result.Buffer);
+                return null;
+            }
+            catch { return null; }
         }
     }
 }

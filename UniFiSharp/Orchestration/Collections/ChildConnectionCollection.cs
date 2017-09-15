@@ -21,6 +21,16 @@ namespace UniFiSharp.Orchestration.Collections
 
         internal void Add(NetworkDevice.PortTable port, INetworkDevice device)
         {
+            if (port != null)
+            {
+                var dupe = this.FirstOrDefault(t => t.Port.port_idx == port.port_idx);
+                if (dupe != null)
+                {
+                    if (dupe.Device is IUniFiNetworkDevice)
+                        return;
+                    this.RemoveLocal(dupe);
+                }
+            }
             this.AddLocal(new ChildPortBinding(port, device));
         }
 
@@ -34,6 +44,10 @@ namespace UniFiSharp.Orchestration.Collections
     {
         public NetworkDevice.PortTable Port { get; private set; }
         public INetworkDevice Device { get; private set; }
+
+        public string PortNumber => (Port != null && Port.port_idx.HasValue) ? Port.port_idx.ToString() : "";
+
+        public ChildConnectionCollection Children => Device.Children;
 
         internal ChildPortBinding(NetworkDevice.PortTable port, INetworkDevice device)
         {

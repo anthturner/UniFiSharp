@@ -1,4 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 using UniFiSharp.Orchestration.Collections;
 using UniFiSharp.Orchestration.Devices;
 
@@ -14,7 +19,7 @@ namespace UniFiSharp.Orchestration
         /// <summary>
         /// Collection of clients on the network
         /// </summary>
-        public ClientCollection Clients { get; private set; }
+        public ClientDeviceCollection Clients { get; private set; }
 
         /// <summary>
         /// Collection of UniFi network devices on the network
@@ -50,7 +55,7 @@ namespace UniFiSharp.Orchestration
         {
             API = api;
 
-            Clients = new ClientCollection(api);
+            Clients = new ClientDeviceCollection(api);
             Devices = new PhysicalNetworkDeviceCollection(api);
             PortForwards = new PortForwardCollection(api);
             WirelessNetworks = new WirelessNetworkCollection(api);
@@ -77,7 +82,7 @@ namespace UniFiSharp.Orchestration
                 UserGroups.Refresh()
             });
 
-            Clients.ApplyToDeviceTopology(Devices);
+            Devices.ConvergeClients(Clients);
         }
 
         /// <summary>

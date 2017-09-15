@@ -311,6 +311,20 @@ namespace UniFiSharp
         }
 
         /// <summary>
+        /// Forget a device
+        /// </summary>
+        /// <param name="macAddress">Device MAC</param>
+        /// <returns></returns>
+        public async Task Forget(string macAddress)
+        {
+            await ExecuteSiteCommand("/cmd/sitemgr", new
+            {
+                mac = macAddress,
+                cmd = "delete-device"
+            });
+        }
+
+        /// <summary>
         /// Upgrade the firmware on a device to the latest known by the controller
         /// </summary>
         /// <param name="macAddress">Device MAC</param>

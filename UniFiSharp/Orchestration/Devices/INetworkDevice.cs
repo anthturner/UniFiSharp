@@ -23,28 +23,59 @@ namespace UniFiSharp.Orchestration.Devices
             _api = api;
         }
 
-        internal void Converge(PhysicalNetworkDeviceCollection devices)
+        internal void Converge(PhysicalNetworkDeviceCollection devices, ClientDeviceCollection clients)
         {
-            if (this is IUniFiNetworkDevice)
+            foreach (var device in devices)
             {
-                if (((IUniFiNetworkDevice)this).State.uplink != null)
+                if (device is IUniFiNetworkDevice)
                 {
-                    var uplinkDevice = devices.GetByMacAddress(((IUniFiNetworkDevice)this).State.uplink.uplink_mac);
-                    if (uplinkDevice != null)
+                    if (((IUniFiNetworkDevice)device).State.uplink != null)
                     {
-                        if (uplinkDevice is RoutingNetworkDevice)
+                        var uplinkDevice = devices.GetByMacAddress(((IUniFiNetworkDevice)device).State.uplink.uplink_mac);
+                        if (uplinkDevice != null)
                         {
-                            // find port by netmask instead of port idx
-                            var addr = IPAddress.Parse(((IUniFiNetworkDevice)this).State.uplink.ip);
-                            foreach (var port in uplinkDevice.State.port_table)
-                                if (port.ip != "0.0.0.0" && addr.IsInSameSubnet(IPAddress.Parse(port.ip), IPAddress.Parse(port.netmask)))
-                                    uplinkDevice.Children.Add(port, this);
+                            if (uplinkDevice is RoutingNetworkDevice)
+                            {
+                                // find port by netmask instead of port idx
+                                var addr = IPAddress.Parse(((IUniFiNetworkDevice)device).State.uplink.ip);
+                                foreach (var port in uplinkDevice.State.port_table)
+                                    if (port.ip != "0.0.0.0" && addr.IsInSameSubnet(IPAddress.Parse(port.ip), IPAddress.Parse(port.netmask)))
+                                        uplinkDevice.Children.Add(port, device);
+                            }
+                            else
+                            {
+                                var port = uplinkDevice.State.port_table.FirstOrDefault(p => p.port_idx == ((IUniFiNetworkDevice)device).State.uplink.uplink_remote_port);
+                                uplinkDevice.Children.Add(port, device);
+                            }
                         }
-                        else
-                        {
-                            var port = uplinkDevice.State.port_table.FirstOrDefault(p => p.port_idx == ((IUniFiNetworkDevice)this).State.uplink.uplink_remote_port);
-                            uplinkDevice.Children.Add(port, this);
-                        }
+                    }
+                }
+            }
+
+            foreach (var client in clients)
+            {
+                var apUplink = devices.GetByMacAddress(client.State.ap_mac);
+                if (apUplink != null && apUplink is AccessPointNetworkDevice)
+                {
+                    apUplink.Children.Add(null, client);
+                    continue;
+                }
+
+                var uplinkDevice = devices.GetByMacAddress(client.State.sw_mac);
+                if (uplinkDevice != null)
+                {
+                    if (uplinkDevice is RoutingNetworkDevice)
+                    {
+                        // find port by netmask instead of port idx
+                        var addr = IPAddress.Parse(client.State.ip);
+                        foreach (var port in uplinkDevice.State.port_table)
+                            if (port.ip != "0.0.0.0" && addr.IsInSameSubnet(IPAddress.Parse(port.ip), IPAddress.Parse(port.netmask)))
+                                uplinkDevice.Children.Add(port, client);
+                    }
+                    else
+                    {
+                        var port = uplinkDevice.State.port_table.FirstOrDefault(p => p.port_idx == client.State.sw_port);
+                        uplinkDevice.Children.Add(port, client);
                     }
                 }
             }

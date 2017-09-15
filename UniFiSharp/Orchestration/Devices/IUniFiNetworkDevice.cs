@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UniFiSharp.Orchestration.Collections;
 using UniFiSharp.Protocol;
 
 namespace UniFiSharp.Orchestration.Devices
@@ -17,14 +18,7 @@ namespace UniFiSharp.Orchestration.Devices
         /// Device information as reported by the controller
         /// </summary>
         public NetworkDevice State { get; private set; }
-
-        /// <summary>
-        /// Clients attached to this device
-        /// </summary>
-        public IReadOnlyList<Client> Clients => _clients.AsReadOnly();
-
-        private List<Client> _clients = new List<Client>();
-
+        
         protected IUniFiNetworkDevice(UniFiApi api, string macAddress)
         {
             _api = api;
@@ -40,14 +34,6 @@ namespace UniFiSharp.Orchestration.Devices
         /// All MAC Addresses associated with this device
         /// </summary>
         public List<string> MacAddresses => State.ethernet_table.Select(e => e.mac).ToList();
-
-        internal void RegisterClient(Client client)
-        {
-            var dupe = _clients.FirstOrDefault(c => c.mac == client.mac);
-            if (dupe != null)
-                _clients.Remove(dupe);
-            _clients.Add(client);
-        }
 
         /// <summary>
         /// Refresh device state
