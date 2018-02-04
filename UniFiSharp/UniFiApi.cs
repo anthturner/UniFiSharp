@@ -364,9 +364,9 @@ namespace UniFiSharp
         /// </summary>
         /// <param name="macAddress">AP MAC</param>
         /// <returns>RF Scan Status</returns>
-        public async Task<Protocol.IMessageBase> RFScanStatus(string macAddress)
+        public async Task<Protocol.RFSpectrumScan> RFScanStatus(string macAddress)
         {
-            return await ExecuteSiteSingleRequest<Protocol.IMessageBase>($"/stat/spectrum-scan/{macAddress}");
+            return await ExecuteSiteSingleRequest<Protocol.RFSpectrumScan>($"/stat/spectrum-scan/{macAddress}");
         }
 
         /// <summary>

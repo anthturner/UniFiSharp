@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Linq;
+using System.Threading.Tasks;
 using UniFiSharp.Protocol;
 
 namespace UniFiSharp.Orchestration.Devices
@@ -26,10 +28,17 @@ namespace UniFiSharp.Orchestration.Devices
         /// Get status of RF scan
         /// </summary>
         /// <returns></returns>
-        public async Task RFScanStatus()
+        public async Task<RFSpectrumScan> RFScanStatus()
         {
-            // todo: return status
-            await _api.RFScanStatus(MacAddress);
+            return await _api.RFScanStatus(MacAddress);
+        }
+
+        public async Task<Tuple<int, int>> PickBestChannel()
+        {
+            var results = await RFScanStatus();
+            var orderedNa = results.spectrum_table_na.OrderBy(s => s.Weight);
+            var orderedNg = results.spectrum_table_ng.OrderBy(s => s.Weight);
+            return Tuple.Create(orderedNa.First().channel, orderedNg.First().channel);
         }
     }
 }
