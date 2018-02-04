@@ -77,6 +77,9 @@ namespace UniFiSharp
             {
                 try
                 {
+                    client.DefaultRequestHeaders.Referrer = client.BaseAddress;
+                    try { client.DefaultRequestHeaders.Add("X-Csrf-Token", _cookieContainer.GetCookies(client.BaseAddress)["csrf_token"].Value); }
+                    catch { }
                     var result = await requestFunction(client);
                     var json = await result.Content.ReadAsStringAsync();
 
