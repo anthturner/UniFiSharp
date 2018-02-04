@@ -50,12 +50,21 @@ namespace UniFiSharp
             return await ExecuteRequest<T>((client) => client.PostAsync(relativeUri, postData));
         }
 
+        protected async Task<List<T>> Put<T>(string relativeUri, object data) where T : IMessageBase
+        {
+            var postData = new ByteArrayContent(Encoding.UTF8.GetBytes(JObject.FromObject(data).ToString()));
+            postData.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+            postData.Headers.ContentType.CharSet = "UTF-8";
+
+            return await ExecuteRequest<T>((client) => client.PutAsync(relativeUri, postData));
+        }
+
         private async Task<List<T>> ExecuteRequest<T>(Func<HttpClient, Task<HttpResponseMessage>> requestFunction) where T : IMessageBase
         {
             var resultJson = await ExecuteRequest(requestFunction);
             if (resultJson == null || string.IsNullOrEmpty(resultJson))
                 return new List<T>();
-
+            
             try
             {
                 var result = JsonConvert.DeserializeObject<MessageEnvelope<T>>(resultJson);

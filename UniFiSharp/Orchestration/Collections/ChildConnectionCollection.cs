@@ -16,14 +16,14 @@ namespace UniFiSharp.Orchestration.Collections
 
         public bool HasChild(INetworkDevice device)
         {
-            return this.Any(c => c.Device == device);
+            return this.Any(c => c.Device.Identifier.Equals(device.Identifier));
         }
 
         internal void Add(NetworkDevice.PortTable port, INetworkDevice device)
         {
             if (port != null)
             {
-                var dupe = this.FirstOrDefault(t => t.Port.port_idx == port.port_idx);
+                var dupe = this.FirstOrDefault(t => t.Port != null && t.Port.port_idx == port.port_idx);
                 if (dupe != null)
                 {
                     if (dupe.Device is IUniFiNetworkDevice)

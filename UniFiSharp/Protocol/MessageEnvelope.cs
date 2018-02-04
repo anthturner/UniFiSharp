@@ -20,6 +20,8 @@ namespace UniFiSharp.Protocol
 
     public interface IMessageBase { }
 
+    public class BlankMessage : IMessageBase { }
+
     public class MessageMetadata
     {
         [JsonProperty(PropertyName = "msg")]

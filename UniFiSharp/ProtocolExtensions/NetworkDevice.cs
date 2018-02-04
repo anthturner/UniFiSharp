@@ -4,10 +4,12 @@
     {
         public enum NetworkDeviceState
         {
+            AdoptionFailed,
             Disconnected,
             Connected,
             Unadopted,
             Inaccessible,
+            Provisioning,
             Unknown
         };
 
@@ -28,6 +30,12 @@
                             return NetworkDeviceState.Unadopted;
                         else
                             return NetworkDeviceState.Inaccessible;
+
+                    case 5:
+                        return NetworkDeviceState.Provisioning;
+
+                    case 10:
+                        return NetworkDeviceState.AdoptionFailed;
                 }
 
                 return NetworkDeviceState.Unknown;

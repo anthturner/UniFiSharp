@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using UniFiSharp.Orchestration.Devices;
 
@@ -34,21 +35,74 @@ namespace UniFiSharp.Orchestration.Collections
 
             ClearLocal();
             AddLocal(devices);
+        }
 
-            // todo: show unadopted devices in tree
-            
+        public void ConvergeTree(ClientDeviceCollection clients)
+        {
+            foreach (var device in this)
+            {
+                if (device is IUniFiNetworkDevice)
+                {
+                    if (((IUniFiNetworkDevice)device).State.uplink != null && ((IUniFiNetworkDevice)device).State.uplink.uplink_mac != null)
+                    {
+                        var uplinkDevice = this.GetByMacAddress(((IUniFiNetworkDevice)device).State.uplink.uplink_mac);
+                        if (uplinkDevice != null)
+                        {
+                            if (uplinkDevice is RoutingNetworkDevice)
+                            {
+                                // find port by netmask instead of port idx
+                                var addr = IPAddress.Parse(((IUniFiNetworkDevice)device).State.uplink.ip);
+                                foreach (var port in uplinkDevice.State.port_table)
+                                    if (port.ip != "0.0.0.0" && addr.IsInSameSubnet(IPAddress.Parse(port.ip), IPAddress.Parse(port.netmask)))
+                                        uplinkDevice.Children.Add(port, device);
+                            }
+                            else
+                            {
+                                var port = uplinkDevice.State.port_table.FirstOrDefault(p => p.port_idx == ((IUniFiNetworkDevice)device).State.uplink.uplink_remote_port);
+                                uplinkDevice.Children.Add(port, device);
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach (var client in clients)
+            {
+                var apUplink = this.GetByMacAddress(client.State.ap_mac);
+                if (apUplink != null && apUplink is AccessPointNetworkDevice)
+                {
+                    apUplink.Children.Add(null, client);
+                    continue;
+                }
+
+                var uplinkDevice = this.GetByMacAddress(client.State.sw_mac);
+                if (uplinkDevice != null)
+                {
+                    if (uplinkDevice is RoutingNetworkDevice)
+                    {
+                        // find port by netmask instead of port idx
+                        var addr = IPAddress.Parse(client.State.ip);
+                        foreach (var port in uplinkDevice.State.port_table)
+                            if (port.ip != "0.0.0.0" && addr.IsInSameSubnet(IPAddress.Parse(port.ip), IPAddress.Parse(port.netmask)))
+                                uplinkDevice.Children.Add(port, client);
+                    }
+                    else
+                    {
+                        var port = uplinkDevice.State.port_table.FirstOrDefault(p => p.port_idx == client.State.sw_port);
+                        uplinkDevice.Children.Add(port, client);
+                    }
+                }
+            }
+
             if (this.Any(d => d is RoutingNetworkDevice && d.State.adopted))
                 Root = this.FirstOrDefault(d => d is RoutingNetworkDevice && d.State.adopted);
             else
             {
-                var parentlessDevices = this.Select(d => !HasParentDevice(d)).ToList();
+                var parentlessDevices = this.Where(d => !HasParentDevice(d)).ToList();
                 Root = new NonUniFiDevice();
+                foreach (var parentlessDevice in parentlessDevices)
+                    Root.Children.Add(null, parentlessDevice);
             }
-        }
-
-        public void ConvergeClients(ClientDeviceCollection clients)
-        {
-            Root.Converge(this, clients);
         }
 
         public bool HasParentDevice(INetworkDevice device)

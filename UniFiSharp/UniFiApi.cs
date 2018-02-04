@@ -91,6 +91,17 @@ namespace UniFiSharp
         }
 
         /// <summary>
+        /// Set the device name
+        /// </summary>
+        /// <param name="deviceId">Device ID (from the _id parameter)</param>
+        /// <param name="name">New device name</param>
+        /// <returns></returns>
+        public async Task SetName(string deviceId, string name)
+        {
+            await Put<BlankMessage>($"/api/s/{Site}/rest/device/{deviceId}", new { @name = name });
+        }
+
+        /// <summary>
         /// Force a client to reconnect
         /// </summary>
         /// <param name="macAddress">Client MAC Address</param>
@@ -375,6 +386,11 @@ namespace UniFiSharp
         private async Task ExecuteSiteCommand(string relativeUri, object data)
         {
             await Post<Protocol.IMessageBase>($"/api/s/{Site}{relativeUri}", data);
+        }
+
+        private async Task ExecuteSitePut(string relativeUri, object data)
+        {
+            await Put<Protocol.IMessageBase>($"/api/s/{Site}{relativeUri}", data);
         }
 
         private async Task<T> ExecuteSiteSingleRequest<T>(string relativeUri) where T : IMessageBase

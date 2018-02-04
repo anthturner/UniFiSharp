@@ -20,13 +20,13 @@ namespace UniFiSharp.Protocol
         public double max_tx_bytes_r { get; set; }
 
         [JsonProperty("rx_bytes-r")]
-        public int rx_bytes_r { get; set; }
+        public long rx_bytes_r { get; set; }
 
         [JsonProperty("time")]
         public object time { get; set; }
 
         [JsonProperty("tx_bytes-r")]
-        public int tx_bytes_r { get; set; }
+        public long tx_bytes_r { get; set; }
 
         [JsonProperty("wan-rx_bytes")]
         public double wan_rx_bytes { get; set; }

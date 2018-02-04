@@ -18,7 +18,7 @@ namespace UniFiSharp.Orchestration.Devices
         /// Device information as reported by the controller
         /// </summary>
         public NetworkDevice State { get; private set; }
-        
+
         protected IUniFiNetworkDevice(UniFiApi api, string macAddress)
         {
             _api = api;
@@ -29,11 +29,31 @@ namespace UniFiSharp.Orchestration.Devices
         {
             State = deviceData;
         }
+    
+        public override string Identifier => MacAddress;
+
+        public async void SetName(string name)
+        {
+            await _api.SetName(State._id, name);
+        }
 
         /// <summary>
         /// All MAC Addresses associated with this device
         /// </summary>
-        public List<string> MacAddresses => State.ethernet_table.Select(e => e.mac).ToList();
+        public List<string> MacAddresses
+        {
+            get
+            {
+                if (State.ethernet_table != null && State.ethernet_table.Count > 0)
+                    return State.ethernet_table.Where(e => e != null && e.mac != null).Select(e => e.mac).ToList();
+                return new List<string>();
+            }
+        }
+
+        /// <summary>
+        /// Device serial number
+        /// </summary>
+        public string SerialNumber => State.serial;
 
         /// <summary>
         /// Refresh device state

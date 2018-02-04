@@ -126,7 +126,7 @@ namespace UniFiSharp.Protocol
         public int radius_caps { get; set; }
 
         [JsonProperty("rx_bytes")]
-        public object rx_bytes { get; set; }
+        public long rx_bytes { get; set; }
 
         [JsonProperty("serial")]
         public string serial { get; set; }
@@ -147,7 +147,7 @@ namespace UniFiSharp.Protocol
         public SysStats sys_stats { get; set; }
 
         [JsonProperty("tx_bytes")]
-        public object tx_bytes { get; set; }
+        public long tx_bytes { get; set; }
 
         [JsonProperty("type")]
         public string type { get; set; }
@@ -168,10 +168,10 @@ namespace UniFiSharp.Protocol
         public Link wan1 { get; set; }
 
         [JsonProperty("x")]
-        public int x { get; set; }
+        public double x { get; set; }
 
         [JsonProperty("y")]
-        public int y { get; set; }
+        public double y { get; set; }
 
         [JsonProperty("board_rev")]
         public int? board_rev { get; set; }
@@ -318,7 +318,7 @@ namespace UniFiSharp.Protocol
         public IList<RadioTable> radio_table { get; set; }
 
         [JsonProperty("rx_bytes-d")]
-        public int? rx_bytes_d { get; set; }
+        public long? rx_bytes_d { get; set; }
 
         [JsonProperty("scanning")]
         public bool? scanning { get; set; }
@@ -336,7 +336,7 @@ namespace UniFiSharp.Protocol
         public IList<object> ssh_session_table { get; set; }
 
         [JsonProperty("tx_bytes-d")]
-        public int? tx_bytes_d { get; set; }
+        public long? tx_bytes_d { get; set; }
 
         [JsonProperty("uplink_table")]
         public IList<object> uplink_table { get; set; }
@@ -563,16 +563,16 @@ namespace UniFiSharp.Protocol
             public object rx_bytes { get; set; }
 
             [JsonProperty("rx_dropped")]
-            public int rx_dropped { get; set; }
+            public long rx_dropped { get; set; }
 
             [JsonProperty("rx_errors")]
-            public int rx_errors { get; set; }
+            public long rx_errors { get; set; }
 
             [JsonProperty("rx_multicast")]
-            public int rx_multicast { get; set; }
+            public long rx_multicast { get; set; }
 
             [JsonProperty("rx_packets")]
-            public int rx_packets { get; set; }
+            public long rx_packets { get; set; }
 
             [JsonProperty("speed")]
             public int speed { get; set; }
@@ -812,19 +812,19 @@ namespace UniFiSharp.Protocol
             public object rx_bytes { get; set; }
 
             [JsonProperty("rx_bytes-r")]
-            public int rx_bytes_r { get; set; }
+            public long rx_bytes_r { get; set; }
 
             [JsonProperty("rx_dropped")]
-            public int rx_dropped { get; set; }
+            public long rx_dropped { get; set; }
 
             [JsonProperty("rx_errors")]
-            public int rx_errors { get; set; }
+            public long rx_errors { get; set; }
 
             [JsonProperty("rx_multicast")]
-            public int rx_multicast { get; set; }
+            public long rx_multicast { get; set; }
 
             [JsonProperty("rx_packets")]
-            public int rx_packets { get; set; }
+            public long rx_packets { get; set; }
 
             [JsonProperty("speed")]
             public int speed { get; set; }
@@ -986,10 +986,10 @@ namespace UniFiSharp.Protocol
             public int rx_crypts { get; set; }
 
             [JsonProperty("rx_dropped")]
-            public int rx_dropped { get; set; }
+            public long rx_dropped { get; set; }
 
             [JsonProperty("rx_errors")]
-            public int rx_errors { get; set; }
+            public long rx_errors { get; set; }
 
             [JsonProperty("rx_frags")]
             public int rx_frags { get; set; }

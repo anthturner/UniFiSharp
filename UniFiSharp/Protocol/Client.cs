@@ -120,13 +120,13 @@ namespace UniFiSharp.Protocol
         public int rssi { get; set; }
 
         [JsonProperty("rx_bytes")]
-        public int rx_bytes { get; set; }
+        public long rx_bytes { get; set; }
 
         [JsonProperty("rx_bytes-r")]
-        public int rx_bytes_r { get; set; }
+        public long rx_bytes_r { get; set; }
 
         [JsonProperty("rx_packets")]
-        public int rx_packets { get; set; }
+        public long rx_packets { get; set; }
 
         [JsonProperty("rx_rate")]
         public int rx_rate { get; set; }
@@ -150,10 +150,10 @@ namespace UniFiSharp.Protocol
         public long tx_bytes { get; set; }
 
         [JsonProperty("tx_bytes-r")]
-        public int tx_bytes_r { get; set; }
+        public long tx_bytes_r { get; set; }
 
         [JsonProperty("tx_packets")]
-        public int tx_packets { get; set; }
+        public long tx_packets { get; set; }
 
         [JsonProperty("tx_power")]
         public int tx_power { get; set; }

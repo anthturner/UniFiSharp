@@ -82,7 +82,7 @@ namespace UniFiSharp.Orchestration
                 UserGroups.Refresh()
             });
 
-            Devices.ConvergeClients(Clients);
+            Devices.ConvergeTree(Clients);
         }
 
         /// <summary>
