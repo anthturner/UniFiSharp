@@ -23,6 +23,22 @@ List<UniFiSharp.Protocol.NetworkDevice> uniFiDevices = await api.ListDevices();
 await api.Upgrade("01:23:45:67:89:AB");
 ```
 
+### UBNT Cloud
+The `UniFiApi` class can also be used with UBNT Cloud-hosted services by changing the base URI to match the UBNT Cloud format:
+
+```csharp
+# Instantiate the API object
+var api = new UniFiApi(new Uri("https://demo.ubnt.com/manage"), "username", "password");
+
+# Manually calling .Authenticate() is optional -- it will be automatically called if the wrapper is not authenticated when executing a command
+await api.Authenticate();
+
+# The below command will retrieve all devices from the UBNT cloud's demo site
+List<UniFiSharp.Protocol.NetworkDevice> uniFiDevices = await api.ListDevices();
+```
+
+*Note: The above code works as-written; at the time of this writing, Ubiquiti's cloud will accept the above demo credentials and allow the user to work in a sandboxed, artificial environment. This demo setup includes approximately 130 UniFi devices and 1200 clients.*
+
 ### Orchestration Usage
 In order to make this system more developer-friendly, it also ships with an orchestration overlay that wraps the `UniFiApi` object and associates common information to their devices, as well as attempting to converge a basic topology based on the device objects:
 
