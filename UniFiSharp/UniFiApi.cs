@@ -7,9 +7,17 @@ using UniFiSharp.Protocol;
 namespace UniFiSharp
 {
     /// <summary>
+    /// Default implementation for UniFiApi, with HttpClient
+    /// </summary>
+    public class UniFiApi : UniFiApi<HttpClientConnectivityProvider>
+    {
+        public UniFiApi(Uri baseUri, string username, string password, string siteName = "default") : base(baseUri, username, password, siteName) { }
+    }
+
+    /// <summary>
     /// Basic API for UniFi Controller
     /// </summary>
-    public partial class UniFiApi : HttpApiService
+    public partial class UniFiApi<T> where T : IConnectivityProvider
     {
         /// <summary>
         /// Site this API wrapper will use
@@ -22,6 +30,7 @@ namespace UniFiSharp
         public bool IsAuthenticated { get; private set; }
 
         private string _username, _password;
+        private IConnectivityProvider ConnectivityProvider { get; set; }
 
         /// <summary>
         /// Create an API wrapper
@@ -30,8 +39,11 @@ namespace UniFiSharp
         /// <param name="username">Controller username</param>
         /// <param name="password">Controller password</param>
         /// <param name="siteName">Site name</param>
-        public UniFiApi(Uri baseUri, string username, string password, string siteName = "default") : base(baseUri, false)
+        public UniFiApi(Uri baseUri, string username, string password, string siteName = "default")
         {
+            ConnectivityProvider = (IConnectivityProvider)Activator.CreateInstance(typeof(T), baseUri, true);
+            ConnectivityProvider.AuthenticationRequired += async (sender, e) => await Authenticate();
+
             Site = siteName;
             IsAuthenticated = false;
             _username = username;
@@ -45,16 +57,16 @@ namespace UniFiSharp
         /// <returns>List of devices</returns>
         public async Task<List<Protocol.NetworkDevice>> ListDevices(string macAddress = null)
         {
-            return await ExecuteSiteRequest<Protocol.NetworkDevice>($"/stat/device/{macAddress}");
+            return await ConnectivityProvider.Get<Protocol.NetworkDevice>(AsSiteRequest($"/stat/device/{macAddress}"));
         }
 
         /// <summary>
         /// Run authentication against the controller
         /// </summary>
         /// <returns></returns>
-        public override async Task Authenticate()
+        public async Task Authenticate()
         {
-            await Post<Protocol.IMessageBase>("/api/login", new
+            await ConnectivityProvider.Post<object, BlankMessage>("/api/login", new
             {
                 username = _username,
                 password = _password,
@@ -73,7 +85,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task LocateApToggle(string macAddress, bool isFlashing)
         {
-            await ExecuteSiteCommand("/cmd/devmgr", new
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/cmd/devmgr"), new
             {
                 cmd = isFlashing ? "set-locate" : "unset-locate",
                 mac = macAddress
@@ -87,7 +99,10 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task SiteLedToggle(bool isOn)
         {
-            await ExecuteSiteCommand("/set/setting/mgmt", new { led_enabled = isOn });
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/set/setting/mgmt"), new
+            {
+                led_enabled = isOn
+            });
         }
 
         /// <summary>
@@ -98,7 +113,10 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task SetName(string deviceId, string name)
         {
-            await Put<BlankMessage>($"/api/s/{Site}/rest/device/{deviceId}", new { @name = name });
+            await ConnectivityProvider.Put<object>(AsSiteRequest($"/rest/device/{deviceId}"), new
+            {
+                @name = name
+            });
         }
 
         /// <summary>
@@ -108,7 +126,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task ReconnectClient(string macAddress)
         {
-            await ExecuteSiteCommand("/cmd/stamgr", new
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/cmd/stamgr"), new
             {
                 cmd = "kick-sta",
                 mac = macAddress
@@ -122,7 +140,7 @@ namespace UniFiSharp
         /// <returns>List of clients</returns>
         public async Task<List<Protocol.Client>> ListClients(string macAddress = null)
         {
-            return await ExecuteSiteRequest<Protocol.Client>($"/stat/sta/{macAddress}");
+            return await ConnectivityProvider.Get<Protocol.Client>(AsSiteRequest($"/stat/sta/{macAddress}"));
         }
 
         /// <summary>
@@ -132,16 +150,17 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task<Protocol.Client> GetClientInfo(string macAddress)
         {
-            return await ExecuteSiteSingleRequest<Protocol.Client>($"/stat/user/{macAddress}");
+            return (await ConnectivityProvider.Get<Protocol.Client>(AsSiteRequest($"/stat/user/{macAddress}"))).FirstOrDefault();
         }
 
         /// <summary>
         /// ????????????????????
         /// </summary>
         /// <returns></returns>
-        public async Task<Protocol.IMessageBase> GetHealth()
+        public async Task<Protocol.BlankMessage> GetHealth()
         {
-            return await ExecuteSiteSingleRequest<Protocol.IMessageBase>("/stat/health");
+            throw new NotImplementedException("Not yet implemented!");
+            return (await ConnectivityProvider.Get<Protocol.BlankMessage>(AsSiteRequest("/stat/health"))).FirstOrDefault();
         }
 
         /// <summary>
@@ -150,7 +169,7 @@ namespace UniFiSharp
         /// <returns>Dashboard overview statistics</returns>
         public async Task<Protocol.Dashboard> GetDashboard()
         {
-            return await ExecuteSiteSingleRequest<Protocol.Dashboard>($"/stat/dashboard");
+            return (await ConnectivityProvider.Get<Protocol.Dashboard>(AsSiteRequest($"/stat/dashboard"))).FirstOrDefault();
         }
 
         /// <summary>
@@ -158,9 +177,10 @@ namespace UniFiSharp
         /// </summary>
         /// <param name="lastNHours">Number of hours to search</param>
         /// <returns>List of APs</returns>
-        public async Task<List<Protocol.IMessageBase>> GetRogueAps(int lastNHours)
+        public async Task<List<Protocol.BlankMessage>> GetRogueAps(int lastNHours)
         {
-            return await ExecuteSiteRequest<Protocol.IMessageBase>($"/stat/rogueap?within={lastNHours}");
+            throw new NotImplementedException("Not yet implemented!");
+            return await ConnectivityProvider.Get<Protocol.BlankMessage>(AsSiteRequest($"/stat/rogueap?within={lastNHours}"));
         }
 
         /// <summary>
@@ -169,7 +189,7 @@ namespace UniFiSharp
         /// <returns>List of WLANs</returns>
         public async Task<List<Protocol.Wlan>> ListWlans()
         {
-            return await ExecuteSiteRequest<Protocol.Wlan>("/list/wlanconf");
+            return await ConnectivityProvider.Get<Protocol.Wlan>(AsSiteRequest("/list/wlanconf"));
         }
 
         /// <summary>
@@ -178,7 +198,7 @@ namespace UniFiSharp
         /// <returns>List of WLAN groups</returns>
         public async Task<List<Protocol.WlanGroup>> ListWlanGroups()
         {
-            return await ExecuteSiteRequest<Protocol.WlanGroup>("/list/wlangroup");
+            return await ConnectivityProvider.Get<Protocol.WlanGroup>(AsSiteRequest("/list/wlangroup"));
         }
 
         /// <summary>
@@ -187,7 +207,7 @@ namespace UniFiSharp
         /// <returns>List of user groups</returns>
         public async Task<List<Protocol.UserGroup>> ListUserGroups()
         {
-            return await ExecuteSiteRequest<Protocol.UserGroup>("/list/usergroup");
+            return await ConnectivityProvider.Get<Protocol.UserGroup>(AsSiteRequest("/list/usergroup"));
         }
 
         /// <summary>
@@ -197,7 +217,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task CreateWlanGroup(string name)
         {
-            await ExecuteSiteCommand("/rest/wlangroup", new
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/rest/wlangroup"), new
             {
                 roam_radio = "ng",
                 roam_channel_na = 36,
@@ -214,7 +234,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task DeleteWlanGroup(string id)
         {
-            await ExecuteSiteDelete($"/rest/wlangroup/{id}");
+            await ConnectivityProvider.Delete(AsSiteRequest($"/rest/wlangroup/{id}"));
         }
 
         /// <summary>
@@ -224,7 +244,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task CreateUserGroup(string name)
         {
-            await ExecuteSiteCommand("/rest/usergroup", new
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/rest/usergroup"), new
             {
                 qos_rate_max_down = -1,
                 qos_rate_max_up = -1,
@@ -239,7 +259,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task DeleteUserGroup(string id)
         {
-            await ExecuteSiteDelete($"/rest/usergroup/{id}");
+            await ConnectivityProvider.Delete(AsSiteRequest($"/rest/usergroup/{id}"));
         }
 
         /// <summary>
@@ -254,8 +274,8 @@ namespace UniFiSharp
         {
             if (key.Length < 8 || key.Length > 63)
                 throw new Exception("Key must be between 8 and 63 characters.");
-
-            await ExecuteSiteCommand("/add/wlanconf", new
+            
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/add/wlanconf"), new
             {
                 name = name,
                 x_passphrase = key,
@@ -272,7 +292,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task DeleteWlan(string wlanId)
         {
-            await ExecuteSiteCommand($"/del/wlanconf/{wlanId}", new object[0] { });
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest($"/del/wlanconf/{wlanId}"), new object[0] { });
         }
 
         /// <summary>
@@ -287,7 +307,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task CreatePortForward(string name, string proto, string source, string dest, int fromPort, int toPort)
         {
-            await ExecuteSiteCommand("/rest/portforward", new
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/rest/portforward"), new
             {
                 name = name,
                 proto = proto,
@@ -304,7 +324,7 @@ namespace UniFiSharp
         /// <returns>List of port forwards</returns>
         public async Task<List<Protocol.PortForward>> ListPortForwards()
         {
-            return await ExecuteSiteRequest<Protocol.PortForward>("/list/portforward");
+            return await ConnectivityProvider.Get<Protocol.PortForward>(AsSiteRequest("/list/portforward"));
         }
 
         /// <summary>
@@ -314,7 +334,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task Adopt(string macAddress)
         {
-            await ExecuteSiteCommand("/cmd/devmgr", new
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/cmd/devmgr"), new
             {
                 mac = macAddress,
                 cmd = "adopt"
@@ -328,7 +348,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task Forget(string macAddress)
         {
-            await ExecuteSiteCommand("/cmd/sitemgr", new
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/cmd/sitemgr"), new
             {
                 mac = macAddress,
                 cmd = "delete-device"
@@ -342,7 +362,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task Upgrade(string macAddress)
         {
-            await ExecuteSiteCommand("/cmd/devmgr/upgrade", new { mac = macAddress });
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/cmd/devmgr/upgrade"), new { mac = macAddress });
         }
 
         /// <summary>
@@ -352,7 +372,7 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task RFScan(string macAddress)
         {
-            await ExecuteSiteCommand("/cmd/devmgr", new
+            await ConnectivityProvider.Post<object, BlankMessage>(AsSiteRequest("/cmd/devmgr"), new
             {
                 mac = macAddress,
                 cmd = "spectrum-scan"
@@ -366,7 +386,7 @@ namespace UniFiSharp
         /// <returns>RF Scan Status</returns>
         public async Task<Protocol.RFSpectrumScan> RFScanStatus(string macAddress)
         {
-            return await ExecuteSiteSingleRequest<Protocol.RFSpectrumScan>($"/stat/spectrum-scan/{macAddress}");
+            return (await ConnectivityProvider.Get<Protocol.RFSpectrumScan>(AsSiteRequest($"/stat/spectrum-scan/{macAddress}"))).FirstOrDefault();
         }
 
         /// <summary>
@@ -375,32 +395,12 @@ namespace UniFiSharp
         /// <returns></returns>
         public async Task Logout()
         {
-            var result = await Post<Protocol.IMessageBase>("/api/logout", new { });
+            await ConnectivityProvider.Post<object, BlankMessage>("/api/logout", new { });
         }
 
-        private async Task ExecuteSiteDelete(string relativeUri)
+        private string AsSiteRequest(string relativeUri)
         {
-            await Delete<Protocol.IMessageBase>($"/api/s/{Site}{relativeUri}");
-        }
-
-        private async Task ExecuteSiteCommand(string relativeUri, object data)
-        {
-            await Post<Protocol.IMessageBase>($"/api/s/{Site}{relativeUri}", data);
-        }
-
-        private async Task ExecuteSitePut(string relativeUri, object data)
-        {
-            await Put<Protocol.IMessageBase>($"/api/s/{Site}{relativeUri}", data);
-        }
-
-        private async Task<T> ExecuteSiteSingleRequest<T>(string relativeUri) where T : IMessageBase
-        {
-            return (await ExecuteSiteRequest<T>(relativeUri)).FirstOrDefault();
-        }
-
-        private async Task<List<T>> ExecuteSiteRequest<T>(string relativeUri) where T : IMessageBase
-        {
-            return await Get<T>($"/api/s/{Site}{relativeUri}");
+            return $"/api/s/{Site}{relativeUri}";
         }
     }
 }

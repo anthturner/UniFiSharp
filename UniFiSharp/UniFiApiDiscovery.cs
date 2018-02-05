@@ -8,7 +8,7 @@ using System.Net.NetworkInformation;
 
 namespace UniFiSharp
 {
-    public partial class UniFiApi
+    public partial class UniFiApi<T>
     {
         // This partial class contains the constants and functions to facilitate device discovery
 

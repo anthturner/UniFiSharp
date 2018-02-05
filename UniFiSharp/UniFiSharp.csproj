@@ -6,14 +6,17 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Authors>Anthony Turner</Authors>
     <Company />
-    <Description>UniFiSharp brings automation and orchestration of network sites backed with UniFi technology to C#</Description>
-    <PackageProjectUrl>https://github.com/mzxgiant/UniFiSharp</PackageProjectUrl>
+    <Description>UniFiSharp provides a cross-platform (NETStandard) interface to control and monitor Ubiquiti UniFi networking components via the UniFi controller software.</Description>
+    <PackageProjectUrl>https://github.com/anthturner/UniFiSharp</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/anthturner/UniFiSharp</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/anthturner/UniFiSharp/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>unifi ubiquiti</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="System.Net.Http" Version="4.3.2" />
+    <PackageReference Include="System.Net.Http" Version="4.3.3" />
     <PackageReference Include="System.Net.NetworkInformation" Version="4.3.0" />
   </ItemGroup>
 
