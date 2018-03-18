@@ -1,23 +1,31 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp1.1;net461</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>UniFiSharp</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>1.1.0</Version>
     <Authors>Anthony Turner</Authors>
-    <Company />
+    <Company>Anthony Turner</Company>
     <Description>UniFiSharp provides a cross-platform (NETStandard) interface to control and monitor Ubiquiti UniFi networking components via the UniFi controller software.</Description>
+    <PackageLicenseUrl>https://github.com/anthturner/UniFiSharp/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/anthturner/UniFiSharp</PackageProjectUrl>
     <RepositoryUrl>https://github.com/anthturner/UniFiSharp</RepositoryUrl>
-    <PackageLicenseUrl>https://github.com/anthturner/UniFiSharp/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageTags>unifi ubiquiti</PackageTags>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>unifi ubiquiti ubnt</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\UniFiSharp.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
-    <PackageReference Include="System.Net.Http" Version="4.3.3" />
-    <PackageReference Include="System.Net.NetworkInformation" Version="4.3.0" />
+    <None Remove="UniFiApi.Hotspot.cs~RF16ee8005.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="RestSharp" Version="106.2.1" />
   </ItemGroup>
 
 </Project>
