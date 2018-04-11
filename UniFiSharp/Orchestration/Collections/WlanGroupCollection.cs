@@ -1,49 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniFiSharp.Protocol;
+using UniFiSharp.Orchestration.Models;
 
 namespace UniFiSharp.Orchestration.Collections
 {
-    public class WlanGroupCollection : RefreshableCollection<WlanGroup>
+    /// <summary>
+    /// Represents a collection of WLAN groups for this UniFi network
+    /// </summary>
+    public class WlanGroupCollection : RemotedDataCollection<WlanGroup>, IMutableRemotedDataCollection<WlanGroup>
     {
-        public WlanGroupCollection(UniFiApi api) : base(api)
-        {
-        }
+        internal WlanGroupCollection(UniFiApi api) : base(api) { }
 
-        public WlanGroup GetByName(string name)
+        /// <summary>
+        /// Create a new WLAN group
+        /// </summary>
+        /// <param name="item">New WLAN group to create on UniFi controller</param>
+        /// <returns></returns>
+        public async Task Add(WlanGroup item)
         {
-            return this.FirstOrDefault(w => w.name == name);
-        }
-
-        public override async Task Refresh()
-        {
-            var wlanGroups = await API.ListWlanGroups();
-            ClearLocal();
-            AddLocal(wlanGroups);
-        }
-
-        public async Task Add(string name)
-        {
-            await API.CreateWlanGroup(name);
+            await API.SiteWlanGroupsCreate(item.Name, item.RoamRadio, item.RoamChannelNA, item.RoamChannelNG, item.PmfMode != "disabled");
             await Refresh();
         }
 
-        public async new Task Remove(WlanGroup group)
+        /// <summary>
+        /// Clear all WLAN groups
+        /// </summary>
+        /// <returns></returns>
+        public async Task Clear()
         {
-            try
-            {
-                if (!Contains(group))
-                    throw new KeyNotFoundException("WLAN Group not tracked by this site.");
+            var tasks = new List<Task>();
+            foreach (var item in CachedCollection)
+                tasks.Add(API.SiteWlanGroupsDelete(item.WlanGroupId));
+            await Task.WhenAll(tasks);
+            await Refresh();
+        }
 
-                await API.DeleteWlanGroup(group._id);
-                RemoveLocal(group);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("WLAN Group deletion failed", ex);
-            }
+        /// <summary>
+        /// Retrieve a WLAN group by its WLAN Group ID
+        /// </summary>
+        /// <param name="id">WLAN Group ID</param>
+        /// <returns>WLAN group or <c>NULL</c></returns>
+        public WlanGroup GetById(string id)
+        {
+            return CachedCollection.FirstOrDefault(g => g.WlanGroupId.Equals(id));
+        }
+
+        /// <summary>
+        /// Refresh the collection of WLAN groups
+        /// </summary>
+        /// <returns></returns>
+        public override async Task Refresh()
+        {
+            CachedCollection = (await API.SiteWlanGroupsList())
+                .Select(c => WlanGroup.CreateFromJson(c)).ToList();
+        }
+
+        /// <summary>
+        /// Remove a WLAN group from the UniFi controller
+        /// </summary>
+        /// <param name="item">WLAN group to remove</param>
+        /// <returns><c>TRUE</c> if there was an item to remove, otherwise <c>FALSE</c></returns>
+        public async Task<bool> Remove(WlanGroup item)
+        {
+            if (!CachedCollection.Contains(item))
+                return false;
+
+            await API.SiteWlanGroupsDelete(item.WlanGroupId);
+            await Refresh();
+            return true;
+        }
+
+        /// <summary>
+        /// Remove a WLAN group from the UniFi controller by its index
+        /// </summary>
+        /// <param name="index">Index of WLAN group to remove</param>
+        /// <returns></returns>
+        public async Task RemoveAt(int index)
+        {
+            var item = CachedCollection[index];
+            await Remove(item);
         }
     }
 }
