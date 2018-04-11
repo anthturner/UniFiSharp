@@ -7,7 +7,7 @@ namespace UniFiSharp.Orchestration.Devices
     public abstract class IClientNetworkedDevice : INetworkedDevice
     {
         public override string Id => Json._id;
-        public override string Name => Json.name;
+        public override string Name => string.IsNullOrEmpty(Json.name) ? string.IsNullOrEmpty(Json.hostname) ? Json.mac : Json.hostname : Json.name;
         public string UserId => Json.user_id;
         public DateTime FirstSeen => new DateTime(1970, 1, 1).AddSeconds(Json.first_seen);
         public DateTime LastSeen => new DateTime(1970, 1, 1).AddSeconds(Json.last_seen);
@@ -24,6 +24,7 @@ namespace UniFiSharp.Orchestration.Devices
         public string OUI => Json.oui;
         public bool PowersaveEnabled => Json.powersave_enabled;
         public bool QosPolicyApplied => Json.qos_policy_applied;
+        public double ActivityKbps => (Json.bytes_r * 8) / 1024.0d;
         public TimeSpan Uptime => TimeSpan.FromSeconds(Json.uptime);
 
         protected JsonClient Json { get; private set; }
