@@ -85,6 +85,8 @@ namespace UniFiSharp.Orchestration
             while (thisDevice != null)
             {
                 var parent = GetParentPortOf(thisDevice);
+                if (parent == null)
+                    break;
                 list.Add(Tuple.Create((INetworkedDevice)parent.Item1, parent.Item2));
                 thisDevice = parent.Item1;
             }
