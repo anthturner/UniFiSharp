@@ -7,6 +7,15 @@ namespace UniFiSharp
     public partial class UniFiApi
     {
         /// <summary>
+        /// Retrieve a list of health statistics for the site
+        /// </summary>
+        /// <returns>Collection of JSON objects describing the system health, per-subsystem</returns>
+        public async Task<IEnumerable<JsonSystemHealth>> SiteHealthGet()
+        {
+            return await RestClient.UniFiGetMany<JsonSystemHealth>($"api/s/{Site}/stat/health");
+        }
+
+        /// <summary>
         /// Toggle the device LEDs for all devices in the site (who do not override the site settings)
         /// </summary>
         /// <param name="isOn"><c>TRUE</c> if the LED is lit during normal operation, otherwise <c>FALSE</c></param>
