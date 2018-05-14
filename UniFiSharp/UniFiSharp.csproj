@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>UniFiSharp</PackageId>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.2</Version>
+    <Version>1.2.0</Version>
     <Authors>Anthony Turner</Authors>
     <Company>Anthony Turner</Company>
     <Description>UniFiSharp provides a cross-platform (NETStandard) interface to control and monitor Ubiquiti UniFi networking components via the UniFi controller software.</Description>

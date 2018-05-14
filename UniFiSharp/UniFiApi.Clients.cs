@@ -42,21 +42,5 @@ namespace UniFiSharp
                 mac = macAddress
             });
         }
-
-        public async Task ClientSetUsergroup(JsonClient client, JsonUserGroup userGroup)
-        {
-            await RestClient.UniFiPut($"api/s/{Site}/rest/user/{client._id}", new
-            {
-                usergroup_id = userGroup?._id ?? string.Empty
-            });
-        }
-
-        public async Task ClientUnsetUsergroup(JsonClient client)
-        {
-            await RestClient.UniFiPut($"api/s/{Site}/rest/user/{client._id}", new
-            {
-                usergroup_id = string.Empty
-            });
-        }
     }
 }
