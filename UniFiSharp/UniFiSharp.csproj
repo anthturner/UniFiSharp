@@ -17,6 +17,7 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>bin\Debug\netstandard2.0\UniFiSharp.xml</DocumentationFile>
+    <NoWarn>1701;1702;1705;CS1591</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
