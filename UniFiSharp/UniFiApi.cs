@@ -24,10 +24,11 @@ namespace UniFiSharp
         /// <param name="username">Controller username</param>
         /// <param name="password">Controller password</param>
         /// <param name="site">Site name (or <c>default</c>)</param>
-        public UniFiApi(Uri baseUrl, string username, string password, string site = "default")
+        /// <param name="ignoreSslValidation">Ignore self signed certificate errors</param>
+        public UniFiApi(Uri baseUrl, string username, string password, string site = "default", bool ignoreSslValidation = false)
         {
             Site = site;
-            RestClient = new DefaultUniFiRestClient(baseUrl, username, password);
+            RestClient = new DefaultUniFiRestClient(baseUrl, username, password, ignoreSslValidation);
         }
 
         /// <summary>
@@ -49,7 +50,7 @@ namespace UniFiSharp
         {
             return await RestClient.UniFiGetMany<JsonSite>("api/self/sites");
         }
-        
+
         /// <summary>
         /// Force the wrapper to authenticate with the controller
         /// </summary>
