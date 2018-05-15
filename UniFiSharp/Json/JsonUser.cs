@@ -27,15 +27,15 @@ namespace UniFiSharp.Json
         [JsonProperty("oui")]
         public string oui { get; set; }
         [JsonProperty("rx_bytes")]
-        public int rx_bytes { get; set; }
+        public long rx_bytes { get; set; }
         [JsonProperty("rx_packets")]
-        public int rx_packets { get; set; }
+        public long rx_packets { get; set; }
         [JsonProperty("site_id")]
         public string site_id { get; set; }
         [JsonProperty("tx_bytes")]
         public long tx_bytes { get; set; }
         [JsonProperty("tx_packets")]
-        public int tx_packets { get; set; }
+        public long tx_packets { get; set; }
         [JsonProperty("usergroup_id")]
         public string usergroup_id { get; set; }
     }
