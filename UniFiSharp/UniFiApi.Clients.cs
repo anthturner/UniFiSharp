@@ -24,5 +24,23 @@ namespace UniFiSharp
                 mac = macAddress
             });
         }
+
+        public async Task ClientBlock(string macAddress)
+        {
+            await RestClient.UniFiPost($"api/s/{Site}/cmd/stamgr", new
+            {
+                cmd = "block-sta",
+                mac = macAddress
+            });
+        }
+
+        public async Task ClientUnblock(string macAddress)
+        {
+            await RestClient.UniFiPost($"api/s/{Site}/cmd/stamgr", new
+            {
+                cmd = "unblock-sta",
+                mac = macAddress
+            });
+        }
     }
 }

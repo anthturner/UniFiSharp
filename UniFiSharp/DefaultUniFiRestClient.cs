@@ -1,8 +1,8 @@
-﻿using GcmSharp.Serialization;
-using RestSharp;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GcmSharp.Serialization;
+using RestSharp;
 using UniFiSharp.Json;
 
 namespace UniFiSharp
@@ -11,7 +11,7 @@ namespace UniFiSharp
     {
         private string _username, _password;
 
-        internal DefaultUniFiRestClient(Uri baseUrl, string username, string password) : base(baseUrl)
+        internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, bool ignoreSslValidation) : base(baseUrl)
         {
             _username = username;
             _password = password;
@@ -23,6 +23,11 @@ namespace UniFiSharp
             AddHandler("text/x-json", NewtonsoftJsonSerializer.Default);
             AddHandler("text/javascript", NewtonsoftJsonSerializer.Default);
             AddHandler("*+json", NewtonsoftJsonSerializer.Default);
+
+            if (ignoreSslValidation)
+            {
+                this.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+            }
         }
 
         public async Task UniFiGet(string url)
