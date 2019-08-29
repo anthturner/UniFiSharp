@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using GcmSharp.Serialization;
 using RestSharp;
@@ -80,6 +81,11 @@ namespace UniFiSharp
             await UniFiRequest(Method.DELETE, url);
         }
 
+        public async Task UnifiFileUpload(string url, string name, string fileName, string contentType, byte[] data)
+        {
+            await UnifiMultipartFormRequest(url, name, fileName, contentType, data);
+        }
+
         private async Task UniFiRequest(Method method, string url, object jsonBody = null)
         {
             var request = new RestRequest(url, method);
@@ -146,5 +152,28 @@ namespace UniFiSharp
 
             return response.Data;
         }
+
+        private async Task UnifiMultipartFormRequest(string url, string name, string fileName, string contentType, byte[] data, bool attemptReauthentication = true)
+        {
+            this.AddDefaultHeader("Referrer", BaseUrl.ToString());
+
+            if (this.CookieContainer.GetCookies(this.BaseUrl).Count > 0)
+            {
+                try { this.AddDefaultHeader("X-Csrf-Token", this.CookieContainer.GetCookies(this.BaseUrl)["csrf_token"].Value); }
+                catch { }
+            }
+
+            var request = new RestRequest(url, Method.POST)
+            {
+                AlwaysMultipartFormData = true,
+            };
+
+            request.AddParameter("name", name, ParameterType.RequestBody);
+            request.AddFileBytes("filedata", data, fileName, contentType);
+
+            await ExecuteTaskAsync(request); // Weirdly, the UniFi controller will return 404 - however the file *is* successfully uploaded. 
+        }
+
+
     }
 }

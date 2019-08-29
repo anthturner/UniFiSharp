@@ -193,6 +193,9 @@ namespace UniFiSharp.Json
         [JsonProperty("has_speaker")]
         public bool? has_speaker { get; set; }
 
+        [JsonProperty("volume")]
+        public int volume { get; set; }
+
         [JsonProperty("isolated")]
         public bool? isolated { get; set; }
 

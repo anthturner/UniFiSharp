@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Threading.Tasks;
 
 namespace UniFiSharp
@@ -89,6 +90,8 @@ namespace UniFiSharp
         /// <param name="url">URL to operate on</param>
         /// <returns></returns>
         Task UniFiDelete(string url);
+
+        Task UnifiFileUpload(string url, string name, string fileName, string contentType, byte[] data);
 
         /// <summary>
         /// Authenticate to the UniFi controller
