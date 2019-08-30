@@ -9,15 +9,22 @@ namespace UniFiSharp.Orchestration.Devices
     {
         public enum NetworkDeviceState
         {
+            Adopting,
             AdoptionFailed,
             Disconnected,
             Connected,
+            Deleting,
+            FirmwareMismatch,
+            HeartbeatMissed,
+            Isolated,
+            PendingApproval,
+            Upgrading,
             Unadopted,
             Inaccessible,
             Provisioning,
             RfScanning,
             Unknown
-        };
+        }
 
         public NetworkDeviceState StateEnum
         {
@@ -26,22 +33,34 @@ namespace UniFiSharp.Orchestration.Devices
                 switch (this.State)
                 {
                     case 0:
-                        return NetworkDeviceState.Disconnected;
+                        return NetworkDeviceState.Disconnected; // According to the UniFi app, 0 represents restarting although this does not reflect real-world testing where 0 = Disconnected.
 
                     case 1:
                         return NetworkDeviceState.Connected;
 
                     case 2:
                         if (this.UsingDefaultSettings) // if we're not on default settings, the controller can't adopt
-                            return NetworkDeviceState.Unadopted;
+                            return NetworkDeviceState.PendingApproval;
                         else
                             return NetworkDeviceState.Inaccessible;
-
+                    case 3:
+                        return NetworkDeviceState.FirmwareMismatch;
+                    case 4:
+                        return NetworkDeviceState.Upgrading;
                     case 5:
                         return NetworkDeviceState.Provisioning;
-
+                    case 6:
+                        return NetworkDeviceState.HeartbeatMissed;
+                    case 7:
+                        return NetworkDeviceState.Adopting;
+                    case 8:
+                        return NetworkDeviceState.Deleting;
+                    case 9:
+                        return NetworkDeviceState.Disconnected; // According to the UniFi app, 9 represents disconnecting although this does not reflect real-world testing where 0 = Disconnected.
                     case 10:
                         return NetworkDeviceState.AdoptionFailed;
+                    case 11:
+                        return NetworkDeviceState.Isolated;
                 }
 
                 return NetworkDeviceState.Unknown;
