@@ -65,7 +65,7 @@ namespace UniFiSharp.Orchestration.Devices
         public int HandheldClientCount => Json.num_handheld;
         public int ClientCount => Json.num_sta;
 
-        public DeviceLink Uplink => new DeviceLink(Json.uplink);
+        public DeviceLink Uplink => Json.uplink != null ? new DeviceLink(Json.uplink) : null;
 
         public double[] LoadAverage => new double[] {
             Json.sys_stats.loadavg_1.GetValueOrDefault(-1),
