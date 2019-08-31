@@ -60,10 +60,7 @@ namespace UniFiSharp
                 streamId = streamId
             });
         }
-
-
-
-
+        
         public async Task<IEnumerable<JsonStreamStatus>> ActiveStreamList()
         {
             return await RestClient.UniFiGetMany<JsonStreamStatus>($"api/s/{Site}/stat/stream");

@@ -38,13 +38,14 @@ namespace UniFiSharp
 
 
         /// <summary>
-        /// Uploads a media file to the UniFi controller. Note that OGG files are the only known supported file type (recommended quality 4)
+        /// Uploads a media file to the UniFi controller. Note that OGG files are the only known supported file type (recommended quality 4).
+        /// Other audio formats will upload but cannot be played by AP-AC-EDU devices
         /// </summary>
         /// <param name="name">Human readable name for the file</param>
         /// <param name="fileData">Byte array containing the file data</param>
         /// <param name="fileName">Optional file name for internal use</param>
         /// <returns></returns>
-        public async Task MediaFileCreate(string name, byte[] fileData, string fileName = "")
+        public async Task MediaFileCreate(string name, byte[] fileData, string fileName = "", string contentType = "audio/ogg")
         {
             // If no custom filename is specified, then set the filename to the current date/time
             if (string.IsNullOrWhiteSpace(fileName))
@@ -52,7 +53,7 @@ namespace UniFiSharp
                 fileName = DateTime.Now.ToString("s") + ".ogg";
             }
 
-            await RestClient.UnifiFileUpload($"/upload/s/{Site}/mediafile", name, fileName, "audio/ogg", fileData);
+            await RestClient.UnifiFileUpload($"/upload/s/{Site}/mediafile", name, fileName, contentType, fileData);
         }
 
         /// <summary>

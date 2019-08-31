@@ -8,5 +8,6 @@
         public JsonNetworkDevice[] devices { get; set; }
         public string type { get; set; }
         public string sample_filename { get; set; }
+        public string mediafile_id { get; set; }
     }
 }
