@@ -54,7 +54,7 @@ namespace UniFiSharp.Json
         public long ccq { get; set; }
 
         [JsonProperty("channel")]
-        public long channel { get; set; }
+        public int channel { get; set; }
 
         [JsonProperty("essid")]
         public string essid { get; set; }
@@ -96,7 +96,7 @@ namespace UniFiSharp.Json
         public string network_id { get; set; }
 
         [JsonProperty("noise")]
-        public long noise { get; set; }
+        public int noise { get; set; }
 
         [JsonProperty("noted")]
         public bool noted { get; set; }
@@ -117,7 +117,7 @@ namespace UniFiSharp.Json
         public string radio_proto { get; set; }
 
         [JsonProperty("rssi")]
-        public long rssi { get; set; }
+        public int rssi { get; set; }
 
         [JsonProperty("rx_bytes")]
         public long rx_bytes { get; set; }
@@ -132,19 +132,19 @@ namespace UniFiSharp.Json
         public long rx_rate { get; set; }
 
         [JsonProperty("signal")]
-        public long signal { get; set; }
+        public int signal { get; set; }
 
         [JsonProperty("site_id")]
         public string site_id { get; set; }
 
         [JsonProperty("sw_depth")]
-        public long sw_depth { get; set; }
+        public int sw_depth { get; set; }
 
         [JsonProperty("sw_mac")]
         public string sw_mac { get; set; }
 
         [JsonProperty("sw_port")]
-        public long sw_port { get; set; }
+        public int sw_port { get; set; }
 
         [JsonProperty("tx_bytes")]
         public long tx_bytes { get; set; }
