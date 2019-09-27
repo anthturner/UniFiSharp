@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Reflection;
 using System.Threading.Tasks;
 using GcmSharp.Serialization;
 using RestSharp;
@@ -173,18 +175,16 @@ namespace UniFiSharp
             if (_useModernApi)
                 request.Resource = "proxy/network/" + request.Resource;
 
-            this.AddDefaultHeader("Referrer", BaseUrl.ToString());
+            request.AddHeader("Referrer", BaseUrl.ToString());
             FollowRedirects = true;
 
             if (CookieContainer.GetCookies(BaseUrl).Count > 0)
             {
-                try
+                var csrf_token = CookieContainer.GetCookies(BaseUrl)["csrf_token"]?.Value;
+
+                if (csrf_token != null)
                 {
-                    this.AddDefaultHeader("X-Csrf-Token",
-                        this.CookieContainer.GetCookies(this.BaseUrl)["csrf_token"].Value);
-                }
-                catch
-                {
+                    request.AddHeader("X-Csrf-Token", csrf_token);
                 }
             }
 
@@ -224,27 +224,25 @@ namespace UniFiSharp
         {
             // Note the UniFi controller will return 404 when uploading a file - however the file *is* successfully uploaded. 
 
-            this.AddDefaultHeader("Referrer", BaseUrl.ToString());
-
             // Bodge to work around the fact uploads don't return the normal metadata if unauthorized
             FollowRedirects = false;
-
-            if (CookieContainer.GetCookies(BaseUrl).Count > 0)
-            {
-                try
-                {
-                    this.AddDefaultHeader("X-Csrf-Token",
-                        this.CookieContainer.GetCookies(this.BaseUrl)["csrf_token"].Value);
-                }
-                catch
-                {
-                }
-            }
 
             var request = new RestRequest(url, Method.POST)
             {
                 AlwaysMultipartFormData = true
             };
+
+            request.AddHeader("Referrer", BaseUrl.ToString());
+
+            if (CookieContainer.GetCookies(BaseUrl).Count > 0)
+            {
+                var csrf_token = CookieContainer.GetCookies(BaseUrl)["csrf_token"]?.Value;
+
+                if (csrf_token != null)
+                {
+                    request.AddHeader("X-Csrf-Token", csrf_token);
+                }
+            }
 
             request.AddParameter("name", name, ParameterType.RequestBody);
             request.AddFileBytes("filedata", data, fileName, contentType);
