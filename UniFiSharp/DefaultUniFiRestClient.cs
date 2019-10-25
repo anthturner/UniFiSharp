@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using GcmSharp.Serialization;
 using RestSharp;
@@ -80,6 +83,11 @@ namespace UniFiSharp
             await UniFiRequest(Method.DELETE, url);
         }
 
+        public async Task UnifiFileUpload(string url, string name, string fileName, string contentType, byte[] data)
+        {
+            await UnifiMultipartFormRequest(url, name, fileName, contentType, data);
+        }
+
         private async Task UniFiRequest(Method method, string url, object jsonBody = null)
         {
             var request = new RestRequest(url, method);
@@ -120,6 +128,7 @@ namespace UniFiSharp
         private async Task<JsonMessageEnvelope<T>> ExecuteRequest<T>(IRestRequest request, bool attemptReauthentication = true) where T : new()
         {
             this.AddDefaultHeader("Referrer", BaseUrl.ToString());
+            this.FollowRedirects = true;
 
             if (this.CookieContainer.GetCookies(this.BaseUrl).Count > 0)
             {
@@ -146,5 +155,55 @@ namespace UniFiSharp
 
             return response.Data;
         }
+
+        /// <summary>
+        /// Upload a file to the UniFi controller. The only known use of this at the moment is for uploading .ogg files for the AP-AC-EDU APs
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="name"></param>
+        /// <param name="fileName"></param>
+        /// <param name="contentType"></param>
+        /// <param name="data"></param>
+        /// <param name="attemptReauthentication"></param>
+        /// <returns></returns>
+        private async Task UnifiMultipartFormRequest(string url, string name, string fileName, string contentType, byte[] data, bool attemptReauthentication = true)
+        {
+            // Note the UniFi controller will return 404 when uploading a file - however the file *is* successfully uploaded. 
+
+            this.AddDefaultHeader("Referrer", BaseUrl.ToString());
+
+            // Bodge to work around the fact uploads don't return the normal metadata if unauthorized
+            this.FollowRedirects = false;
+
+            if (this.CookieContainer.GetCookies(this.BaseUrl).Count > 0)
+            {
+                try { this.AddDefaultHeader("X-Csrf-Token", this.CookieContainer.GetCookies(this.BaseUrl)["csrf_token"].Value); }
+                catch { }
+            }
+
+            var request = new RestRequest(url, Method.POST)
+            {
+                AlwaysMultipartFormData = true,
+            };
+
+            request.AddParameter("name", name, ParameterType.RequestBody);
+            request.AddFileBytes("filedata", data, fileName, contentType);
+
+            var response = await ExecuteTaskAsync(request);
+
+            // Bodge to authenticate if needed (if we're being redirected back to the login page, then we need to attempt to authenticate)
+            if (response.StatusCode == HttpStatusCode.Redirect)
+            {
+                var redirectLocation = response.Headers.ToList().Find(x => x.Name == "Location").Value.ToString();
+
+                if (redirectLocation.Contains("/manage/account/login?redirect"))
+                {
+                    await Authenticate();
+                    await UnifiMultipartFormRequest(url, name, fileName, contentType, data, false);
+                }
+            }
+        }
+
+
     }
 }

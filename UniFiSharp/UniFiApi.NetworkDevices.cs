@@ -142,5 +142,21 @@ namespace UniFiSharp
         {
             await RestClient.UniFiPost($"api/s/{Site}/cmd/devmgr/upgrade", new { mac = macAddress });
         }
+
+        /// <summary>
+        /// Set the volume of the device's speaker
+        /// </summary>
+        /// <param name="macAddress">Device MAC Address</param>
+        /// <param name="volume">Volume to set the speaker to (range 0 - 100)</param>
+        /// <returns></returns>
+        public async Task NetworkDeviceSetVolume(string macAddress, int volume)
+        {
+            await RestClient.UniFiPost($"api/s/{Site}/cmd/streammgr/set-volume", new
+            {
+                cmd = "set-volume",
+                mac = macAddress,
+                volume = volume
+            });
+        }
     }
 }

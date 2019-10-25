@@ -83,6 +83,9 @@ namespace UniFiSharp.Orchestration.Devices
         public List<IClientNetworkedDevice> Clients { get; internal set; }
         public List<IInfrastructureNetworkedDevice> InfrastructureDevices { get; internal set; }
 
+        public bool? HasSpeaker => Json.has_speaker;
+        public int Volume => Json.volume;
+
         protected JsonNetworkDevice Json { get; private set; }
 
         protected IInfrastructureNetworkedDevice(UniFiApi api, JsonNetworkDevice json) : base(api)
