@@ -182,7 +182,7 @@ namespace UniFiSharp.Json
         public int? bytes_d { get; set; }
 
         [JsonProperty("bytes-r")]
-        public int? bytes_r { get; set; }
+        public long? bytes_r { get; set; }
 
         [JsonProperty("downlink_table")]
         public IList<JsonLink> downlink_table { get; set; }
@@ -487,7 +487,7 @@ namespace UniFiSharp.Json
             public long tx_bytes { get; set; }
 
             [JsonProperty("tx_packets")]
-            public int tx_packets { get; set; }
+            public long tx_packets { get; set; }
 
             [JsonProperty("up")]
             public bool up { get; set; }
@@ -592,7 +592,7 @@ namespace UniFiSharp.Json
             public int tx_errors { get; set; }
 
             [JsonProperty("tx_packets")]
-            public int tx_packets { get; set; }
+            public long tx_packets { get; set; }
 
             [JsonProperty("up")]
             public bool up { get; set; }
@@ -607,7 +607,7 @@ namespace UniFiSharp.Json
             public bool? autoneg { get; set; }
 
             [JsonProperty("bytes-r")]
-            public int? bytes_r { get; set; }
+            public long? bytes_r { get; set; }
 
             [JsonProperty("flowctrl_rx")]
             public bool? flowctrl_rx { get; set; }
@@ -649,7 +649,7 @@ namespace UniFiSharp.Json
             public int? rx_broadcast { get; set; }
 
             [JsonProperty("rx_bytes-r")]
-            public int? rx_bytes_r { get; set; }
+            public long? rx_bytes_r { get; set; }
 
             [JsonProperty("stp_pathcost")]
             public int? stp_pathcost { get; set; }
@@ -661,7 +661,7 @@ namespace UniFiSharp.Json
             public int? tx_broadcast { get; set; }
 
             [JsonProperty("tx_bytes-r")]
-            public int? tx_bytes_r { get; set; }
+            public long? tx_bytes_r { get; set; }
 
             [JsonProperty("tx_multicast")]
             public int? tx_multicast { get; set; }
@@ -775,7 +775,7 @@ namespace UniFiSharp.Json
         public class JsonLink
         {
             [JsonProperty("bytes-r")]
-            public int bytes_r { get; set; }
+            public long bytes_r { get; set; }
 
             [JsonProperty("drops")]
             public int drops { get; set; }
@@ -844,10 +844,10 @@ namespace UniFiSharp.Json
             public string speedtest_status { get; set; }
 
             [JsonProperty("tx_bytes")]
-            public object tx_bytes { get; set; }
+            public long tx_bytes { get; set; }
 
             [JsonProperty("tx_bytes-r")]
-            public int tx_bytes_r { get; set; }
+            public long tx_bytes_r { get; set; }
 
             [JsonProperty("tx_dropped")]
             public int tx_dropped { get; set; }
@@ -856,7 +856,7 @@ namespace UniFiSharp.Json
             public int tx_errors { get; set; }
 
             [JsonProperty("tx_packets")]
-            public int tx_packets { get; set; }
+            public long tx_packets { get; set; }
 
             [JsonProperty("type")]
             public string type { get; set; }
@@ -1024,7 +1024,7 @@ namespace UniFiSharp.Json
             public int tx_errors { get; set; }
 
             [JsonProperty("tx_packets")]
-            public int tx_packets { get; set; }
+            public long tx_packets { get; set; }
 
             [JsonProperty("tx_power")]
             public int tx_power { get; set; }

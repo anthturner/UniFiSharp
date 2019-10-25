@@ -48,7 +48,7 @@ namespace UniFiSharp.Json
         public string bssid { get; set; }
 
         [JsonProperty("bytes-r")]
-        public int bytes_r { get; set; }
+        public long bytes_r { get; set; }
 
         [JsonProperty("ccq")]
         public int ccq { get; set; }
