@@ -42,6 +42,15 @@ namespace UniFiSharp
         }
 
         /// <summary>
+        /// Retrieve a vouchers created for the hotspots run from this controller for this site filtered by create_time
+        /// </summary>
+        /// <returns>A collection of JSON objects that describe vouchers registered on this controller for this site</returns>
+        public async Task<IEnumerable<JsonHotspotVoucher>> HotspotVoucherGet(long create_time)
+        {
+            return await RestClient.UniFiGetMany<JsonHotspotVoucher>($"api/s/{Site}/stat/voucher?create_time={create_time}");
+        }
+
+        /// <summary>
         /// Create a new voucher for hotspots run from this controller for this site
         /// </summary>
         /// <param name="bytes"></param>
@@ -50,20 +59,20 @@ namespace UniFiSharp
         /// <param name="expire"></param>
         /// <param name="quota"></param>
         /// <param name="note"></param>
+        /// <param name="count"></param>
         /// <returns>A JSON object that describes the new vouches</returns>
-        public async Task<JsonHotspotVoucher> HotspotVoucherAdd(long bytes, long down, long up, string expire, string quota, string note)
+        public async Task<JsonHotspotVoucher> HotspotVoucherAdd(long? bytes, long? down, long? up, string expire, int quota, string note, int count)
         {
             return await RestClient.UniFiPost<JsonHotspotVoucher>($"api/s/{Site}/cmd/hotspot", new
             {
                 bytes = bytes,
                 cmd = "create-voucher",
                 down = down,
-                expire = expire,
-                expire_number = 1,
-                expire_unit = "1440",
+                expire = expire,                
                 note = note,
                 quota = quota,
-                up = up
+                up = up,
+                n = count
             });
         }
 
