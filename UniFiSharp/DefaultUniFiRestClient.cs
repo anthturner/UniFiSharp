@@ -91,6 +91,7 @@ namespace UniFiSharp
         private async Task UniFiRequest(Method method, string url, object jsonBody = null)
         {
             var request = new RestRequest(url, method);
+            request.JsonSerializer.ContentType = $"application/json; charset={Encoding.BodyName}";
             if ((method == Method.POST || method == Method.PUT) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
             await ExecuteRequest<object>(request);
@@ -99,6 +100,7 @@ namespace UniFiSharp
         private async Task<T> UniFiRequest<T>(Method method, string url, object jsonBody = null) where T : new()
         {
             var request = new RestRequest(url, method);
+            request.JsonSerializer.ContentType = $"application/json; charset={Encoding.BodyName}";
             if ((method == Method.POST || method == Method.PUT) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
             var envelope = await ExecuteRequest<T>(request);
@@ -108,6 +110,7 @@ namespace UniFiSharp
         private async Task<IList<T>> UniFiRequestMany<T>(Method method, string url, object jsonBody = null) where T : new()
         {
             var request = new RestRequest(url, method);
+            request.JsonSerializer.ContentType = $"application/json; charset={Encoding.BodyName}";
             if ((method == Method.POST || method == Method.PUT) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
             var envelope = await ExecuteRequest<T>(request);
