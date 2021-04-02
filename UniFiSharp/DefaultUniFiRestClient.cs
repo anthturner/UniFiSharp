@@ -12,8 +12,13 @@ namespace UniFiSharp
 {
     internal class DefaultUniFiRestClient : RestClient, IUniFiRestClient
     {
-        private string _username, _password;
+        private string _username, _password, _code;
 
+        internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, string code, bool ignoreSslValidation) : 
+            this(baseUrl, username, password, ignoreSslValidation)
+        {
+            _code = code;
+        }
         internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, bool ignoreSslValidation) : base(baseUrl)
         {
             _username = username;
@@ -117,19 +122,30 @@ namespace UniFiSharp
             return (envelope.Data == null) ? new List<T>() : new List<T>(envelope.Data);
         }
 
-        public async Task Authenticate()
+        public async Task<JsonLoginResult> Authenticate()
         {
-            await UniFiPost("api/login", new
-            {
+            var request = new RestRequest("api/auth/login", Method.POST);
+            request.JsonSerializer.ContentType = $"application/json; charset={Encoding.BodyName}";
+            request.AddJsonBody(new {
                 username = _username,
                 password = _password,
-                remember = false,
-                strict = true
+                token = _code,
+                rememberMe = false
             });
+
+            request.RequestFormat = DataFormat.Json;
+            request.JsonSerializer = NewtonsoftJsonSerializer.Default;
+
+            var response = await ExecuteTaskAsync<JsonLoginResult>(request);
+            return response.Data;
         }
 
         private async Task<JsonMessageEnvelope<T>> ExecuteRequest<T>(IRestRequest request, bool attemptReauthentication = true) where T : new()
         {
+            // TODO: Are all new-API commands going through this route?
+            // Need community feedback on changes.
+            request.Resource = "proxy/network/" + request.Resource;
+
             this.AddDefaultHeader("Referrer", BaseUrl.ToString());
             this.FollowRedirects = true;
 
