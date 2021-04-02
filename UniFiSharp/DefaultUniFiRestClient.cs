@@ -13,16 +13,18 @@ namespace UniFiSharp
     internal class DefaultUniFiRestClient : RestClient, IUniFiRestClient
     {
         private string _username, _password, _code;
+        private bool _useModernApi;
 
-        internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, string code, bool ignoreSslValidation) : 
-            this(baseUrl, username, password, ignoreSslValidation)
+        internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, string code, bool ignoreSslValidation, bool useModernApi) : 
+            this(baseUrl, username, password, ignoreSslValidation, useModernApi)
         {
             _code = code;
         }
-        internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, bool ignoreSslValidation) : base(baseUrl)
+        internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, bool ignoreSslValidation, bool useModernApi) : base(baseUrl)
         {
             _username = username;
             _password = password;
+            _useModernApi = useModernApi;
 
             CookieContainer = new System.Net.CookieContainer();
 
@@ -124,27 +126,41 @@ namespace UniFiSharp
 
         public async Task<JsonLoginResult> Authenticate()
         {
-            var request = new RestRequest("api/auth/login", Method.POST);
-            request.JsonSerializer.ContentType = $"application/json; charset={Encoding.BodyName}";
-            request.AddJsonBody(new {
-                username = _username,
-                password = _password,
-                token = _code,
-                rememberMe = false
-            });
+            if (_useModernApi)
+            {
+                var request = new RestRequest("api/auth/login", Method.POST);
+                request.JsonSerializer.ContentType = $"application/json; charset={Encoding.BodyName}";
+                request.AddJsonBody(new
+                {
+                    username = _username,
+                    password = _password,
+                    token = _code,
+                    rememberMe = false
+                });
 
-            request.RequestFormat = DataFormat.Json;
-            request.JsonSerializer = NewtonsoftJsonSerializer.Default;
+                request.RequestFormat = DataFormat.Json;
+                request.JsonSerializer = NewtonsoftJsonSerializer.Default;
 
-            var response = await ExecuteTaskAsync<JsonLoginResult>(request);
-            return response.Data;
+                var response = await ExecuteTaskAsync<JsonLoginResult>(request);
+                return response.Data;
+            }
+            else
+            {
+                await UniFiPost("api/login", new
+                {
+                    username = _username,
+                    password = _password,
+                    remember = false,
+                    strict = true
+                });
+                return new JsonLoginResult();
+            }
         }
 
         private async Task<JsonMessageEnvelope<T>> ExecuteRequest<T>(IRestRequest request, bool attemptReauthentication = true) where T : new()
         {
-            // TODO: Are all new-API commands going through this route?
-            // Need community feedback on changes.
-            request.Resource = "proxy/network/" + request.Resource;
+            if (_useModernApi)
+                request.Resource = "proxy/network/" + request.Resource;
 
             this.AddDefaultHeader("Referrer", BaseUrl.ToString());
             this.FollowRedirects = true;
