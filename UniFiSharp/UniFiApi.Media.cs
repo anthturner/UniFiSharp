@@ -44,6 +44,7 @@ namespace UniFiSharp
         /// <param name="name">Human readable name for the file</param>
         /// <param name="fileData">Byte array containing the file data</param>
         /// <param name="fileName">Optional file name for internal use</param>
+        /// <param name="contentType">Content type of media</param>
         /// <returns></returns>
         public async Task MediaFileCreate(string name, byte[] fileData, string fileName = "", string contentType = "audio/ogg")
         {
