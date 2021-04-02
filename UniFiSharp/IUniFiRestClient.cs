@@ -97,6 +97,6 @@ namespace UniFiSharp
         /// Authenticate to the UniFi controller
         /// </summary>
         /// <returns></returns>
-        Task Authenticate();
+        Task<Json.JsonLoginResult> Authenticate();
     }
 }

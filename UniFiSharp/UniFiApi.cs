@@ -26,10 +26,27 @@ namespace UniFiSharp
         /// <param name="password">Controller password</param>
         /// <param name="site">Site name (or <c>default</c>)</param>
         /// <param name="ignoreSslValidation">Ignore self signed certificate errors</param>
-        public UniFiApi(Uri baseUrl, string username, string password, string site = "default", bool ignoreSslValidation = false)
+        /// <param name="useModernApi">Use the 2020-era UniFi API</param>
+        public UniFiApi(Uri baseUrl, string username, string password, string site = "default", bool ignoreSslValidation = false, bool useModernApi = true)
         {
             Site = site;
-            RestClient = new DefaultUniFiRestClient(baseUrl, username, password, ignoreSslValidation);
+            RestClient = new DefaultUniFiRestClient(baseUrl, username, password, ignoreSslValidation, useModernApi);
+        }
+
+        /// <summary>
+        /// Main API interface for controlling Ubiquiti UniFi devices via a controller
+        /// </summary>
+        /// <param name="baseUrl">URL to the controller</param>
+        /// <param name="username">Controller username</param>
+        /// <param name="password">Controller password</param>
+        /// <param name="code">2FA Code</param>
+        /// <param name="site">Site name (or <c>default</c>)</param>
+        /// <param name="ignoreSslValidation">Ignore self signed certificate errors</param>
+        /// <param name="useModernApi">Use the 2020-era UniFi API</param>
+        public UniFiApi(Uri baseUrl, string username, string password, string code, string site = "default", bool ignoreSslValidation = false, bool useModernApi = true)
+        {
+            Site = site;
+            RestClient = new DefaultUniFiRestClient(baseUrl, username, password, code, ignoreSslValidation, useModernApi);
         }
 
         /// <summary>
@@ -41,10 +58,11 @@ namespace UniFiSharp
         /// <param name="encoding">Defines the encoding of API calls</param>
         /// <param name="site">Site name (or <c>default</c>)</param>
         /// <param name="ignoreSslValidation">Ignore self signed certificate errors</param>
-        public UniFiApi(Uri baseUrl, string username, string password, Encoding encoding, string site = "default", bool ignoreSslValidation = false)
+        /// <param name="useModernApi">Use the 2020-era UniFi API</param>
+        public UniFiApi(Uri baseUrl, string username, string password, Encoding encoding, string site = "default", bool ignoreSslValidation = false, bool useModernApi = true)
         {
             Site = site;
-            RestClient = new DefaultUniFiRestClient(baseUrl, username, password, ignoreSslValidation) { Encoding = encoding };
+            RestClient = new DefaultUniFiRestClient(baseUrl, username, password, ignoreSslValidation, useModernApi) { Encoding = encoding };
         }
 
         /// <summary>
@@ -71,9 +89,9 @@ namespace UniFiSharp
         /// Force the wrapper to authenticate with the controller
         /// </summary>
         /// <returns></returns>
-        public async Task Authenticate()
+        public async Task<JsonLoginResult> Authenticate()
         {
-            await RestClient.Authenticate();
+            return await RestClient.Authenticate();
         }
 
         /// <summary>
