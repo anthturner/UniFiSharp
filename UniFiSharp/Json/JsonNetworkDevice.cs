@@ -478,7 +478,7 @@ namespace UniFiSharp.Json
             public long rx_bytes { get; set; }
 
             [JsonProperty("rx_packets")]
-            public int rx_packets { get; set; }
+            public long rx_packets { get; set; }
 
             [JsonProperty("site_id")]
             public string site_id { get; set; }
@@ -814,7 +814,7 @@ namespace UniFiSharp.Json
             public int num_port { get; set; }
 
             [JsonProperty("rx_bytes")]
-            public object rx_bytes { get; set; }
+            public long? rx_bytes { get; set; }
 
             [JsonProperty("rx_bytes-r")]
             public long rx_bytes_r { get; set; }
