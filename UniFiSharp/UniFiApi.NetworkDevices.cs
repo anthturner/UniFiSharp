@@ -61,7 +61,8 @@ namespace UniFiSharp
         {
             await RestClient.UniFiPost($"api/s/{Site}/cmd/devmgr", new
             {
-                cmd = "reboot",
+                reboot_type = "soft",
+                cmd = "restart",
                 mac = macAddress
             });
         }
