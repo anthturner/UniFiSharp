@@ -90,7 +90,7 @@ namespace UniFiSharp
         {
             await RestClient.UniFiPost($"api/s/{Site}/cmd/sitemgr", new
             {
-                cmd = "delete-device",
+                cmd = "forget-sta", //"delete-device",
                 mac = macAddress
             });
         }
