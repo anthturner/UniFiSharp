@@ -68,3 +68,5 @@ using (var orchestrator = new UniFiSharp.Orchestration.UniFiOrchestrator(api))
 
 ### Disclaimer
 This software is not affiliated with nor supported by Ubiquiti Networks and is offered under the license as described in `LICENSE`. This software should *never* be used in a production environment without exhaustive, independent testing.
+
+The "U" logo component used is strictly for product identification purposes only, and is protected by fair use.

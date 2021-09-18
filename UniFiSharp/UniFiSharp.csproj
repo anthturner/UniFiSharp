@@ -16,6 +16,8 @@
     <AssemblyVersion>1.4.0.0</AssemblyVersion>
     <FileVersion>1.4.0.0</FileVersion>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>UniFiSharpLogo.png</PackageIcon>
+    <ApplicationIcon>UniFiSharpLogo.ico</ApplicationIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -24,7 +26,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="UniFiApi.Hotspot.cs~RF16ee8005.TMP" />
+    <None Include="UniFiSharpLogo.ico">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="UniFiSharpLogo.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
@@ -35,6 +44,12 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="RestSharp" Version="106.12.0" />
     <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="106.12.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="UniFiSharpLogo.png">
+      <Pack>True</Pack>
+    </None>
   </ItemGroup>
 
 </Project>
