@@ -32,11 +32,11 @@ namespace UniFiSharp
 
             CookieContainer = new System.Net.CookieContainer();
 
-            AddHandler("application/json", NewtonsoftJsonSerializer.Default);
-            AddHandler("text/json", NewtonsoftJsonSerializer.Default);
-            AddHandler("text/x-json", NewtonsoftJsonSerializer.Default);
-            AddHandler("text/javascript", NewtonsoftJsonSerializer.Default);
-            AddHandler("*+json", NewtonsoftJsonSerializer.Default);
+            AddHandler("application/json", () => NewtonsoftJsonSerializer.Default);
+            AddHandler("text/json", () => NewtonsoftJsonSerializer.Default);
+            AddHandler("text/x-json", () => NewtonsoftJsonSerializer.Default);
+            AddHandler("text/javascript", () => NewtonsoftJsonSerializer.Default);
+            AddHandler("*+json", () => NewtonsoftJsonSerializer.Default);
 
             if (ignoreSslValidation)
             {
@@ -119,7 +119,7 @@ namespace UniFiSharp
                 return envelope.Data[0];
             }
 
-            if (envelope.Metadata.ResultCode.ToLower() == "error")
+            if (envelope.Metadata.ResultCode.Equals("error", StringComparison.OrdinalIgnoreCase))
             {
                 throw new UniFiApiException($"UniFi API returned an error: {envelope.Metadata.Message}");
             }
@@ -150,10 +150,9 @@ namespace UniFiSharp
                     rememberMe = false
                 });
 
-                request.RequestFormat = DataFormat.Json;
                 request.JsonSerializer = NewtonsoftJsonSerializer.Default;
 
-                var response = await ExecuteTaskAsync<JsonLoginResult>(request);
+                var response = await ExecuteAsync<JsonLoginResult>(request);
                 return response.Data;
             }
             else
@@ -187,11 +186,10 @@ namespace UniFiSharp
                     request.AddHeader("X-Csrf-Token", csrf_token);
                 }
             }
-
-            request.RequestFormat = DataFormat.Json;
+            
             request.JsonSerializer = NewtonsoftJsonSerializer.Default;
 
-            var response = await ExecuteTaskAsync<JsonMessageEnvelope<T>>(request);
+            var response = await ExecuteAsync<JsonMessageEnvelope<T>>(request);
             var envelope = response.Data;
 
             if (envelope == null && !response.IsSuccessful)
@@ -247,7 +245,7 @@ namespace UniFiSharp
             request.AddParameter("name", name, ParameterType.RequestBody);
             request.AddFileBytes("filedata", data, fileName, contentType);
 
-            var response = await ExecuteTaskAsync(request);
+            var response = await ExecuteAsync(request);
 
             // Bodge to authenticate if needed (if we're being redirected back to the login page, then we need to attempt to authenticate)
             if (response.StatusCode == HttpStatusCode.Redirect)
