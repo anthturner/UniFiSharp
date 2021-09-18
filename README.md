@@ -1,7 +1,5 @@
 # UniFiSharp
 
-**Original project: https://github.com/anthturner/UniFiSharp**
-
 _Bringing Ubiquiti UniFi Orchestration Automation to C#_
 
 UniFiSharp provides a basic C# API for Ubiquiti UniFi controllers, as well as an orchestration overlay to more easily visualize network topology and execute device commands. UniFiSharp also implements both v1 and v2 of the Ubiquiti discovery protocol for automated controller discovery.

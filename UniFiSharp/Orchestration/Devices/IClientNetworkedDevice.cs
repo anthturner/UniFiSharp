@@ -17,7 +17,7 @@ namespace UniFiSharp.Orchestration.Devices
         public bool UseFixedIpAddress => Json.use_fixedip.GetValueOrDefault(false);
         public string FixedIpAddress => Json.fixed_ip;
         public string IpAddress => Json.ip;
-        public int IdleTime => Json.idletime;
+        public long IdleTime => Json.idletime;
         public string MacAddress => Json.mac;
         public string Network => Json.network;
         public string NetworkId => Json.network_id;

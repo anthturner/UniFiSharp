@@ -18,28 +18,28 @@ namespace UniFiSharp.Json
         public bool _is_guest_by_usw { get; set; }
 
         [JsonProperty("_last_seen_by_uap")]
-        public int _last_seen_by_uap { get; set; }
+        public long _last_seen_by_uap { get; set; }
 
         [JsonProperty("_last_seen_by_ugw")]
-        public int _last_seen_by_ugw { get; set; }
+        public long _last_seen_by_ugw { get; set; }
 
         [JsonProperty("_last_seen_by_usw")]
-        public int _last_seen_by_usw { get; set; }
+        public long _last_seen_by_usw { get; set; }
 
         [JsonProperty("_uptime_by_uap")]
-        public int _uptime_by_uap { get; set; }
+        public long _uptime_by_uap { get; set; }
 
         [JsonProperty("_uptime_by_ugw")]
-        public int _uptime_by_ugw { get; set; }
+        public long _uptime_by_ugw { get; set; }
 
         [JsonProperty("_uptime_by_usw")]
-        public int _uptime_by_usw { get; set; }
+        public long _uptime_by_usw { get; set; }
 
         [JsonProperty("ap_mac")]
         public string ap_mac { get; set; }
 
         [JsonProperty("assoc_time")]
-        public int assoc_time { get; set; }
+        public long assoc_time { get; set; }
 
         [JsonProperty("authorized")]
         public bool authorized { get; set; }
@@ -51,7 +51,7 @@ namespace UniFiSharp.Json
         public long bytes_r { get; set; }
 
         [JsonProperty("ccq")]
-        public int ccq { get; set; }
+        public long ccq { get; set; }
 
         [JsonProperty("channel")]
         public int channel { get; set; }
@@ -60,7 +60,7 @@ namespace UniFiSharp.Json
         public string essid { get; set; }
 
         [JsonProperty("first_seen")]
-        public int first_seen { get; set; }
+        public long first_seen { get; set; }
 
         [JsonProperty("gw_mac")]
         public string gw_mac { get; set; }
@@ -69,7 +69,7 @@ namespace UniFiSharp.Json
         public string hostname { get; set; }
 
         [JsonProperty("idletime")]
-        public int idletime { get; set; }
+        public long idletime { get; set; }
 
         [JsonProperty("ip")]
         public string ip { get; set; }
@@ -81,10 +81,10 @@ namespace UniFiSharp.Json
         public bool is_wired { get; set; }
 
         [JsonProperty("last_seen")]
-        public int last_seen { get; set; }
+        public long last_seen { get; set; }
 
         [JsonProperty("latest_assoc_time")]
-        public int latest_assoc_time { get; set; }
+        public long latest_assoc_time { get; set; }
 
         [JsonProperty("mac")]
         public string mac { get; set; }
@@ -129,7 +129,7 @@ namespace UniFiSharp.Json
         public long rx_packets { get; set; }
 
         [JsonProperty("rx_rate")]
-        public int rx_rate { get; set; }
+        public long rx_rate { get; set; }
 
         [JsonProperty("signal")]
         public int signal { get; set; }
@@ -156,13 +156,13 @@ namespace UniFiSharp.Json
         public long tx_packets { get; set; }
 
         [JsonProperty("tx_power")]
-        public int tx_power { get; set; }
+        public long tx_power { get; set; }
 
         [JsonProperty("tx_rate")]
-        public int tx_rate { get; set; }
+        public long tx_rate { get; set; }
 
         [JsonProperty("uptime")]
-        public int uptime { get; set; }
+        public long uptime { get; set; }
 
         [JsonProperty("user_id")]
         public string user_id { get; set; }
@@ -174,7 +174,7 @@ namespace UniFiSharp.Json
         public IList<object> dpi_stats { get; set; }
 
         [JsonProperty("dpi_stats_last_updated")]
-        public int? dpi_stats_last_updated { get; set; }
+        public long? dpi_stats_last_updated { get; set; }
 
         [JsonProperty("blocked")]
         public bool? blocked { get; set; }
@@ -189,21 +189,21 @@ namespace UniFiSharp.Json
         public bool? use_fixedip { get; set; }
 
         [JsonProperty("dev_cat")]
-        public int? dev_cat { get; set; }
+        public long? dev_cat { get; set; }
 
         [JsonProperty("dev_family")]
-        public int? dev_family { get; set; }
+        public long? dev_family { get; set; }
 
         [JsonProperty("dev_id")]
-        public int? dev_id { get; set; }
+        public long? dev_id { get; set; }
 
         [JsonProperty("dev_vendor")]
-        public int? dev_vendor { get; set; }
+        public long? dev_vendor { get; set; }
 
         [JsonProperty("os_class")]
-        public int? os_class { get; set; }
+        public long? os_class { get; set; }
 
         [JsonProperty("os_name")]
-        public int? os_name { get; set; }
+        public long? os_name { get; set; }
     }
 }
