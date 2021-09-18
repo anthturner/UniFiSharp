@@ -1,3 +1,5 @@
+<img src="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiSharpLogo.png?raw=true" width="150px" title="UniFiSharp Logo" />
+
 # UniFiSharp
 
 _Bringing Ubiquiti UniFi Orchestration Automation to C#_
