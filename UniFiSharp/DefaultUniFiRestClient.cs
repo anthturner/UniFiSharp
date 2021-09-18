@@ -30,7 +30,7 @@ namespace UniFiSharp
             _password = password;
             _useModernApi = useModernApi;
 
-            CookieContainer = new CookieContainer();
+            CookieContainer = new System.Net.CookieContainer();
 
             AddHandler("application/json", NewtonsoftJsonSerializer.Default);
             AddHandler("text/json", NewtonsoftJsonSerializer.Default);
@@ -40,7 +40,7 @@ namespace UniFiSharp
 
             if (ignoreSslValidation)
             {
-                RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
+                this.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
             }
         }
 
@@ -134,7 +134,7 @@ namespace UniFiSharp
             if ((method == Method.POST || method == Method.PUT) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
             var envelope = await ExecuteRequest<T>(request);
-            return envelope.Data == null ? new List<T>() : new List<T>(envelope.Data);
+            return (envelope.Data == null) ? new List<T>() : new List<T>(envelope.Data);
         }
 
         public async Task<JsonLoginResult> Authenticate()
@@ -180,7 +180,7 @@ namespace UniFiSharp
 
             if (CookieContainer.GetCookies(BaseUrl).Count > 0)
             {
-                var csrf_token = CookieContainer.GetCookies(BaseUrl)["csrf_token"]?.Value;
+                var csrf_token = CookieContainer.GetCookies(this.BaseUrl)["csrf_token"]?.Value;
 
                 if (csrf_token != null)
                 {
