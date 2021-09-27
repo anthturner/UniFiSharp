@@ -13,7 +13,7 @@ namespace UniFiSharp
 {
     internal class DefaultUniFiRestClient : RestClient, IUniFiRestClient
     {
-        private string _username, _password, _code;
+        private string _username, _password, _code, _csrf_token;
         private bool _useModernApi;
 
         internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, string code,
@@ -153,6 +153,7 @@ namespace UniFiSharp
                 request.JsonSerializer = NewtonsoftJsonSerializer.Default;
 
                 var response = await ExecuteAsync<JsonLoginResult>(request);
+                _csrf_token = response.Headers.Where(x => x.Name == "X-CSRF-Token").FirstOrDefault().Value.ToString();
                 return response.Data;
             }
             else
@@ -184,6 +185,14 @@ namespace UniFiSharp
                 if (csrf_token != null)
                 {
                     request.AddHeader("X-Csrf-Token", csrf_token);
+                }
+
+                if (_useModernApi)
+                {
+                    if(_csrf_token != null)
+                    {
+                        request.AddHeader("X-CSRF-Token", _csrf_token);
+                    }
                 }
             }
             
