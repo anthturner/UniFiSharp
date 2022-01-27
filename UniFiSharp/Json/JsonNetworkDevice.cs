@@ -97,6 +97,9 @@ namespace UniFiSharp.Json
         [JsonProperty("map_id")]
         public string map_id { get; set; }
 
+        [JsonProperty("mgmt_network_id")]
+        public string mgmt_network_id { get; set; }
+
         [JsonProperty("model")]
         public string model { get; set; }
 
