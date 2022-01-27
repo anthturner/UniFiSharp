@@ -763,13 +763,13 @@ namespace UniFiSharp.Json
             public double? loadavg_5 { get; set; }
 
             [JsonProperty("mem_buffer")]
-            public int? mem_buffer { get; set; }
+            public long? mem_buffer { get; set; }
 
             [JsonProperty("mem_total")]
-            public int? mem_total { get; set; }
+            public long? mem_total { get; set; }
 
             [JsonProperty("mem_used")]
-            public int? mem_used { get; set; }
+            public long? mem_used { get; set; }
         }
 
         public class JsonLink
