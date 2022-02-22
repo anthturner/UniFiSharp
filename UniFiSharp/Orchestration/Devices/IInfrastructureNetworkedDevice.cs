@@ -94,8 +94,9 @@ namespace UniFiSharp.Orchestration.Devices
 
         public TimeSpan Uptime => TimeSpan.FromSeconds(Json.uptime);
 
-        public int MemoryTotal => Json.sys_stats.mem_total.GetValueOrDefault(-1);
-        public int MemoryUsed => Json.sys_stats.mem_used.GetValueOrDefault(-1);
+        public long MemoryTotal => Json.sys_stats.mem_total.GetValueOrDefault(-1);
+
+        public long MemoryUsed => Json.sys_stats.mem_used.GetValueOrDefault(-1);
 
         public string Version => Json.version;
 
