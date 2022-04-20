@@ -78,7 +78,7 @@ namespace UniFiSharp
         public UniFiApi(Uri baseUrl, string username, string password, string site = "default", bool ignoreSslValidation = false, bool useModernApi = true, int timeout = 1000)
         {
             Site = site;
-            RestClient = new DefaultUniFiRestClient(baseUrl, username, password, ignoreSslValidation, useModernApi);
+            RestClient = new DefaultUniFiRestClient(baseUrl, username, password, ignoreSslValidation, useModernApi, null, timeout);
         }
 
         /// <summary>

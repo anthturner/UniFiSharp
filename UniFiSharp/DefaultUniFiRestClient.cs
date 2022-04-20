@@ -17,7 +17,6 @@ namespace UniFiSharp
         private string _username, _password, _code, _csrf_token;
         private Uri _baseUrl;
         private bool _useModernApi;
-        private int _timeout;
 
         internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, string code,
             bool ignoreSslValidation, bool useModernApi) :
@@ -44,7 +43,6 @@ namespace UniFiSharp
             _password = password;
             _useModernApi = useModernApi;
             _baseUrl = baseUrl;
-            _timeout = timeout;
 
             this.UseNewtonsoftJson();
         }
@@ -108,7 +106,6 @@ namespace UniFiSharp
         private async Task UniFiRequest(Method method, string url, object jsonBody = null)
         {
             var request = new RestRequest(url, method);
-            request.Timeout = _timeout;
             if ((method == Method.Post || method == Method.Put) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
             await ExecuteRequest<object>(request);
@@ -117,7 +114,6 @@ namespace UniFiSharp
         private async Task<T> UniFiRequest<T>(Method method, string url, object jsonBody = null) where T : new()
         {
             var request = new RestRequest(url, method);
-            request.Timeout = _timeout;
             if ((method == Method.Post || method == Method.Put) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
 
@@ -139,7 +135,6 @@ namespace UniFiSharp
             where T : new()
         {
             var request = new RestRequest(url, method);
-            request.Timeout = _timeout;
             if ((method == Method.Post || method == Method.Put) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
             var envelope = await ExecuteRequest<T>(request);
@@ -151,7 +146,6 @@ namespace UniFiSharp
             if (_useModernApi)
             {
                 var request = new RestRequest("api/auth/login", Method.Post);
-                request.Timeout = _timeout;
                 request.AddJsonBody(new
                 {
                     username = _username,
@@ -184,7 +178,6 @@ namespace UniFiSharp
                 request.Resource = "proxy/network/" + request.Resource;
 
             request.AddHeader("Referrer", _baseUrl.ToString());
-            request.Timeout = _timeout;        
 
             if (CookieContainer.GetCookies(_baseUrl).Count > 0)
             {
@@ -244,7 +237,6 @@ namespace UniFiSharp
             };
 
             request.AddHeader("Referrer", _baseUrl.ToString());
-            request.Timeout = _timeout;
 
             if (CookieContainer.GetCookies(_baseUrl).Count > 0)
             {
