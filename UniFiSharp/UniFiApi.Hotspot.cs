@@ -93,7 +93,7 @@ namespace UniFiSharp
         /// <summary>
         /// Disconnects a guest from hotspots run from this controller for this site
         /// </summary>
-        /// <param name="id">Voucher ID of guest to disconnect</param>
+        /// <param name="id">Guest ID of guest to disconnect</param>
         /// <returns></returns>
         public async Task HotspotVoucherTerminate(string id)
         {
