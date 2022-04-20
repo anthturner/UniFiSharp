@@ -3,10 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using GcmSharp.Serialization;
 using RestSharp;
+using RestSharp.Serializers.NewtonsoftJson;
 using UniFiSharp.Json;
 
 namespace UniFiSharp
@@ -14,7 +15,9 @@ namespace UniFiSharp
     internal class DefaultUniFiRestClient : RestClient, IUniFiRestClient
     {
         private string _username, _password, _code, _csrf_token;
+        private Uri _baseUrl;
         private bool _useModernApi;
+        private int _timeout;
 
         internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, string code,
             bool ignoreSslValidation, bool useModernApi) :
@@ -23,75 +26,78 @@ namespace UniFiSharp
             _code = code;
         }
 
+        #nullable enable
         internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, bool ignoreSslValidation,
-            bool useModernApi) : base(baseUrl)
+            bool useModernApi, Encoding? encoding = null, int timeout = 1000) : base(new RestClientOptions()
+            {                
+                BaseUrl = baseUrl,                
+                RemoteCertificateValidationCallback = ignoreSslValidation ? (sender, certificate, chain, sslPolicyErrors) => true : default(System.Net.Security.RemoteCertificateValidationCallback?),                
+                CookieContainer = new System.Net.CookieContainer(),
+                // Bodge to work around the fact uploads don't return the normal metadata if unauthorized (migrated to RestClientOptions)
+                FollowRedirects = true,
+                Encoding = encoding != null ? encoding : Encoding.UTF8,
+                Timeout = timeout,
+                ThrowOnAnyError = true
+            })
         {
             _username = username;
             _password = password;
             _useModernApi = useModernApi;
+            _baseUrl = baseUrl;
+            _timeout = timeout;
 
-            CookieContainer = new System.Net.CookieContainer();
-
-            AddHandler("application/json", () => NewtonsoftJsonSerializer.Default);
-            AddHandler("text/json", () => NewtonsoftJsonSerializer.Default);
-            AddHandler("text/x-json", () => NewtonsoftJsonSerializer.Default);
-            AddHandler("text/javascript", () => NewtonsoftJsonSerializer.Default);
-            AddHandler("*+json", () => NewtonsoftJsonSerializer.Default);
-
-            if (ignoreSslValidation)
-            {
-                this.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-            }
+            this.UseNewtonsoftJson();
         }
+        #nullable disable
 
         public async Task UniFiGet(string url)
         {
-            await UniFiRequest(Method.GET, url);
+            await UniFiRequest(Method.Get, url);
         }
 
         public async Task<T> UniFiGet<T>(string url) where T : new()
         {
-            return await UniFiRequest<T>(Method.GET, url);
+            return await UniFiRequest<T>(Method.Get, url);
         }
 
         public async Task<IList<T>> UniFiGetMany<T>(string url) where T : new()
         {
-            return await UniFiRequestMany<T>(Method.GET, url);
+            return await UniFiRequestMany<T>(Method.Get, url);
         }
 
         public async Task UniFiPost(string url, object jsonBody)
         {
-            await UniFiRequest(Method.POST, url, jsonBody);
+            await UniFiRequest(Method.Post, url, jsonBody);
         }
 
         public async Task<T> UniFiPost<T>(string url, object jsonBody) where T : new()
         {
-            return await UniFiRequest<T>(Method.POST, url, jsonBody);
+            return await UniFiRequest<T>(Method.Post, url, jsonBody);
         }
 
         public async Task<IList<T>> UniFiPostMany<T>(string url, object jsonBody) where T : new()
         {
-            return await UniFiRequestMany<T>(Method.POST, url, jsonBody);
+            return await UniFiRequestMany<T>(Method.Post, url, jsonBody);
         }
 
         public async Task UniFiPut(string url, object jsonBody)
         {
-            await UniFiRequest(Method.PUT, url, jsonBody);
+            await UniFiRequest(Method.Put, url, jsonBody);
         }
 
         public async Task<T> UniFiPut<T>(string url, object jsonBody) where T : new()
         {
-            return await UniFiRequest<T>(Method.PUT, url, jsonBody);
+            return await UniFiRequest<T>(Method.Put, url, jsonBody);
         }
 
         public async Task<IList<T>> UniFiPutMany<T>(string url, object jsonBody) where T : new()
         {
-            return await UniFiRequestMany<T>(Method.PUT, url, jsonBody);
+            return await UniFiRequestMany<T>(Method.Put, url, jsonBody);
         }
 
         public async Task UniFiDelete(string url)
         {
-            await UniFiRequest(Method.DELETE, url);
+            await UniFiRequest(Method.Delete, url);
         }
 
         public async Task UnifiFileUpload(string url, string name, string fileName, string contentType, byte[] data)
@@ -101,16 +107,18 @@ namespace UniFiSharp
 
         private async Task UniFiRequest(Method method, string url, object jsonBody = null)
         {
-            var request = new RestRequest(url, method, DataFormat.Json);
-            if ((method == Method.POST || method == Method.PUT) && jsonBody != null)
+            var request = new RestRequest(url, method);
+            request.Timeout = _timeout;
+            if ((method == Method.Post || method == Method.Put) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
             await ExecuteRequest<object>(request);
         }
 
         private async Task<T> UniFiRequest<T>(Method method, string url, object jsonBody = null) where T : new()
         {
-            var request = new RestRequest(url, method, DataFormat.Json);
-            if ((method == Method.POST || method == Method.PUT) && jsonBody != null)
+            var request = new RestRequest(url, method);
+            request.Timeout = _timeout;
+            if ((method == Method.Post || method == Method.Put) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
 
             var envelope = await ExecuteRequest<T>(request);
@@ -130,8 +138,9 @@ namespace UniFiSharp
         private async Task<IList<T>> UniFiRequestMany<T>(Method method, string url, object jsonBody = null)
             where T : new()
         {
-            var request = new RestRequest(url, method, DataFormat.Json);
-            if ((method == Method.POST || method == Method.PUT) && jsonBody != null)
+            var request = new RestRequest(url, method);
+            request.Timeout = _timeout;
+            if ((method == Method.Post || method == Method.Put) && jsonBody != null)
                 request.AddJsonBody(jsonBody);
             var envelope = await ExecuteRequest<T>(request);
             return (envelope.Data == null) ? new List<T>() : new List<T>(envelope.Data);
@@ -141,7 +150,8 @@ namespace UniFiSharp
         {
             if (_useModernApi)
             {
-                var request = new RestRequest("api/auth/login", Method.POST, DataFormat.Json);
+                var request = new RestRequest("api/auth/login", Method.Post);
+                request.Timeout = _timeout;
                 request.AddJsonBody(new
                 {
                     username = _username,
@@ -150,9 +160,7 @@ namespace UniFiSharp
                     rememberMe = false
                 });
 
-                request.JsonSerializer = NewtonsoftJsonSerializer.Default;
-
-                var response = await ExecuteAsync<JsonLoginResult>(request);
+                var response = await this.ExecuteAsync<JsonLoginResult>(request);
                 _csrf_token = response.Headers.Where(x => x.Name == "X-CSRF-Token").FirstOrDefault().Value.ToString();
                 return response.Data;
             }
@@ -169,18 +177,18 @@ namespace UniFiSharp
             }
         }
 
-        private async Task<JsonMessageEnvelope<T>> ExecuteRequest<T>(IRestRequest request,
+        private async Task<JsonMessageEnvelope<T>> ExecuteRequest<T>(RestRequest request,
             bool attemptReauthentication = true) where T : new()
         {
             if (_useModernApi)
                 request.Resource = "proxy/network/" + request.Resource;
 
-            request.AddHeader("Referrer", BaseUrl.ToString());
-            FollowRedirects = true;
+            request.AddHeader("Referrer", _baseUrl.ToString());
+            request.Timeout = _timeout;        
 
-            if (CookieContainer.GetCookies(BaseUrl).Count > 0)
+            if (CookieContainer.GetCookies(_baseUrl).Count > 0)
             {
-                var csrf_token = CookieContainer.GetCookies(this.BaseUrl)["csrf_token"]?.Value;
+                var csrf_token = CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value;
 
                 if (csrf_token != null)
                 {
@@ -196,9 +204,8 @@ namespace UniFiSharp
                 }
             }
             
-            request.JsonSerializer = NewtonsoftJsonSerializer.Default;
 
-            var response = await ExecuteAsync<JsonMessageEnvelope<T>>(request);
+            var response = await this.ExecuteAsync<JsonMessageEnvelope<T>>(request);
             var envelope = response.Data;
 
             if (envelope == null && !response.IsSuccessful)
@@ -231,19 +238,17 @@ namespace UniFiSharp
         {
             // Note the UniFi controller will return 404 when uploading a file - however the file *is* successfully uploaded. 
 
-            // Bodge to work around the fact uploads don't return the normal metadata if unauthorized
-            FollowRedirects = false;
-
-            var request = new RestRequest(url, Method.POST)
+            var request = new RestRequest(url, Method.Post)
             {
                 AlwaysMultipartFormData = true
             };
 
-            request.AddHeader("Referrer", BaseUrl.ToString());
+            request.AddHeader("Referrer", _baseUrl.ToString());
+            request.Timeout = _timeout;
 
-            if (CookieContainer.GetCookies(BaseUrl).Count > 0)
+            if (CookieContainer.GetCookies(_baseUrl).Count > 0)
             {
-                var csrf_token = CookieContainer.GetCookies(BaseUrl)["csrf_token"]?.Value;
+                var csrf_token = CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value;
 
                 if (csrf_token != null)
                 {
@@ -252,8 +257,8 @@ namespace UniFiSharp
             }
 
             request.AddParameter("name", name, ParameterType.RequestBody);
-            request.AddFileBytes("filedata", data, fileName, contentType);
-
+            request.AddFile(name, fileName, contentType);
+            
             var response = await ExecuteAsync(request);
 
             // Bodge to authenticate if needed (if we're being redirected back to the login page, then we need to attempt to authenticate)

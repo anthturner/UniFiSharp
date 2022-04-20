@@ -4,11 +4,10 @@
 using Newtonsoft.Json;
 using RestSharp.Serializers;
 using System.IO;
-using RestSharp.Deserializers;
 
 namespace GcmSharp.Serialization
 {
-    public class NewtonsoftJsonSerializer : ISerializer, IDeserializer
+    public class NewtonsoftJsonSerializer : ISerializer
     {
         private Newtonsoft.Json.JsonSerializer serializer;
 
@@ -42,7 +41,7 @@ namespace GcmSharp.Serialization
             }
         }
 
-        public T Deserialize<T>(RestSharp.IRestResponse response)
+        public T Deserialize<T>(RestSharp.RestResponse response)
         {
             var content = response.Content;
 

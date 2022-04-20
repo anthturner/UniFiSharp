@@ -24,6 +24,14 @@ namespace UniFiSharp
                 mac = macAddress
             });
         }
+        public async Task ClientUnauthorize(string macAddress)
+        {
+            await RestClient.UniFiPost($"api/s/{Site}/cmd/stamgr", new
+            {
+                cmd = "unauthorize-guest",
+                mac = macAddress
+            });
+        }
 
         public async Task ClientBlock(string macAddress)
         {

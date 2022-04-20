@@ -53,13 +53,13 @@ namespace UniFiSharp
         /// <summary>
         /// Create a new voucher for hotspots run from this controller for this site
         /// </summary>
-        /// <param name="bytes"></param>
-        /// <param name="down"></param>
-        /// <param name="up"></param>
-        /// <param name="expire"></param>
-        /// <param name="quota"></param>
-        /// <param name="note"></param>
-        /// <param name="count"></param>
+        /// <param name="bytes">Quota in MBytes</param>
+        /// <param name="down">Bandwidth limit for download in bytes/s</param>
+        /// <param name="up">Bandwidth limit for upload in bytes/s</param>
+        /// <param name="expire">Voucher validty time in minutes</param>
+        /// <param name="quota">Allowed login counts per voucher</param>
+        /// <param name="note">Custom note</param>
+        /// <param name="count">Number of vouchers</param>
         /// <returns>A JSON object that describes the new vouches</returns>
         public async Task<JsonHotspotVoucher> HotspotVoucherAdd(long? bytes, long? down, long? up, string expire, int quota, string note, int count)
         {
@@ -87,6 +87,20 @@ namespace UniFiSharp
             {
                 _id = id,
                 cmd = "delete-voucher",
+            });
+        }
+
+        /// <summary>
+        /// Disconnects a guest from hotspots run from this controller for this site
+        /// </summary>
+        /// <param name="id">Voucher ID of guest to disconnect</param>
+        /// <returns></returns>
+        public async Task HotspotVoucherTerminate(string id)
+        {
+            await RestClient.UniFiPost($"api/s/{Site}/cmd/hotspot", new
+            {
+                _id = id,
+                cmd = "terminate",
             });
         }
 

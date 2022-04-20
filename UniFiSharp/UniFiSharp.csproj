@@ -1,55 +1,51 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>UniFiSharp</PackageId>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.4.0</Version>
-    <Authors>Anthony Turner</Authors>
-    <Company>Anthony Turner</Company>
-    <Description>UniFiSharp provides a cross-platform (NETStandard) interface to control and monitor Ubiquiti UniFi networking components via the UniFi controller software.</Description>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/anthturner/UniFiSharp</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/anthturner/UniFiSharp</RepositoryUrl>
-    <RepositoryType>GitHub</RepositoryType>
-    <PackageTags>unifi ubiquiti ubnt</PackageTags>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0.0</FileVersion>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageIcon>UniFiSharpLogo.png</PackageIcon>
-    <ApplicationIcon>UniFiSharpLogo.ico</ApplicationIcon>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\UniFiSharp.xml</DocumentationFile>
-    <NoWarn>1701;1702;1705;CS1591</NoWarn>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="UniFiSharpLogo.ico">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="UniFiSharpLogo.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\LICENSE">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="RestSharp" Version="106.12.0" />
-    <PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="106.12.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="UniFiSharpLogo.png">
-      <Pack>True</Pack>
-    </None>
-  </ItemGroup>
-
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<PackageId>UniFiSharp</PackageId>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.4.1</Version>
+		<Authors>Anthony Turner</Authors>
+		<Company>Anthony Turner</Company>
+		<Description>UniFiSharp provides a cross-platform (NETStandard) interface to control and monitor Ubiquiti UniFi networking components via the UniFi controller software.</Description>
+		<PackageLicenseUrl/>
+		<PackageProjectUrl>https://github.com/anthturner/UniFiSharp</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/anthturner/UniFiSharp</RepositoryUrl>
+		<RepositoryType>GitHub</RepositoryType>
+		<PackageTags>unifi ubiquiti ubnt</PackageTags>
+		<AssemblyVersion>1.4.1.0</AssemblyVersion>
+		<FileVersion>1.4.1.0</FileVersion>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageIcon>UniFiSharpLogo.png</PackageIcon>
+		<ApplicationIcon>UniFiSharpLogo.ico</ApplicationIcon>
+		<NullableReferenceTypes>true</NullableReferenceTypes>
+		<LangVersion>8.0</LangVersion>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>bin\Debug\netstandard2.0\UniFiSharp.xml</DocumentationFile>
+		<NoWarn>1701;1702;1705;CS1591</NoWarn>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="UniFiSharpLogo.ico">
+			<Pack>True</Pack>
+			<PackagePath/>
+		</None>
+		<None Include="UniFiSharpLogo.png">
+			<Pack>True</Pack>
+			<PackagePath/>
+		</None>
+		<None Include="..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath/>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+		<PackageReference Include="RestSharp" Version="107.3.0"/>
+		<PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="107.3.0"/>
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="UniFiSharpLogo.png">
+			<Pack>True</Pack>
+		</None>
+	</ItemGroup>
 </Project>
