@@ -3,9 +3,9 @@
 name: NuGet Publishing
 
 on:
-  push:
-    branches: [ master ]
-    paths: [ UniFiSharp/UniFiSharp.csproj ]
+  #push:
+  #  branches: [ master ]
+  #  paths: [ UniFiSharp/UniFiSharp.csproj ]
   workflow_dispatch:
 
 jobs:
