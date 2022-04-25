@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +14,7 @@ namespace UniFiSharp
 {
     internal class DefaultUniFiRestClient : RestClient, IUniFiRestClient
     {
+        private const string CSRF_HEADER = "X-CSRF-Token";
         private string _username, _password, _code, _csrf_token;
         private Uri _baseUrl;
         private bool _useModernApi;
@@ -142,7 +143,7 @@ namespace UniFiSharp
         }
 
         public async Task<JsonLoginResult> Authenticate()
-        {
+        {   
             if (_useModernApi)
             {
                 var request = new RestRequest("api/auth/login", Method.Post);
@@ -153,9 +154,10 @@ namespace UniFiSharp
                     token = _code,
                     rememberMe = false
                 });
+                
+                await ApplyRequestHeaders(request);
 
                 var response = await this.ExecuteAsync<JsonLoginResult>(request);
-                _csrf_token = response.Headers.Where(x => x.Name == "X-CSRF-Token").FirstOrDefault().Value.ToString();
                 return response.Data;
             }
             else
@@ -174,45 +176,41 @@ namespace UniFiSharp
         private async Task<JsonMessageEnvelope<T>> ExecuteRequest<T>(RestRequest request,
             bool attemptReauthentication = true) where T : new()
         {
-            if (_useModernApi)
+            if (_useModernApi && !request.Resource.StartsWith("proxy/network"))
                 request.Resource = "proxy/network/" + request.Resource;
 
-            request.AddHeader("Referrer", _baseUrl.ToString());
+            await ApplyRequestHeaders(request);
 
-            if (CookieContainer.GetCookies(_baseUrl).Count > 0)
+            try
             {
-                var csrf_token = CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value;
+                var response = await this.ExecuteAsync<JsonMessageEnvelope<T>>(request);
+                var envelope = response.Data;
 
-                if (csrf_token != null)
+                if (response.Headers.Any(h => h.Name == CSRF_HEADER))
+                    _csrf_token = response.Headers.Where(x => x.Name == CSRF_HEADER).FirstOrDefault().Value.ToString();
+
+                if (envelope == null && !response.IsSuccessful)
+                    throw response.ErrorException;
+
+                if (!envelope.IsSuccessfulResponse &&
+                    envelope.Metadata.Message == "api.err.LoginRequired" &&
+                    attemptReauthentication)
                 {
-                    request.AddHeader("X-Csrf-Token", csrf_token);
+                    await Authenticate();
+                    return await ExecuteRequest<T>(request, false);
                 }
 
-                if (_useModernApi)
-                {
-                    if(_csrf_token != null)
-                    {
-                        request.AddHeader("X-CSRF-Token", _csrf_token);
-                    }
-                }
+                return response.Data;
             }
-            
-
-            var response = await this.ExecuteAsync<JsonMessageEnvelope<T>>(request);
-            var envelope = response.Data;
-
-            if (envelope == null && !response.IsSuccessful)
-                throw response.ErrorException;
-
-            if (!envelope.IsSuccessfulResponse &&
-                envelope.Metadata.Message == "api.err.LoginRequired" &&
-                attemptReauthentication)
+            catch (Exception ex)
             {
-                await Authenticate();
-                return await ExecuteRequest<T>(request, false);
+                if (ex.Message.Contains("Unauthorized") && attemptReauthentication)
+                {
+                    await Authenticate();
+                    return await ExecuteRequest<T>(request, false);
+                }
+                throw;
             }
-
-            return response.Data;
         }
 
         /// <summary>
@@ -236,17 +234,7 @@ namespace UniFiSharp
                 AlwaysMultipartFormData = true
             };
 
-            request.AddHeader("Referrer", _baseUrl.ToString());
-
-            if (CookieContainer.GetCookies(_baseUrl).Count > 0)
-            {
-                var csrf_token = CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value;
-
-                if (csrf_token != null)
-                {
-                    request.AddHeader("X-Csrf-Token", csrf_token);
-                }
-            }
+            await ApplyRequestHeaders(request);
 
             request.AddParameter("name", name, ParameterType.RequestBody);
             request.AddFile(name, fileName, contentType);
@@ -263,6 +251,26 @@ namespace UniFiSharp
                     await Authenticate();
                     await UnifiMultipartFormRequest(url, name, fileName, contentType, data, false);
                 }
+            }
+        }
+
+        private async Task ApplyRequestHeaders(RestRequest request)
+        {
+            request.AddHeader("Referrer", _baseUrl.ToString());
+
+            if (CookieContainer.GetCookies(_baseUrl).Count > 0 && CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value != null)
+                _csrf_token = CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value;
+
+            if (_csrf_token == null)
+            {
+                var baseUrl = new RestRequest("/", Method.Get);
+                var baseUrlResponse = await this.ExecuteAsync(baseUrl);
+                _csrf_token = baseUrlResponse.Headers.Where(x => x.Name == CSRF_HEADER).FirstOrDefault().Value.ToString();
+            }
+            
+            if (_csrf_token != null)
+            {
+                request.AddHeader(CSRF_HEADER, _csrf_token);
             }
         }
     }
