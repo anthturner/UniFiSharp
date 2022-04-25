@@ -23,7 +23,7 @@ public class UniFiSharpSettings : CommandSettings
 
     [CommandOption("--json")]
     [Description("If true, output will be in JSON")]
-    public bool UseJson { get; set; } = true; // todo: write pretty-printer
+    public bool UseJson { get; set; }
 
     [CommandOption("--dryrun")]
     [Description("If true, the commands will not be executed")]

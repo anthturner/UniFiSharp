@@ -17,7 +17,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Getting Site Health");
-            return await RunWithOutput(settings, async u => await u.SiteHealthGet());
+            return await RunWithOutputs(settings, u => u.SiteHealthGet(), OutputMaps.SystemHealth);
         }
     }
 
@@ -26,7 +26,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, SiteLedSettings settings)
         {
             Log($"Setting Site LED to {settings.LedState}");
-            return await Run(settings, async u => await u.SiteLedToggle(settings.LedState));
+            return await Run(settings, u => u.SiteLedToggle(settings.LedState));
         }
     }
 
@@ -35,7 +35,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Getting List of Sites on this Controller");
-            return await RunWithOutput(settings, async u => await u.ControllerSiteList());
+            return await RunWithOutputs(settings, u => u.ControllerSiteList(), OutputMaps.Sites);
         }
     }
 
@@ -44,7 +44,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Getting List of Rogue APs");
-            return await RunWithOutput(settings, async u => await u.SiteRogueApList());
+            return await RunWithOutputs(settings, async u => await u.SiteRogueApList(), OutputMaps.RogueAps);
         }
     }
 }

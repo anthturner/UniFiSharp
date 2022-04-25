@@ -45,7 +45,8 @@ namespace UniFiSharp.CLI.Commands
                 settings.RadioType,
                 settings.ChannelNa,
                 settings.ChannelNg,
-                settings.PmfMode));
+                settings.PmfMode),
+                OutputMaps.WlanGroups);
         }
     }
 
@@ -63,7 +64,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, SiteWlanGroupIdSettings settings)
         {
             Log($"Listing WLAN Groups");
-            return await RunWithOutput(settings, async u => await u.SiteWlanGroupsList());
+            return await RunWithOutputs(settings, async u => await u.SiteWlanGroupsList(), OutputMaps.WlanGroups);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Listing Users");
-            return await RunWithOutput(settings, async u => await u.UserList());
+            return await RunWithOutputs(settings, async u => await u.UserList(), OutputMaps.Users);
         }
     }
 
@@ -26,7 +26,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UserSettings settings)
         {
             Log($"Getting User '{settings.MacAddress}'");
-            return await RunWithOutput(settings, async u => await u.UserGet(settings.MacAddress));
+            return await RunWithOutput(settings, async u => await u.UserGet(settings.MacAddress), OutputMaps.Users);
         }
     }
 }

@@ -56,7 +56,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, NetworkDeviceSettings settings)
         {
             Log($"Getting Network Device '{settings.DeviceMacId}'");
-            return await RunWithOutput(settings, u => u.NetworkDeviceGet(settings.DeviceMacId));
+            return await RunWithOutput(settings, u => u.NetworkDeviceGet(settings.DeviceMacId), OutputMaps.NetworkDevice);
         }
     }
 
@@ -65,7 +65,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log($"Listing Network Devices");
-            return await RunWithOutput(settings, u => u.NetworkDeviceList());
+            return await RunWithOutputs(settings, u => u.NetworkDeviceList(), OutputMaps.NetworkDevice);
         }
     }
 
@@ -110,7 +110,14 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, NetworkDeviceSettings settings)
         {
             Log($"Getting RF Scan Status on Network Device '{settings.DeviceMacId}'");
-            return await RunWithOutput(settings, u => u.NetworkDeviceRfScanStatus(settings.DeviceMacId));
+            return await RunWithOutput(settings, u => u.NetworkDeviceRfScanStatus(settings.DeviceMacId),
+                (o) =>
+                {
+                    WriteHeader("Spectrum Table 5G");
+                    CreateMultiRowTable(OutputMaps.SpectrumScan, o.spectrum_table_na);
+                    WriteHeader("Spectrum Table 2.4G");
+                    CreateMultiRowTable(OutputMaps.SpectrumScan, o.spectrum_table_ng);
+                });
         }
     }
 

@@ -28,7 +28,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Listing Broadcast Groups");
-            return await RunWithOutput(settings, u => u.BroadcastGroupList());
+            return await RunWithOutputs(settings, u => u.BroadcastGroupList(), OutputMaps.BroadcastGroup);
         }
     }
 
@@ -39,7 +39,7 @@ namespace UniFiSharp.CLI.Commands
             Log($"Creating Broadcast Group '{settings.BroadcastGroupName}'");
             foreach (var m in settings.MacAddresses)
                 Log($"Adding Member '{m}'");
-            return await RunWithOutput(settings, u => u.BroadcastGroupCreate(settings.BroadcastGroupName, settings.MacAddresses));
+            return await RunWithOutput(settings, u => u.BroadcastGroupCreate(settings.BroadcastGroupName, settings.MacAddresses), OutputMaps.BroadcastGroup);
         }
     }
 
@@ -57,7 +57,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, BroadcastGroupSettings settings)
         {
             Log($"Retrieving Broadcast Group '{settings.BroadcastGroupId}'");
-            return await RunWithOutput(settings, u => u.BroadcastGroupGet(settings.BroadcastGroupId));
+            return await RunWithOutput(settings, u => u.BroadcastGroupGet(settings.BroadcastGroupId), OutputMaps.BroadcastGroup);
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Spectre.Console.Cli;
+using Spectre.Console.Cli;
 using UniFiSharp.CLI.Commands;
 
 namespace UniFiSharp.CLI
@@ -10,6 +10,12 @@ namespace UniFiSharp.CLI
             var app = new CommandApp();
             app.Configure(config =>
             {
+#if DEBUG
+                config.ValidateExamples();
+                config.PropagateExceptions();
+#endif
+                config.SetApplicationName("unifi-cli");
+
                 config.AddBranch<UniFiSharpSettings>("broadcast-group", bg =>
                 {
                     bg.AddCommand<BroadcastGroupCreateCommand>("create");

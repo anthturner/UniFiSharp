@@ -17,7 +17,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Listing Hotspot Vouchers");
-            return await RunWithOutput(settings, u => u.HotspotVoucherList());
+            return await RunWithOutputs(settings, u => u.HotspotVoucherList(), OutputMaps.HotspotVouchers);
         }
     }
 

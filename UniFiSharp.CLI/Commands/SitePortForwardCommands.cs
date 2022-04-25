@@ -44,7 +44,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Getting List of Port Forwards");
-            return await RunWithOutput(settings, async u => await u.SitePortForwardsList());
+            return await RunWithOutputs(settings, async u => await u.SitePortForwardsList(), OutputMaps.PortForwards);
         }
     }
 
@@ -68,7 +68,8 @@ namespace UniFiSharp.CLI.Commands
                 settings.Source,
                 settings.Destination,
                 settings.FromPort,
-                settings.ToPort));
+                settings.ToPort),
+                OutputMaps.PortForwards);
         }
     }
 }

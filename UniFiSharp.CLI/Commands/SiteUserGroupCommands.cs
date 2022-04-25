@@ -36,7 +36,8 @@ namespace UniFiSharp.CLI.Commands
             return await RunWithOutput(settings, async u => await u.SiteUserGroupsCreate(
                 settings.Name,
                 settings.QosMaxDown,
-                settings.QosMaxUp));
+                settings.QosMaxUp),
+                OutputMaps.UserGroups);
         }
     }
 
@@ -54,7 +55,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, SiteUserGroupIdSettings settings)
         {
             Log($"Listing User Groups");
-            return await RunWithOutput(settings, async u => await u.SiteUserGroupsList());
+            return await RunWithOutputs(settings, async u => await u.SiteUserGroupsList(), OutputMaps.UserGroups);
         }
     }
 }

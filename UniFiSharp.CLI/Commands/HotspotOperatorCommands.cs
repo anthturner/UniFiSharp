@@ -25,7 +25,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, HotspotOperatorSettings settings)
         {
             Log($"Adding Hotspot Operator '{settings.OperatorName}'");
-            return await RunWithOutput(settings, u => u.HotspotOperatorAdd(settings.OperatorName, settings.OperatorPassword, settings.Note));
+            return await RunWithOutput(settings, u => u.HotspotOperatorAdd(settings.OperatorName, settings.OperatorPassword, settings.Note), OutputMaps.HotspotOperators);
         }
     }
 
@@ -34,7 +34,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Listing Hotspot Operators");
-            return await RunWithOutput(settings, u => u.HotspotOperatorList());
+            return await RunWithOutputs(settings, u => u.HotspotOperatorList(), OutputMaps.HotspotOperators);
         }
     }
 }
