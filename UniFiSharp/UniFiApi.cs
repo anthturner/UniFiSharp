@@ -97,7 +97,7 @@ namespace UniFiSharp
         /// Retrieve a list of sites managed by this controller
         /// </summary>
         /// <returns>A list of JSON objects describing sites managed by this controller</returns>
-        public async Task<IList<JsonSite>> ControllerSiteList()
+        public async Task<IEnumerable<JsonSite>> ControllerSiteList()
         {
             return await RestClient.UniFiGetMany<JsonSite>("api/self/sites");
         }

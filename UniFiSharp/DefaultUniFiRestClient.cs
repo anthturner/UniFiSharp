@@ -28,7 +28,7 @@ namespace UniFiSharp
 
         #nullable enable
         internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, bool ignoreSslValidation,
-            bool useModernApi, Encoding? encoding = null, int timeout = 1000) : base(new RestClientOptions()
+            bool useModernApi, Encoding? encoding = null, int timeout = 5000) : base(new RestClientOptions()
             {                
                 BaseUrl = baseUrl,                
                 RemoteCertificateValidationCallback = ignoreSslValidation ? (sender, certificate, chain, sslPolicyErrors) => true : default(System.Net.Security.RemoteCertificateValidationCallback?),                
