@@ -50,9 +50,9 @@ namespace UniFiSharp.CLI.Commands
         }
     }
 
-    public class SiteUserGroupsListCommand : UniFiSharpCommand<SiteUserGroupIdSettings>
+    public class SiteUserGroupsListCommand : UniFiSharpCommand<UniFiSharpSettings>
     {
-        public override async Task<int> ExecuteAsync(CommandContext context, SiteUserGroupIdSettings settings)
+        public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log($"Listing User Groups");
             return await RunWithOutputs(settings, async u => await u.SiteUserGroupsList(), OutputMaps.UserGroups);

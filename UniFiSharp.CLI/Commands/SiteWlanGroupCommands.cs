@@ -59,9 +59,9 @@ namespace UniFiSharp.CLI.Commands
         }
     }
 
-    public class SiteWlanGroupsListCommand : UniFiSharpCommand<SiteWlanGroupIdSettings>
+    public class SiteWlanGroupsListCommand : UniFiSharpCommand<UniFiSharpSettings>
     {
-        public override async Task<int> ExecuteAsync(CommandContext context, SiteWlanGroupIdSettings settings)
+        public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log($"Listing WLAN Groups");
             return await RunWithOutputs(settings, async u => await u.SiteWlanGroupsList(), OutputMaps.WlanGroups);
