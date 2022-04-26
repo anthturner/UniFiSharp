@@ -23,7 +23,23 @@ namespace UniFiSharp.CLI
                 newArgs.Add(settings.Username);
                 newArgs.Add(settings.Password);
                 newArgs.AddRange(args.Skip(1));
-                await Program.App.RunAsync(newArgs.ToArray()); ;
+
+                try
+                {
+                    await Program.App.RunAsync(newArgs.ToArray()); ;
+                }
+                catch (CommandParseException ex)
+                {
+                    Error(ex.Message);
+                }
+                catch (CommandRuntimeException ex)
+                {
+                    Error(ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Error(ex);
+                }
 
                 AnsiConsole.WriteLine();
                 AnsiConsole.Write(new Rule().RuleStyle("blue dim"));

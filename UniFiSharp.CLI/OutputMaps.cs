@@ -86,7 +86,7 @@ namespace UniFiSharp.CLI
             OutputMapping<JsonSystemHealth>.Create("Drops", sh => sh.drops),
             OutputMapping<JsonSystemHealth>.Create("Speed Test Ping", sh => sh.speedtestPing),
             OutputMapping<JsonSystemHealth>.Create("Speed Test Status", sh => sh.speedtestStatus),
-            OutputMapping<JsonSystemHealth>.Create("Nameservers", sh => sh.nameservers),
+            OutputMapping<JsonSystemHealth>.Create("Nameservers", sh => sh.nameservers != null ? string.Join("\n", sh.nameservers) : ""),
             OutputMapping<JsonSystemHealth>.Create("RX Bytes", sh => sh.rxBytesR),
             OutputMapping<JsonSystemHealth>.Create("TX Bytes", sh => sh.txBytesR)
         };
