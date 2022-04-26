@@ -91,6 +91,20 @@ namespace UniFiSharp.CLI
 
         // ---
 
+        internal void CreatePropertyTable<TOutput>(TOutput output)
+        {
+            var tbl = new Table()
+                       .AddColumn("Property")
+                       .AddColumn("Value");
+
+            var properties = output.GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
+            foreach (var property in properties)
+                // todo: get from decorator?
+                tbl.AddRow(property.Name, Markup.Escape($"{property.GetValue(output)}"));
+
+            AnsiConsole.Write(tbl);
+        }
+
         internal void CreateTable<TOutput>(OutputMapping<TOutput>[] properties, TOutput output)
         {
             var tbl = new Table()

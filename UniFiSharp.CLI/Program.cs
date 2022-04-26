@@ -25,11 +25,21 @@ namespace UniFiSharp.CLI
 #endif
                 config.SetApplicationName("unifi-cli");
 
-                config.AddCommand<TopologyCommand>("topology");
-                config.AddCommand<InteractiveModeCommand>("interactive");
+                config.AddCommand<ExploreModeCommand>("explore")
+                      .WithDescription("Allows interactive exploration of the network topology")
+                      .WithExample(new[] { "explore", "https://192.168.1.1", "admin", "password" });
+                config.AddCommand<TopologyCommand>("topology")
+                      .WithDescription("Visualizes the topology of the network including devices and clients")
+                      .WithExample(new[] { "topology", "https://192.168.1.1", "admin", "password" });
+                config.AddCommand<InteractiveModeCommand>("interactive")
+                      .WithDescription("Run CLI tool in interactive mode; allows multiple commands to be run")
+                      .WithExample(new[] { "interactive", "https://192.168.1.1", "admin", "password" });
 
                 config.AddBranch<UniFiSharpSettings>("broadcast-group", bg =>
                 {
+                    bg.SetDescription("Manage Broadcast Groups");
+                    bg.AddExample(new[] { "broadcast-group", "https://192.168.1.1", "admin", "password", "list" });
+
                     bg.AddCommand<BroadcastGroupCreateCommand>("create");
                     bg.AddCommand<BroadcastGroupDeleteCommand>("delete");
                     bg.AddCommand<BroadcastGroupGetCommand>("get");
@@ -38,6 +48,9 @@ namespace UniFiSharp.CLI
 
                 config.AddBranch<UniFiSharpSettings>("client", client =>
                 {
+                    client.SetDescription("Manage Clients");
+                    client.AddExample(new[] { "client", "https://192.168.1.1", "admin", "password", "list" });
+
                     client.AddCommand<ClientBlockCommand>("block");
                     client.AddCommand<ClientUnblockCommand>("unblock");
                     client.AddCommand<ClientForceReconnectCommand>("force-reconnect");
@@ -47,28 +60,44 @@ namespace UniFiSharp.CLI
 
                 config.AddBranch<UniFiSharpSettings>("hotspot", hotspot =>
                 {
+                    hotspot.SetDescription("Manage Hotspot Settings");
                     hotspot.AddBranch("operator", op =>
                     {
+                        op.SetDescription("Manage Hotspot Operators");
+                        op.AddExample(new[] { "hotspot", "https://192.168.1.1", "admin", "password", "operator", "list" });
+
                         op.AddCommand<HotspotOperatorAddCommand>("add");
                         op.AddCommand<HotspotOperatorListCommand>("list");
                     });
                     hotspot.AddBranch("voucher", voucher =>
                     {
+                        voucher.SetDescription("Manage Hotspot Vouchers");
+                        voucher.AddExample(new[] { "hotspot", "https://192.168.1.1", "admin", "password", "voucher", "list" });
+
                         voucher.AddCommand<HotspotVoucherListCommand>("list");
                         voucher.AddCommand<HotspotVoucherDeleteCommand>("delete");
                     });
                     hotspot.AddBranch("payment", payment =>
                     {
+                        payment.SetDescription("Manage Hotspot Payments");
+                        payment.AddExample(new[] { "hotspot", "https://192.168.1.1", "admin", "password", "payment", "list" });
+
                         payment.AddCommand<HotspotPaymentListCommand>("list");
                     });
                     hotspot.AddBranch("guest", guest =>
                     {
+                        guest.SetDescription("Manage Hotspot Guests");
+                        guest.AddExample(new[] { "hotspot", "https://192.168.1.1", "admin", "password", "guest", "list" });
+
                         guest.AddCommand<HotspotGuestListCommand>("list");
                     });
                 });
 
                 config.AddBranch<UniFiSharpSettings>("media", media =>
                 {
+                    media.SetDescription("Manage Media Files");
+                    media.AddExample(new[] { "media", "https://192.168.1.1", "admin", "password", "list" });
+
                     media.AddCommand<MediaFileCreateCommand>("create");
                     media.AddCommand<MediaFileDeleteCommand>("delete");
                     media.AddCommand<MediaFileListCommand>("list");
@@ -77,6 +106,10 @@ namespace UniFiSharp.CLI
 
                 config.AddBranch<UniFiSharpSettings>("device", device =>
                 {
+                    device.SetDescription("Manage UniFi Network Devices");
+                    device.AddExample(new[] { "device", "https://192.168.1.1", "admin", "password", "list" });
+                    device.AddExample(new[] { "device", "https://192.168.1.1", "admin", "password", "restart", "aabbccddeeff" });
+
                     device.AddCommand<NetworkDeviceAdoptCommand>("adopt");
                     device.AddCommand<NetworkDeviceForgetCommand>("forget");
                     device.AddCommand<NetworkDeviceListCommand>("list");
@@ -91,6 +124,9 @@ namespace UniFiSharp.CLI
 
                 config.AddBranch<UniFiSharpSettings>("site", site =>
                 {
+                    site.SetDescription("Manage Site Settings and Information");
+                    site.AddExample(new[] { "site", "https://192.168.1.1", "admin", "password", "list" });
+
                     site.AddCommand<SiteHealthGetCommand>("health");
                     site.AddCommand<SiteLedCommand>("led");
                     site.AddCommand<SiteListCommand>("list");
@@ -98,6 +134,9 @@ namespace UniFiSharp.CLI
 
                     site.AddBranch("port-forward", pf =>
                     {
+                        pf.SetDescription("Manage Port Forwarding");
+                        pf.AddExample(new[] { "site", "https://192.168.1.1", "admin", "password", "port-forward", "list" });
+
                         pf.AddCommand<SitePortForwardsCreateCommand>("create");
                         pf.AddCommand<SitePortForwardsDeleteCommand>("delete");
                         pf.AddCommand<SitePortForwardsListCommand>("list");
@@ -105,6 +144,9 @@ namespace UniFiSharp.CLI
 
                     site.AddBranch("user-group", ug =>
                     {
+                        ug.SetDescription("Manage User Groups");
+                        ug.AddExample(new[] { "site", "https://192.168.1.1", "admin", "password", "user-group", "list" });
+
                         ug.AddCommand<SiteUserGroupsCreateCommand>("create");
                         ug.AddCommand<SiteUserGroupsDeleteCommand>("delete");
                         ug.AddCommand<SiteUserGroupsListCommand>("list");
@@ -112,6 +154,9 @@ namespace UniFiSharp.CLI
 
                     site.AddBranch("wlan-group", wg =>
                     {
+                        wg.SetDescription("Manage WLAN Groups");
+                        wg.AddExample(new[] { "site", "https://192.168.1.1", "admin", "password", "wlan-group", "list" });
+
                         wg.AddCommand<SiteWlanGroupsCreateCommand>("create");
                         wg.AddCommand<SiteWlanGroupsDeleteCommand>("delete");
                         wg.AddCommand<SiteWlanGroupsListCommand>("list");
@@ -120,6 +165,9 @@ namespace UniFiSharp.CLI
 
                 config.AddBranch<UniFiSharpSettings>("user", user =>
                 {
+                    user.SetDescription("Manage Site Users");
+                    user.AddExample(new[] { "user", "https://192.168.1.1", "admin", "password", "list" });
+
                     user.AddCommand<UserGetCommand>("get");
                     user.AddCommand<UserListCommand>("list");
                 });
