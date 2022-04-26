@@ -40,7 +40,13 @@ namespace UniFiSharp.CLI
             {
                 try
                 {
-                    await a();
+                    if (!Program.Quiet)
+                    {
+                        await AnsiConsole.Status()
+                            .Spinner(Spinner.Known.Aesthetic)
+                            .StartAsync("Executing", async (c) => await a());
+                    }
+                    else await a();
                     return 0;
                 }
                 catch (Exception ex)
@@ -113,17 +119,20 @@ namespace UniFiSharp.CLI
 
         internal void Log(string msg)
         {
-            AnsiConsole.WriteLine("[*] " + msg);
+            if (!Program.Quiet)
+                AnsiConsole.MarkupLine($"[blue][[*]][/]  {msg}");
         }
 
         internal void Warn(string msg)
         {
-            AnsiConsole.WriteLine("[?] " + msg);
+            if (!Program.Quiet)
+                AnsiConsole.MarkupLine($"[yellow][[?]][/]  {msg}");
         }
 
         internal void Error(string msg)
         {
-            AnsiConsole.WriteLine("[!] " + msg);
+            if (!Program.Quiet)
+                AnsiConsole.MarkupLine($"[red][[!]][/]  {msg}");
         }
 
         internal void Error(Exception ex)

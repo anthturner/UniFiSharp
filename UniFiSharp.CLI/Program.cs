@@ -1,3 +1,4 @@
+using Spectre.Console;
 using Spectre.Console.Cli;
 using UniFiSharp.CLI.Commands;
 
@@ -5,16 +6,27 @@ namespace UniFiSharp.CLI
 {
     internal class Program
     {
+        internal static bool Quiet { get; private set; } = false;
+        internal static CommandApp App { get; private set; }
         static void Main(string[] args)
         {
-            var app = new CommandApp();
-            app.Configure(config =>
+            Console.WriteLine();
+
+            if (!args.Any(a => a == "-q" || a == "--quiet"))
+                DrawUniFiSharpLogo();
+            else Quiet = true;
+
+            App = new CommandApp();
+            App.Configure(config =>
             {
 #if DEBUG
                 config.ValidateExamples();
                 config.PropagateExceptions();
 #endif
                 config.SetApplicationName("unifi-cli");
+
+                config.AddCommand<TopologyCommand>("topology");
+                config.AddCommand<InteractiveModeCommand>("interactive");
 
                 config.AddBranch<UniFiSharpSettings>("broadcast-group", bg =>
                 {
@@ -112,7 +124,28 @@ namespace UniFiSharp.CLI
                     user.AddCommand<UserListCommand>("list");
                 });
             });
-            app.Run(args);
+
+            App.Run(args);
+            Console.WriteLine();
+        }
+
+        private static void DrawUniFiSharpLogo()
+        {
+            var c1 = "[blue]";
+            var c2 = "[#666666]";
+            var c3 = "[#333333]";
+            var e = "[/]";
+            var l = "[underline cyan]";
+
+            AnsiConsole.Write(new Rule().RuleStyle("blue dim"));
+            AnsiConsole.MarkupLine($"{c1} __ {e}{c3}   __ {e}{c1}  __ __{e}");
+            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  |{e}{c1}_/ // /_{e}");
+            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  {e}{c1}/_  _  __/{e}\t{c1}UniFi Command Line Tool{e} {c2}v1.0.0{e}");
+            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  | {e}{c1}/_  _  __/{e}\t{l}https://github.com/anthturner/UniFiSharp{e}");
+            AnsiConsole.MarkupLine($"{c1}|  \\{e}{c2}--{e}{c3}^-`{e}{c1}/_//_/{e}");
+            AnsiConsole.MarkupLine($"{c1} \\__\\{e}{c2}___/ {e}");
+            AnsiConsole.Write(new Rule().RuleStyle("blue dim"));
+            AnsiConsole.MarkupLine("");
         }
     }
 }

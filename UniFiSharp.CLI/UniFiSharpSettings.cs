@@ -29,6 +29,10 @@ public class UniFiSharpSettings : CommandSettings
     [Description("If true, the commands will not be executed")]
     public bool DryRun { get; set; }
 
+    [CommandOption("-q|--quiet")]
+    [Description("Suppress all extraneous output (for use in scripts)")]
+    public bool Quiet { get; set; }
+
     public UniFiApi GetUniFiSharp() =>
         new UniFiApi(
             new Uri(Uri),
