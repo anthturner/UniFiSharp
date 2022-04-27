@@ -175,7 +175,8 @@ namespace UniFiSharp.CLI
                 foreach (var item in dev.Clients)
                 {
                     var path = Orchestrator.GeneratePathTo(item).Reverse().Last();
-                    AnsiConsole.MarkupLine("[green]Port " + path.Item2 + "[/]\t" + GetDeviceMarkup(item));
+                    if (path.Item2 == 0) AnsiConsole.MarkupLine("[green]WiFi[/]\t" + GetDeviceMarkup(item));
+                    else AnsiConsole.MarkupLine("[green]Port " + path.Item2 + "[/]\t" + GetDeviceMarkup(item));
                 }
             }
         }
