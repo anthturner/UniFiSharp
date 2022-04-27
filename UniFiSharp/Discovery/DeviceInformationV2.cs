@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace UniFiSharp.Discovery
 {
+    /// <summary>
+    /// Provides information about a discovered UniFi-based device, using the V2 (modern) device information format
+    /// </summary>
     public class DeviceInformationV2 : DeviceInformation
     {
         // Message Constants
@@ -30,15 +33,43 @@ namespace UniFiSharp.Discovery
         PKT_V2_SSHD_PORT = 0x1C;
 
         public byte DiscoveredBy { get; private set; }
+
+        /// <summary>
+        /// Amount of time the device has been powered on
+        /// </summary>
         public TimeSpan Uptime { get; private set; }
         public int Seq { get; private set; }
         public string SourceMac { get; private set; }
         public string ReqFirmwareVersion { get; private set; }
+
+        /// <summary>
+        /// SSH service port
+        /// </summary>
         public int SshdPort { get; private set; }
+
+        /// <summary>
+        /// Short format of the version
+        /// </summary>
         public string ShortVer { get; private set; }
+
+        /// <summary>
+        /// If <c>TRUE</c>, the device is using its default settings
+        /// </summary>
         public bool IsDefault { get; private set; }
+
+        /// <summary>
+        /// If <c>TRUE</c>, the device is in locating mode; its light will be blinking
+        /// </summary>
         public bool IsLocating { get; private set; }
+
+        /// <summary>
+        /// If <c>TRUE</c>, the device received its IP address through a DHCP request
+        /// </summary>
         public bool IsDhcpClient { get; private set; }
+
+        /// <summary>
+        /// If <c>TRUE</c>, the device's DHCP client is bound to a server
+        /// </summary>
         public bool IsDhcpClientBound { get; private set; }
 
         internal static async Task<DeviceInformationV2> Parse(IPEndPoint info, byte cmd, byte[] data)

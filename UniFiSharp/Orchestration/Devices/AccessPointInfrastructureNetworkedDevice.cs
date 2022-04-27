@@ -63,7 +63,14 @@ namespace UniFiSharp.Orchestration.Devices
 
         public class AccessPointEssid
         {
+            /// <summary>
+            /// MAC Address of the Access Point
+            /// </summary>
             public string ApMac => Json.ap_mac;
+
+            /// <summary>
+            /// BSSID for this Access Point's ESSID
+            /// </summary>
             public string Bssid => Json.bssid;
             public int CCQ => Json.ccq;
             public int Channel => Json.channel;
@@ -75,21 +82,76 @@ namespace UniFiSharp.Orchestration.Devices
             public int ClientCount => Json.num_sta;
             public string RadioType => Json.radio;
 
+            /// <summary>
+            /// Received bytes
+            /// </summary>
             public long RxBytes => Json.rx_bytes;
+
+            /// <summary>
+            /// Received packets which were encrypted and had errors
+            /// </summary>
             public long RxCrypts => Json.rx_crypts;
+
+            /// <summary>
+            /// Received packets which were dropped
+            /// </summary>
             public long RxDropped => Json.rx_dropped;
+
+            /// <summary>
+            /// Received packets which were errors
+            /// </summary>
             public long RxErrors => Json.rx_errors;
+
+            /// <summary>
+            /// Received fragments
+            /// </summary>
             public long RxFrags => Json.rx_frags;
+
+            /// <summary>
+            /// Received network IDs
+            /// </summary>
             public long RxNwIds => Json.rx_nwids;
+
+            /// <summary>
+            /// Received packets
+            /// </summary>
             public long RxPackets => Json.rx_packets;
 
+            // ---
+
+            /// <summary>
+            /// Transmitted bytes
+            /// </summary>
             public long TxBytes => Json.tx_bytes;
+
+            /// <summary>
+            /// Transmitted packets which were dropped
+            /// </summary>
             public long TxDropped => Json.tx_dropped;
+
+            /// <summary>
+            /// Transmitted packets which were errors
+            /// </summary>
             public long TxErrors => Json.tx_errors;
+
+            /// <summary>
+            /// Transmitted packges
+            /// </summary>
             public long TxPackets => Json.tx_packets;
+
+            /// <summary>
+            /// Transmit power for this ESSID
+            /// </summary>
             public int TxPower => Json.tx_power;
+
+            /// <summary>
+            /// Number of transmit retries
+            /// </summary>
             public long TxRetries => Json.tx_retries;
 
+            /// <summary>
+            /// If the ESSID is currently active
+            /// </summary>
             public bool IsUp => Json.up;
 
             public string UsageMode => Json.usage;

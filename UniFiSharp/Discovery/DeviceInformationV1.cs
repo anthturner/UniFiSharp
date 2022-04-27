@@ -4,6 +4,9 @@ using System.Text;
 
 namespace UniFiSharp.Discovery
 {
+    /// <summary>
+    /// Provides information about a discovered UniFi-based device, using the V1 device information format
+    /// </summary>
     public class DeviceInformationV1 : DeviceInformation
     {
         // Message Constants
@@ -22,11 +25,18 @@ namespace UniFiSharp.Discovery
         PKT_V1_WMODE = 0x0E,
         PKT_V1_WEBUI = 0x0F;
 
+        /// <summary>
+        /// Web interface port
+        /// </summary>
         public int WebPort { get; private set; }
+
+        /// <summary>
+        /// If <c>TRUE</c>, the web interface uses HTTPS to communicate
+        /// </summary>
         public bool IsHttps { get; private set; }
 
         /// <summary>
-        /// UniFi Video-specific flag
+        /// UniFi Video-specific flag indicating if the device has completed setup
         /// </summary>
         public bool IsSetup { get; private set; }
 
