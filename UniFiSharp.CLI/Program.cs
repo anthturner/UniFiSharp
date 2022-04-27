@@ -182,16 +182,18 @@ namespace UniFiSharp.CLI
             var c1 = "[blue]";
             var c2 = "[#666666]";
             var c3 = "[#333333]";
+            var v = "[green]";
             var e = "[/]";
             var l = "[underline cyan]";
 
             AnsiConsole.Write(new Rule().RuleStyle("blue dim"));
             AnsiConsole.MarkupLine($"{c1} __ {e}{c3}   __ {e}{c1}  __ __{e}");
-            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  |{e}{c1}_/ // /_{e}");
-            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  {e}{c1}/_  _  __/{e}\t{c1}UniFi Command Line Tool{e} {c2}v1.0.0{e}");
-            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  | {e}{c1}/_  _  __/{e}\t{l}https://github.com/anthturner/UniFiSharp{e}");
-            AnsiConsole.MarkupLine($"{c1}|  \\{e}{c2}--{e}{c3}^-`{e}{c1}/_//_/{e}");
-            AnsiConsole.MarkupLine($"{c1} \\__\\{e}{c2}___/ {e}");
+            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  |{e}{c1}_/ // /_{e}\t{c1}UniFi Command Line Tool{e} {v}v1.0.0{e}");
+            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  {e}{c1}/_  _  __/{e}\t{l}https://github.com/anthturner/UniFiSharp{e}");
+            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  | {e}{c1}/_  _  __/{e}");
+            AnsiConsole.MarkupLine($"{c1}|  \\{e}{c2}--{e}{c3}^-`{e}{c1}/_//_/{e}\t\t{c2}This tool is not supported or affiliated{e}");
+            AnsiConsole.MarkupLine($"{c1} \\__\\{e}{c2}___/ {e}\t\t{c2}with Ubiquiti Networks in any way.{e}");
+            AnsiConsole.MarkupLine("");
             AnsiConsole.Write(new Rule().RuleStyle("blue dim"));
             AnsiConsole.MarkupLine("");
         }

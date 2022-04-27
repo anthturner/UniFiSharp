@@ -101,6 +101,7 @@ namespace UniFiSharp.Orchestration.Devices
         public string Version => Json.version;
 
         public List<IClientNetworkedDevice> Clients { get; internal set; }
+        public List<IClientNetworkedDevice> ClientsRecursive => GetAllClientsRecursively(this, new List<IClientNetworkedDevice>());
         public List<IInfrastructureNetworkedDevice> InfrastructureDevices { get; internal set; }
 
         public bool? HasSpeaker => Json.has_speaker;
@@ -135,6 +136,14 @@ namespace UniFiSharp.Orchestration.Devices
         public async Task Forget()
         {
             await API.NetworkDeviceForget(MacAddress);
+        }
+
+        private List<IClientNetworkedDevice> GetAllClientsRecursively(IInfrastructureNetworkedDevice device, List<IClientNetworkedDevice> clients)
+        {
+            clients.AddRange(device.Clients);
+            foreach (var child in device.InfrastructureDevices)
+                GetAllClientsRecursively(child, clients);
+            return clients;
         }
 
         public static IInfrastructureNetworkedDevice CreateFromJson(UniFiApi api, JsonNetworkDevice device)

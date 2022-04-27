@@ -72,11 +72,28 @@ namespace UniFiSharp.CLI
                     case "cd": ChangeDeviceCommand(args); break;
                     case "ls": ListDevicesCommand(); break;
                     case "info": CreatePropertyTable(CurrentDevice); break;
+                    case "clear": AnsiConsole.Clear(); break;
 
                     case "locate": RunOnInfra(i => i.Locate()); break;
                     case "adopt": RunOnInfra(i => i.Adopt()); break;
                     case "forget": RunOnInfra(i => i.Forget()); break;
                     case "set-name": RunOnInfra(i => i.SetName(args[1])); break;
+                    case "activity": 
+                        await ShowClientChart<IClientNetworkedDevice>(
+                        "[green bold underline]Client Activity (KBps)[/] - Refreshes every 5s - Press <ESC> to stop",
+                        n => n.Name,
+                        v => (int)Math.Floor(v.ActivityKbps),
+                        g => g > 1); break;
+                    case "rssi":
+                        await ShowClientChart<WirelessClientNetworkedDevice>(
+                        "[cyan bold underline]Wi-Fi Client RSSI[/] - Refreshes every 5s - Press <ESC> to stop",
+                        n => n.Name,
+                        v => v.Rssi); break;
+                    case "signal":
+                        await ShowClientChart<WirelessClientNetworkedDevice>(
+                        "[cyan bold underline]Wi-Fi Client Signal[/] - Refreshes every 5s - Press <ESC> to stop",
+                        n => n.Name,
+                        v => 100 - Math.Abs(v.Signal)); break;
 
                     case "force-reconnect": RunOnClient(c => c.ForceReconnect()); break;
 
@@ -86,12 +103,16 @@ namespace UniFiSharp.CLI
                         AnsiConsole.MarkupLine("[green]cd[/]\t\tChanges to a device or client");
                         AnsiConsole.MarkupLine("[green]ls[/]\t\tLists child devices and clients on this device");
                         AnsiConsole.MarkupLine("[green]info[/]\t\tDump all information on this device");
+                        AnsiConsole.MarkupLine("[green]clear[/]\t\tClear window");
 
                         AnsiConsole.Write(new Rule("[purple]Device Management[/]"));
                         AnsiConsole.MarkupLine("[green]locate[/]\t\tBlink the device locator light for 10 seconds");
                         AnsiConsole.MarkupLine("[green]adopt[/]\t\tAdopt this device");
                         AnsiConsole.MarkupLine("[green]forget[/]\t\tForget this device");
                         AnsiConsole.MarkupLine("[green]set-name[/]\tSet this device's name");
+                        AnsiConsole.MarkupLine("[green]activity[/]\tShow activity of all clients on this device and children");
+                        AnsiConsole.MarkupLine("[green]rssi[/]\t\tShow RSSI of all wireless clients on this device and children");
+                        AnsiConsole.MarkupLine("[green]signal[/]\t\tShow signal strength of all wireless clients on this device and children");
 
                         AnsiConsole.Write(new Rule("[cyan]Client Management[/]"));
                         AnsiConsole.MarkupLine("[green]force-reconnect[/]\tForce a device to reconnect");
@@ -121,6 +142,24 @@ namespace UniFiSharp.CLI
                 func((IInfrastructureNetworkedDevice)CurrentDevice).Wait();
             else
                 Warn("Clients cannot run this command");
+        }
+
+        private async Task ShowClientChart<TDevice>(string title, Func<TDevice, string> nameFunc, Func<TDevice, int> valueFunc, Func<int, bool> valueGateFunc = null, int refreshTime = 5000)
+            where TDevice : IClientNetworkedDevice
+        {
+            if (valueGateFunc == null) valueGateFunc = (i) => true;
+            if (CurrentDevice is IInfrastructureNetworkedDevice)
+            {
+                var thisDeviceMacAddress = ((IInfrastructureNetworkedDevice)CurrentDevice).MacAddress;
+                await ConsoleDrawHelper.ShowDynamicBarChart(title, nameFunc, valueFunc, valueGateFunc, refreshTime, async () =>
+                {
+                    await Orchestrator.Refresh();
+                    return Orchestrator.InfrastructureDevices
+                                       .First(d => d.MacAddress == thisDeviceMacAddress)
+                                       .ClientsRecursive
+                                       .OfType<TDevice>();
+                });
+            }
         }
 
         private void ListDevicesCommand()
