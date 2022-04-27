@@ -19,24 +19,15 @@ using (var api = new UniFiSharp.UniFiApi(new Uri("https://controller:8443"), "us
 {
     // Manually calling .Authenticate() forces the API to proactively authenticate.
     // Otherwise, the request will be automatically authenticated upon receiving an unauthorized error.
-	await api.Authenticate();
+    await api.Authenticate();
 
-	// ... for example, enumerate all UniFi devices known by the controller:
+    // ... for example, enumerate all UniFi devices known by the controller:
     IEnumerable<UniFiSharp.Json.JsonNetworkDevice> uniFiDevices = await api.NetworkDeviceList();
 
-	// ... or to upgrade the firmware on a device:
-	await api.NetworkDeviceUpgrade("01:23:45:67:89:AB");
+    // ... or to upgrade the firmware on a device:
+    await api.NetworkDeviceUpgrade("01:23:45:67:89:AB");
 }
 ```
-
-### UBNT Cloud
-The `UniFiApi` class can also be used with UBNT Cloud-hosted services by changing the base URI to match the UBNT Cloud format:
-
-```csharp
-var api = new UniFiSharp.UniFiApi(new Uri("https://demo.ubnt.com/"), "username", "password")
-```
-
-*Note: At the time of this writing, Ubiquiti's cloud will accept the above demo credentials and allow the user to work in a sandboxed, artificial environment. This demo setup includes approximately 130 UniFi devices and 1200 clients.*
 
 ### Orchestration Usage
 In order to make this system more developer-friendly, it also ships with an orchestration overlay that wraps the `UniFiApi` object and associates common information to their devices, as well as attempting to converge a basic topology based on the device objects:
