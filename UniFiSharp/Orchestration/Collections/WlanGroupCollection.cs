@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniFiSharp.Orchestration.Models;
+using UniFiSharp.Json;
 
 namespace UniFiSharp.Orchestration.Collections
 {
     /// <summary>
     /// Represents a collection of WLAN groups for this UniFi network
     /// </summary>
-    public class WlanGroupCollection : RemotedDataCollection<WlanGroup>, IMutableRemotedDataCollection<WlanGroup>
+    public class WlanGroupCollection : RemotedDataCollection<JsonWlanGroup>, IMutableRemotedDataCollection<JsonWlanGroup>
     {
         internal WlanGroupCollection(UniFiApi api) : base(api) { }
 
@@ -17,9 +17,9 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="item">New WLAN group to create on UniFi controller</param>
         /// <returns></returns>
-        public async Task Add(WlanGroup item)
+        public async Task Add(JsonWlanGroup item)
         {
-            await API.SiteWlanGroupsCreate(item.Name, item.RoamRadio, item.RoamChannelNA, item.RoamChannelNG, item.PmfMode != "disabled");
+            await API.SiteWlanGroupsCreate(item.name, item.roam_radio, item.roam_channel_na.GetValueOrDefault(0), item.roam_channel_ng.GetValueOrDefault(0), item.pmf_mode != "disabled");
             await Refresh();
         }
 
@@ -31,7 +31,7 @@ namespace UniFiSharp.Orchestration.Collections
         {
             var tasks = new List<Task>();
             foreach (var item in CachedCollection)
-                tasks.Add(API.SiteWlanGroupsDelete(item.WlanGroupId));
+                tasks.Add(API.SiteWlanGroupsDelete(item._id));
             await Task.WhenAll(tasks);
             await Refresh();
         }
@@ -41,9 +41,9 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="id">WLAN Group ID</param>
         /// <returns>WLAN group or <c>NULL</c></returns>
-        public WlanGroup GetById(string id)
+        public JsonWlanGroup GetById(string id)
         {
-            return CachedCollection.FirstOrDefault(g => g.WlanGroupId.Equals(id));
+            return CachedCollection.FirstOrDefault(g => g._id.Equals(id));
         }
 
         /// <summary>
@@ -52,8 +52,7 @@ namespace UniFiSharp.Orchestration.Collections
         /// <returns></returns>
         public override async Task Refresh()
         {
-            CachedCollection = (await API.SiteWlanGroupsList())
-                .Select(c => WlanGroup.CreateFromJson(c)).ToList();
+            CachedCollection = (await API.SiteWlanGroupsList()).ToList();
         }
 
         /// <summary>
@@ -61,12 +60,12 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="item">WLAN group to remove</param>
         /// <returns><c>TRUE</c> if there was an item to remove, otherwise <c>FALSE</c></returns>
-        public async Task<bool> Remove(WlanGroup item)
+        public async Task<bool> Remove(JsonWlanGroup item)
         {
             if (!CachedCollection.Contains(item))
                 return false;
 
-            await API.SiteWlanGroupsDelete(item.WlanGroupId);
+            await API.SiteWlanGroupsDelete(item._id);
             await Refresh();
             return true;
         }
