@@ -32,22 +32,22 @@ namespace UniFiSharp.CLI.Commands
             {
                 var infra = (IInfrastructureNetworkedDevice)dev;
                 if (infra is AccessPointInfrastructureNetworkedDevice)
-                    markup = $"[blue]{dev.Name}[/] ({infra.MacAddress})";
+                    markup = $"[blue]{infra.NameOrMac}[/] ({infra.mac})";
                 else if (infra is SwitchInfrastructureNetworkedDevice)
-                    markup = $"[green]{dev.Name}[/] ({infra.MacAddress})";
+                    markup = $"[green]{infra.NameOrMac}[/] ({infra.mac})";
                 else if (infra is RouterInfrastructureNetworkedDevice)
-                    markup = $"[yellow]{dev.Name}[/] ({infra.MacAddress})";
+                    markup = $"[yellow]{infra.NameOrMac}[/] ({infra.mac})";
             }
             else if (dev is IClientNetworkedDevice)
             {
                 var client = (IClientNetworkedDevice)dev;
-                if (client.IsGuest)
-                    markup = $"[fuschia]{client.Name}[/] ({client.IpAddress})";
+                if (client.is_guest)
+                    markup = $"[fuschia]{client.NameOrMac}[/] ({client.ip})";
                 else
-                    markup = $"[purple]{client.Name}[/] ({client.IpAddress})";
+                    markup = $"[purple]{client.NameOrMac}[/] ({client.ip})";
             }
             else
-                markup = dev.Name;
+                markup = "?";
 
             return markup;
         }

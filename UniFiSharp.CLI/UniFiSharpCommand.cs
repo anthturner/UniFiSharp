@@ -1,5 +1,7 @@
 ﻿using Spectre.Console;
 using Spectre.Console.Cli;
+using System.ComponentModel;
+using System.Reflection;
 using System.Text.Json;
 
 namespace UniFiSharp.CLI
@@ -99,8 +101,13 @@ namespace UniFiSharp.CLI
 
             var properties = output.GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
             foreach (var property in properties)
-                // todo: get from decorator?
-                tbl.AddRow(property.Name, Markup.Escape($"{property.GetValue(output)}"));
+            {
+                var displayName = property.GetCustomAttribute<DisplayNameAttribute>();
+                if (displayName == null)
+                    tbl.AddRow(property.Name, Markup.Escape($"{property.GetValue(output)}"));
+                else
+                    tbl.AddRow(displayName.DisplayName, Markup.Escape($"{property.GetValue(output)}"));
+            }
 
             AnsiConsole.Write(tbl);
         }

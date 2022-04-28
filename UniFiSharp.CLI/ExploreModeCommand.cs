@@ -81,19 +81,19 @@ namespace UniFiSharp.CLI
                     case "activity": 
                         await ShowClientChart<IClientNetworkedDevice>(
                         "[green bold underline]Client Activity (KBps)[/] - Refreshes every 5s - Press <ESC> to stop",
-                        n => n.Name,
+                        n => n.NameOrMac,
                         v => (int)Math.Floor(v.ActivityKbps),
                         g => g > 1); break;
                     case "rssi":
                         await ShowClientChart<WirelessClientNetworkedDevice>(
                         "[cyan bold underline]Wi-Fi Client RSSI[/] - Refreshes every 5s - Press <ESC> to stop",
-                        n => n.Name,
-                        v => v.Rssi); break;
+                        n => n.NameOrMac,
+                        v => v.rssi); break;
                     case "signal":
                         await ShowClientChart<WirelessClientNetworkedDevice>(
                         "[cyan bold underline]Wi-Fi Client Signal[/] - Refreshes every 5s - Press <ESC> to stop",
-                        n => n.Name,
-                        v => 100 - Math.Abs(v.Signal)); break;
+                        n => n.NameOrMac,
+                        v => 100 - Math.Abs(v.signal)); break;
 
                     case "force-reconnect": RunOnClient(c => c.ForceReconnect()); break;
 
@@ -150,12 +150,12 @@ namespace UniFiSharp.CLI
             if (valueGateFunc == null) valueGateFunc = (i) => true;
             if (CurrentDevice is IInfrastructureNetworkedDevice)
             {
-                var thisDeviceMacAddress = ((IInfrastructureNetworkedDevice)CurrentDevice).MacAddress;
+                var thisDeviceMacAddress = ((IInfrastructureNetworkedDevice)CurrentDevice).mac;
                 await ConsoleDrawHelper.ShowDynamicBarChart(title, nameFunc, valueFunc, valueGateFunc, refreshTime, async () =>
                 {
                     await Orchestrator.Refresh();
                     return Orchestrator.InfrastructureDevices
-                                       .First(d => d.MacAddress == thisDeviceMacAddress)
+                                       .First(d => d.mac == thisDeviceMacAddress)
                                        .ClientsRecursive
                                        .OfType<TDevice>();
                 });
@@ -193,12 +193,12 @@ namespace UniFiSharp.CLI
                               .AddChoices(dev.InfrastructureDevices.Select(d =>
                               {
                                   var path = Orchestrator.GeneratePathTo(d).Reverse().Last();
-                                  return NamedSelectionElement.Create("[green]Port " + path.Item2 + "[/]\t[blue]" + d.Name + "[/]", d);
+                                  return NamedSelectionElement.Create("[green]Port " + path.Item2 + "[/]\t[blue]" + d.NameOrMac + "[/]", d);
                               }))
                               .AddChoices(dev.Clients.Select(c =>
                               {
                                   var path = Orchestrator.GeneratePathTo(c).Reverse().Last();
-                                  return NamedSelectionElement.Create("[green]Port " + path.Item2 + "[/]\t[purple]" + c.Name + "[/]", c);
+                                  return NamedSelectionElement.Create("[green]Port " + path.Item2 + "[/]\t[purple]" + c.NameOrMac + "[/]", c);
                               })));
                     if (result != null)
                     {
@@ -216,9 +216,9 @@ namespace UniFiSharp.CLI
                 if (CurrentDevice is IInfrastructureNetworkedDevice)
                 {
                     var dev = (IInfrastructureNetworkedDevice)CurrentDevice;
-                    INetworkedDevice? target = dev.InfrastructureDevices.FirstOrDefault(d => d.Name == args[1] || d.MacAddress.EndsWith(args[1]));
+                    INetworkedDevice? target = dev.InfrastructureDevices.FirstOrDefault(d => d.name == args[1] || d.mac.EndsWith(args[1]));
                     if (target == null)
-                        target = dev.Clients.FirstOrDefault(d => d.Name == args[1] || d.MacAddress.EndsWith(args[1]) || d.IpAddress == args[1]);
+                        target = dev.Clients.FirstOrDefault(d => d.name == args[1] || d.mac.EndsWith(args[1]) || d.ip == args[1]);
 
                     if (target == null)
                         Error("Device not found");
@@ -253,24 +253,24 @@ namespace UniFiSharp.CLI
             if (device is IInfrastructureNetworkedDevice)
             {
                 var infra = (IInfrastructureNetworkedDevice)device;
-                var mac = infra.MacAddress.Substring(infra.MacAddress.Length-5);
+                var mac = infra.mac.Substring(infra.mac.Length-5);
                 if (infra is AccessPointInfrastructureNetworkedDevice)
-                    markup = $"[blue]{infra.Name}[/] ({mac})";
+                    markup = $"[blue]{infra.NameOrMac}[/] ({mac})";
                 else if (infra is SwitchInfrastructureNetworkedDevice)
-                    markup = $"[green]{infra.Name}[/] ({mac})";
+                    markup = $"[green]{infra.NameOrMac}[/] ({mac})";
                 else if (infra is RouterInfrastructureNetworkedDevice)
-                    markup = $"[yellow]{infra.Name}[/] ({mac})";
+                    markup = $"[yellow]{infra.NameOrMac}[/] ({mac})";
             }
             else if (device is IClientNetworkedDevice)
             {
                 var client = (IClientNetworkedDevice)device;
-                if (client.IsGuest)
-                    markup = $"[fuschia]{client.Name}[/] ({client.IpAddress})";
+                if (client.is_guest)
+                    markup = $"[fuschia]{client.NameOrMac}[/] ({client.ip})";
                 else
-                    markup = $"[purple]{client.Name}[/] ({client.IpAddress})";
+                    markup = $"[purple]{client.NameOrMac}[/] ({client.ip})";
             }
             else
-                markup = device.Name;
+                markup = "?";
 
             return markup;
         }

@@ -178,7 +178,7 @@ namespace UniFiSharp.Orchestration
             }
 
             var rootCandidates = InfrastructureDevices.Where(d => 
-                (d.Uplink == null || string.IsNullOrEmpty(d.Uplink.UplinkMac)) &&
+                (d.uplink == null || string.IsNullOrEmpty(d.uplink.uplink_mac)) &&
                 d.StateEnum != IInfrastructureNetworkedDevice.NetworkDeviceState.Disconnected).ToList();
             if (rootCandidates.Count == 1)
                 TopologicalRoot = rootCandidates[0];

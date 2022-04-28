@@ -174,5 +174,13 @@ namespace UniFiSharp.Orchestration.Devices
                     return device.CloneAs<UnknownInfrastructureNetworkedDevice>(d => d.API = api);
             }
         }
+
+        private List<IClientNetworkedDevice> GetAllClientsRecursively(IInfrastructureNetworkedDevice device, List<IClientNetworkedDevice> clients)
+        {
+            clients.AddRange(device.Clients);
+            foreach (var child in device.InfrastructureDevices)
+                GetAllClientsRecursively(child, clients);
+            return clients;
+        }
     }
 }
