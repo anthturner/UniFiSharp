@@ -3,15 +3,46 @@ using System.Threading.Tasks;
 
 namespace UniFiSharp.Discovery
 {
+    /// <summary>
+    /// Provides information about a discovered UniFi-based device
+    /// </summary>
     public abstract class DeviceInformation
     {
+        /// <summary>
+        /// Firmware version running on the device
+        /// </summary>
         public string Firmware { get; protected set; }
+
+        /// <summary>
+        /// Hostname of the device
+        /// </summary>
         public string Hostname { get; protected set; }
+
+        /// <summary>
+        /// Platform for the device
+        /// </summary>
         public string Platform { get; protected set; }
+
+        /// <summary>
+        /// IP Address assigned to the device
+        /// </summary>
         public string IPAddress { get; protected set; }
+
+        /// <summary>
+        /// MAC (Hardware) Address to identify the device
+        /// </summary>
         public string MacAddress { get; protected set; }
+
+        /// <summary>
+        /// ESSID which the device is broadcasting
+        /// </summary>
         public string ESSID { get; protected set; }
+
+        /// <summary>
+        /// Model information for the device
+        /// </summary>
         public string Model { get; protected set; }
+
         public int WMode { get; protected set; }
 
         internal DeviceInformation()
@@ -30,6 +61,12 @@ namespace UniFiSharp.Discovery
             return this.MacAddress.GetHashCode();
         }
 
+        /// <summary>
+        /// Parse a reply packet from a discovery request into either a V1 or V2 information payload
+        /// </summary>
+        /// <param name="endpoint">IP Endpoint of device</param>
+        /// <param name="packet">Packet bytes</param>
+        /// <returns>Device information payload</returns>
         public static async Task<DeviceInformation> Parse(IPEndPoint endpoint, byte[] packet)
         {
             var version = packet[0];

@@ -4,47 +4,51 @@ using UniFiSharp.Json;
 
 namespace UniFiSharp.Orchestration.Devices
 {
-    public abstract class IClientNetworkedDevice : INetworkedDevice
+    public abstract class IClientNetworkedDevice : JsonClient, INetworkedDevice
     {
-        public override string Id => Json._id;
-        public override string Name => string.IsNullOrEmpty(Json.name) ? string.IsNullOrEmpty(Json.hostname) ? Json.mac : Json.hostname : Json.name;
-        public string UserId => Json.user_id;
-        public DateTime FirstSeen => new DateTime(1970, 1, 1).AddSeconds(Json.first_seen);
-        public DateTime LastSeen => new DateTime(1970, 1, 1).AddSeconds(Json.last_seen);
-        public bool IsGuest => Json.is_guest;
-        public bool IsAuthorized => Json.authorized;
-        public string Hostname => Json.hostname;
-        public bool UseFixedIpAddress => Json.use_fixedip.GetValueOrDefault(false);
-        public string FixedIpAddress => Json.fixed_ip;
-        public string IpAddress => Json.ip;
-        public long IdleTime => Json.idletime;
-        public string MacAddress => Json.mac;
-        public string Network => Json.network;
-        public string NetworkId => Json.network_id;
-        public string OUI => Json.oui;
-        public bool PowersaveEnabled => Json.powersave_enabled;
-        public bool QosPolicyApplied => Json.qos_policy_applied;
-        public double ActivityKbps => (Json.bytes_r * 8) / 1024.0d;
-        public TimeSpan Uptime => TimeSpan.FromSeconds(Json.uptime);
+        /// <summary>
+        /// User-defined name of the client if it exists, otherwise this will return the MAC address
+        /// </summary>
+        public string NameOrMac => string.IsNullOrEmpty(name) ? string.IsNullOrEmpty(hostname) ? mac : hostname : name;
 
-        protected JsonClient Json { get; private set; }
+        /// <summary>
+        /// First time this client was seen on the network
+        /// </summary>
+        public DateTime FirstSeen => new DateTime(1970, 1, 1).AddSeconds(first_seen);
 
-        protected IClientNetworkedDevice(UniFiApi api, JsonClient json) : base(api)
-        {
-            Json = json;
-        }
+        /// <summary>
+        /// Most recent time this client was seen on the network
+        /// </summary>
+        public DateTime LastSeen => new DateTime(1970, 1, 1).AddSeconds(last_seen);
 
+        /// <summary>
+        /// Measure of the current receive activity of the device in KBps
+        /// </summary>
+        public double ActivityKbps => (bytes_r * 8) / 1024.0d;
+
+        /// <summary>
+        /// Uptime of the client
+        /// </summary>
+        public TimeSpan Uptime => TimeSpan.FromSeconds(uptime);
+
+        protected UniFiApi API { get; set; }
+        internal IClientNetworkedDevice() { }
+
+        /// <summary>
+        /// Force the client device to disconnect and reconnect, including any negotiation steps
+        /// </summary>
+        /// <returns></returns>
         public async Task ForceReconnect()
         {
-            await API.ClientForceReconnect(MacAddress);
+            await API.ClientForceReconnect(mac);
         }
-
-        public static IClientNetworkedDevice CreateFromJson(UniFiApi api, JsonClient client)
+         
+        internal static IClientNetworkedDevice CreateFromJson(UniFiApi api, JsonClient client)
         {
             if (client.is_wired)
-                return new WiredClientNetworkedDevice(api, client);
+                return client.CloneAs<WiredClientNetworkedDevice>(d => d.API = api);
             else
-                return new WirelessClientNetworkedDevice(api, client);
+                return client.CloneAs<WirelessClientNetworkedDevice>(d => d.API = api);
         }
     }
 }

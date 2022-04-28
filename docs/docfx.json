@@ -1,0 +1,92 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "UniFiSharp/**.csproj"
+          ],
+          "exclude": [
+            "**/obj/**",
+            "**/bin/**"
+          ],
+          "src": ".."
+        }
+      ],
+      "dest": "api",
+      "filter": "filter.yml",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "articles/**.md",
+          "articles/**/toc.yml",
+          "toc.yml",
+          "*.md"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "robots.txt"
+        ]
+      },
+      {
+        "src": "..",
+        "files": [
+          "UniFiSharp/UniFiSharpLogo.png"
+        ]
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+          "apidoc/**.md"
+        ],
+        "exclude": [
+          "obj/**",
+          "_site/**"
+        ]
+      }
+    ],
+    "dest": "_site",
+    "globalMetadata": {
+      "_appName": "UniFiSharp",
+      "_appTitle": "UniFiSharp Documentation",
+      "_appLogoPath": "UniFiSharp/UniFiSharpLogo.png",
+      "_appFaviconPath": "UniFiSharp/UniFiSharpLogo.png",
+      "_enableSearch": false,
+      "_disableAffix": false,
+      "_disableSideFilter": true,
+      "_appFooter": "UniFiSharp (c) 2017-2022 <a href='https://anthturner.com'>Anthony Turner</a><br/>DocFX, <a href='https://github.com/jbltx/DiscordFX/'>DiscordFX</a> theme."
+    },
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": ["default", "templates/discordfx"],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false,
+    "xrefService": [
+      "https://xref.docs.microsoft.com/query?uid={uid}"
+    ],
+    "sitemap": {
+      "baseUrl": "https://anthturner.github.io/UniFiSharp",
+      "changefreq": "monthly",
+      "lastmod": "2022-04-27T00:00:00+01:00"
+    }
+  }
+}

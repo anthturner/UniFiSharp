@@ -1,0 +1,22 @@
+apiRules:
+    - exclude:
+        uidRegex: Equals$
+        type: Method
+    - exclude:
+        uidRegex: GetHashCode$
+        type: Method
+    - exclude:
+        uidRegex: Dispose$
+        type: Method
+    - exclude:
+        uidRegex: ^UniFiSharp\.Serialization
+        type: Type
+    - exclude:
+        uidRegex: ^System\.Object
+        type: Type
+    - exclude:
+        uidRegex: ^System\.Exception
+        type: Type
+    - exclude:
+        uidRegex: ^System\.Attribute
+        type: Type

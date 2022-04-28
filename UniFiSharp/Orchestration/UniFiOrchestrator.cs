@@ -101,17 +101,18 @@ namespace UniFiSharp.Orchestration
         public IInfrastructureNetworkedDevice GetParentOf(INetworkedDevice device)
         {
             string parentMac = "";
+
             if (device is IClientNetworkedDevice)
             {
                 if (device is WirelessClientNetworkedDevice)
-                    parentMac = ((WirelessClientNetworkedDevice)device).AccessPointMac;
+                    parentMac = ((WirelessClientNetworkedDevice)device).ap_mac;
                 else if (device is WiredClientNetworkedDevice)
-                    parentMac = ((WiredClientNetworkedDevice)device).SwitchMac;
+                    parentMac = ((WiredClientNetworkedDevice)device).sw_mac;
             }
             else if (device is IInfrastructureNetworkedDevice)
             {
-                if (((IInfrastructureNetworkedDevice)device).Uplink != null)
-                    parentMac = ((IInfrastructureNetworkedDevice)device).Uplink.UplinkMac;
+                if (((IInfrastructureNetworkedDevice)device).uplink != null)
+                    parentMac = ((IInfrastructureNetworkedDevice)device).uplink.uplink_mac;
             }
 
             if (string.IsNullOrEmpty(parentMac))
@@ -132,19 +133,19 @@ namespace UniFiSharp.Orchestration
             if (device is IClientNetworkedDevice)
             {
                 if (device is WirelessClientNetworkedDevice)
-                    parentMac = ((WirelessClientNetworkedDevice)device).AccessPointMac;
+                    parentMac = ((WirelessClientNetworkedDevice)device).ap_mac;
                 else if (device is WiredClientNetworkedDevice)
                 {
-                    parentMac = ((WiredClientNetworkedDevice)device).SwitchMac;
-                    viaPort = ((WiredClientNetworkedDevice)device).SwitchPort;
+                    parentMac = ((WiredClientNetworkedDevice)device).sw_mac;
+                    viaPort = ((WiredClientNetworkedDevice)device).sw_port;
                 }
             }
             else if (device is IInfrastructureNetworkedDevice)
             {
-                if (((IInfrastructureNetworkedDevice)device).Uplink != null)
+                if (((IInfrastructureNetworkedDevice)device).uplink != null)
                 {
-                    parentMac = ((IInfrastructureNetworkedDevice)device).Uplink.UplinkMac;
-                    viaPort = ((IInfrastructureNetworkedDevice)device).Uplink.UplinkRemotePort.GetValueOrDefault(0);
+                    parentMac = ((IInfrastructureNetworkedDevice)device).uplink.uplink_mac;
+                    viaPort = ((IInfrastructureNetworkedDevice)device).uplink.uplink_remote_port.GetValueOrDefault(0);
                 }
             }
 
@@ -183,7 +184,7 @@ namespace UniFiSharp.Orchestration
                 TopologicalRoot = rootCandidates[0];
             else
             {
-                var nonManagedDevice = new UnknownInfrastructureNetworkedDevice(API, null);
+                var nonManagedDevice = new UnknownInfrastructureNetworkedDevice();
                 nonManagedDevice.InfrastructureDevices = rootCandidates;
                 TopologicalRoot = nonManagedDevice;
             }

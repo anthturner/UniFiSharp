@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using RestSharp.Serializers;
 using System.IO;
 
-namespace GcmSharp.Serialization
+namespace UniFiSharp.Serialization
 {
     public class NewtonsoftJsonSerializer : ISerializer
     {

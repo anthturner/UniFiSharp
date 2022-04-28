@@ -1,0 +1,38 @@
+name: DocFX Generation
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          path: ./UniFiSharp
+          
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: |
+            3.1.x
+            5.0.x
+            6.0.x
+
+      - name: Run DocFX
+        uses: nikeee/docfx-action@v1.0.0
+        with:
+          args: ./UniFiSharp/docs/docfx.json
+     
+      - name: Publish Docs
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./UniFiSharp/docs/_site
+          force_orphan: true

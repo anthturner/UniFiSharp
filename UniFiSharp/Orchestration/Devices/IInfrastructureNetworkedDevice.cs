@@ -5,7 +5,10 @@ using UniFiSharp.Json;
 
 namespace UniFiSharp.Orchestration.Devices
 {
-    public abstract class IInfrastructureNetworkedDevice : INetworkedDevice
+    /// <summary>
+    /// Base class for any infrastructure device (router, switch, AP) on the network
+    /// </summary>
+    public abstract class IInfrastructureNetworkedDevice : JsonNetworkDevice, INetworkedDevice
     {
         public enum NetworkDeviceState
         {
@@ -26,11 +29,14 @@ namespace UniFiSharp.Orchestration.Devices
             Unknown
         }
 
+        /// <summary>
+        /// Operating state of the device
+        /// </summary>
         public NetworkDeviceState StateEnum
         {
             get
             {
-                switch (this.State)
+                switch (state)
                 {
                     case 0:
                         return NetworkDeviceState.Disconnected; // According to the UniFi app, 0 represents restarting although this does not reflect real-world testing where 0 = Disconnected.
@@ -39,7 +45,7 @@ namespace UniFiSharp.Orchestration.Devices
                         return NetworkDeviceState.Connected;
 
                     case 2:
-                        if (this.UsingDefaultSettings) // if we're not on default settings, the controller can't adopt
+                        if (defaultSettings) // if we're not on default settings, the controller can't adopt
                             return NetworkDeviceState.PendingApproval;
                         else
                             return NetworkDeviceState.Inaccessible;
@@ -67,83 +73,91 @@ namespace UniFiSharp.Orchestration.Devices
             }
         }
 
-        public override string Id => Json._id;
-        public int State => Json.state;
-        public bool IsAdopted => Json.adopted;
-        public bool UsingDefaultSettings => Json.defaultSettings;
-        public string MacAddress => Json.mac;
-        public string IpAddress => Json.ip;
-        public override string Name => string.IsNullOrEmpty(Json.name) ? Json.mac : Json.name;
-        public string Model => Json.model;
-        public string Type => Json.type;
-        public string SerialNumber => Json.serial;
-        public string DeviceId => Json.device_id;
+        /// <summary>
+        /// User-defined name of the device if it exists, otherwise this will return the MAC address
+        /// </summary>
+        public string NameOrMac => string.IsNullOrEmpty(name) ? mac : name;
 
-        public int DesktopClientCount => Json.num_desktop;
-        public int MobileClientCount => Json.num_mobile;
-        public int HandheldClientCount => Json.num_handheld;
-        public int ClientCount => Json.num_sta;
-
-        public DeviceLink Uplink => Json.uplink != null ? new DeviceLink(Json.uplink) : null;
-
+        /// <summary>
+        /// Load averages for this device for the previous 1, 5, and 15 minutes
+        /// </summary>
         public double[] LoadAverage => new double[] {
-            Json.sys_stats.loadavg_1.GetValueOrDefault(-1),
-            Json.sys_stats.loadavg_5.GetValueOrDefault(-1),
-            Json.sys_stats.loadavg_15.GetValueOrDefault(-1),
+            sys_stats.loadavg_1.GetValueOrDefault(-1),
+            sys_stats.loadavg_5.GetValueOrDefault(-1),
+            sys_stats.loadavg_15.GetValueOrDefault(-1),
         };
 
-        public TimeSpan Uptime => TimeSpan.FromSeconds(Json.uptime);
+        /// <summary>
+        /// Uptime of the infrastructure device
+        /// </summary>
+        public TimeSpan Uptime => TimeSpan.FromSeconds(uptime);
 
-        public long MemoryTotal => Json.sys_stats.mem_total.GetValueOrDefault(-1);
+        /// <summary>
+        /// Amount of RAM the infrastructure device has onboard
+        /// </summary>
+        public long MemoryTotal => sys_stats.mem_total.GetValueOrDefault(-1);
 
-        public long MemoryUsed => Json.sys_stats.mem_used.GetValueOrDefault(-1);
+        /// <summary>
+        /// Amount of RAM currently in use on the infrastructure device
+        /// </summary>
+        public long MemoryUsed => sys_stats.mem_used.GetValueOrDefault(-1);
 
-        public string Version => Json.version;
+        /// <summary>
+        /// Clients attached to the device
+        /// </summary>
+        public List<IClientNetworkedDevice> Clients { get; internal set; } = new List<IClientNetworkedDevice>();
 
-        public List<IClientNetworkedDevice> Clients { get; internal set; }
+        /// <summary>
+        /// Clients attached to the device and all of its child devices, recursively
+        /// </summary>
         public List<IClientNetworkedDevice> ClientsRecursive => GetAllClientsRecursively(this, new List<IClientNetworkedDevice>());
-        public List<IInfrastructureNetworkedDevice> InfrastructureDevices { get; internal set; }
+        
+        /// <summary>
+        /// Other infrastructure devices which are downstream of this device
+        /// </summary>
+        public List<IInfrastructureNetworkedDevice> InfrastructureDevices { get; internal set; } = new List<IInfrastructureNetworkedDevice>();
 
-        public bool? HasSpeaker => Json.has_speaker;
-        public int Volume => Json.volume;
+        protected UniFiApi API { get; set; }
+        internal IInfrastructureNetworkedDevice() { }
 
-        protected JsonNetworkDevice Json { get; private set; }
-
-        protected IInfrastructureNetworkedDevice(UniFiApi api, JsonNetworkDevice json) : base(api)
-        {
-            Json = json;
-            Clients = new List<IClientNetworkedDevice>();
-            InfrastructureDevices = new List<IInfrastructureNetworkedDevice>();
-        }
-
+        /// <summary>
+        /// Activate the "locate" function on the device, which causes its LED to flash for a given number of milliseconds
+        /// </summary>
+        /// <param name="durationOfLocateMs">Amount of time to flash the locator LED for</param>
+        /// <returns></returns>
         public async Task Locate(int durationOfLocateMs = 5000)
         {
-            await API.NetworkDeviceLocate(MacAddress, true)
+            await API.NetworkDeviceLocate(mac, true)
                 .ContinueWith(t1 => Task.Delay(durationOfLocateMs))
-                .ContinueWith(t2 => API.NetworkDeviceLocate(MacAddress, false));
+                .ContinueWith(t2 => API.NetworkDeviceLocate(mac, false));
         }
 
+        /// <summary>
+        /// Set the user-defined name of the infrastructure device
+        /// </summary>
+        /// <param name="newName">User-defined name</param>
+        /// <returns></returns>
         public async Task SetName(string newName)
         {
-            await API.NetworkDeviceConfigure(DeviceId, NetworkDeviceConfigurations.Name(newName));
+            await API.NetworkDeviceConfigure(device_id, NetworkDeviceConfigurations.Name(newName));
         }
 
+        /// <summary>
+        /// Run the adoption process to bring this infrastructure device under the control of the UniFi controller
+        /// </summary>
+        /// <returns></returns>
         public async Task Adopt()
         {
-            await API.NetworkDeviceAdopt(MacAddress);
+            await API.NetworkDeviceAdopt(mac);
         }
 
+        /// <summary>
+        /// Instruct the UniFi controller to "forget" about this infrastructure device, making it no longer managed
+        /// </summary>
+        /// <returns></returns>
         public async Task Forget()
         {
-            await API.NetworkDeviceForget(MacAddress);
-        }
-
-        private List<IClientNetworkedDevice> GetAllClientsRecursively(IInfrastructureNetworkedDevice device, List<IClientNetworkedDevice> clients)
-        {
-            clients.AddRange(device.Clients);
-            foreach (var child in device.InfrastructureDevices)
-                GetAllClientsRecursively(child, clients);
-            return clients;
+            await API.NetworkDeviceForget(mac);
         }
 
         public static IInfrastructureNetworkedDevice CreateFromJson(UniFiApi api, JsonNetworkDevice device)
@@ -151,42 +165,13 @@ namespace UniFiSharp.Orchestration.Devices
             switch (device.type)
             {
                 case "uap":
-                    return new AccessPointInfrastructureNetworkedDevice(api, device);
+                    return device.CloneAs<AccessPointInfrastructureNetworkedDevice>(d => d.API = api);
                 case "usw":
-                    return new SwitchInfrastructureNetworkedDevice(api, device);
+                    return device.CloneAs<SwitchInfrastructureNetworkedDevice>(d => d.API = api);
                 case "ugw":
-                    return new RouterInfrastructureNetworkedDevice(api, device);
+                    return device.CloneAs<RouterInfrastructureNetworkedDevice>(d => d.API = api);
                 default:
-                    return new UnknownInfrastructureNetworkedDevice(api, device);
-            }
-        }
-
-        public class DeviceLink
-        {
-            public bool IsEnabled => Json.enable;
-            public bool IsFullDuplex => Json.full_duplex;
-            public string Gateway => Json.gateway;
-            public IList<string> Gateways => Json.gateways;
-            public string Ip => Json.ip;
-            public int Latency => Json.latency;
-            public string Mac => Json.mac;
-            public int MaxSpeed => Json.max_speed;
-            public string Name => Json.name;
-            public IList<string> Nameservers => Json.nameservers;
-            public string NetMask => Json.netmask;
-            public int PortNumber => Json.num_port;
-            public int Speed => Json.speed;
-            public string Type => Json.type;
-            public bool IsUp => Json.up;
-            public string UplinkMac => Json.uplink_mac;
-            public int? UplinkRemotePort => Json.uplink_remote_port;
-            public TimeSpan Uptime => TimeSpan.FromSeconds(Json.uptime);
-
-            private JsonNetworkDevice.JsonLink Json { get; set; }
-
-            public DeviceLink(JsonNetworkDevice.JsonLink json)
-            {
-                Json = json;
+                    return device.CloneAs<UnknownInfrastructureNetworkedDevice>(d => d.API = api);
             }
         }
     }

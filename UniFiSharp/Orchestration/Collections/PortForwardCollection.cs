@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniFiSharp.Orchestration.Models;
+using UniFiSharp.Json;
 
 namespace UniFiSharp.Orchestration.Collections
 {
     /// <summary>
     /// Represents a collection of port forwarding rules for the UniFi Security Gateway on this network
     /// </summary>
-    public class PortForwardCollection : RemotedDataCollection<PortForward>, IMutableRemotedDataCollection<PortForward>
+    public class PortForwardCollection : RemotedDataCollection<JsonPortForward>, IMutableRemotedDataCollection<JsonPortForward>
     {
         internal PortForwardCollection(UniFiApi api) : base(api) { }
 
@@ -17,9 +17,9 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="item">New port forwarding entry to create on UniFi controller</param>
         /// <returns></returns>
-        public async Task Add(PortForward item)
+        public async Task Add(JsonPortForward item)
         {
-            await API.SitePortForwardsCreate(item.Name, item.Proto, item.Source, item.Destination, item.FromPort, item.DestinationPort);
+            await API.SitePortForwardsCreate(item.name, item.proto, item.src, item.fwd, item.fwd_port, item.dst_port);
             await Refresh();
         }
 
@@ -31,7 +31,7 @@ namespace UniFiSharp.Orchestration.Collections
         {
             var tasks = new List<Task>();
             foreach (var item in CachedCollection)
-                tasks.Add(API.SitePortForwardsDelete(item.PortForwardId));
+                tasks.Add(API.SitePortForwardsDelete(item._id));
             await Task.WhenAll(tasks);
             await Refresh();
         }
@@ -41,9 +41,9 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="id">Port Forward ID</param>
         /// <returns>Port forwarding entry or <c>NULL</c></returns>
-        public PortForward GetById(string id)
+        public JsonPortForward GetById(string id)
         {
-            return CachedCollection.FirstOrDefault(g => g.PortForwardId.Equals(id));
+            return CachedCollection.FirstOrDefault(g => g._id.Equals(id));
         }
 
         /// <summary>
@@ -52,8 +52,7 @@ namespace UniFiSharp.Orchestration.Collections
         /// <returns></returns>
         public override async Task Refresh()
         {
-            CachedCollection = (await API.SitePortForwardsList())
-                .Select(p => PortForward.CreateFromJson(p)).ToList();
+            CachedCollection = (await API.SitePortForwardsList()).ToList();
         }
 
         /// <summary>
@@ -61,12 +60,12 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="item">Port forwarding rule to remove</param>
         /// <returns><c>TRUE</c> if there was an item to remove, otherwise <c>FALSE</c></returns>
-        public async Task<bool> Remove(PortForward item)
+        public async Task<bool> Remove(JsonPortForward item)
         {
             if (!CachedCollection.Contains(item))
                 return false;
 
-            await API.SitePortForwardsDelete(item.PortForwardId);
+            await API.SitePortForwardsDelete(item._id);
             await Refresh();
             return true;
         }

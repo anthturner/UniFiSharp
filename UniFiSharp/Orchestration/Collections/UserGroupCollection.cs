@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using UniFiSharp.Orchestration.Models;
+using UniFiSharp.Json;
 
 namespace UniFiSharp.Orchestration.Collections
 {
     /// <summary>
     /// Represents a collection of user groups for this UniFi controller
     /// </summary>
-    public class UserGroupCollection : RemotedDataCollection<UserGroup>, IMutableRemotedDataCollection<UserGroup>
+    public class UserGroupCollection : RemotedDataCollection<JsonUserGroup>, IMutableRemotedDataCollection<JsonUserGroup>
     {
         internal UserGroupCollection(UniFiApi api) : base(api) { }
 
@@ -17,9 +17,9 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="item">New user group to create on UniFi controller</param>
         /// <returns></returns>
-        public async Task Add(UserGroup item)
+        public async Task Add(JsonUserGroup item)
         {
-            await API.SiteUserGroupsCreate(item.Name);
+            await API.SiteUserGroupsCreate(item.name);
             await Refresh();
         }
 
@@ -32,7 +32,7 @@ namespace UniFiSharp.Orchestration.Collections
             // todo: don't clear default
             var tasks = new List<Task>();
             foreach (var item in CachedCollection)
-                tasks.Add(API.SiteUserGroupsDelete(item.UserGroupId));
+                tasks.Add(API.SiteUserGroupsDelete(item._id));
             await Task.WhenAll(tasks);
             await Refresh();
         }
@@ -42,9 +42,9 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="id">User Group ID</param>
         /// <returns>User group or <c>NULL</c></returns>
-        public UserGroup GetById(string id)
+        public JsonUserGroup GetById(string id)
         {
-            return CachedCollection.FirstOrDefault(g => g.UserGroupId.Equals(id));
+            return CachedCollection.FirstOrDefault(g => g._id.Equals(id));
         }
 
         /// <summary>
@@ -53,8 +53,7 @@ namespace UniFiSharp.Orchestration.Collections
         /// <returns></returns>
         public override async Task Refresh()
         {
-            CachedCollection = (await API.SiteUserGroupsList())
-                .Select(g => UserGroup.CreateFromJson(g)).ToList();
+            CachedCollection = (await API.SiteUserGroupsList()).ToList();
         }
 
         /// <summary>
@@ -62,12 +61,12 @@ namespace UniFiSharp.Orchestration.Collections
         /// </summary>
         /// <param name="item">User group to remove</param>
         /// <returns><c>TRUE</c> if there was an item to remove, otherwise <c>FALSE</c></returns>
-        public async Task<bool> Remove(UserGroup item)
+        public async Task<bool> Remove(JsonUserGroup item)
         {
             if (!CachedCollection.Contains(item))
                 return false;
 
-            await API.SiteUserGroupsDelete(item.UserGroupId);
+            await API.SiteUserGroupsDelete(item._id);
             await Refresh();
             return true;
         }
