@@ -19,7 +19,7 @@ namespace UniFiSharp.Orchestration.Collections
         /// <returns>Infrastructure device or <c>NULL</c></returns>
         public IInfrastructureNetworkedDevice GetByMac(string macAddress)
         {
-            return CachedCollection.FirstOrDefault(c => c.MacAddress.Equals(macAddress, StringComparison.OrdinalIgnoreCase));
+            return CachedCollection.FirstOrDefault(c => c.mac.Equals(macAddress, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace UniFiSharp.Orchestration.Collections
         /// <returns>Infrastructure device or <c>NULL</c></returns>
         public IInfrastructureNetworkedDevice GetById(string id)
         {
-            return CachedCollection.FirstOrDefault(c => c.Id.Equals(id));
+            return CachedCollection.FirstOrDefault(c => c.device_id.Equals(id));
         }
 
         /// <summary>

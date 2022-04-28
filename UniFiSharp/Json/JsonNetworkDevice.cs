@@ -1,11 +1,10 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace UniFiSharp.Json
 {
-    public partial class JsonNetworkDevice
+
+    public partial class JsonNetworkDevice : IJsonObject
     {
         [JsonProperty("_id")]
         public string _id { get; set; }
