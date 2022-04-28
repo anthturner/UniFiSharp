@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UniFiSharp.Json
 {
-    public class JsonClient
+    public class JsonClient : IJsonObject
     {
         [JsonProperty("_id")]
         public string _id { get; set; }
