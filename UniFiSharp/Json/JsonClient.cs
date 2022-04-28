@@ -287,7 +287,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes received by this client
         /// </summary>
         [DisplayName("Total RX Bytes")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [IncludedInVisualization]
         [JsonProperty("rx_bytes")]
         public long rx_bytes { get; set; }
 
@@ -296,7 +296,7 @@ namespace UniFiSharp.Json
         /// Current receive rate in bytes
         /// </summary>
         [DisplayName("RX Rate")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [IncludedInVisualization]
         [JsonProperty("rx_bytes-r")]
         public long rx_bytes_r { get; set; }
 
