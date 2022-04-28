@@ -5,5 +5,4 @@
 
 using System.Diagnostics.CodeAnalysis;
 
-// This is to support JSON attributes being named natively, and not break backwards compatibility
-[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>", Scope = "member", Target = "~P:UniFiSharp.Json.JsonBroadcastDevice.connected")]
+[assembly: SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "Support JSON attribute naming consistency, avoid breaking backwards compatibility", Scope = "namespaceanddescendants", Target = "UniFiSharp.Json")]

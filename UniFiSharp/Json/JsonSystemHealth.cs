@@ -7,87 +7,87 @@ namespace UniFiSharp.Json
     public class JsonSystemHealth
     {
         [JsonProperty("drops")]
-        public float drops;
+        public float drops { get; set; }
 
         [JsonProperty("gateways")]
-        public List<String> gateways = null;
+        public List<string> gateways { get; set; } = new List<string>();
 
         [JsonProperty("gw_mac")]
-        public String gwMac;
+        public string gwMac { get; set; }
 
         [JsonProperty("ip")]
-        public String ip;
+        public string ip { get; set; }
 
         [JsonProperty("lan_ip")]
-        public String lanIp;
-
+        public string lanIp { get; set; }
+        
         [JsonProperty("latency")]
-        public float latency;
+        public float latency { get; set; }
 
         [JsonProperty("nameservers")]
-        public List<String> nameservers = null;
+        public List<string> nameservers { get; set; } = new List<string>();
 
         [JsonProperty("num_adopted")]
-        public float numAdopted;
+        public float numAdopted { get; set; }
 
         [JsonProperty("num_ap")]
-        public float numAp;
+        public float numAp { get; set; }
 
         [JsonProperty("num_disabled")]
-        public float numDisabled;
+        public float numDisabled { get; set; }
 
         [JsonProperty("num_disconnected")]
-        public float numDisconnected;
+        public float numDisconnected { get; set; }
 
         [JsonProperty("num_guest")]
-        public float numGuest;
+        public float numGuest { get; set; }
 
         [JsonProperty("num_gw")]
-        public float numGw;
+        public float numGw { get; set; }
 
         [JsonProperty("num_pending")]
-        public float numPending;
+        public float numPending { get; set; }
 
         [JsonProperty("num_sta")]
-        public float numSta;
+        public float numSta { get; set; }
 
         [JsonProperty("num_sw")]
-        public float numSw;
+        public float numSw { get; set; }
 
         [JsonProperty("num_user")]
-        public float numUser;
+        public float numUser { get; set; }
 
         [JsonProperty("rx_bytes-r")]
-        public float rxBytesR;
+        public float rxBytesR { get; set; }
 
         [JsonProperty("speedtest_lastrun")]
-        public float speedtestLastrun;
+        public float speedtestLastrun { get; set; }
 
         [JsonProperty("speedtest_ping")]
-        public float speedtestPing;
+        public float speedtestPing { get; set; }
 
         [JsonProperty("speedtest_status")]
-        public String speedtestStatus;
+        public String speedtestStatus { get; set; }
 
         [JsonProperty("status")]
-        public String status;
+        public String status { get; set; }
 
         [JsonProperty("status_text")]
-        public String statusText;
+        public String statusText { get; set; }
 
         [JsonProperty("subsystem")]
-        public String subsystem;
+        public String subsystem { get; set; }
 
         [JsonProperty("tx_bytes-r")]
-        public float txBytesR;
+        public float txBytesR { get; set; }
 
         [JsonProperty("uptime")]
-        public float uptime;
+        public float uptime { get; set; }
 
         [JsonProperty("xput_down")]
-        public float xputDown;
+        public float xputDown { get; set; }
 
         [JsonProperty("xput_up")]
-        public float xputUp;
+        public float xputUp { get; set; }
     }
 }
