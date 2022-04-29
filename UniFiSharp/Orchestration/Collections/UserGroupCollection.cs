@@ -6,7 +6,7 @@ using UniFiSharp.Json;
 namespace UniFiSharp.Orchestration.Collections
 {
     /// <summary>
-    /// Represents a collection of user groups for this UniFi controller
+    /// Collection of user groups for this UniFi controller
     /// </summary>
     public class UserGroupCollection : RemotedDataCollection<JsonUserGroup>, IMutableRemotedDataCollection<JsonUserGroup>
     {

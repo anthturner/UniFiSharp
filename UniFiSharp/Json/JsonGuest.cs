@@ -188,7 +188,7 @@ namespace UniFiSharp.Json
         // TODO
         [JsonProperty("start")]
         public long start { get; set; }
-        
+
         /// <summary>
         /// Total number of bytes transmitted by this guest
         /// </summary>

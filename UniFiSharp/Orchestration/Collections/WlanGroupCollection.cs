@@ -6,7 +6,7 @@ using UniFiSharp.Json;
 namespace UniFiSharp.Orchestration.Collections
 {
     /// <summary>
-    /// Represents a collection of WLAN groups for this UniFi network
+    /// Collection of WLAN groups for this UniFi network
     /// </summary>
     public class WlanGroupCollection : RemotedDataCollection<JsonWlanGroup>, IMutableRemotedDataCollection<JsonWlanGroup>
     {

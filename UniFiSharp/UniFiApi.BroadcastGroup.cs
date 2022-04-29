@@ -6,9 +6,9 @@ namespace UniFiSharp
 {
     public partial class UniFiApi
     {
-		// This partial class is for management of Broadcast Groups. These are used for simultaneously broadcasting streams to groups of UniFI EDU APs
+        // This partial class is for management of Broadcast Groups. These are used for simultaneously broadcasting streams to groups of UniFI EDU APs
 
-		/// <summary>
+        /// <summary>
         /// Get all broadcast groups on the controller
         /// </summary>
         /// <returns>Collection of JSON objects containing the broadcast groups and devices in each group</returns>
@@ -17,7 +17,7 @@ namespace UniFiSharp
             return await RestClient.UniFiGetMany<JsonBroadcastGroup>($"api/s/{Site}/rest/broadcastgroup");
         }
 
-		/// <summary>
+        /// <summary>
         /// Retrieve info about a single broadcast group
         /// </summary>
         /// <param name="groupId">ID of the group to query</param>
@@ -27,7 +27,7 @@ namespace UniFiSharp
             return await RestClient.UniFiGet<JsonBroadcastGroup>($"api/s/{Site}/rest/broadcastgroup/{groupId}");
         }
 
-		/// <summary>
+        /// <summary>
         /// Delete a broadcast group
         /// </summary>
         /// <param name="groupId">ID of the broadcast group</param>
@@ -37,7 +37,7 @@ namespace UniFiSharp
             await RestClient.UniFiDelete($"api/s/{Site}/rest/broadcastgroup/{groupId}");
         }
 
-		/// <summary>
+        /// <summary>
         /// Create a new broadcast group
         /// </summary>
         /// <param name="groupName">Name of the broadcast group</param>
@@ -47,8 +47,8 @@ namespace UniFiSharp
         {
             return await RestClient.UniFiPost<JsonBroadcastGroup>($"api/s/{Site}/rest/broadcastgroup", new
             {
-				name = groupName,
-				member_table = memberTable
+                name = groupName,
+                member_table = memberTable
             });
         }
 

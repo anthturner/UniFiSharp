@@ -7,6 +7,9 @@ using UniFiSharp.Orchestration.Devices;
 
 namespace UniFiSharp.Orchestration
 {
+    /// <summary>
+    /// Allows the management of a UniFi network via object-based methods and hierarchical views
+    /// </summary>
     public class UniFiOrchestrator : IDisposable
     {
         /// <summary>
@@ -132,20 +135,22 @@ namespace UniFiSharp.Orchestration
             int viaPort = 0;
             if (device is IClientNetworkedDevice)
             {
+                var client = device as IClientNetworkedDevice;
                 if (device is WirelessClientNetworkedDevice)
-                    parentMac = ((WirelessClientNetworkedDevice)device).ap_mac;
+                    parentMac = client.ap_mac;
                 else if (device is WiredClientNetworkedDevice)
                 {
-                    parentMac = ((WiredClientNetworkedDevice)device).sw_mac;
-                    viaPort = ((WiredClientNetworkedDevice)device).sw_port;
+                    parentMac = client.sw_mac;
+                    viaPort = client.sw_port;
                 }
             }
             else if (device is IInfrastructureNetworkedDevice)
             {
-                if (((IInfrastructureNetworkedDevice)device).uplink != null)
+                var infra = device as IInfrastructureNetworkedDevice;
+                if (infra.uplink != null)
                 {
-                    parentMac = ((IInfrastructureNetworkedDevice)device).uplink.uplink_mac;
-                    viaPort = ((IInfrastructureNetworkedDevice)device).uplink.uplink_remote_port.GetValueOrDefault(0);
+                    parentMac = infra.uplink.uplink_mac;
+                    viaPort = infra.uplink.uplink_remote_port.GetValueOrDefault(0);
                 }
             }
 
@@ -177,7 +182,9 @@ namespace UniFiSharp.Orchestration
                     parentDevice.Clients.Add(childClient);
             }
 
-            var rootCandidates = InfrastructureDevices.Where(d => d.uplink == null || string.IsNullOrEmpty(d.uplink.uplink_mac)).ToList();
+            var rootCandidates = InfrastructureDevices.Where(d =>
+                (d.uplink == null || string.IsNullOrEmpty(d.uplink.uplink_mac)) &&
+                d.StateEnum != IInfrastructureNetworkedDevice.NetworkDeviceState.Disconnected).ToList();
             if (rootCandidates.Count == 1)
                 TopologicalRoot = rootCandidates[0];
             else

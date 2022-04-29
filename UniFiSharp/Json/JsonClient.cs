@@ -182,7 +182,7 @@ namespace UniFiSharp.Json
         [IncludedInVisualization]
         [JsonProperty("is_guest")]
         public bool is_guest { get; set; }
-        
+
         /// <summary>
         /// If the client is connected via a wired connection
         /// </summary>
@@ -452,7 +452,7 @@ namespace UniFiSharp.Json
         // TODO
         [JsonProperty("dev_cat")]
         public long? dev_cat { get; set; }
-        
+
         // TODO
         [JsonProperty("dev_family")]
         public long? dev_family { get; set; }

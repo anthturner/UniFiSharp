@@ -24,8 +24,8 @@ namespace UniFiSharp
             new Func<string, NetworkDeviceConfigurations<string>>((v) =>
                 new NetworkDeviceConfigurations<string>((object)new { bandsteering_mode = v }));
 
-        public static Func<bool, NetworkDeviceConfigurations<bool>> Dot1xPortCtrlEnabled => 
-            new Func<bool, NetworkDeviceConfigurations<bool>>((v) => 
+        public static Func<bool, NetworkDeviceConfigurations<bool>> Dot1xPortCtrlEnabled =>
+            new Func<bool, NetworkDeviceConfigurations<bool>>((v) =>
                 new NetworkDeviceConfigurations<bool>((object)new { dot1x_portctrl_enabled = v }));
 
         public static Func<bool, NetworkDeviceConfigurations<bool>> FlowCtrlEnabled =>

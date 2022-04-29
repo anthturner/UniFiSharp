@@ -4,6 +4,9 @@ using UniFiSharp.Json;
 
 namespace UniFiSharp.Orchestration.Devices
 {
+    /// <summary>
+    /// Client device with API actions
+    /// </summary>
     public abstract class IClientNetworkedDevice : JsonClient, INetworkedDevice
     {
         /// <summary>
@@ -42,7 +45,7 @@ namespace UniFiSharp.Orchestration.Devices
         {
             await API.ClientForceReconnect(mac);
         }
-         
+
         internal static IClientNetworkedDevice CreateFromJson(UniFiApi api, JsonClient client)
         {
             if (client.is_wired)
