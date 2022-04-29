@@ -14,7 +14,7 @@ namespace UniFiSharp
     internal class IncludedInVisualizationAttribute : Attribute
     {
         public VisualizationModes VisualizationMode { get; private set; }
-        
+
         public IncludedInVisualizationAttribute(VisualizationModes mode = VisualizationModes.Single)
         {
             VisualizationMode = mode;

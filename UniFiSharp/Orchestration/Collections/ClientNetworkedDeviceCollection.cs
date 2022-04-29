@@ -6,7 +6,7 @@ using UniFiSharp.Orchestration.Devices;
 namespace UniFiSharp.Orchestration.Collections
 {
     /// <summary>
-    /// Represents a collection of client devices attached to the UniFi network
+    /// Collection of client devices attached to the UniFi network
     /// </summary>
     public class ClientNetworkedDeviceCollection : RemotedDataCollection<IClientNetworkedDevice>
     {

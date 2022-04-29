@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace UniFiSharp.Orchestration.Collections
 {
     /// <summary>
-    /// Represents a mutable collection which calls back to the originating data service to make live changes
+    /// Mutable collection which calls back to the originating data service to make live changes
     /// </summary>
     /// <typeparam name="T">Type of element tracked by this collection</typeparam>
     internal interface IMutableRemotedDataCollection<T>
@@ -39,7 +39,7 @@ namespace UniFiSharp.Orchestration.Collections
     }
 
     /// <summary>
-    /// Represents a collection of data objects which can be refreshed from a remote source
+    /// Collection of data objects which can be refreshed from a remote source
     /// </summary>
     /// <typeparam name="T">Type of element tracked by this collection</typeparam>
     public abstract class RemotedDataCollection<T> : IEnumerable<T>

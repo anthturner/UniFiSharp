@@ -40,7 +40,8 @@ namespace UniFiSharp
         /// <returns>JSON object describing the new port forwarding entry</returns>
         public async Task<JsonPortForward> SitePortForwardsCreate(string name, string proto, string source, string dest, int fromPort, int toPort)
         {
-            return await RestClient.UniFiPost<JsonPortForward>($"api/s/{Site}/rest/portforward", new {
+            return await RestClient.UniFiPost<JsonPortForward>($"api/s/{Site}/rest/portforward", new
+            {
                 name = name,
                 proto = proto,
                 dst_port = toPort,

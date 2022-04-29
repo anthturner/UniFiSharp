@@ -6,7 +6,7 @@ using UniFiSharp.Json;
 namespace UniFiSharp.Orchestration.Devices
 {
     /// <summary>
-    /// Base class for any infrastructure device (router, switch, AP) on the network
+    /// Any infrastructure managed device (router, switch, AP) on the network
     /// </summary>
     public abstract class IInfrastructureNetworkedDevice : JsonNetworkDevice, INetworkedDevice
     {
@@ -111,7 +111,7 @@ namespace UniFiSharp.Orchestration.Devices
         /// Clients attached to the device and all of its child devices, recursively
         /// </summary>
         public List<IClientNetworkedDevice> ClientsRecursive => GetAllClientsRecursively(this, new List<IClientNetworkedDevice>());
-        
+
         /// <summary>
         /// Other infrastructure devices which are downstream of this device
         /// </summary>
@@ -162,17 +162,13 @@ namespace UniFiSharp.Orchestration.Devices
 
         public static IInfrastructureNetworkedDevice CreateFromJson(UniFiApi api, JsonNetworkDevice device)
         {
-            switch (device.type)
+            return device.type switch
             {
-                case "uap":
-                    return device.CloneAs<AccessPointInfrastructureNetworkedDevice>(d => d.API = api);
-                case "usw":
-                    return device.CloneAs<SwitchInfrastructureNetworkedDevice>(d => d.API = api);
-                case "ugw":
-                    return device.CloneAs<RouterInfrastructureNetworkedDevice>(d => d.API = api);
-                default:
-                    return device.CloneAs<UnknownInfrastructureNetworkedDevice>(d => d.API = api);
-            }
+                "uap" => device.CloneAs<AccessPointInfrastructureNetworkedDevice>(d => d.API = api),
+                "usw" => device.CloneAs<SwitchInfrastructureNetworkedDevice>(d => d.API = api),
+                "ugw" => device.CloneAs<RouterInfrastructureNetworkedDevice>(d => d.API = api),
+                _ => device.CloneAs<UnknownInfrastructureNetworkedDevice>(d => d.API = api),
+            };
         }
 
         private List<IClientNetworkedDevice> GetAllClientsRecursively(IInfrastructureNetworkedDevice device, List<IClientNetworkedDevice> clients)

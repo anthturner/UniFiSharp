@@ -6,7 +6,7 @@ using UniFiSharp.Json;
 namespace UniFiSharp.Orchestration.Collections
 {
     /// <summary>
-    /// Represents a collection of port forwarding rules for the UniFi Security Gateway on this network
+    /// Collection of port forwarding rules for the UniFi Security Gateway on this network
     /// </summary>
     public class PortForwardCollection : RemotedDataCollection<JsonPortForward>, IMutableRemotedDataCollection<JsonPortForward>
     {

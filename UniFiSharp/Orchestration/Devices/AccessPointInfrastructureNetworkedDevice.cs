@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace UniFiSharp.Orchestration.Devices
 {
     /// <summary>
-    /// Represents a UniFi wireless access point infrastructure device
+    /// UniFi wireless access point infrastructure device with API actions
     /// </summary>
     public class AccessPointInfrastructureNetworkedDevice : IInfrastructureNetworkedDevice
     {

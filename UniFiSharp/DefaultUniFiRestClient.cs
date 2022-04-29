@@ -1,11 +1,11 @@
+using RestSharp;
+using RestSharp.Serializers.NewtonsoftJson;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using RestSharp;
-using RestSharp.Serializers.NewtonsoftJson;
 using UniFiSharp.Json;
 
 namespace UniFiSharp
@@ -24,12 +24,12 @@ namespace UniFiSharp
             _code = code;
         }
 
-        #nullable enable
+#nullable enable
         internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, bool ignoreSslValidation,
             bool useModernApi, Encoding? encoding = null, int timeout = 5000) : base(new RestClientOptions()
-            {                
-                BaseUrl = baseUrl,                
-                RemoteCertificateValidationCallback = ignoreSslValidation ? (sender, certificate, chain, sslPolicyErrors) => true : default(System.Net.Security.RemoteCertificateValidationCallback?),                
+            {
+                BaseUrl = baseUrl,
+                RemoteCertificateValidationCallback = ignoreSslValidation ? (sender, certificate, chain, sslPolicyErrors) => true : default(System.Net.Security.RemoteCertificateValidationCallback?),
                 CookieContainer = new System.Net.CookieContainer(),
                 // Bodge to work around the fact uploads don't return the normal metadata if unauthorized (migrated to RestClientOptions)
                 FollowRedirects = true,
@@ -45,7 +45,7 @@ namespace UniFiSharp
 
             this.UseNewtonsoftJson();
         }
-        #nullable disable
+#nullable disable
 
         public async Task UniFiGet(string url)
         {
@@ -141,7 +141,7 @@ namespace UniFiSharp
         }
 
         public async Task<JsonLoginResult> Authenticate()
-        {   
+        {
             if (_useModernApi)
             {
                 var request = new RestRequest("api/auth/login", Method.Post);
@@ -152,7 +152,7 @@ namespace UniFiSharp
                     token = _code,
                     rememberMe = false
                 });
-                
+
                 await ApplyRequestHeaders(request);
 
                 var response = await this.ExecuteAsync<JsonLoginResult>(request);
@@ -236,7 +236,7 @@ namespace UniFiSharp
 
             request.AddParameter("name", name, ParameterType.RequestBody);
             request.AddFile(name, fileName, contentType);
-            
+
             var response = await ExecuteAsync(request);
 
             // Bodge to authenticate if needed (if we're being redirected back to the login page, then we need to attempt to authenticate)
@@ -265,7 +265,7 @@ namespace UniFiSharp
                 var baseUrlResponse = await this.ExecuteAsync(baseUrl);
                 _csrf_token = baseUrlResponse.Headers.FirstOrDefault(x => x.Name == CSRF_HEADER)?.Value.ToString();
             }
-            
+
             if (_csrf_token != null)
             {
                 request.AddHeader(CSRF_HEADER, _csrf_token);

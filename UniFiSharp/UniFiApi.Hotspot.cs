@@ -68,7 +68,7 @@ namespace UniFiSharp
                 bytes = bytes,
                 cmd = "create-voucher",
                 down = down,
-                expire = expire,                
+                expire = expire,
                 note = note,
                 quota = quota,
                 up = up,

@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Text;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using UniFiSharp.Json;
 
@@ -91,7 +91,7 @@ namespace UniFiSharp
             Site = site;
             RestClient = restClient;
         }
-        
+
 
         /// <summary>
         /// Retrieve a list of sites managed by this controller
