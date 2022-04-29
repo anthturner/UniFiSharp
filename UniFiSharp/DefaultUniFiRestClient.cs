@@ -263,7 +263,7 @@ namespace UniFiSharp
             {
                 var baseUrl = new RestRequest("/", Method.Get);
                 var baseUrlResponse = await this.ExecuteAsync(baseUrl);
-                _csrf_token = baseUrlResponse.Headers.Where(x => x.Name == CSRF_HEADER).FirstOrDefault().Value.ToString();
+                _csrf_token = baseUrlResponse.Headers.FirstOrDefault(x => x.Name == CSRF_HEADER)?.Value.ToString();
             }
 
             if (_csrf_token != null)

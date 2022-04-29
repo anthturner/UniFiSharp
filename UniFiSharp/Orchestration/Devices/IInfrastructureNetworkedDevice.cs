@@ -160,7 +160,7 @@ namespace UniFiSharp.Orchestration.Devices
             await API.NetworkDeviceForget(mac);
         }
 
-        internal static IInfrastructureNetworkedDevice CreateFromJson(UniFiApi api, JsonNetworkDevice device)
+        public static IInfrastructureNetworkedDevice CreateFromJson(UniFiApi api, JsonNetworkDevice device)
         {
             return device.type switch
             {
@@ -169,6 +169,14 @@ namespace UniFiSharp.Orchestration.Devices
                 "ugw" => device.CloneAs<RouterInfrastructureNetworkedDevice>(d => d.API = api),
                 _ => device.CloneAs<UnknownInfrastructureNetworkedDevice>(d => d.API = api),
             };
+        }
+
+        private List<IClientNetworkedDevice> GetAllClientsRecursively(IInfrastructureNetworkedDevice device, List<IClientNetworkedDevice> clients)
+        {
+            clients.AddRange(device.Clients);
+            foreach (var child in device.InfrastructureDevices)
+                GetAllClientsRecursively(child, clients);
+            return clients;
         }
     }
 }
