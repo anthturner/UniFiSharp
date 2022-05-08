@@ -31,7 +31,8 @@ namespace UniFiSharp.Json
         /// Maximum downstream rate permitted by QoS rules for the guest
         /// </summary>
         [DisplayName("Max Downstream (bytes)")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("qos_rate_max_down")]
         public int qos_rate_max_down { get; set; }
 
@@ -39,7 +40,8 @@ namespace UniFiSharp.Json
         /// Maximum upstream rate permitted by QoS rules for the guest
         /// </summary>
         [DisplayName("Max Upstream (bytes)")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("qos_rate_max_up")]
         public int qos_rate_max_up { get; set; }
 

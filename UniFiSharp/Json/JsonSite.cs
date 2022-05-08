@@ -9,7 +9,7 @@ namespace UniFiSharp.Json
         /// Site ID
         /// </summary>
         [DisplayName("Site ID")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("_id")]
         public string _id { get; set; }
 
@@ -17,7 +17,8 @@ namespace UniFiSharp.Json
         /// Site Name
         /// </summary>
         [DisplayName("Site Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -25,7 +26,7 @@ namespace UniFiSharp.Json
         /// Description of the site
         /// </summary>
         [DisplayName("Description")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("desc")]
         public string desc { get; set; }
 
@@ -33,7 +34,8 @@ namespace UniFiSharp.Json
         /// Number of access points managed by the site
         /// </summary>
         [DisplayName("APs")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("num_ap")]
         public int num_ap { get; set; }
 
@@ -41,7 +43,8 @@ namespace UniFiSharp.Json
         /// Number of clients managed by the site
         /// </summary>
         [DisplayName("Clients")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("num_sta")]
         public int num_sta { get; set; }
 

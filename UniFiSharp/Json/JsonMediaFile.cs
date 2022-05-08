@@ -9,7 +9,8 @@ namespace UniFiSharp.Json
         /// Media File ID
         /// </summary>
         [DisplayName("Media File ID")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("_id")]
         public string _id { get; set; }
 
@@ -18,7 +19,7 @@ namespace UniFiSharp.Json
         /// </summary>
         [DisplayName("Site ID")]
         [JsonProperty("site_id")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Low)]
         public string site_id { get; set; }
 
         /// <summary>
@@ -26,7 +27,8 @@ namespace UniFiSharp.Json
         /// </summary>
         [DisplayName("Filename")]
         [JsonProperty("filename")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         public string filename { get; set; }
 
         /// <summary>
@@ -34,7 +36,8 @@ namespace UniFiSharp.Json
         /// </summary>
         [DisplayName("File Size (bytes)")]
         [JsonProperty("filesize")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         public int filesize { get; set; }
 
         /// <summary>
@@ -42,7 +45,7 @@ namespace UniFiSharp.Json
         /// </summary>
         [DisplayName("Content Type")]
         [JsonProperty("content_type")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         public string content_type { get; set; }
 
         /// <summary>
@@ -50,7 +53,8 @@ namespace UniFiSharp.Json
         /// </summary>
         [DisplayName("Last Modified")]
         [JsonProperty("last_modified")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         public long last_modified { get; set; }
 
         /// <summary>
@@ -58,7 +62,7 @@ namespace UniFiSharp.Json
         /// </summary>
         [DisplayName("MD5")]
         [JsonProperty("md5")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         public string md5 { get; set; }
 
         /// <summary>
@@ -66,14 +70,15 @@ namespace UniFiSharp.Json
         /// </summary>
         [DisplayName("Name")]
         [JsonProperty("name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         public string name { get; set; }
 
         /// <summary>
         /// Duration of media file in seconds
         /// </summary>
-        [DisplayName("Duration (sec)")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [DisplayName("Duration (sec)")][IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("length")]
         public int length { get; set; }
 
@@ -81,7 +86,7 @@ namespace UniFiSharp.Json
         /// URL to retrieve media file
         /// </summary>
         [DisplayName("URL")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("url")]
         public string url { get; set; }
     }

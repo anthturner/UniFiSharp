@@ -9,7 +9,7 @@ namespace UniFiSharp.Json
         /// User ID
         /// </summary>
         [DisplayName("User ID")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("_id")]
         public string _id { get; set; }
 
@@ -17,7 +17,8 @@ namespace UniFiSharp.Json
         /// Amount of time in seconds that the user has been online
         /// </summary>
         [DisplayName("Duration")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("duration")]
         public int duration { get; set; }
 
@@ -25,7 +26,7 @@ namespace UniFiSharp.Json
         /// First time the user was seen (in seconds since epoch)
         /// </summary>
         [DisplayName("Date/Time First Seen (sec)")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("first_seen")]
         public long first_seen { get; set; }
 
@@ -33,7 +34,8 @@ namespace UniFiSharp.Json
         /// Hostname the user is connecting from
         /// </summary>
         [DisplayName("Hostname")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("hostname")]
         public string hostname { get; set; }
 
@@ -41,7 +43,8 @@ namespace UniFiSharp.Json
         /// If the user is a guest
         /// </summary>
         [DisplayName("Guest?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("is_guest")]
         public bool is_guest { get; set; }
 
@@ -49,7 +52,8 @@ namespace UniFiSharp.Json
         /// If the user is on a wired device
         /// </summary>
         [DisplayName("Wired?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("is_wired")]
         public bool is_wired { get; set; }
 
@@ -57,7 +61,8 @@ namespace UniFiSharp.Json
         /// Date/time when the user was most recently seen (in seconds since epoch)
         /// </summary>
         [DisplayName("Date/Time Last Seen (sec)")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("last_seen")]
         public int last_seen { get; set; }
 
@@ -65,7 +70,8 @@ namespace UniFiSharp.Json
         /// MAC Address of the client the user is connecting from
         /// </summary>
         [DisplayName("MAC Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
@@ -73,7 +79,8 @@ namespace UniFiSharp.Json
         /// User name
         /// </summary>
         [DisplayName("Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -92,7 +99,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes received by the user
         /// </summary>
         [DisplayName("Total RX Bytes")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("rx_bytes")]
         public long rx_bytes { get; set; }
 
@@ -114,7 +121,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes sent by this user
         /// </summary>
         [DisplayName("Total TX Bytes")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("tx_bytes")]
         public long tx_bytes { get; set; }
 

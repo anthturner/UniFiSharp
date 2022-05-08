@@ -44,7 +44,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Listing Clients");
-            return await RunWithOutputs(settings, u => u.ClientList(), OutputMaps.Client);
+            return await RunWithOutputs(settings, u => u.ClientList());
         }
     }
 
@@ -53,7 +53,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, ClientSettings settings)
         {
             Log($"Retrieving Information for Client at {settings.MacAddress}");
-            return await RunWithOutput(settings, u => u.ClientGet(settings.MacAddress), OutputMaps.Client);
+            return await RunWithOutput(settings, u => u.ClientGet(settings.MacAddress));
         }
     }
 }

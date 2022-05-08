@@ -23,7 +23,8 @@ namespace UniFiSharp.Json
         /// User's Full Name
         /// </summary>
         [DisplayName("Full Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("full_name")]
         public string FullName { get; set; }
 
@@ -31,7 +32,8 @@ namespace UniFiSharp.Json
         /// User's email address
         /// </summary>
         [DisplayName("EMail Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("email")]
         public string Email { get; set; }
 
@@ -47,7 +49,8 @@ namespace UniFiSharp.Json
         /// Username of logged in user
         /// </summary>
         [DisplayName("Username")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("username")]
         public string Username { get; set; }
 
@@ -55,7 +58,7 @@ namespace UniFiSharp.Json
         /// If the account is local or remote (SSO)
         /// </summary>
         [DisplayName("Local Account?")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("local_account_exist")]
         public bool HasLocalAccount { get; set; }
 
@@ -63,7 +66,7 @@ namespace UniFiSharp.Json
         /// SSO account name mapping
         /// </summary>
         [DisplayName("SSO Account")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("sso_account")]
         public string SsoAccount { get; set; }
 
@@ -71,15 +74,16 @@ namespace UniFiSharp.Json
         /// If the user is an owner
         /// </summary>
         [DisplayName("Owner?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("isOwner")]
         public bool IsOwner { get; set; }
 
         /// <summary>
         /// If the user is a super admin
         /// </summary>
-        [DisplayName("Super Admin?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [DisplayName("Super Admin?")][IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("isSuperAdmin")]
         public bool IsSuperAdmin { get; set; }
     }

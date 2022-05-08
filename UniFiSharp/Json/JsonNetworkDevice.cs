@@ -10,36 +10,74 @@ namespace UniFiSharp.Json
         [JsonProperty("_id")]
         public string _id { get; set; }
 
+        /// <summary>
+        /// Device uptime
+        /// </summary>
+        [DisplayName("Uptime")]
+        [Complexity(Complexities.Average)]
         [JsonProperty("_uptime")]
         public int _uptime { get; set; }
 
+        /// <summary>
+        /// If the controller has adopted the device
+        /// </summary>
+        [DisplayName("Adopted?")]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("adopted")]
         public bool adopted { get; set; }
 
+        // TODO
         [JsonProperty("bytes")]
         public object bytes { get; set; }
 
+        /// <summary>
+        /// Configuration version
+        /// </summary>
+        [DisplayName("Configuration Version")]
+        [Complexity(Complexities.Average)]
         [JsonProperty("cfgversion")]
         public string cfgversion { get; set; }
 
+        /// <summary>
+        /// Network configuration
+        /// </summary>
+        [DisplayName("Network Configuration")]
         [JsonProperty("config_network")]
         public JsonConfigNetwork config_network { get; set; }
 
+        /// <summary>
+        /// WAN configuration
+        /// </summary>
+        [DisplayName("WAN Configuration")]
         [JsonProperty("config_network_wan")]
         public JsonConfigNetwork config_network_wan { get; set; }
 
+        // TODO
         [JsonProperty("connect_request_ip")]
         public string connect_request_ip { get; set; }
 
+        // TODO
         [JsonProperty("connect_request_port")]
         public string connect_request_port { get; set; }
 
+        // TODO
         [JsonProperty("considered_lost_at")]
         public int considered_lost_at { get; set; }
 
+        /// <summary>
+        /// If the device has been factory-reset to default settings
+        /// </summary>
+        [DisplayName("Default Settings?")]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("default")]
         public bool defaultSettings { get; set; }
 
+        /// <summary>
+        /// Device ID
+        /// </summary>
+        [DisplayName("Device ID")]
         [JsonProperty("device_id")]
         public string device_id { get; set; }
 
@@ -49,84 +87,164 @@ namespace UniFiSharp.Json
         [JsonProperty("fw_caps")]
         public int fw_caps { get; set; }
 
+        /// <summary>
+        /// Number of guest clients
+        /// </summary>
+        [DisplayName("# Guest Clients")]
+        [Complexity(Complexities.Average)]
         [JsonProperty("guest-num_sta")]
         public int guest_num_sta { get; set; }
 
+        // TODO
         [JsonProperty("guest_token")]
         public string guest_token { get; set; }
 
+        // TODO
         [JsonProperty("has_default_route_distance")]
         public bool has_default_route_distance { get; set; }
 
+        /// <summary>
+        /// If DPI (Deep Packet Inspection) is enabled
+        /// </summary>
+        [DisplayName("DPI Enabled?")]
+        [Complexity(Complexities.Average)]
         [JsonProperty("has_dpi")]
         public bool has_dpi { get; set; }
 
+        // TODO
         [JsonProperty("has_porta")]
         public bool has_porta { get; set; }
 
+        // TODO
         [JsonProperty("has_vti")]
         public bool has_vti { get; set; }
 
+        // TODO
         [JsonProperty("inform_authkey")]
         public string inform_authkey { get; set; }
 
+        // TODO
         [JsonProperty("inform_ip")]
         public string inform_ip { get; set; }
 
+        // TODO
         [JsonProperty("inform_url")]
         public string inform_url { get; set; }
 
+        /// <summary>
+        /// Device IP Address
+        /// </summary>
+        [DisplayName("IP Address")]
+        [Complexity(Complexities.Low)]
         [JsonProperty("ip")]
         public string ip { get; set; }
 
+        // TODO
         [JsonProperty("known_cfgversion")]
         public string known_cfgversion { get; set; }
 
+        /// <summary>
+        /// Last time the device was seen
+        /// </summary>
+        [DisplayName("Last Seen")]
+        [Complexity(Complexities.Average)]
         [JsonProperty("last_seen")]
-        public int last_seen { get; set; }
+        public long last_seen { get; set; }
 
+        // TODO
         [JsonProperty("license_state")]
         public string license_state { get; set; }
 
+        /// <summary>
+        /// If the device is in "locate" mode (blinking)
+        /// </summary>
+        [DisplayName("Locating?")]
+        [Complexity(Complexities.Low)]
         [JsonProperty("locating")]
         public bool locating { get; set; }
 
+        /// <summary>
+        /// Device MAC Address
+        /// </summary>
+        [DisplayName("MAC Address")]
+        [Complexity(Complexities.Low)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
+        // TODO
         [JsonProperty("map_id")]
         public string map_id { get; set; }
 
+        // TODO
         [JsonProperty("mgmt_network_id")]
         public string mgmt_network_id { get; set; }
 
+        /// <summary>
+        /// Device model name
+        /// </summary>
+        [DisplayName("Model")]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("model")]
         public string model { get; set; }
 
+        /// <summary>
+        /// Device name
+        /// </summary>
+        [DisplayName("Name")]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("name")]
         public string name { get; set; }
 
+        // TODO
         [JsonProperty("network_table")]
         public IList<JsonNetworkTable> network_table { get; set; }
 
         [JsonProperty("next_heartbeat_at")]
         public int next_heartbeat_at { get; set; }
 
+        /// <summary>
+        /// Number of desktop clients connected to this device
+        /// </summary>
+        [IncludeInObjectGroup]
+        [DisplayName("# Desktops")]
+        [Complexity(Complexities.Low)]
         [JsonProperty("num_desktop")]
         public int num_desktop { get; set; }
 
+        /// <summary>
+        /// Number of handheld clients connected to this device
+        /// </summary>
+        [IncludeInObjectGroup]
+        [DisplayName("# Handhelds")]
+        [Complexity(Complexities.Low)]
         [JsonProperty("num_handheld")]
         public int num_handheld { get; set; }
 
+        /// <summary>
+        /// Number of mobile clients connected to this device
+        /// </summary>
+        [IncludeInObjectGroup]
+        [DisplayName("# Mobile")]
+        [Complexity(Complexities.Low)]
         [JsonProperty("num_mobile")]
         public int num_mobile { get; set; }
 
+        /// <summary>
+        /// Number of total clients connected to this device
+        /// </summary>
+        [IncludeInObjectGroup]
+        [DisplayName("# Clients")]
+        [Complexity(Complexities.Low)]
         [JsonProperty("num_sta")]
         public int num_sta { get; set; }
 
+        // TODO
         [JsonProperty("port_table")]
         public IList<JsonPortTable> port_table { get; set; }
 
+        // TODO
         [JsonProperty("radius_caps")]
         public int radius_caps { get; set; }
 
@@ -136,12 +254,23 @@ namespace UniFiSharp.Json
         [JsonProperty("serial")]
         public string serial { get; set; }
 
+        /// <summary>
+        /// Site ID
+        /// </summary>
+        [DisplayName("Site ID")]
+        [Complexity(Complexities.Average)]
         [JsonProperty("site_id")]
         public string site_id { get; set; }
 
+        /// <summary>
+        /// Status of current speed test
+        /// </summary>
         [JsonProperty("speedtest-status")]
         public JsonSpeedtestStatus speedtest_status { get; set; }
 
+        /// <summary>
+        /// If the speedtest status has been saved
+        /// </summary>
         [JsonProperty("speedtest-status-saved")]
         public bool speedtest_status_saved { get; set; }
 
@@ -414,12 +543,30 @@ namespace UniFiSharp.Json
 
         public class JsonEthernetTable
         {
+            /// <summary>
+            /// MAC Address
+            /// </summary>
+            [DisplayName("MAC Address")]
+            [IncludeInObjectGroup]
+            [Complexity(Complexities.Low)]
             [JsonProperty("mac")]
             public string mac { get; set; }
 
+            /// <summary>
+            /// Name
+            /// </summary>
+            [DisplayName("Name")]
+            [IncludeInObjectGroup]
+            [Complexity(Complexities.Low)]
             [JsonProperty("name")]
             public string name { get; set; }
-
+            
+            /// <summary>
+            /// Port Number
+            /// </summary>
+            [DisplayName("Port")]
+            [IncludeInObjectGroup]
+            [Complexity(Complexities.Low)]
             [JsonProperty("num_port")]
             public int num_port { get; set; }
         }

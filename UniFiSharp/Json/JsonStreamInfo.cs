@@ -10,7 +10,7 @@ namespace UniFiSharp.Json
         /// If the stream automatically starts
         /// </summary>
         [DisplayName("Autostart?")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("autostart")]
         public bool autostart { get; set; } = false;
 
@@ -18,7 +18,8 @@ namespace UniFiSharp.Json
         /// Broadcast Group ID
         /// </summary>
         [DisplayName("Broadcast Group ID")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("broadcastgroup_id")]
         public string broadcastgroup_id { get; set; }
 
@@ -62,7 +63,7 @@ namespace UniFiSharp.Json
         /// Sample rate of audio
         /// </summary>
         [DisplayName("Sample Rate")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("rate")]
         public long rate { get; set; } = 48000;
 
@@ -70,7 +71,7 @@ namespace UniFiSharp.Json
         /// Filename of running audio
         /// </summary>
         [DisplayName("Filename")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("sample_filename")]
         public string sample_filename { get; set; }
 
@@ -82,7 +83,7 @@ namespace UniFiSharp.Json
         /// Source URL of running stream
         /// </summary>
         [DisplayName("URL")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("url")]
         public string url { get; set; }
     }

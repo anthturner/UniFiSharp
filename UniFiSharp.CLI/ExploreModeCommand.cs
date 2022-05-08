@@ -71,8 +71,9 @@ namespace UniFiSharp.CLI
                 {
                     case "cd": ChangeDeviceCommand(args); break;
                     case "ls": ListDevicesCommand(); break;
-                    case "info": CreatePropertyTable(CurrentDevice); break;
+                    case "info": DrawObjectTable(CurrentDevice, args.Length > 1 ? (Complexities)Int32.Parse(args[1]) : Complexities.Low); break;
                     case "clear": AnsiConsole.Clear(); break;
+                    case "refresh": await Orchestrator.Refresh();  break; // TODO: Re-locate device/client by MAC addr and update CurrentDevice
 
                     case "locate": RunOnInfra(i => i.Locate()); break;
                     case "adopt": RunOnInfra(i => i.Adopt()); break;

@@ -17,7 +17,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, HotspotGuestListSettings settings)
         {
             Log("Listing Hotspot Guests");
-            return await RunWithOutputs(settings, u => u.HotspotGuestList(settings.WithinLastNHours), OutputMaps.HotspotGuests);
+            return await RunWithOutputs(settings, u => u.HotspotGuestList(settings.WithinLastNHours));
         }
     }
 
@@ -26,7 +26,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Listing Hotspot Payments");
-            return await RunWithOutputs(settings, u => u.HotspotPaymentList(), OutputMaps.HotspotPayments);
+            return await RunWithOutputs(settings, u => u.HotspotPaymentList());
         }
     }
 }

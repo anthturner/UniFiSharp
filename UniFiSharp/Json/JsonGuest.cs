@@ -15,9 +15,10 @@ namespace UniFiSharp.Json
 
         /// <summary>
         /// MAC Address of the access point the guest is connected to
-        /// </summary>
+        /// </summary 
         [DisplayName("AP MAC Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("ap_mac")]
         public string apMac { get; set; }
 
@@ -29,7 +30,8 @@ namespace UniFiSharp.Json
         /// Number of bytes used by the guest
         /// </summary>
         [DisplayName("Bytes Used")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("bytes")]
         public long bytes { get; set; }
 
@@ -37,7 +39,8 @@ namespace UniFiSharp.Json
         /// Wireless channel which the guest is using
         /// </summary>
         [DisplayName("Channel")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("channel")]
         public long channel { get; set; }
 
@@ -52,7 +55,8 @@ namespace UniFiSharp.Json
         /// How long the guest has been connected to the network
         /// </summary>
         [DisplayName("Duration")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("duration")]
         public long duration { get; set; }
 
@@ -64,7 +68,8 @@ namespace UniFiSharp.Json
         /// If the guest account has expired
         /// </summary>
         [DisplayName("Expired?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("expired")]
         public bool expired { get; set; }
 
@@ -72,7 +77,8 @@ namespace UniFiSharp.Json
         /// Hostname of the client
         /// </summary>
         [DisplayName("Hostname")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("hostname")]
         public string hostname { get; set; }
 
@@ -80,7 +86,8 @@ namespace UniFiSharp.Json
         /// Guest ID
         /// </summary>
         [DisplayName("Guest ID")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Average)]
         [JsonProperty("_id")]
         public string id { get; set; }
 
@@ -88,7 +95,8 @@ namespace UniFiSharp.Json
         /// IP Address of the guest
         /// </summary>
         [DisplayName("IP Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("ip")]
         public string ip { get; set; }
 
@@ -96,7 +104,8 @@ namespace UniFiSharp.Json
         /// MAC address of the guest system's network interface
         /// </summary>
         [DisplayName("Guest MAC Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
@@ -104,7 +113,8 @@ namespace UniFiSharp.Json
         /// User-defined name of the guest client
         /// </summary>
         [DisplayName("Guest Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -112,7 +122,7 @@ namespace UniFiSharp.Json
         /// Card type used for payment
         /// </summary>
         [DisplayName("Card Type")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("payment_cardtype")]
         public string paymentCardtype { get; set; }
 
@@ -127,7 +137,7 @@ namespace UniFiSharp.Json
         /// Type of payment used by the guest
         /// </summary>
         [DisplayName("Payment Type")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("payment_type")]
         public string paymentType { get; set; }
 
@@ -139,7 +149,8 @@ namespace UniFiSharp.Json
         /// Maximum downstream rate permitted by QoS rules for the guest
         /// </summary>
         [DisplayName("Max Downstream (bytes)")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("qos_rate_max_down")]
         public long qosRateMaxDown { get; set; }
 
@@ -147,7 +158,8 @@ namespace UniFiSharp.Json
         /// Maximum upstream rate permitted by QoS rules for the guest
         /// </summary>
         [DisplayName("Max Upstream (bytes)")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("qos_rate_max_up")]
         public long qosRateMaxUp { get; set; }
 
@@ -155,7 +167,8 @@ namespace UniFiSharp.Json
         /// Usage quota for the guest
         /// </summary>
         [DisplayName("Usage Quota (bytes)")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("qos_usage_quota")]
         public long qosUsageQuota { get; set; }
 
@@ -163,6 +176,7 @@ namespace UniFiSharp.Json
         /// Type of radio being used to connect the guest to the access point
         /// </summary>
         [DisplayName("Radio Type")]
+        [Complexity(Complexities.Average)]
         [JsonProperty("radio")]
         public string radio { get; set; }
 
@@ -174,7 +188,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes received by this guest
         /// </summary>
         [DisplayName("Total RX Bytes")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("rx_bytes")]
         public long rxBytes { get; set; }
 
@@ -193,7 +207,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes transmitted by this guest
         /// </summary>
         [DisplayName("Total TX Bytes")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("tx_bytes")]
         public long txBytes { get; set; }
 

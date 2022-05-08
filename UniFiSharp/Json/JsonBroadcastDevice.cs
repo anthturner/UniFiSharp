@@ -9,7 +9,8 @@ namespace UniFiSharp.Json
         /// If the Broadcast Device is connected
         /// </summary>
         [DisplayName("Connected?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("connected")]
         public bool connected { get; set; }
 
@@ -17,7 +18,8 @@ namespace UniFiSharp.Json
         /// Broadcast Device MAC address
         /// </summary>
         [DisplayName("MAC Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
@@ -25,7 +27,8 @@ namespace UniFiSharp.Json
         /// Broadcast Device volume level
         /// </summary>
         [DisplayName("Volume")]
-        [IncludedInVisualization]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Average)]
         [JsonProperty("volume")]
         public long volume { get; set; }
     }

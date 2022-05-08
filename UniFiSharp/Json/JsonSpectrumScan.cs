@@ -17,7 +17,8 @@ namespace UniFiSharp.Json
         /// Center frequency for this slice of the scan
         /// </summary>
         [DisplayName("Center Frequency")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("center_freq")]
         public int center_freq { get; set; }
 
@@ -25,7 +26,8 @@ namespace UniFiSharp.Json
         /// Channel for this slice of the scan
         /// </summary>
         [DisplayName("Channel")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("channel")]
         public int channel { get; set; }
 
@@ -33,7 +35,8 @@ namespace UniFiSharp.Json
         /// Amount of interference on this frequency/channel
         /// </summary>
         [DisplayName("Interference")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("interference")]
         public int interference { get; set; }
 
@@ -48,7 +51,8 @@ namespace UniFiSharp.Json
         /// Number of other BSSes found in this channel
         /// </summary>
         [DisplayName("# Other BSS")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("other_bss_count")]
         public int other_bss_count { get; set; }
 
@@ -56,7 +60,8 @@ namespace UniFiSharp.Json
         /// Performance index for this channel
         /// </summary>
         [DisplayName("Performance Index")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("perf_index")]
         public int perf_index { get; set; }
 
@@ -71,7 +76,8 @@ namespace UniFiSharp.Json
         /// Number of samples collected
         /// </summary>
         [DisplayName("Total Samples")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("total_samples")]
         public int total_samples { get; set; }
 
@@ -79,7 +85,8 @@ namespace UniFiSharp.Json
         /// Utilization of the channel
         /// </summary>
         [DisplayName("Utilization")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("utilization")]
         public int utilization { get; set; }
 
@@ -87,7 +94,8 @@ namespace UniFiSharp.Json
         /// Width of the channel in MHz
         /// </summary>
         [DisplayName("Channel Width")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("width")]
         public int width { get; set; }
 
@@ -95,7 +103,8 @@ namespace UniFiSharp.Json
         /// Inferred weight to cheaply determine best channel
         /// </summary>
         [DisplayName("Weight")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         public double Weight
         {
             get
@@ -112,7 +121,8 @@ namespace UniFiSharp.Json
         /// MAC Address of access point performing scan
         /// </summary>
         [DisplayName("Scanning AP MAC")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
@@ -120,7 +130,8 @@ namespace UniFiSharp.Json
         /// If the scan is in progress
         /// </summary>
         [DisplayName("Scan Running?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("spectrum_scanning")]
         public bool spectrum_scanning { get; set; }
 

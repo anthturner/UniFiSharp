@@ -9,7 +9,8 @@ namespace UniFiSharp.Json
         /// Stream ID
         /// </summary>
         [DisplayName("Stream ID")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("streamId")]
         public string streamId { get; set; }
 
@@ -17,7 +18,8 @@ namespace UniFiSharp.Json
         /// If the stream is ready for activity
         /// </summary>
         [DisplayName("Ready?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("ready")]
         public bool ready { get; set; }
 
@@ -25,7 +27,8 @@ namespace UniFiSharp.Json
         /// If a stream is running
         /// </summary>
         [DisplayName("Streaming?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("streaming")]
         public bool streaming { get; set; }
 
@@ -41,7 +44,7 @@ namespace UniFiSharp.Json
         /// Filename of running audio
         /// </summary>
         [DisplayName("Filename")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Average)]
         [JsonProperty("sample_filename")]
         public string sample_filename { get; set; }
 

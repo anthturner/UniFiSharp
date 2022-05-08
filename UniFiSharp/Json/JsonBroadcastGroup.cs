@@ -16,7 +16,7 @@ namespace UniFiSharp.Json
         /// Site ID which Broadcast Group applies to
         /// </summary>
         [DisplayName("Site ID")]
-        [IncludedInVisualization]
+        [Complexity(Complexities.Low)]
         [JsonProperty("site_id")]
         public string site_id { get; set; }
 
@@ -24,7 +24,8 @@ namespace UniFiSharp.Json
         /// Name of the Broadcast Group
         /// </summary>
         [DisplayName("Broadcast Group Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -32,6 +33,7 @@ namespace UniFiSharp.Json
         /// Members of the Broadcast Group
         /// </summary>
         [DisplayName("Broadcast Group Members")]
+        [Complexity(Complexities.Average)]
         [JsonProperty("member_table")]
         public string[] member_table { get; set; }
 

@@ -1,27 +1,19 @@
 ﻿using Spectre.Console;
 using Spectre.Console.Cli;
+using Spectre.Console.Rendering;
 using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
+using UniFiSharp.Json;
 
 namespace UniFiSharp.CLI
 {
-    public class OutputMapping<T>
-    {
-        public string Header { get; set; } = "Unknown";
-        public Func<T, object> GetValue { get; set; } = (a) => string.Empty;
-        public static OutputMapping<T> Create(string header, Func<T, object> map)
-        {
-            return new OutputMapping<T>()
-            {
-                Header = header,
-                GetValue = map
-            };
-        }
-    }
-
     public abstract class UniFiSharpCommand<T> : AsyncCommand<T> where T : UniFiSharpSettings
     {
+        private const string LOG_FMT = "[blue][[*]][/]  {0}";
+        private const string WARN_FMT = "[yellow][[%]][/]  {0}";
+        private const string ERROR_FMT = "[red][[!]][/]  {0}";
+
         internal Task<int> Run(UniFiSharpSettings settings, Func<UniFiApi, Task> action) =>
             TryRunning(settings, () => action(settings.GetUniFiSharp()));
 
@@ -72,8 +64,8 @@ namespace UniFiSharp.CLI
                 generateOutput(output);
             });
         }
-        internal Task<int> RunWithOutput<TOutput>(UniFiSharpSettings settings, Func<UniFiApi, Task<TOutput>> action, params OutputMapping<TOutput>[] headers) =>
-            RunWithOutput(settings, action, (output) => CreateTable(headers, output));
+        internal Task<int> RunWithOutput<TOutput>(UniFiSharpSettings settings, Func<UniFiApi, Task<TOutput>> action) =>
+            RunWithOutput(settings, action, (output) => DrawObjectTable(output, Complexities.Low));
 
         // ---
 
@@ -88,77 +80,27 @@ namespace UniFiSharp.CLI
                     generateOutputs(outputs);
             });
         }
-        internal Task<int> RunWithOutputs<TOutput>(UniFiSharpSettings settings, Func<UniFiApi, Task<IEnumerable<TOutput>>> action, params OutputMapping<TOutput>[] headers) =>
-            RunWithOutputs(settings, action, (outputs) => CreateMultiRowTable(headers, outputs));
+        internal Task<int> RunWithOutputs<TOutput>(UniFiSharpSettings settings, Func<UniFiApi, Task<IEnumerable<TOutput>>> action) =>
+            RunWithOutputs(settings, action, (outputs) => DrawMultiRowTable(outputs, Complexities.Low));
 
         // ---
 
-        internal void CreatePropertyTable<TOutput>(TOutput output)
-        {
-            var tbl = new Table()
-                       .AddColumn("Property")
-                       .AddColumn("Value");
-
-            var properties = output.GetType().GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
-            foreach (var property in properties)
-            {
-                var displayName = property.GetCustomAttribute<DisplayNameAttribute>();
-                if (displayName == null)
-                    tbl.AddRow(property.Name, Markup.Escape($"{property.GetValue(output)}"));
-                else
-                    tbl.AddRow(displayName.DisplayName, Markup.Escape($"{property.GetValue(output)}"));
-            }
-
-            AnsiConsole.Write(tbl);
-        }
-
-        internal void CreateTable<TOutput>(OutputMapping<TOutput>[] properties, TOutput output)
-        {
-            var tbl = new Table()
-                       .AddColumn("Property")
-                       .AddColumn("Value");
-
-            foreach (var header in properties)
-                tbl.AddRow(header.Header, $"{header.GetValue(output)}");
-
-            AnsiConsole.Write(tbl);
-        }
-
-        internal void CreateMultiRowTable<TOutput>(OutputMapping<TOutput>[] headers, IEnumerable<TOutput> outputs)
-        {
-            var tbl = new Table().AddColumns(headers.Select(h => h.Header).ToArray());
-            foreach (var row in outputs)
-                tbl.AddRow(headers.Select(h => $"{h.GetValue(row)}").ToArray());
-
-            AnsiConsole.Write(tbl);
-        }
+        internal void DrawObjectTable<TObject>(TObject obj, Complexities complexity) => AnsiConsole.Write(new TableGenerator(complexity).GenerateSingleObjectTable(obj));
+        internal void DrawMultiRowTable<TOutput>(IEnumerable<TOutput> outputs, Complexities complexity) => AnsiConsole.Write(new TableGenerator(complexity).GenerateMultipleObjectListTable(outputs));
 
         internal void WriteHeader(string header) =>
             AnsiConsole.MarkupLine($"[green]{header}[/]");
 
         // ---
 
-        internal void Log(string msg)
-        {
-            if (!Program.Quiet)
-                AnsiConsole.MarkupLine($"[blue][[*]][/]  {msg}");
-        }
+        internal void Log(string msg) => WriteConsole(LOG_FMT, msg);
+        internal void Warn(string msg) => WriteConsole(WARN_FMT, msg);
+        internal void Error(string msg) => WriteConsole(ERROR_FMT, msg);
+        internal void Error(Exception ex) => AnsiConsole.WriteException(ex);
 
-        internal void Warn(string msg)
+        private void WriteConsole(string format, string msg)
         {
-            if (!Program.Quiet)
-                AnsiConsole.MarkupLine($"[yellow][[?]][/]  {msg}");
-        }
-
-        internal void Error(string msg)
-        {
-            if (!Program.Quiet)
-                AnsiConsole.MarkupLine($"[red][[!]][/]  {msg}");
-        }
-
-        internal void Error(Exception ex)
-        {
-            AnsiConsole.WriteException(ex);
+            if (!Program.Quiet) AnsiConsole.MarkupLine(format, msg);
         }
     }
 }

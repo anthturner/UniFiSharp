@@ -9,7 +9,8 @@ namespace UniFiSharp.Json
         /// Hotspot Operator ID
         /// </summary>
         [DisplayName("Operator ID")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("_id")]
         public string id { get; set; }
 
@@ -17,7 +18,8 @@ namespace UniFiSharp.Json
         /// Hotspot Operator Name
         /// </summary>
         [DisplayName("Operator Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [IncludeInObjectGroup]
+        [Complexity(Complexities.Low)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -25,7 +27,7 @@ namespace UniFiSharp.Json
         /// User-defined note associated with hotspot operator
         /// </summary>
         [DisplayName("Operator Note")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("note")]
         public string note { get; set; }
 
@@ -33,7 +35,7 @@ namespace UniFiSharp.Json
         /// Site ID which tracks/manages the operator
         /// </summary>
         [DisplayName("Site ID")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [Complexity(Complexities.Average)]
         [JsonProperty("site_id")]
         public string siteId { get; set; }
 
