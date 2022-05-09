@@ -6,6 +6,9 @@ namespace UniFiSharp.Json
 {
     public abstract class IJsonObject
     {
+        protected const string GROUP_WIRELESS = "Wireless";
+        protected const string GROUP_WIRED = "Wired";
+
         public T CloneAs<T>() where T : IJsonObject
         {
             var targetProperties = TypeDescriptor.GetProperties(typeof(T)).Cast<PropertyDescriptor>();

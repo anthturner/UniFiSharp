@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace UniFiSharp
 {
@@ -29,7 +29,9 @@ namespace UniFiSharp
     }
 
     [AttributeUsage(AttributeTargets.Property)]
-    public class IncludeInObjectGroupAttribute : Attribute { }
+    public class IncludeInObjectGroupAttribute : Attribute {
+        public IncludeInObjectGroupAttribute() { }
+    }
 
     [AttributeUsage(AttributeTargets.Property)]
     public class ComplexityAttribute : Attribute

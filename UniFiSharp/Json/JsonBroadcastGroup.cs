@@ -1,14 +1,20 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Group of broadcast devices (can output audio)
+    /// </summary>
+    [DisplayName("Broadcast Device Group")]
     public class JsonBroadcastGroup
     {
         /// <summary>
         /// Broadcast Group ID
         /// </summary>
         [DisplayName("ID")]
+        [Identifier]
         [JsonProperty("_id")]
         public string _id { get; set; }
 
@@ -16,7 +22,6 @@ namespace UniFiSharp.Json
         /// Site ID which Broadcast Group applies to
         /// </summary>
         [DisplayName("Site ID")]
-        [Complexity(Complexities.Low)]
         [JsonProperty("site_id")]
         public string site_id { get; set; }
 
@@ -24,8 +29,8 @@ namespace UniFiSharp.Json
         /// Name of the Broadcast Group
         /// </summary>
         [DisplayName("Broadcast Group Name")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -33,7 +38,7 @@ namespace UniFiSharp.Json
         /// Members of the Broadcast Group
         /// </summary>
         [DisplayName("Broadcast Group Members")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("member_table")]
         public string[] member_table { get; set; }
 

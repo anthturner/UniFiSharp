@@ -1,8 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Payment transaction details
+    /// </summary>
+    [DisplayName("Transaction Details")]
     public class JsonPaymentTransactionInformation
     {
         // TODO
@@ -13,8 +18,7 @@ namespace UniFiSharp.Json
         /// Transaction amount
         /// </summary>
         [DisplayName("Amount")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("amount")]
         public string amount { get; set; }
 
@@ -22,7 +26,7 @@ namespace UniFiSharp.Json
         /// Payment card type
         /// </summary>
         [DisplayName("Card Type")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("cardtype")]
         public string cardtype { get; set; }
 
@@ -30,7 +34,7 @@ namespace UniFiSharp.Json
         /// Billing address city
         /// </summary>
         [DisplayName("City")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("city")]
         public string city { get; set; }
 
@@ -38,7 +42,7 @@ namespace UniFiSharp.Json
         /// Currency used for payment
         /// </summary>
         [DisplayName("Currency")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("currency")]
         public string currency { get; set; }
 
@@ -46,7 +50,7 @@ namespace UniFiSharp.Json
         /// Date/time of transaction
         /// </summary>
         [DisplayName("Date/Time of Transaction")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("datetime")]
         public string datetime { get; set; }
 
@@ -54,7 +58,7 @@ namespace UniFiSharp.Json
         /// First name of purchaser
         /// </summary>
         [DisplayName("First Name")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("first_name")]
         public string firstName { get; set; }
 
@@ -62,7 +66,7 @@ namespace UniFiSharp.Json
         /// Gateway used to process transaction
         /// </summary>
         [DisplayName("Transaction Gateway")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("gateway")]
         public string gateway { get; set; }
 
@@ -70,8 +74,8 @@ namespace UniFiSharp.Json
         /// Payment Transaction ID
         /// </summary>
         [DisplayName("Payment Transaction ID")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("_id")]
         public string id { get; set; }
 
@@ -83,7 +87,7 @@ namespace UniFiSharp.Json
         /// Last name of purchaser
         /// </summary>
         [DisplayName("Last Name")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("last_name")]
         public string lastName { get; set; }
 
@@ -91,8 +95,8 @@ namespace UniFiSharp.Json
         /// Transaction Name
         /// </summary>
         [DisplayName("Transaction Name")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -127,6 +131,7 @@ namespace UniFiSharp.Json
         /// Billing Address ZIP Code
         /// </summary>
         [DisplayName("ZIP Code")]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("zip")]
         public string zip { get; set; }
     }

@@ -1,16 +1,20 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
-    public class JsonHotspotOperator
+    /// <summary>
+    /// Wireless Hotspot Operator User
+    /// </summary>
+    [DisplayName("Hotspot Operator")]
+    public class JsonHotspotOperator : IJsonObject
     {
         /// <summary>
         /// Hotspot Operator ID
         /// </summary>
         [DisplayName("Operator ID")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
         [JsonProperty("_id")]
         public string id { get; set; }
 
@@ -18,8 +22,8 @@ namespace UniFiSharp.Json
         /// Hotspot Operator Name
         /// </summary>
         [DisplayName("Operator Name")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -27,7 +31,7 @@ namespace UniFiSharp.Json
         /// User-defined note associated with hotspot operator
         /// </summary>
         [DisplayName("Operator Note")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("note")]
         public string note { get; set; }
 
@@ -35,7 +39,7 @@ namespace UniFiSharp.Json
         /// Site ID which tracks/manages the operator
         /// </summary>
         [DisplayName("Site ID")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("site_id")]
         public string siteId { get; set; }
 

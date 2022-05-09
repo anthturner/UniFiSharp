@@ -1,17 +1,20 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Network client device
+    /// </summary>
+    [DisplayName("Client Device")]
     public class JsonClient : IJsonObject
     {
         /// <summary>
         /// Client ID
         /// </summary>
         [DisplayName("Client ID")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
         [JsonProperty("_id")]
         public string _id { get; set; }
 
@@ -19,7 +22,6 @@ namespace UniFiSharp.Json
         /// If the client is a guest via a wireless access point
         /// </summary>
         [DisplayName("Guest by AP?")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_is_guest_by_uap")]
         public bool _is_guest_by_uap { get; set; }
 
@@ -27,7 +29,6 @@ namespace UniFiSharp.Json
         /// If the client is a guest via a gateway/router
         /// </summary>
         [DisplayName("Guest by Gateway?")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_is_guest_by_ugw")]
         public bool _is_guest_by_ugw { get; set; }
 
@@ -35,7 +36,6 @@ namespace UniFiSharp.Json
         /// If the client is a guest via a switch
         /// </summary>
         [DisplayName("Guest by Switch?")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_is_guest_by_usw")]
         public bool _is_guest_by_usw { get; set; }
 
@@ -43,7 +43,6 @@ namespace UniFiSharp.Json
         /// Number of seconds since last seen by the AP
         /// </summary>
         [DisplayName("Last Seen by AP (sec)")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_last_seen_by_uap")]
         public long _last_seen_by_uap { get; set; }
 
@@ -51,7 +50,6 @@ namespace UniFiSharp.Json
         /// Number of seconds since last seen by the gateway/router
         /// </summary>
         [DisplayName("Last Seen by Gateway (sec)")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_last_seen_by_ugw")]
         public long _last_seen_by_ugw { get; set; }
 
@@ -59,7 +57,6 @@ namespace UniFiSharp.Json
         /// Number of seconds since last seen by a switch
         /// </summary>
         [DisplayName("Last Seen by Switch (sec)")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_last_seen_by_usw")]
         public long _last_seen_by_usw { get; set; }
 
@@ -67,7 +64,6 @@ namespace UniFiSharp.Json
         /// Number of seconds of client uptime according to the AP
         /// </summary>
         [DisplayName("Uptime by AP (sec)")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_uptime_by_uap")]
         public long _uptime_by_uap { get; set; }
 
@@ -75,7 +71,6 @@ namespace UniFiSharp.Json
         /// Number of seconds of client uptime according to the gateway/router
         /// </summary>
         [DisplayName("Uptime by Gateway (sec)")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_uptime_by_ugw")]
         public long _uptime_by_ugw { get; set; }
 
@@ -83,7 +78,6 @@ namespace UniFiSharp.Json
         /// Number of seconds of client uptime according to the switch
         /// </summary>
         [DisplayName("Uptime by Switch (sec)")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("_uptime_by_usw")]
         public long _uptime_by_usw { get; set; }
 
@@ -91,8 +85,8 @@ namespace UniFiSharp.Json
         /// MAC Address of the AP the client is connected to
         /// </summary>
         [DisplayName("AP Mac Address")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("ap_mac")]
         public string ap_mac { get; set; }
 
@@ -100,7 +94,8 @@ namespace UniFiSharp.Json
         /// Date/time when the client was associated (in seconds since epoch)
         /// </summary>
         [DisplayName("Date/Time of Association (sec)")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("assoc_time")]
         public long assoc_time { get; set; }
 
@@ -108,7 +103,7 @@ namespace UniFiSharp.Json
         /// If the client has been authorized by 802.1X 
         /// </summary>
         [DisplayName("802.1X Authorized?")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("authorized")]
         public bool authorized { get; set; }
 
@@ -116,7 +111,8 @@ namespace UniFiSharp.Json
         /// BSSID which the client is connected to; a BSSID is typically an AP's MAC address
         /// </summary>
         [DisplayName("BSSID")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("bssid")]
         public string bssid { get; set; }
 
@@ -135,8 +131,8 @@ namespace UniFiSharp.Json
         /// Wireless channel which the client is using
         /// </summary>
         [DisplayName("Channel")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("channel")]
         public int channel { get; set; }
 
@@ -144,8 +140,8 @@ namespace UniFiSharp.Json
         /// ESSID which the client is connected to; an ESSID is frequently the same as the SSID
         /// </summary>
         [DisplayName("ESSID")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("essid")]
         public string essid { get; set; }
 
@@ -153,7 +149,7 @@ namespace UniFiSharp.Json
         /// Date/time when the client was first seen on the network (in seconds since epoch)
         /// </summary>
         [DisplayName("First Seen")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("first_seen")]
         public long first_seen { get; set; }
 
@@ -161,7 +157,7 @@ namespace UniFiSharp.Json
         /// MAC Address of the gateway the client uses to access the internet
         /// </summary>
         [DisplayName("Gateway MAC Address")]
-        [Complexity(Complexities.HighlyTechnical)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("gw_mac")]
         public string gw_mac { get; set; }
 
@@ -169,8 +165,8 @@ namespace UniFiSharp.Json
         /// Hostname of the client
         /// </summary>
         [DisplayName("Hostname")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("hostname")]
         public string hostname { get; set; }
 
@@ -178,7 +174,7 @@ namespace UniFiSharp.Json
         /// Amount of time in seconds that the client has not sent traffic
         /// </summary>
         [DisplayName("Idle Time (sec)")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("idletime")]
         public long idletime { get; set; }
 
@@ -186,8 +182,8 @@ namespace UniFiSharp.Json
         /// IP Address of the client
         /// </summary>
         [DisplayName("IP Address")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("ip")]
         public string ip { get; set; }
 
@@ -195,7 +191,7 @@ namespace UniFiSharp.Json
         /// If the client is a guest on the network
         /// </summary>
         [DisplayName("Is Guest?")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("is_guest")]
         public bool is_guest { get; set; }
 
@@ -203,7 +199,8 @@ namespace UniFiSharp.Json
         /// If the client is connected via a wired connection
         /// </summary>
         [DisplayName("Is Wired?")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
+        [Group(GROUP_WIRED)]
         [JsonProperty("is_wired")]
         public bool is_wired { get; set; }
 
@@ -211,7 +208,7 @@ namespace UniFiSharp.Json
         /// Date/time when the client was last seen on the network (in seconds since epoch)
         /// </summary>
         [DisplayName("Last Seen Time")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("last_seen")]
         public long last_seen { get; set; }
 
@@ -219,7 +216,8 @@ namespace UniFiSharp.Json
         /// Date/time when the client was last associated (in seconds since epoch)
         /// </summary>
         [DisplayName("Latest Association Time")]
-        [Complexity(Complexities.HighlyTechnical)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("latest_assoc_time")]
         public long latest_assoc_time { get; set; }
 
@@ -227,8 +225,8 @@ namespace UniFiSharp.Json
         /// MAC address of the client's network interface
         /// </summary>
         [DisplayName("Client MAC Address")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
@@ -236,8 +234,8 @@ namespace UniFiSharp.Json
         /// Network name where the client is attached
         /// </summary>
         [DisplayName("Network")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRED)]
         [JsonProperty("network")]
         public string network { get; set; }
 
@@ -245,7 +243,6 @@ namespace UniFiSharp.Json
         /// Network ID where the client is attached
         /// </summary>
         [DisplayName("Network ID")]
-        [Complexity(Complexities.HighlyTechnical)]
         [JsonProperty("network_id")]
         public string network_id { get; set; }
 
@@ -254,13 +251,14 @@ namespace UniFiSharp.Json
         /// Amount of interference (noise) in the wireless signal in dBm (0-100); closer to 0 is better
         /// </summary>
         [DisplayName("Noise")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("noise")]
         public int noise { get; set; }
 
         // TODO
         [DisplayName("Noted?")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("noted")]
         public bool noted { get; set; }
 
@@ -268,7 +266,7 @@ namespace UniFiSharp.Json
         /// OUI (Organizationally Unique Identifier) identifying the vendor/manufacturer of the client network interface
         /// </summary>
         [DisplayName("OUI")]
-        [Complexity(Complexities.HighlyTechnical)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("oui")]
         public string oui { get; set; }
 
@@ -276,7 +274,8 @@ namespace UniFiSharp.Json
         /// If the client's network interface is in power-save mode
         /// </summary>
         [DisplayName("Power-Save?")]
-        [Complexity(Complexities.HighlyTechnical)]
+        [ShowWith(Levels.Extended)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("powersave_enabled")]
         public bool powersave_enabled { get; set; }
 
@@ -284,7 +283,7 @@ namespace UniFiSharp.Json
         /// If a quality-of-service policy is applied to this client
         /// </summary>
         [DisplayName("QOS Applied?")]
-        [Complexity(Complexities.HighlyTechnical)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("qos_policy_applied")]
         public bool qos_policy_applied { get; set; }
 
@@ -292,7 +291,8 @@ namespace UniFiSharp.Json
         /// Type of radio being used to connect the client to the access point
         /// </summary>
         [DisplayName("Radio Type")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("radio")]
         public string radio { get; set; }
 
@@ -300,7 +300,8 @@ namespace UniFiSharp.Json
         /// Protocol of radio being used to connect the client to the access point
         /// </summary>
         [DisplayName("Radio Protocol")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("radio_proto")]
         public string radio_proto { get; set; }
 
@@ -308,7 +309,8 @@ namespace UniFiSharp.Json
         /// RSSI (Received Signal Strength Indicator) in dBm (0-100), according to the client device; closer to 0 is stronger
         /// </summary>
         [DisplayName("RSSI")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("rssi")]
         public int rssi { get; set; }
 
@@ -316,7 +318,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes received by this client
         /// </summary>
         [DisplayName("Total RX Bytes")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("rx_bytes")]
         public long rx_bytes { get; set; }
 
@@ -325,7 +327,7 @@ namespace UniFiSharp.Json
         /// Current receive rate in bytes
         /// </summary>
         [DisplayName("RX Rate")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("rx_bytes-r")]
         public long rx_bytes_r { get; set; }
 
@@ -333,7 +335,7 @@ namespace UniFiSharp.Json
         /// Total number of packets received by this client
         /// </summary>
         [DisplayName("Total RX Packets")]
-        [Complexity(Complexities.HighlyTechnical)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("rx_packets")]
         public long rx_packets { get; set; }
 
@@ -341,7 +343,7 @@ namespace UniFiSharp.Json
         /// Negotiated receive rate betwen the client and the network device it is connected to
         /// </summary>
         [DisplayName("Negotiated RX Rate")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("rx_rate")]
         public long rx_rate { get; set; }
 
@@ -349,7 +351,8 @@ namespace UniFiSharp.Json
         /// Wireless signal strength in dBm (0 to -100); closer to 0 is stronger
         /// </summary>
         [DisplayName("WiFi Signal Strength")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("signal")]
         public int signal { get; set; }
 
@@ -357,7 +360,6 @@ namespace UniFiSharp.Json
         /// Site ID which tracks/manages the client
         /// </summary>
         [DisplayName("Site ID")]
-        [Complexity(Complexities.Low)]
         [JsonProperty("site_id")]
         public string site_id { get; set; }
 
@@ -369,7 +371,8 @@ namespace UniFiSharp.Json
         /// MAC address of switch where this client is connected
         /// </summary>
         [DisplayName("Switch MAC Address")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRED)]
         [JsonProperty("sw_mac")]
         public string sw_mac { get; set; }
 
@@ -377,7 +380,8 @@ namespace UniFiSharp.Json
         /// Switch port where this client is connected
         /// </summary>
         [DisplayName("Switch Port")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
+        [Group(GROUP_WIRED)]
         [JsonProperty("sw_port")]
         public int sw_port { get; set; }
 
@@ -385,7 +389,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes sent by this client
         /// </summary>
         [DisplayName("Total TX Bytes")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("tx_bytes")]
         public long tx_bytes { get; set; }
 
@@ -394,7 +398,7 @@ namespace UniFiSharp.Json
         /// Current transmit rate in bytes
         /// </summary>
         [DisplayName("TX Rate")]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("tx_bytes-r")]
         public long tx_bytes_r { get; set; }
 
@@ -402,7 +406,7 @@ namespace UniFiSharp.Json
         /// Total number of packets sent by this client
         /// </summary>
         [DisplayName("Total TX Packets")]
-        [Complexity(Complexities.HighlyTechnical)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("tx_packets")]
         public long tx_packets { get; set; }
 
@@ -410,7 +414,8 @@ namespace UniFiSharp.Json
         /// Transmit power from AP to client
         /// </summary>
         [DisplayName("Transmit Power")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
+        [Group(GROUP_WIRELESS)]
         [JsonProperty("tx_power")]
         public long tx_power { get; set; }
 
@@ -418,7 +423,7 @@ namespace UniFiSharp.Json
         /// Negotiated transmit rate betwen the client and the network device it is connected to
         /// </summary>
         [DisplayName("Negotiated TX Rate")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("tx_rate")]
         public long tx_rate { get; set; }
 
@@ -426,7 +431,7 @@ namespace UniFiSharp.Json
         /// Uptime of client
         /// </summary>
         [DisplayName("Uptime")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("uptime")]
         public long uptime { get; set; }
 
@@ -434,7 +439,7 @@ namespace UniFiSharp.Json
         /// User ID associated with client, if authentication was performed
         /// </summary>
         [DisplayName("Client User ID")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("user_id")]
         public string user_id { get; set; }
 
@@ -442,7 +447,7 @@ namespace UniFiSharp.Json
         /// User Group ID associated with client, if authentication was performed
         /// </summary>
         [DisplayName("Client User Group ID")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("usergroup_id")]
         public string usergroup_id { get; set; }
 
@@ -455,7 +460,7 @@ namespace UniFiSharp.Json
         /// Date/time when the client's DPI data was last updated (in seconds since epoch)
         /// </summary>
         [DisplayName("DPI Updated Time")]
-        [Complexity(Complexities.HighlyTechnical)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("dpi_stats_last_updated")]
         public long? dpi_stats_last_updated { get; set; }
 
@@ -463,8 +468,7 @@ namespace UniFiSharp.Json
         /// If the client is actively being blocked from accessing the network
         /// </summary>
         [DisplayName("Blocked?")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("blocked")]
         public bool? blocked { get; set; }
 
@@ -472,7 +476,7 @@ namespace UniFiSharp.Json
         /// The IP address enforced for this client from the router
         /// </summary>
         [DisplayName("Fixed IP Address")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("fixed_ip")]
         public string fixed_ip { get; set; }
 
@@ -480,8 +484,7 @@ namespace UniFiSharp.Json
         /// User-defined name of the client
         /// </summary>
         [DisplayName("Name")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -489,7 +492,7 @@ namespace UniFiSharp.Json
         /// If the router enforces a fixed IP address for this client
         /// </summary>
         [DisplayName("Fixed IP?")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("use_fixedip")]
         public bool? use_fixedip { get; set; }
 

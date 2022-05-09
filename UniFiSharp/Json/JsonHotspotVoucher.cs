@@ -1,8 +1,13 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Wireless Hotspot Access Voucher
+    /// </summary>
+    [DisplayName("Hotspot Voucher")]
     public class JsonHotspotVoucher
     {
         // TODO
@@ -17,7 +22,7 @@ namespace UniFiSharp.Json
         /// Date/time when the voucher was created (in seconds since epoch)
         /// </summary>
         [DisplayName("Voucher Creation Time")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("create_time")]
         public long createTime { get; set; }
 
@@ -25,7 +30,7 @@ namespace UniFiSharp.Json
         /// Duration of time in seconds that the voucher is valid
         /// </summary>
         [DisplayName("Valid Duration")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("duration")]
         public long duration { get; set; }
 
@@ -33,7 +38,7 @@ namespace UniFiSharp.Json
         /// Date/time when the voucher expires (in seconds since epoch)
         /// </summary>
         [DisplayName("Voucher Expiry Time")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("end_time")]
         public long endTime { get; set; }
 
@@ -45,8 +50,8 @@ namespace UniFiSharp.Json
         /// Voucher ID
         /// </summary>
         [DisplayName("Voucher ID")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("_id")]
         public string id { get; set; }
 
@@ -54,7 +59,7 @@ namespace UniFiSharp.Json
         /// User-defined note associated with voucher
         /// </summary>
         [DisplayName("Voucher Note")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("note")]
         public string note { get; set; }
 
@@ -66,8 +71,7 @@ namespace UniFiSharp.Json
         /// Maximum downstream rate permitted by QoS rules for the voucher
         /// </summary>
         [DisplayName("Max Downstream (bytes)")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("qos_rate_max_down")]
         public long qosRateMaxDown { get; set; }
 
@@ -75,8 +79,7 @@ namespace UniFiSharp.Json
         /// Maximum upstream rate permitted by QoS rules for the voucher
         /// </summary>
         [DisplayName("Max Downstream (bytes)")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("qos_rate_max_up")]
         public long qosRateMaxUp { get; set; }
 
@@ -84,8 +87,7 @@ namespace UniFiSharp.Json
         /// Usage quota for the voucher
         /// </summary>
         [DisplayName("Usage Quota (bytes)")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("qos_usage_quota")]
         public long qosUsageQuota { get; set; }
 
@@ -93,8 +95,7 @@ namespace UniFiSharp.Json
         /// Maximum number of bytes which can be used by the voucher
         /// </summary>
         [DisplayName("Byte Quota (bytes)")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("quota")]
         public long quota { get; set; }
 
@@ -121,8 +122,7 @@ namespace UniFiSharp.Json
         /// Date/time when the voucher was used (in seconds since epoch)
         /// </summary>
         [DisplayName("Date Used")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("used")]
         public long used { get; set; }
     }

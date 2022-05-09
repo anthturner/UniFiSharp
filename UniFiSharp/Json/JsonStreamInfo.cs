@@ -1,16 +1,21 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Streaming media information
+    /// </summary>
+    [DisplayName("Stream Info")]
     public class JsonStreamInfo
     {
         /// <summary>
         /// If the stream automatically starts
         /// </summary>
         [DisplayName("Autostart?")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("autostart")]
         public bool autostart { get; set; } = false;
 
@@ -18,8 +23,7 @@ namespace UniFiSharp.Json
         /// Broadcast Group ID
         /// </summary>
         [DisplayName("Broadcast Group ID")]
-        [IncludeInObjectGroup]
-        [Complexity(Complexities.Low)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("broadcastgroup_id")]
         public string broadcastgroup_id { get; set; }
 
@@ -53,6 +57,7 @@ namespace UniFiSharp.Json
         /// Media file ID being used
         /// </summary>
         [DisplayName("Media File ID")]
+        [Identifier]
         [JsonProperty("mediafile_id")]
         public string mediafile_id { get; set; }
 
@@ -63,7 +68,7 @@ namespace UniFiSharp.Json
         /// Sample rate of audio
         /// </summary>
         [DisplayName("Sample Rate")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("rate")]
         public long rate { get; set; } = 48000;
 
@@ -71,7 +76,8 @@ namespace UniFiSharp.Json
         /// Filename of running audio
         /// </summary>
         [DisplayName("Filename")]
-        [Complexity(Complexities.Average)]
+        [Identifier]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("sample_filename")]
         public string sample_filename { get; set; }
 
@@ -83,7 +89,7 @@ namespace UniFiSharp.Json
         /// Source URL of running stream
         /// </summary>
         [DisplayName("URL")]
-        [Complexity(Complexities.Average)]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("url")]
         public string url { get; set; }
     }
