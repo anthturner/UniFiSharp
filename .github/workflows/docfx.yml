@@ -7,7 +7,7 @@ on:
 
 jobs:
   generate-docs:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -27,13 +27,15 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore ./UniFiSharp
         
-      - name: Build
-        run: dotnet build --no-restore ./UniFiSharp
-
-      - name: Run DocFX
-        uses: nikeee/docfx-action@v1.0.0
+      - name: Setup DocFX
+        uses: crazy-max/ghaction-chocolatey@v1
         with:
-          args: ./UniFiSharp/docs/docfx.json
+          args: install docfx
+
+      - name: DocFX Build
+        working-directory: ./UniFiSharp/docs
+        run: docfx ./UniFiSharp/docs/docfx.json --force
+        continue-on-error: false
      
       - name: Publish Docs
         if: github.event_name == 'push'
