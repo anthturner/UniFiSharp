@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
@@ -37,8 +38,13 @@ namespace UniFiSharp.Json.Attributes
         public static IEnumerable<PropertyInfo> GetVisibleProperties(this IJsonObject obj, Levels level = Levels.Basic) =>
             obj.GetType()
                .GetProperties(BindingFlags.Instance | BindingFlags.Public)
-               .Where(p => p.GetCustomAttribute<ShowWithAttribute>() != null)
-               .Where(p => p.GetCustomAttribute<ShowWithAttribute>().IsVisibleAt(level));
+               .Where(p =>
+               {
+                   if (level == Levels.All) return true;
+                   return (p.GetCustomAttribute<ShowWithAttribute>() != null &&
+                           p.GetCustomAttribute<ShowWithAttribute>().IsVisibleAt(level));
+               })
+               .OrderBy(p => p.GetPropertyName());
 
         /// <summary>
         /// Get the collection of properties for a given object to be displayed in a pivoted view.
@@ -61,5 +67,12 @@ namespace UniFiSharp.Json.Attributes
                 if (groupAttr == null) return string.Empty;
                 else return groupAttr.Name;
             }).ToDictionary(k => k.Key, v => v.AsEnumerable());
+
+        public static string GetPropertyName(this PropertyInfo propertyInfo)
+        {
+            if (propertyInfo.GetCustomAttribute<DisplayNameAttribute>() == null)
+                return propertyInfo.Name;
+            else return propertyInfo.GetCustomAttribute<DisplayNameAttribute>().DisplayName;
+        }
     }
 }
