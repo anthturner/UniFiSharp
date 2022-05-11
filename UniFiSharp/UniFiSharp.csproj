@@ -7,7 +7,7 @@
 		<Authors>Anthony Turner</Authors>
 		<Company>Anthony Turner</Company>
 		<Description>UniFiSharp provides a cross-platform (NETStandard) interface to control and monitor Ubiquiti UniFi networking components via the UniFi controller software.</Description>
-		<PackageLicenseUrl/>
+		<PackageLicenseUrl />
 		<PackageProjectUrl>https://github.com/anthturner/UniFiSharp</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/anthturner/UniFiSharp</RepositoryUrl>
 		<RepositoryType>GitHub</RepositoryType>
@@ -20,28 +20,29 @@
 		<NullableReferenceTypes>true</NullableReferenceTypes>
 		<LangVersion>8.0</LangVersion>
 	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-		<DocumentationFile>bin\Debug\netstandard2.0\UniFiSharp.xml</DocumentationFile>
+	<PropertyGroup>
+		<DocumentationFile></DocumentationFile>
 		<NoWarn>1701;1702;1705;CS1591</NoWarn>
+		<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="UniFiSharpLogo.ico">
 			<Pack>True</Pack>
-			<PackagePath/>
+			<PackagePath />
 		</None>
 		<None Include="UniFiSharpLogo.png">
 			<Pack>True</Pack>
-			<PackagePath/>
+			<PackagePath />
 		</None>
 		<None Include="..\LICENSE">
 			<Pack>True</Pack>
-			<PackagePath/>
+			<PackagePath />
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
-		<PackageReference Include="RestSharp" Version="107.3.0"/>
-		<PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="107.3.0"/>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="RestSharp" Version="107.3.0" />
+		<PackageReference Include="RestSharp.Serializers.NewtonsoftJson" Version="107.3.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="UniFiSharpLogo.png">
