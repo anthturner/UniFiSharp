@@ -25,10 +25,10 @@ jobs:
             6.0.x
             
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore ./UniFiSharp
         
       - name: Build
-        run: dotnet build --no-restore
+        run: dotnet build --no-restore ./UniFiSharp
 
       - name: Run DocFX
         uses: nikeee/docfx-action@v1.0.0
