@@ -1,5 +1,6 @@
 ﻿using Spectre.Console.Cli;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.CLI.Commands
 {
@@ -56,7 +57,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, NetworkDeviceSettings settings)
         {
             Log($"Getting Network Device '{settings.DeviceMacId}'");
-            return await RunWithOutput(settings, u => u.NetworkDeviceGet(settings.DeviceMacId), OutputMaps.NetworkDevice);
+            return await RunWithOutput(settings, u => u.NetworkDeviceGet(settings.DeviceMacId));
         }
     }
 
@@ -65,7 +66,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log($"Listing Network Devices");
-            return await RunWithOutputs(settings, u => u.NetworkDeviceList(), OutputMaps.NetworkDevice);
+            return await RunWithOutputs(settings, u => u.NetworkDeviceList());
         }
     }
 
@@ -114,9 +115,9 @@ namespace UniFiSharp.CLI.Commands
                 (o) =>
                 {
                     WriteHeader("Spectrum Table 5G");
-                    CreateMultiRowTable(OutputMaps.SpectrumScan, o.spectrum_table_na);
+                    DrawMultiRowTable(o.spectrum_table_na, Levels.Basic);
                     WriteHeader("Spectrum Table 2.4G");
-                    CreateMultiRowTable(OutputMaps.SpectrumScan, o.spectrum_table_ng);
+                    DrawMultiRowTable(o.spectrum_table_ng, Levels.Basic);
                 });
         }
     }

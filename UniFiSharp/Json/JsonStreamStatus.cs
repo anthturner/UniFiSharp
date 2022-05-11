@@ -1,15 +1,20 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Status of streaming media on a Broadcast Device
+    /// </summary>
+    [DisplayName("Stream Status")]
     public class JsonStreamStatus
     {
         /// <summary>
         /// Stream ID
         /// </summary>
         [DisplayName("Stream ID")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
         [JsonProperty("streamId")]
         public string streamId { get; set; }
 
@@ -17,7 +22,7 @@ namespace UniFiSharp.Json
         /// If the stream is ready for activity
         /// </summary>
         [DisplayName("Ready?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("ready")]
         public bool ready { get; set; }
 
@@ -25,7 +30,7 @@ namespace UniFiSharp.Json
         /// If a stream is running
         /// </summary>
         [DisplayName("Streaming?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("streaming")]
         public bool streaming { get; set; }
 
@@ -41,7 +46,8 @@ namespace UniFiSharp.Json
         /// Filename of running audio
         /// </summary>
         [DisplayName("Filename")]
-        [IncludedInVisualization]
+        [Identifier]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("sample_filename")]
         public string sample_filename { get; set; }
 
@@ -49,6 +55,7 @@ namespace UniFiSharp.Json
         /// Media file ID being used
         /// </summary>
         [DisplayName("Media File ID")]
+        [Identifier]
         [JsonProperty("mediafile_id")]
         public string mediafile_id { get; set; }
     }

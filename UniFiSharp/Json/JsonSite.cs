@@ -1,15 +1,19 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Managed site information
+    /// </summary>
+    [DisplayName("Management Site")]
     public class JsonSite
     {
         /// <summary>
         /// Site ID
         /// </summary>
         [DisplayName("Site ID")]
-        [IncludedInVisualization]
         [JsonProperty("_id")]
         public string _id { get; set; }
 
@@ -17,7 +21,8 @@ namespace UniFiSharp.Json
         /// Site Name
         /// </summary>
         [DisplayName("Site Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -25,7 +30,7 @@ namespace UniFiSharp.Json
         /// Description of the site
         /// </summary>
         [DisplayName("Description")]
-        [IncludedInVisualization]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("desc")]
         public string desc { get; set; }
 
@@ -33,7 +38,7 @@ namespace UniFiSharp.Json
         /// Number of access points managed by the site
         /// </summary>
         [DisplayName("APs")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("num_ap")]
         public int num_ap { get; set; }
 
@@ -41,7 +46,7 @@ namespace UniFiSharp.Json
         /// Number of clients managed by the site
         /// </summary>
         [DisplayName("Clients")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("num_sta")]
         public int num_sta { get; set; }
 

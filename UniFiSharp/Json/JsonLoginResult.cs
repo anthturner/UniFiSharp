@@ -1,9 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
-    public class JsonLoginResult
+    /// <summary>
+    /// Information around currently authenticated user
+    /// </summary>
+    [DisplayName("Current User")]
+    public class JsonLoginResult : IJsonObject
     {
         /// <summary>
         /// User's First Name
@@ -23,7 +28,8 @@ namespace UniFiSharp.Json
         /// User's Full Name
         /// </summary>
         [DisplayName("Full Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("full_name")]
         public string FullName { get; set; }
 
@@ -31,7 +37,8 @@ namespace UniFiSharp.Json
         /// User's email address
         /// </summary>
         [DisplayName("EMail Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("email")]
         public string Email { get; set; }
 
@@ -47,7 +54,8 @@ namespace UniFiSharp.Json
         /// Username of logged in user
         /// </summary>
         [DisplayName("Username")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("username")]
         public string Username { get; set; }
 
@@ -55,7 +63,7 @@ namespace UniFiSharp.Json
         /// If the account is local or remote (SSO)
         /// </summary>
         [DisplayName("Local Account?")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("local_account_exist")]
         public bool HasLocalAccount { get; set; }
 
@@ -63,7 +71,7 @@ namespace UniFiSharp.Json
         /// SSO account name mapping
         /// </summary>
         [DisplayName("SSO Account")]
-        [IncludedInVisualization(VisualizationModes.Single)]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("sso_account")]
         public string SsoAccount { get; set; }
 
@@ -71,7 +79,7 @@ namespace UniFiSharp.Json
         /// If the user is an owner
         /// </summary>
         [DisplayName("Owner?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("isOwner")]
         public bool IsOwner { get; set; }
 
@@ -79,7 +87,7 @@ namespace UniFiSharp.Json
         /// If the user is a super admin
         /// </summary>
         [DisplayName("Super Admin?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("isSuperAdmin")]
         public bool IsSuperAdmin { get; set; }
     }

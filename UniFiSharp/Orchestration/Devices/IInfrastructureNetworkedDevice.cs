@@ -160,7 +160,7 @@ namespace UniFiSharp.Orchestration.Devices
             await API.NetworkDeviceForget(mac);
         }
 
-        public static IInfrastructureNetworkedDevice CreateFromJson(UniFiApi api, JsonNetworkDevice device)
+        internal static IInfrastructureNetworkedDevice CreateFromJson(UniFiApi api, JsonNetworkDevice device)
         {
             return device.type switch
             {

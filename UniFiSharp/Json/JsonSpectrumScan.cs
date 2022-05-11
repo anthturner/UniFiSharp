@@ -1,9 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// One set of RF spectrum scanning results, given a specific radio frequency
+    /// </summary>
+    [DisplayName("Spectrum Table")]
     public class JsonSpectrumTable
     {
         /// <summary>
@@ -17,7 +22,8 @@ namespace UniFiSharp.Json
         /// Center frequency for this slice of the scan
         /// </summary>
         [DisplayName("Center Frequency")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("center_freq")]
         public int center_freq { get; set; }
 
@@ -25,7 +31,8 @@ namespace UniFiSharp.Json
         /// Channel for this slice of the scan
         /// </summary>
         [DisplayName("Channel")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("channel")]
         public int channel { get; set; }
 
@@ -33,7 +40,7 @@ namespace UniFiSharp.Json
         /// Amount of interference on this frequency/channel
         /// </summary>
         [DisplayName("Interference")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("interference")]
         public int interference { get; set; }
 
@@ -48,7 +55,7 @@ namespace UniFiSharp.Json
         /// Number of other BSSes found in this channel
         /// </summary>
         [DisplayName("# Other BSS")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("other_bss_count")]
         public int other_bss_count { get; set; }
 
@@ -56,7 +63,7 @@ namespace UniFiSharp.Json
         /// Performance index for this channel
         /// </summary>
         [DisplayName("Performance Index")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("perf_index")]
         public int perf_index { get; set; }
 
@@ -71,7 +78,7 @@ namespace UniFiSharp.Json
         /// Number of samples collected
         /// </summary>
         [DisplayName("Total Samples")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("total_samples")]
         public int total_samples { get; set; }
 
@@ -79,7 +86,7 @@ namespace UniFiSharp.Json
         /// Utilization of the channel
         /// </summary>
         [DisplayName("Utilization")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("utilization")]
         public int utilization { get; set; }
 
@@ -87,7 +94,7 @@ namespace UniFiSharp.Json
         /// Width of the channel in MHz
         /// </summary>
         [DisplayName("Channel Width")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("width")]
         public int width { get; set; }
 
@@ -95,7 +102,7 @@ namespace UniFiSharp.Json
         /// Inferred weight to cheaply determine best channel
         /// </summary>
         [DisplayName("Weight")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         public double Weight
         {
             get
@@ -106,13 +113,18 @@ namespace UniFiSharp.Json
         }
     }
 
+    /// <summary>
+    /// Output of an RF spectrum scan
+    /// </summary>
+    [DisplayName("Spectrum Scan Result")]
     public class JsonSpectrumScan
     {
         /// <summary>
         /// MAC Address of access point performing scan
         /// </summary>
         [DisplayName("Scanning AP MAC")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
@@ -120,7 +132,7 @@ namespace UniFiSharp.Json
         /// If the scan is in progress
         /// </summary>
         [DisplayName("Scan Running?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("spectrum_scanning")]
         public bool spectrum_scanning { get; set; }
 

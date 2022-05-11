@@ -1,15 +1,20 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Port forwarded through router
+    /// </summary>
+    [DisplayName("Port Forward")]
     public class JsonPortForward
     {
         /// <summary>
         /// Port Forward ID
         /// </summary>
         [DisplayName("Port Forward ID")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
         [JsonProperty("_id")]
         public string _id { get; set; }
 
@@ -17,7 +22,8 @@ namespace UniFiSharp.Json
         /// User-defined name of the port forward
         /// </summary>
         [DisplayName("Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -25,7 +31,7 @@ namespace UniFiSharp.Json
         /// Source IP address
         /// </summary>
         [DisplayName("Source IP")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("src")]
         public string src { get; set; }
 
@@ -33,7 +39,7 @@ namespace UniFiSharp.Json
         /// Port which the router listens on
         /// </summary>
         [DisplayName("Router Port")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("dst_port")]
         public int dst_port { get; set; }
 
@@ -41,7 +47,7 @@ namespace UniFiSharp.Json
         /// Port which the traffic is forwarded to on the destination
         /// </summary>
         [DisplayName("Destination Port")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("fwd_port")]
         public int fwd_port { get; set; }
 
@@ -49,7 +55,7 @@ namespace UniFiSharp.Json
         /// Destination IP for the traffic
         /// </summary>
         [DisplayName("Destination IP")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("fwd")]
         public string fwd { get; set; }
 
@@ -57,7 +63,7 @@ namespace UniFiSharp.Json
         /// Protocol the port forward applies to
         /// </summary>
         [DisplayName("Protocol")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("proto")]
         public string proto { get; set; }
 

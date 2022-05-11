@@ -47,7 +47,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, UniFiSharpSettings settings)
         {
             Log("Listing Media Files");
-            return await RunWithOutputs(settings, u => u.MediaFileList(), OutputMaps.MediaFiles);
+            return await RunWithOutputs(settings, u => u.MediaFileList());
         }
     }
 
@@ -56,7 +56,7 @@ namespace UniFiSharp.CLI.Commands
         public override async Task<int> ExecuteAsync(CommandContext context, MediaFileSettings settings)
         {
             Log($"Getting Media File '{settings.MediaFileId}'");
-            return await RunWithOutput(settings, u => u.MediaFileGet(settings.MediaFileId), OutputMaps.MediaFiles);
+            return await RunWithOutput(settings, u => u.MediaFileGet(settings.MediaFileId));
         }
     }
 

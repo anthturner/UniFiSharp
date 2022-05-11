@@ -1,15 +1,20 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// User record which represents a person who can authenticate to the network
+    /// </summary>
+    [DisplayName("User")]
     public class JsonUser
     {
         /// <summary>
         /// User ID
         /// </summary>
         [DisplayName("User ID")]
-        [IncludedInVisualization]
+        [Identifier]
         [JsonProperty("_id")]
         public string _id { get; set; }
 
@@ -17,7 +22,7 @@ namespace UniFiSharp.Json
         /// Amount of time in seconds that the user has been online
         /// </summary>
         [DisplayName("Duration")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("duration")]
         public int duration { get; set; }
 
@@ -25,7 +30,7 @@ namespace UniFiSharp.Json
         /// First time the user was seen (in seconds since epoch)
         /// </summary>
         [DisplayName("Date/Time First Seen (sec)")]
-        [IncludedInVisualization]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("first_seen")]
         public long first_seen { get; set; }
 
@@ -33,7 +38,7 @@ namespace UniFiSharp.Json
         /// Hostname the user is connecting from
         /// </summary>
         [DisplayName("Hostname")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("hostname")]
         public string hostname { get; set; }
 
@@ -41,7 +46,7 @@ namespace UniFiSharp.Json
         /// If the user is a guest
         /// </summary>
         [DisplayName("Guest?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("is_guest")]
         public bool is_guest { get; set; }
 
@@ -49,7 +54,7 @@ namespace UniFiSharp.Json
         /// If the user is on a wired device
         /// </summary>
         [DisplayName("Wired?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("is_wired")]
         public bool is_wired { get; set; }
 
@@ -57,7 +62,7 @@ namespace UniFiSharp.Json
         /// Date/time when the user was most recently seen (in seconds since epoch)
         /// </summary>
         [DisplayName("Date/Time Last Seen (sec)")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("last_seen")]
         public int last_seen { get; set; }
 
@@ -65,7 +70,7 @@ namespace UniFiSharp.Json
         /// MAC Address of the client the user is connecting from
         /// </summary>
         [DisplayName("MAC Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
@@ -73,7 +78,8 @@ namespace UniFiSharp.Json
         /// User name
         /// </summary>
         [DisplayName("Name")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("name")]
         public string name { get; set; }
 
@@ -92,7 +98,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes received by the user
         /// </summary>
         [DisplayName("Total RX Bytes")]
-        [IncludedInVisualization]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("rx_bytes")]
         public long rx_bytes { get; set; }
 
@@ -100,6 +106,7 @@ namespace UniFiSharp.Json
         /// Total number of packets received by the user
         /// </summary>
         [DisplayName("Total RX Packets")]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("rx_packets")]
         public long rx_packets { get; set; }
 
@@ -114,7 +121,7 @@ namespace UniFiSharp.Json
         /// Total number of bytes sent by this user
         /// </summary>
         [DisplayName("Total TX Bytes")]
-        [IncludedInVisualization]
+        [ShowWith(Levels.Basic)]
         [JsonProperty("tx_bytes")]
         public long tx_bytes { get; set; }
 
@@ -122,6 +129,7 @@ namespace UniFiSharp.Json
         /// Total number of packets sent by this user
         /// </summary>
         [DisplayName("Total TX Packets")]
+        [ShowWith(Levels.Extended)]
         [JsonProperty("tx_packets")]
         public long tx_packets { get; set; }
 

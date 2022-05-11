@@ -65,7 +65,7 @@ namespace UniFiSharp
         /// Retrieve a list of ports that have been forwarded on a UniFi Security Gateway (router)
         /// </summary>
         /// <returns>List of JSON objects describing configured port forwarding entries</returns>
-        public async Task<IList<JsonPortForward>> SitePortForwardsList()
+        public async Task<IEnumerable<JsonPortForward>> SitePortForwardsList()
         {
             return await RestClient.UniFiGetMany<JsonPortForward>($"api/s/{Site}/list/portforward");
         }
@@ -74,7 +74,7 @@ namespace UniFiSharp
         /// Retrieve a list of rogue access points that have been detected by this site's UniFi controller
         /// </summary>
         /// <returns>List of JSON objects describing rogue access points</returns>
-        public async Task<IList<JsonRogueAp>> SiteRogueApList()
+        public async Task<IEnumerable<JsonRogueAp>> SiteRogueApList()
         {
             return await RestClient.UniFiGetMany<JsonRogueAp>($"api/s/{Site}/stat/rogueap");
         }

@@ -1,15 +1,20 @@
 ﻿using Newtonsoft.Json;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.Json
 {
-    public class JsonBroadcastDevice
+    /// <summary>
+    /// Broadcast device (can output audio)
+    /// </summary>
+    [DisplayName("Broadcast Device")]
+    public class JsonBroadcastDevice : IJsonObject
     {
         /// <summary>
         /// If the Broadcast Device is connected
         /// </summary>
         [DisplayName("Connected?")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("connected")]
         public bool connected { get; set; }
 
@@ -17,7 +22,8 @@ namespace UniFiSharp.Json
         /// Broadcast Device MAC address
         /// </summary>
         [DisplayName("MAC Address")]
-        [IncludedInVisualization(VisualizationModes.Both)]
+        [Identifier]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("mac")]
         public string mac { get; set; }
 
@@ -25,7 +31,7 @@ namespace UniFiSharp.Json
         /// Broadcast Device volume level
         /// </summary>
         [DisplayName("Volume")]
-        [IncludedInVisualization]
+        [ShowWith(Levels.Minimal)]
         [JsonProperty("volume")]
         public long volume { get; set; }
     }
