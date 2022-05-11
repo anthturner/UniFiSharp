@@ -8,7 +8,7 @@ namespace UniFiSharp.Json
     /// Group of broadcast devices (can output audio)
     /// </summary>
     [DisplayName("Broadcast Device Group")]
-    public class JsonBroadcastGroup
+    public class JsonBroadcastGroup : IJsonObject
     {
         /// <summary>
         /// Broadcast Group ID
