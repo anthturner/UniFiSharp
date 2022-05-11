@@ -20,7 +20,7 @@ namespace UniFiSharp.Json
 
         /// <summary>
         /// MAC Address of the access point the guest is connected to
-        /// </summary 
+        /// </summary>
         [DisplayName("AP MAC Address")]
         [ShowWith(Levels.Minimal)]
         [Group(GROUP_WIRELESS)]

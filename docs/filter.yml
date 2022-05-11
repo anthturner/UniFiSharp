@@ -20,3 +20,7 @@ apiRules:
     - exclude:
         uidRegex: ^System\.Attribute
         type: Type
+attributeRules:
+- include:
+    uidRegex: ^System\.ComponentModel
+    type: Type

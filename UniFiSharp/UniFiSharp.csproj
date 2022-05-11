@@ -24,6 +24,7 @@
 		<DocumentationFile></DocumentationFile>
 		<NoWarn>1701;1702;1705;CS1591</NoWarn>
 		<ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="UniFiSharpLogo.ico">

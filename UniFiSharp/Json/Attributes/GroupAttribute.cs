@@ -7,5 +7,6 @@ namespace UniFiSharp.Json.Attributes
     {
         public string Name { get; set; }
         public GroupAttribute(string groupName) => Name = groupName;
+        public GroupAttribute() { }
     }
 }
