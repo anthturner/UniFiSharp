@@ -1,5 +1,6 @@
 ﻿using Spectre.Console;
 using Spectre.Console.Cli;
+using UniFiSharp.Json.Attributes;
 using UniFiSharp.Orchestration;
 using UniFiSharp.Orchestration.Devices;
 
@@ -71,7 +72,7 @@ namespace UniFiSharp.CLI
                 {
                     case "cd": ChangeDeviceCommand(args); break;
                     case "ls": ListDevicesCommand(); break;
-                    case "info": DrawObjectTable(CurrentDevice, args.Length > 1 ? (Complexities)Int32.Parse(args[1]) : Complexities.Low); break;
+                    case "info": DrawObjectTable(CurrentDevice, args.Length > 1 ? (Levels)Int32.Parse(args[1]) : Levels.Basic); break;
                     case "clear": AnsiConsole.Clear(); break;
                     case "refresh": await Orchestrator.Refresh();  break; // TODO: Re-locate device/client by MAC addr and update CurrentDevice
 

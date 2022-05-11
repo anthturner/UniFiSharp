@@ -1,5 +1,6 @@
 ﻿using Spectre.Console.Cli;
 using System.ComponentModel;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.CLI.Commands
 {
@@ -114,9 +115,9 @@ namespace UniFiSharp.CLI.Commands
                 (o) =>
                 {
                     WriteHeader("Spectrum Table 5G");
-                    DrawMultiRowTable(o.spectrum_table_na, Complexities.Average);
+                    DrawMultiRowTable(o.spectrum_table_na, Levels.Basic);
                     WriteHeader("Spectrum Table 2.4G");
-                    DrawMultiRowTable(o.spectrum_table_ng, Complexities.Average);
+                    DrawMultiRowTable(o.spectrum_table_ng, Levels.Basic);
                 });
         }
     }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Text.Json;
 using UniFiSharp.Json;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.CLI
 {
@@ -65,7 +66,7 @@ namespace UniFiSharp.CLI
             });
         }
         internal Task<int> RunWithOutput<TOutput>(UniFiSharpSettings settings, Func<UniFiApi, Task<TOutput>> action) =>
-            RunWithOutput(settings, action, (output) => DrawObjectTable(output, Complexities.Low));
+            RunWithOutput(settings, action, (output) => DrawObjectTable(output, Levels.Basic));
 
         // ---
 
@@ -81,12 +82,12 @@ namespace UniFiSharp.CLI
             });
         }
         internal Task<int> RunWithOutputs<TOutput>(UniFiSharpSettings settings, Func<UniFiApi, Task<IEnumerable<TOutput>>> action) =>
-            RunWithOutputs(settings, action, (outputs) => DrawMultiRowTable(outputs, Complexities.Low));
+            RunWithOutputs(settings, action, (outputs) => DrawMultiRowTable(outputs, Levels.Basic));
 
         // ---
 
-        internal void DrawObjectTable<TObject>(TObject obj, Complexities complexity) => AnsiConsole.Write(new TableGenerator(complexity).GenerateSingleObjectTable(obj));
-        internal void DrawMultiRowTable<TOutput>(IEnumerable<TOutput> outputs, Complexities complexity) => AnsiConsole.Write(new TableGenerator(complexity).GenerateMultipleObjectListTable(outputs));
+        internal void DrawObjectTable<TObject>(TObject obj, Levels level) => AnsiConsole.Write(new TableGenerator(level).GenerateSingleObjectTable(obj));
+        internal void DrawMultiRowTable<TOutput>(IEnumerable<TOutput> outputs, Levels level) => AnsiConsole.Write(new TableGenerator(level).GenerateMultipleObjectListTable(outputs));
 
         internal void WriteHeader(string header) =>
             AnsiConsole.MarkupLine($"[green]{header}[/]");

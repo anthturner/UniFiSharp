@@ -1,25 +1,25 @@
 ﻿using Spectre.Console;
 using Spectre.Console.Rendering;
 using System.Collections;
-using System.ComponentModel;
 using System.Reflection;
 using UniFiSharp.Json;
+using UniFiSharp.Json.Attributes;
 
 namespace UniFiSharp.CLI
 {
     internal class TableGenerator
     {
-        Complexities Complexity { get; }
-        internal TableGenerator(Complexities complexity = Complexities.Average) => Complexity = complexity;
+        Levels Level { get; }
+        internal TableGenerator(Levels level = Levels.Basic) => Level = level;
 
         internal IRenderable GenerateMultipleObjectListTable<TEnumerated>(IEnumerable<TEnumerated> data, bool isInsideComplexObject = false)
         {
             if (data == null || !data.Any()) return new Text("<No Data>");
 
-            var properties = MultiObjectDisplayProperties(data);
+            var properties = (data as IJsonObject).GetVisibleProperties(Levels.Minimal);
 
             var tbl = new Table().AddColumns(
-                properties.Select(p => new TableColumn(GeneratePropertyName(p)))
+                properties.Select(p => new TableColumn(p.GetPropertyName()))
                           .ToArray());
 
             foreach (var row in data)
@@ -32,9 +32,9 @@ namespace UniFiSharp.CLI
         {
             var tbl = new Table().AddColumns("Property", "Value").HideHeaders();
 
-            var properties = SingleObjectDisplayProperties(data, isInsideComplexObject);
+            var properties = (data as IJsonObject).GetVisibleProperties(isInsideComplexObject ? Levels.Minimal : Level);
             foreach (var property in properties)
-                tbl.AddRow(GeneratePropertyName(property), GenerateTableValue(property.GetValue(data), true));
+                tbl.AddRow(new Text(Markup.Escape(property.GetPropertyName())), GenerateTableValue(property.GetValue(data), true));
 
             return tbl;
         }
@@ -66,31 +66,5 @@ namespace UniFiSharp.CLI
 
             return new Text(Markup.Escape(data.ToString()));
         }
-
-        private static IRenderable GeneratePropertyName(PropertyInfo property) =>
-            new Text(Markup.Escape(property.GetCustomAttribute<DisplayNameAttribute>() != null ?
-                                   property.GetCustomAttribute<DisplayNameAttribute>().DisplayName :
-                                   property.Name));
-
-        private IEnumerable<PropertyInfo> MultiObjectDisplayProperties<TObject>(TObject data) =>
-            data.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                          .Where(p => p.GetCustomAttribute<IncludeInObjectGroupAttribute>() != null);
-
-        private IEnumerable<PropertyInfo> SingleObjectDisplayProperties<TObject>(TObject data, bool isInsideComplexObject = false) =>
-            data.GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public)
-                          .Where(p =>
-                          {
-                              var attr = p.GetCustomAttribute<ComplexityAttribute>();
-                              if (isInsideComplexObject)
-                              {
-                                  if (attr == null) return false; // complexity is high if not given
-                                  return attr.Complexity >= Complexities.Low;
-                              }
-                              else
-                              {
-                                  if (attr == null) return Complexity <= Complexities.HighlyTechnical; // no complexity attribute -> highest complexity
-                                  return attr.Complexity >= Complexity;
-                              }
-                          });
     }
 }
