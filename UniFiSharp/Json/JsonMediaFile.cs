@@ -8,7 +8,7 @@ namespace UniFiSharp.Json
     /// Media file which can be played on broadcast devices
     /// </summary>
     [DisplayName("Media File")]
-    public class JsonMediaFile
+    public class JsonMediaFile : IJsonObject
     {
         /// <summary>
         /// Media File ID

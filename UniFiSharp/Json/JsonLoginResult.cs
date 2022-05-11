@@ -8,7 +8,7 @@ namespace UniFiSharp.Json
     /// Information around currently authenticated user
     /// </summary>
     [DisplayName("Current User")]
-    public class JsonLoginResult
+    public class JsonLoginResult : IJsonObject
     {
         /// <summary>
         /// User's First Name

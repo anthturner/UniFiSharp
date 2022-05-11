@@ -8,7 +8,7 @@ namespace UniFiSharp.Json
     /// Wireless Hotspot Access Voucher
     /// </summary>
     [DisplayName("Hotspot Voucher")]
-    public class JsonHotspotVoucher
+    public class JsonHotspotVoucher : IJsonObject
     {
         // TODO
         [JsonProperty("admin_name")]

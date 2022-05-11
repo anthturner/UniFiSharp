@@ -6,6 +6,9 @@ using System.Text.RegularExpressions;
 
 namespace UniFiSharp.Json.Attributes
 {
+    /// <summary>
+    /// Extensions to retrieve named properties from JSON objects
+    /// </summary>
     public static class ObjectVisibilityExtensions
     {
         /// <summary>
@@ -68,6 +71,11 @@ namespace UniFiSharp.Json.Attributes
                 else return groupAttr.Name;
             }).ToDictionary(k => k.Key, v => v.AsEnumerable());
 
+        /// <summary>
+        /// Resolve a property's user-friendly name, using its DisplayName if present; otherwise, use the property name itself
+        /// </summary>
+        /// <param name="propertyInfo">PropertyInfo to resolve</param>
+        /// <returns>Property's display name</returns>
         public static string GetPropertyName(this PropertyInfo propertyInfo)
         {
             if (propertyInfo.GetCustomAttribute<DisplayNameAttribute>() == null)

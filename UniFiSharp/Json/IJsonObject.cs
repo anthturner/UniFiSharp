@@ -4,12 +4,20 @@ using System.Linq;
 
 namespace UniFiSharp.Json
 {
+    /// <summary>
+    /// Base class for JSON objects returned from UniFi
+    /// </summary>
     public abstract class IJsonObject
     {
+        protected const string GROUP_WIRELESS_5G = "5G Wireless";
+        protected const string GROUP_WIRELESS_2G = "2.4G Wireless";
         protected const string GROUP_WIRELESS = "Wireless";
-        protected const string GROUP_WIRED = "Wired";
 
-        public T CloneAs<T>() where T : IJsonObject
+        protected const string GROUP_WIRED = "Wired";
+        
+        protected const string GROUP_POE = "Power Over Ethernet";
+
+        internal T CloneAs<T>() where T : IJsonObject
         {
             var targetProperties = TypeDescriptor.GetProperties(typeof(T)).Cast<PropertyDescriptor>();
             var sourceProperties = TypeDescriptor.GetProperties(this).Cast<PropertyDescriptor>();
@@ -27,7 +35,7 @@ namespace UniFiSharp.Json
 
             return convert;
         }
-        public T CloneAs<T>(Action<T> action) where T : IJsonObject
+        internal T CloneAs<T>(Action<T> action) where T : IJsonObject
         {
             var clone = CloneAs<T>();
             action(clone);
