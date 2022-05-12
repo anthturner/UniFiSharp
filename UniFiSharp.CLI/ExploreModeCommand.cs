@@ -72,7 +72,7 @@ namespace UniFiSharp.CLI
                 {
                     case "cd": ChangeDeviceCommand(args); break;
                     case "ls": ListDevicesCommand(); break;
-                    case "info": DrawObjectTable(CurrentDevice, args.Length > 1 ? (Levels)Int32.Parse(args[1]) : Levels.Basic); break;
+                    case "info": DrawObjectTable(CurrentDevice, args.Length > 1 ? 5 - (Levels)Int32.Parse(args[1]) : Levels.Basic); break;
                     case "clear": AnsiConsole.Clear(); break;
                     case "refresh": await Orchestrator.Refresh();  break; // TODO: Re-locate device/client by MAC addr and update CurrentDevice
 
@@ -104,7 +104,7 @@ namespace UniFiSharp.CLI
                         AnsiConsole.Write(new Rule("[blue]Topology Navigation[/]"));
                         AnsiConsole.MarkupLine("[green]cd[/]\t\tChanges to a device or client");
                         AnsiConsole.MarkupLine("[green]ls[/]\t\tLists child devices and clients on this device");
-                        AnsiConsole.MarkupLine("[green]info[/]\t\tDump all information on this device");
+                        AnsiConsole.MarkupLine("[green]info[/] [cyan]{1-4}\tDump all information on this device; optionally specify a detail level, higher is more detail");
                         AnsiConsole.MarkupLine("[green]clear[/]\t\tClear window");
 
                         AnsiConsole.Write(new Rule("[purple]Device Management[/]"));

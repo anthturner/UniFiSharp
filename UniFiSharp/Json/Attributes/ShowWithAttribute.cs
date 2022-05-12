@@ -33,7 +33,7 @@ namespace UniFiSharp.Json.Attributes
     /// </summary>
     public class ShowWithAttribute : Attribute
     {
-        public bool IsVisibleAt(Levels targetLevel) => targetLevel >= Level;
+        public bool IsVisibleAt(Levels targetLevel) => targetLevel <= Level;
 
         public Levels Level { get; }
         public ShowWithAttribute(Levels filterLevel) => Level = filterLevel;
