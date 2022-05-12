@@ -3,6 +3,8 @@ name: DocFX Generation
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'UniFiSharp/**'
   workflow_dispatch:
 
 jobs:
