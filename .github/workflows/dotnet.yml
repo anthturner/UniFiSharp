@@ -1,14 +1,17 @@
-name: .NET
+name: Build and Test
 
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'UniFiSharp/**'
+      - 'UniFiSharp.CLI/**'
   pull_request:
     branches: [ master ]
 
 jobs:
   build:
-
+    name: Build and Test
     runs-on: ubuntu-latest
 
     steps:
@@ -16,10 +19,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: |
-          3.1.x
-          5.0.x
-          6.0.x
+        dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
