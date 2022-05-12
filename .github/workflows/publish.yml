@@ -20,18 +20,14 @@ jobs:
     steps:
     - name: Get version from tag
       id: get_version
-      #run: |
-      #  echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-      #  echo ::set-output name=VNUM::$(echo ${GITHUB_REF/refs\/tags\//} | cut -c 2-)
       run: |
-        echo ::set-output name=VERSION::v1.4.1
-        echo ::set-output name=VNUM::$(echo v1.4.1 | cut -c 2-)
+        echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+        echo ::set-output name=VNUM::$(echo ${GITHUB_REF/refs\/tags\//} | cut -c 2-)
       
     - name: Create Release
       uses: actions/create-release@v1
       id: create_release
       with:
-        # CHANGEME
         draft: true
         prerelease: false
         release_name: ${{ steps.get_version.outputs.version }}
