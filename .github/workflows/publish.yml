@@ -42,7 +42,7 @@ jobs:
   #####
 
   publish:
-    name: Publish binary artifacts and NuGet package
+    name: Publish Artifact
     needs: release
     runs-on: ubuntu-latest
     
