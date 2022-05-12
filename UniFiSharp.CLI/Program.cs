@@ -7,7 +7,7 @@ namespace UniFiSharp.CLI
     internal class Program
     {
         internal static bool Quiet { get; private set; } = false;
-        internal static CommandApp App { get; private set; }
+        internal static CommandApp App { get; private set; } = new CommandApp();
         static void Main(string[] args)
         {
             Console.WriteLine();
@@ -16,7 +16,6 @@ namespace UniFiSharp.CLI
                 DrawUniFiSharpLogo();
             else Quiet = true;
 
-            App = new CommandApp();
             App.Configure(config =>
             {
 #if DEBUG

@@ -17,11 +17,13 @@ namespace UniFiSharp.CLI
 
                 // parse and inject the auth info into each subsequent command
                 var args = ParseMultiSpacedArguments(promptText);
-                var newArgs = new List<string>();
-                newArgs.Add(args[0]);
-                newArgs.Add(settings.Uri);
-                newArgs.Add(settings.Username);
-                newArgs.Add(settings.Password);
+                var newArgs = new List<string>
+                {
+                    args[0],
+                    settings.Uri,
+                    settings.Username,
+                    settings.Password
+                };
                 newArgs.AddRange(args.Skip(1));
 
                 try

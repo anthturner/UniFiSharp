@@ -58,13 +58,19 @@ namespace UniFiSharp.CLI
             {
                 var enumerableInterface = data.GetType().GetInterfaces().First(i => i.Name.StartsWith("IEnumerable") && i.IsGenericType);
                 var genericArgs = enumerableInterface.GetGenericArguments()[0];
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
                 var method = GetType().GetMethod(nameof(GenerateNumberedListTable), BindingFlags.Instance | BindingFlags.NonPublic).MakeGenericMethod(genericArgs);
-                return (IRenderable)method.Invoke(this, new object[] { data, isInsideOtherData });
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+#pragma warning disable CS8603 // Possible null reference return.
+                return method.Invoke(this, new object[] { data, isInsideOtherData }) as IRenderable;
+#pragma warning restore CS8603 // Possible null reference return.
             }
 
             if (data is IJsonObject) return GenerateSingleObjectTable(data, isInsideOtherData);
 
+#pragma warning disable CS8604 // Possible null reference argument.
             return new Text(Markup.Escape(data.ToString()));
+#pragma warning restore CS8604 // Possible null reference argument.
         }
     }
 }

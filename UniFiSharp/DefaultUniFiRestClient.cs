@@ -13,9 +13,10 @@ namespace UniFiSharp
     internal class DefaultUniFiRestClient : RestClient, IUniFiRestClient
     {
         private const string CSRF_HEADER = "X-CSRF-Token";
-        private string _username, _password, _code, _csrf_token;
-        private Uri _baseUrl;
-        private bool _useModernApi;
+        private readonly string _username, _password, _code;
+        private string _csrf_token;
+        private readonly Uri _baseUrl;
+        private readonly bool _useModernApi;
 
         internal DefaultUniFiRestClient(Uri baseUrl, string username, string password, string code,
             bool ignoreSslValidation, bool useModernApi) :
@@ -33,7 +34,7 @@ namespace UniFiSharp
                 CookieContainer = new System.Net.CookieContainer(),
                 // Bodge to work around the fact uploads don't return the normal metadata if unauthorized (migrated to RestClientOptions)
                 FollowRedirects = true,
-                Encoding = encoding != null ? encoding : Encoding.UTF8,
+                Encoding = encoding ?? Encoding.UTF8,
                 Timeout = timeout,
                 ThrowOnAnyError = true
             })
@@ -220,10 +221,9 @@ namespace UniFiSharp
         /// <param name="fileName"></param>
         /// <param name="contentType"></param>
         /// <param name="data"></param>
-        /// <param name="attemptReauthentication"></param>
         /// <returns></returns>
         private async Task UnifiMultipartFormRequest(string url, string name, string fileName, string contentType,
-            byte[] data, bool attemptReauthentication = true)
+            byte[] data)
         {
             // Note the UniFi controller will return 404 when uploading a file - however the file *is* successfully uploaded. 
 
@@ -247,7 +247,7 @@ namespace UniFiSharp
                 if (redirectLocation.Contains("/manage/account/login?redirect"))
                 {
                     await Authenticate();
-                    await UnifiMultipartFormRequest(url, name, fileName, contentType, data, false);
+                    await UnifiMultipartFormRequest(url, name, fileName, contentType, data);
                 }
             }
         }

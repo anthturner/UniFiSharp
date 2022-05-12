@@ -8,29 +8,27 @@ namespace UniFiSharp.CLI
 {
     internal class NamedSelectionElement
     {
-        public string Header { get; set; }
-        public object Data { get; set; }
+        public string? Header { get; set; }
+        public object? Data { get; set; }
 
-        public static NamedSelectionElement Create<T>(string header, T data)
+        public static NamedSelectionElement Create<T>(string header, T data) => new()
         {
-            return new NamedSelectionElement()
-            {
-                Header = header,
-                Data = data
-            };
-        }
+            Header = header,
+            Data = data
+        };
 
-        public override string ToString() => Header;
+        public override string ToString() => Header ?? string.Empty;
     }
 
     public class ExploreModeCommand : UniFiSharpCommand<UniFiSharpSettings>
     {
-        private UniFiOrchestrator Orchestrator { get; set; }
-        private INetworkedDevice CurrentDevice { get; set; }
+        private UniFiOrchestrator Orchestrator { get; set; } = new UniFiOrchestrator(null);
+        private INetworkedDevice? CurrentDevice { get; set; }
         private string WhereAmI
         {
             get
             {
+                if (Orchestrator == null || CurrentDevice == null) return string.Empty;
                 var markupElements = new List<string>();
                 var path = Orchestrator.GeneratePathTo(CurrentDevice).Reverse().ToList();
                 path.Add(Tuple.Create(CurrentDevice, 0));
@@ -132,27 +130,27 @@ namespace UniFiSharp.CLI
 
         private void RunOnClient(Func<IClientNetworkedDevice, Task> func)
         {
-            if (CurrentDevice is IClientNetworkedDevice)
-                func((IClientNetworkedDevice)CurrentDevice).Wait();
+            if (CurrentDevice is IClientNetworkedDevice device)
+                func(device).Wait();
             else
                 Warn("Devices cannot run this command");
         }
 
         private void RunOnInfra(Func<IInfrastructureNetworkedDevice, Task> func)
         {
-            if (CurrentDevice is IInfrastructureNetworkedDevice)
-                func((IInfrastructureNetworkedDevice)CurrentDevice).Wait();
+            if (CurrentDevice is IInfrastructureNetworkedDevice device)
+                func(device).Wait();
             else
                 Warn("Clients cannot run this command");
         }
 
-        private async Task ShowClientChart<TDevice>(string title, Func<TDevice, string> nameFunc, Func<TDevice, int> valueFunc, Func<int, bool> valueGateFunc = null, int refreshTime = 5000)
+        private async Task ShowClientChart<TDevice>(string title, Func<TDevice, string> nameFunc, Func<TDevice, int> valueFunc, Func<int, bool>? valueGateFunc = null, int refreshTime = 5000)
             where TDevice : IClientNetworkedDevice
         {
             if (valueGateFunc == null) valueGateFunc = (i) => true;
-            if (CurrentDevice is IInfrastructureNetworkedDevice)
+            if (CurrentDevice is IInfrastructureNetworkedDevice device)
             {
-                var thisDeviceMacAddress = ((IInfrastructureNetworkedDevice)CurrentDevice).mac;
+                var thisDeviceMacAddress = device.mac;
                 await ConsoleDrawHelper.ShowDynamicBarChart(title, nameFunc, valueFunc, valueGateFunc, refreshTime, async () =>
                 {
                     await Orchestrator.Refresh();
@@ -166,9 +164,8 @@ namespace UniFiSharp.CLI
 
         private void ListDevicesCommand()
         {
-            if (CurrentDevice is IInfrastructureNetworkedDevice)
+            if (CurrentDevice is IInfrastructureNetworkedDevice dev)
             {
-                var dev = (IInfrastructureNetworkedDevice)CurrentDevice;
                 foreach (var item in dev.InfrastructureDevices)
                 {
                     var path = Orchestrator.GeneratePathTo(item).Reverse().Last();
@@ -187,9 +184,8 @@ namespace UniFiSharp.CLI
         {
             if (args.Length == 1)
             {
-                if (CurrentDevice is IInfrastructureNetworkedDevice)
+                if (CurrentDevice is IInfrastructureNetworkedDevice dev)
                 {
-                    var dev = (IInfrastructureNetworkedDevice)CurrentDevice;
                     var result = AnsiConsole.Prompt(
                         new SelectionPrompt<NamedSelectionElement>()
                               .AddChoices(dev.InfrastructureDevices.Select(d =>
@@ -204,7 +200,7 @@ namespace UniFiSharp.CLI
                               })));
                     if (result != null)
                     {
-                        CurrentDevice = (INetworkedDevice)result.Data;
+                        CurrentDevice = result.Data as INetworkedDevice;
                     }
                 }
             }
@@ -215,9 +211,8 @@ namespace UniFiSharp.CLI
             }
             else
             {
-                if (CurrentDevice is IInfrastructureNetworkedDevice)
+                if (CurrentDevice is IInfrastructureNetworkedDevice dev)
                 {
-                    var dev = (IInfrastructureNetworkedDevice)CurrentDevice;
                     INetworkedDevice? target = dev.InfrastructureDevices.FirstOrDefault(d => d.name == args[1] || d.mac.EndsWith(args[1]));
                     if (target == null)
                         target = dev.Clients.FirstOrDefault(d => d.name == args[1] || d.mac.EndsWith(args[1]) || d.ip == args[1]);
@@ -252,10 +247,9 @@ namespace UniFiSharp.CLI
         {
             var markup = string.Empty;
 
-            if (device is IInfrastructureNetworkedDevice)
+            if (device is IInfrastructureNetworkedDevice infra)
             {
-                var infra = (IInfrastructureNetworkedDevice)device;
-                var mac = infra.mac.Substring(infra.mac.Length-5);
+                var mac = infra.mac[^5..];
                 if (infra is AccessPointInfrastructureNetworkedDevice)
                     markup = $"[blue]{infra.NameOrMac}[/] ({mac})";
                 else if (infra is SwitchInfrastructureNetworkedDevice)
@@ -263,9 +257,8 @@ namespace UniFiSharp.CLI
                 else if (infra is RouterInfrastructureNetworkedDevice)
                     markup = $"[yellow]{infra.NameOrMac}[/] ({mac})";
             }
-            else if (device is IClientNetworkedDevice)
+            else if (device is IClientNetworkedDevice client)
             {
-                var client = (IClientNetworkedDevice)device;
                 if (client.is_guest)
                     markup = $"[fuschia]{client.NameOrMac}[/] ({client.ip})";
                 else
