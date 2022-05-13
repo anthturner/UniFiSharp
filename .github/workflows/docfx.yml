@@ -5,6 +5,7 @@ on:
     branches: [ master ]
     paths:
       - 'UniFiSharp/**'
+      - 'docs/**'
   workflow_dispatch:
 
 jobs:
