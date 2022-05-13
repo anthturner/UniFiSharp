@@ -72,11 +72,11 @@ jobs:
     # Compress Artifact
     - name: Compress (TGZ)
       if: ${{ startsWith(matrix.target, 'linux-') }}
-      run: tar -zcvf ${{ steps.pubdir.outputs.output }}/unifi-cli_${{ matrix.target }}.tgz ${{ steps.pubdir.outputs.output }}/unifi-cli
+      run: tar -zcvf ${{ steps.pubdir.outputs.output }}/unifi-cli_${{ matrix.target }}.tgz -C ${{ steps.pubdir.outputs.output }} unifi-cli
       
     - name: Compress (ZIP)
       if: ${{ startsWith(matrix.target, 'win-') }}
-      run: zip ${{ steps.pubdir.outputs.output }}/unifi-cli_${{ matrix.target }}.zip ${{ steps.pubdir.outputs.output }}/unifi-cli.exe
+      run: zip -Dj ${{ steps.pubdir.outputs.output }}/unifi-cli_${{ matrix.target }}.zip ${{ steps.pubdir.outputs.output }}/unifi-cli.exe
     
     # Upload Artifact
     - name: Upload Artifact (ZIP)
