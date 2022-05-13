@@ -6,6 +6,7 @@ namespace UniFiSharp.CLI
 {
     internal class Program
     {
+        private static string Version => "v1.5.0";
         internal static bool Quiet { get; private set; } = false;
         internal static CommandApp App { get; private set; } = new CommandApp();
         static void Main(string[] args)
@@ -187,7 +188,7 @@ namespace UniFiSharp.CLI
 
             AnsiConsole.Write(new Rule().RuleStyle("blue dim"));
             AnsiConsole.MarkupLine($"{c1} __ {e}{c3}   __ {e}{c1}  __ __{e}");
-            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  |{e}{c1}_/ // /_{e}\t{c1}UniFi Command Line Tool{e} {v}v1.0.0{e}");
+            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  |{e}{c1}_/ // /_{e}\t{c1}UniFi Command Line Tool{e} {v}{Version}{e}");
             AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  {e}{c1}/_  _  __/{e}\t{l}https://github.com/anthturner/UniFiSharp{e}");
             AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  | {e}{c1}/_  _  __/{e}");
             AnsiConsole.MarkupLine($"{c1}|  \\{e}{c2}--{e}{c3}^-`{e}{c1}/_//_/{e}\t\t{c2}This tool is not supported or affiliated{e}");
