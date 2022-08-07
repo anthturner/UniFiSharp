@@ -33,6 +33,15 @@ namespace UniFiSharp
             });
         }
 
+        public async Task ClientAuthorize(string macAddress)
+        {
+            await RestClient.UniFiPost($"api/s/{Site}/cmd/stamgr", new
+            {
+                cmd = "authorize-guest",
+                mac = macAddress
+            });
+        }
+
         public async Task ClientBlock(string macAddress)
         {
             await RestClient.UniFiPost($"api/s/{Site}/cmd/stamgr", new
