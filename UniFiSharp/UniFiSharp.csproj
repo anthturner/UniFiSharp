@@ -3,7 +3,7 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<PackageId>UniFiSharp</PackageId>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Version>1.5.0</Version>
+		<Version>1.5.1</Version>
 		<Authors>Anthony Turner</Authors>
 		<Company>Anthony Turner</Company>
 		<Description>UniFiSharp provides a cross-platform (NETStandard) interface to control and monitor Ubiquiti UniFi networking components via the UniFi controller software.</Description>
@@ -12,8 +12,8 @@
 		<RepositoryUrl>https://github.com/anthturner/UniFiSharp</RepositoryUrl>
 		<RepositoryType>GitHub</RepositoryType>
 		<PackageTags>unifi ubiquiti ubnt</PackageTags>
-		<AssemblyVersion>1.5.0.0</AssemblyVersion>
-		<FileVersion>1.5.0.0</FileVersion>
+		<AssemblyVersion>1.5.1.0</AssemblyVersion>
+		<FileVersion>1.5.1.0</FileVersion>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageIcon>UniFiSharpLogo.png</PackageIcon>
 		<ApplicationIcon>UniFiSharpLogo.ico</ApplicationIcon>
