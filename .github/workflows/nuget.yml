@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: NuGet Publishing
 
 on:
@@ -11,26 +9,19 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-
-      # Publish
-      - name: Publish Package on Version Change
-        id: publish_nuget
-        uses: rohith/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: UniFiSharp/UniFiSharp.csproj
-          PACKAGE_NAME: UniFiSharp
-          
-          # Filepath with version info, relative to root of repository & defaults to PROJECT_FILE_PATH
-          # VERSION_FILE_PATH: Directory.Build.props
-
-          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
-
-          # Format of the git tag, [*] gets replaced with actual version
-          TAG_FORMAT: v*
-
-          # API key to authenticate with NuGet server
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+    - uses: actions/checkout@v3
+      
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '6.0.x'
+        
+    - name: Build .NET in Release
+      run: dotnet build --configuration Release
+        
+    - name: Pack library
+      run: dotnet pack --configuration Release
+      
+    - name: Push to NuGet
+      run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --no-symbols --skip-duplicate
