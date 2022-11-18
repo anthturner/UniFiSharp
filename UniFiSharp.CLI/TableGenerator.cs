@@ -16,7 +16,7 @@ namespace UniFiSharp.CLI
         {
             if (data == null || !data.Any()) return new Text("<No Data>");
 
-            var properties = (data as IJsonObject).GetVisibleProperties(Levels.Minimal);
+            var properties = data.Cast<IJsonObject>().First().GetVisibleProperties(Levels.Minimal);
 
             var tbl = new Table().AddColumns(
                 properties.Select(p => new TableColumn(p.GetPropertyName()))
