@@ -6,7 +6,7 @@ namespace UniFiSharp.CLI
 {
     internal class Program
     {
-        private static string Version => "v1.5.0";
+        private static string Version => "v1.5.1";
         internal static bool Quiet { get; private set; } = false;
         internal static CommandApp App { get; private set; } = new CommandApp();
         static void Main(string[] args)
