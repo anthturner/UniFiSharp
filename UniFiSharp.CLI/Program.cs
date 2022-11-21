@@ -13,16 +13,12 @@ namespace UniFiSharp.CLI
         {
             Console.WriteLine();
 
-            // ---
             var version = Assembly.GetAssembly(typeof(UniFiApi))?.GetName()?.Version?.ToString(3);
-            version = null;
             if (version == null)
             {
                 AnsiConsole.MarkupLine("[red bold]CRITICAL: UniFiSharp library not loaded properly.[/]");
                 return;
             }
-            // ---
-
 
             if (!args.Any(a => a == "-q" || a == "--quiet"))
                 DrawUniFiSharpLogo(version);
