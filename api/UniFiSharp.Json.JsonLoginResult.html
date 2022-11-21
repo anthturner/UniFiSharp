@@ -1,0 +1,537 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class JsonLoginResult
+   | UniFiSharp Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class JsonLoginResult
+   | UniFiSharp Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../UniFiSharp/UniFiSharpLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/night-owl.min.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" href="../styles/discord.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+
+  <body>
+        <div class="top-navbar">
+
+            <a href="javascript:void(0);" class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="24" height="24" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+            
+            <a class="brand" href="../index.html">
+              <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+              <span class="brand-title">UniFiSharp</span>
+            </a>
+        </div>
+
+        <div class="body-content">
+
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+
+                <div class="sidebar">
+                    
+                    
+                    
+                    
+                    <div>
+                      
+                      <a class="brand" href="../index.html">
+                        <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+                        <span class="brand-title">UniFiSharp</span>
+                      </a>
+                      <div id="navbar">
+                    
+                      </div>
+                    
+                    </div>
+                    
+
+                    <div class="sidebar-item-separator"></div>
+
+                        
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+
+                </div>
+
+                <div class="footer">
+                  UniFiSharp (c) 2017-2022 <a href='https://anthturner.com'>Anthony Turner</a><br>DocFX, <a href='https://github.com/jbltx/DiscordFX/'>DiscordFX</a> theme.
+                  
+                </div>
+            </nav>
+
+            <main class="main-panel">
+
+                <div role="main" class="hide-when-search">
+
+                        
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                    <article class="content wrap" id="_content" data-uid="UniFiSharp.Json.JsonLoginResult">
+  
+  
+  <h1 id="UniFiSharp_Json_JsonLoginResult" data-uid="UniFiSharp.Json.JsonLoginResult" class="text-break">Class JsonLoginResult
+  </h1>
+  <div class="markdown level0 summary"><p>Information around currently authenticated user</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="UniFiSharp.Json.IJsonObject.html">IJsonObject</a></div>
+    <div class="level2"><span class="xref">JsonLoginResult</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS_5G">IJsonObject.GROUP_WIRELESS_5G</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS_2G">IJsonObject.GROUP_WIRELESS_2G</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS">IJsonObject.GROUP_WIRELESS</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRED">IJsonObject.GROUP_WIRED</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_POE">IJsonObject.GROUP_POE</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="UniFiSharp.Json.html">UniFiSharp.Json</a></h6>
+  <h6><strong>Assembly</strong>: UniFiSharp.dll</h6>
+  <h5 id="UniFiSharp_Json_JsonLoginResult_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;Current User&quot;)]
+public class JsonLoginResult : IJsonObject</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_Email.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.Email%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L39">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_Email_" data-uid="UniFiSharp.Json.JsonLoginResult.Email*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_Email" data-uid="UniFiSharp.Json.JsonLoginResult.Email">Email</h4>
+  <div class="markdown level1 summary"><p>User's email address</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;EMail Address&quot;)]
+[Identifier]
+[ShowWith(Levels.Minimal)]
+[JsonProperty(&quot;email&quot;)]
+public string Email { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_EmailStatus.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.EmailStatus%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L46">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_EmailStatus_" data-uid="UniFiSharp.Json.JsonLoginResult.EmailStatus*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_EmailStatus" data-uid="UniFiSharp.Json.JsonLoginResult.EmailStatus">EmailStatus</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;email_status&quot;)]
+public string EmailStatus { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_FirstName.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.FirstName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L16">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_FirstName_" data-uid="UniFiSharp.Json.JsonLoginResult.FirstName*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_FirstName" data-uid="UniFiSharp.Json.JsonLoginResult.FirstName">FirstName</h4>
+  <div class="markdown level1 summary"><p>User's First Name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;First Name&quot;)]
+[JsonProperty(&quot;first_name&quot;)]
+public string FirstName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_FullName.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.FullName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L30">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_FullName_" data-uid="UniFiSharp.Json.JsonLoginResult.FullName*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_FullName" data-uid="UniFiSharp.Json.JsonLoginResult.FullName">FullName</h4>
+  <div class="markdown level1 summary"><p>User's Full Name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;Full Name&quot;)]
+[Identifier]
+[ShowWith(Levels.Minimal)]
+[JsonProperty(&quot;full_name&quot;)]
+public string FullName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_HasLocalAccount.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.HasLocalAccount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L65">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_HasLocalAccount_" data-uid="UniFiSharp.Json.JsonLoginResult.HasLocalAccount*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_HasLocalAccount" data-uid="UniFiSharp.Json.JsonLoginResult.HasLocalAccount">HasLocalAccount</h4>
+  <div class="markdown level1 summary"><p>If the account is local or remote (SSO)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;Local Account?&quot;)]
+[ShowWith(Levels.Extended)]
+[JsonProperty(&quot;local_account_exist&quot;)]
+public bool HasLocalAccount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_IsOwner.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.IsOwner%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L81">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_IsOwner_" data-uid="UniFiSharp.Json.JsonLoginResult.IsOwner*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_IsOwner" data-uid="UniFiSharp.Json.JsonLoginResult.IsOwner">IsOwner</h4>
+  <div class="markdown level1 summary"><p>If the user is an owner</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;Owner?&quot;)]
+[ShowWith(Levels.Minimal)]
+[JsonProperty(&quot;isOwner&quot;)]
+public bool IsOwner { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_IsSuperAdmin.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.IsSuperAdmin%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L89">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_IsSuperAdmin_" data-uid="UniFiSharp.Json.JsonLoginResult.IsSuperAdmin*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_IsSuperAdmin" data-uid="UniFiSharp.Json.JsonLoginResult.IsSuperAdmin">IsSuperAdmin</h4>
+  <div class="markdown level1 summary"><p>If the user is a super admin</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;Super Admin?&quot;)]
+[ShowWith(Levels.Minimal)]
+[JsonProperty(&quot;isSuperAdmin&quot;)]
+public bool IsSuperAdmin { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_LastName.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.LastName%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L23">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_LastName_" data-uid="UniFiSharp.Json.JsonLoginResult.LastName*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_LastName" data-uid="UniFiSharp.Json.JsonLoginResult.LastName">LastName</h4>
+  <div class="markdown level1 summary"><p>User's Last Name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;Last Name&quot;)]
+[JsonProperty(&quot;last_name&quot;)]
+public string LastName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_SsoAccount.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.SsoAccount%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L73">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_SsoAccount_" data-uid="UniFiSharp.Json.JsonLoginResult.SsoAccount*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_SsoAccount" data-uid="UniFiSharp.Json.JsonLoginResult.SsoAccount">SsoAccount</h4>
+  <div class="markdown level1 summary"><p>SSO account name mapping</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;SSO Account&quot;)]
+[ShowWith(Levels.Extended)]
+[JsonProperty(&quot;sso_account&quot;)]
+public string SsoAccount { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_Status.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.Status%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L50">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_Status_" data-uid="UniFiSharp.Json.JsonLoginResult.Status*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_Status" data-uid="UniFiSharp.Json.JsonLoginResult.Status">Status</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;status&quot;)]
+public string Status { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Json_JsonLoginResult_Username.md&amp;value=---%0Auid%3A%20UniFiSharp.Json.JsonLoginResult.Username%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Json/JsonLoginResult.cs/#L56">View Source</a>
+  </span>
+  <a id="UniFiSharp_Json_JsonLoginResult_Username_" data-uid="UniFiSharp.Json.JsonLoginResult.Username*"></a>
+  <h4 id="UniFiSharp_Json_JsonLoginResult_Username" data-uid="UniFiSharp.Json.JsonLoginResult.Username">Username</h4>
+  <div class="markdown level1 summary"><p>Username of logged in user</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DisplayName(&quot;Username&quot;)]
+[Identifier]
+[ShowWith(Levels.Minimal)]
+[JsonProperty(&quot;username&quot;)]
+public string Username { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_IdentifierMatches_UniFiSharp_Json_IJsonObject_System_String_">ObjectVisibilityExtensions.IdentifierMatches(IJsonObject, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetVisibleProperties_UniFiSharp_Json_IJsonObject_UniFiSharp_Json_Attributes_Levels_">ObjectVisibilityExtensions.GetVisibleProperties(IJsonObject, Levels)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetMultipleViewColumns_UniFiSharp_Json_IJsonObject_">ObjectVisibilityExtensions.GetMultipleViewColumns(IJsonObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetPropertyGroups_UniFiSharp_Json_IJsonObject_UniFiSharp_Json_Attributes_Levels_">ObjectVisibilityExtensions.GetPropertyGroups(IJsonObject, Levels)</a>
+  </div>
+</article>
+              
+                </div>
+            </main>
+        </div>
+
+        
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<script type="text/javascript" src="../styles/jquery.twbsPagination.js"></script>
+<script type="text/javascript" src="../styles/url.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script type="text/javascript" src="../styles/docfx.js"></script>
+<script type="text/javascript" src="../styles/main.js"></script>
+
+    </body>
+
+</html>

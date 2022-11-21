@@ -1,0 +1,1047 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class IInfrastructureNetworkedDevice
+   | UniFiSharp Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class IInfrastructureNetworkedDevice
+   | UniFiSharp Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../UniFiSharp/UniFiSharpLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/night-owl.min.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" href="../styles/discord.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+
+  <body>
+        <div class="top-navbar">
+
+            <a href="javascript:void(0);" class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="24" height="24" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+            
+            <a class="brand" href="../index.html">
+              <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+              <span class="brand-title">UniFiSharp</span>
+            </a>
+        </div>
+
+        <div class="body-content">
+
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+
+                <div class="sidebar">
+                    
+                    
+                    
+                    
+                    <div>
+                      
+                      <a class="brand" href="../index.html">
+                        <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+                        <span class="brand-title">UniFiSharp</span>
+                      </a>
+                      <div id="navbar">
+                    
+                      </div>
+                    
+                    </div>
+                    
+
+                    <div class="sidebar-item-separator"></div>
+
+                        
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+
+                </div>
+
+                <div class="footer">
+                  UniFiSharp (c) 2017-2022 <a href='https://anthturner.com'>Anthony Turner</a><br>DocFX, <a href='https://github.com/jbltx/DiscordFX/'>DiscordFX</a> theme.
+                  
+                </div>
+            </nav>
+
+            <main class="main-panel">
+
+                <div role="main" class="hide-when-search">
+
+                        
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                    <article class="content wrap" id="_content" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice">
+  
+  
+  <h1 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice" class="text-break">Class IInfrastructureNetworkedDevice
+  </h1>
+  <div class="markdown level0 summary"><p>Any infrastructure managed device (router, switch, AP) on the network</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="UniFiSharp.Json.IJsonObject.html">IJsonObject</a></div>
+    <div class="level2"><a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html">JsonNetworkDevice</a></div>
+    <div class="level3"><span class="xref">IInfrastructureNetworkedDevice</span></div>
+      <div class="level4"><a class="xref" href="UniFiSharp.Orchestration.Devices.AccessPointInfrastructureNetworkedDevice.html">AccessPointInfrastructureNetworkedDevice</a></div>
+      <div class="level4"><a class="xref" href="UniFiSharp.Orchestration.Devices.RouterInfrastructureNetworkedDevice.html">RouterInfrastructureNetworkedDevice</a></div>
+      <div class="level4"><a class="xref" href="UniFiSharp.Orchestration.Devices.SwitchInfrastructureNetworkedDevice.html">SwitchInfrastructureNetworkedDevice</a></div>
+      <div class="level4"><a class="xref" href="UniFiSharp.Orchestration.Devices.UnknownInfrastructureNetworkedDevice.html">UnknownInfrastructureNetworkedDevice</a></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="UniFiSharp.Orchestration.Devices.INetworkedDevice.html">INetworkedDevice</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice__id">JsonNetworkDevice._id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice__uptime">JsonNetworkDevice._uptime</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_adopted">JsonNetworkDevice.adopted</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_bytes">JsonNetworkDevice.bytes</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_cfgversion">JsonNetworkDevice.cfgversion</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_config_network">JsonNetworkDevice.config_network</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_config_network_wan">JsonNetworkDevice.config_network_wan</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_connect_request_ip">JsonNetworkDevice.connect_request_ip</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_connect_request_port">JsonNetworkDevice.connect_request_port</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_considered_lost_at">JsonNetworkDevice.considered_lost_at</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_defaultSettings">JsonNetworkDevice.defaultSettings</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_device_id">JsonNetworkDevice.device_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ethernet_table">JsonNetworkDevice.ethernet_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_fw_caps">JsonNetworkDevice.fw_caps</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_guest_num_sta">JsonNetworkDevice.guest_num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_guest_token">JsonNetworkDevice.guest_token</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_has_default_route_distance">JsonNetworkDevice.has_default_route_distance</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_has_dpi">JsonNetworkDevice.has_dpi</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_has_porta">JsonNetworkDevice.has_porta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_has_vti">JsonNetworkDevice.has_vti</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_inform_authkey">JsonNetworkDevice.inform_authkey</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_inform_ip">JsonNetworkDevice.inform_ip</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_inform_url">JsonNetworkDevice.inform_url</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ip">JsonNetworkDevice.ip</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_known_cfgversion">JsonNetworkDevice.known_cfgversion</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_last_seen">JsonNetworkDevice.last_seen</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_license_state">JsonNetworkDevice.license_state</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_locating">JsonNetworkDevice.locating</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_mac">JsonNetworkDevice.mac</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_map_id">JsonNetworkDevice.map_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_mgmt_network_id">JsonNetworkDevice.mgmt_network_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_model">JsonNetworkDevice.model</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_name">JsonNetworkDevice.name</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_network_table">JsonNetworkDevice.network_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_next_heartbeat_at">JsonNetworkDevice.next_heartbeat_at</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_num_desktop">JsonNetworkDevice.num_desktop</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_num_handheld">JsonNetworkDevice.num_handheld</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_num_mobile">JsonNetworkDevice.num_mobile</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_num_sta">JsonNetworkDevice.num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_port_table">JsonNetworkDevice.port_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_radius_caps">JsonNetworkDevice.radius_caps</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_rx_bytes">JsonNetworkDevice.rx_bytes</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_serial">JsonNetworkDevice.serial</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_site_id">JsonNetworkDevice.site_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_speedtest_status">JsonNetworkDevice.speedtest_status</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_speedtest_status_saved">JsonNetworkDevice.speedtest_status_saved</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_state">JsonNetworkDevice.state</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_sys_stats">JsonNetworkDevice.sys_stats</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_tx_bytes">JsonNetworkDevice.tx_bytes</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_type">JsonNetworkDevice.type</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_uplink">JsonNetworkDevice.uplink</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_uptime">JsonNetworkDevice.uptime</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_user_num_sta">JsonNetworkDevice.user_num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_version">JsonNetworkDevice.version</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_wan1">JsonNetworkDevice.wan1</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_x">JsonNetworkDevice.x</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_y">JsonNetworkDevice.y</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_board_rev">JsonNetworkDevice.board_rev</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_bytes_d">JsonNetworkDevice.bytes_d</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_bytes_r">JsonNetworkDevice.bytes_r</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_downlink_table">JsonNetworkDevice.downlink_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_has_eth1">JsonNetworkDevice.has_eth1</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_has_speaker">JsonNetworkDevice.has_speaker</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_volume">JsonNetworkDevice.volume</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_isolated">JsonNetworkDevice.isolated</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_last_uplink">JsonNetworkDevice.last_uplink</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_led_override">JsonNetworkDevice.led_override</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_channel">JsonNetworkDevice.na_channel</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_eirp">JsonNetworkDevice.na_eirp</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_extchannel">JsonNetworkDevice.na_extchannel</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_gain">JsonNetworkDevice.na_gain</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_guest_num_sta">JsonNetworkDevice.na_guest_num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_num_sta">JsonNetworkDevice.na_num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_state">JsonNetworkDevice.na_state</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_tx_power">JsonNetworkDevice.na_tx_power</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_user_num_sta">JsonNetworkDevice.na_user_num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_ast_be_xmit">JsonNetworkDevice.na_ast_be_xmit</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_ast_cst">JsonNetworkDevice.na_ast_cst</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_ast_txto">JsonNetworkDevice.na_ast_txto</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_cu_self_rx">JsonNetworkDevice.na_cu_self_rx</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_cu_self_tx">JsonNetworkDevice.na_cu_self_tx</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_cu_total">JsonNetworkDevice.na_cu_total</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_last_interference_at">JsonNetworkDevice.na_last_interference_at</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_tx_packets">JsonNetworkDevice.na_tx_packets</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_na_tx_retries">JsonNetworkDevice.na_tx_retries</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_channel">JsonNetworkDevice.ng_channel</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_eirp">JsonNetworkDevice.ng_eirp</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_extchannel">JsonNetworkDevice.ng_extchannel</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_gain">JsonNetworkDevice.ng_gain</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_guest_num_sta">JsonNetworkDevice.ng_guest_num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_num_sta">JsonNetworkDevice.ng_num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_state">JsonNetworkDevice.ng_state</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_tx_power">JsonNetworkDevice.ng_tx_power</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_user_num_sta">JsonNetworkDevice.ng_user_num_sta</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_ast_be_xmit">JsonNetworkDevice.ng_ast_be_xmit</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_ast_cst">JsonNetworkDevice.ng_ast_cst</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_ast_txto">JsonNetworkDevice.ng_ast_txto</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_cu_self_rx">JsonNetworkDevice.ng_cu_self_rx</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_cu_self_tx">JsonNetworkDevice.ng_cu_self_tx</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_cu_total">JsonNetworkDevice.ng_cu_total</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_last_interference_at">JsonNetworkDevice.ng_last_interference_at</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_tx_packets">JsonNetworkDevice.ng_tx_packets</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ng_tx_retries">JsonNetworkDevice.ng_tx_retries</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_radio_na">JsonNetworkDevice.radio_na</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_radio_ng">JsonNetworkDevice.radio_ng</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_radio_table">JsonNetworkDevice.radio_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_rx_bytes_d">JsonNetworkDevice.rx_bytes_d</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_scanning">JsonNetworkDevice.scanning</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_spectrum_scanning">JsonNetworkDevice.spectrum_scanning</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_spectrum_table_time_na">JsonNetworkDevice.spectrum_table_time_na</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_spectrum_table_time_ng">JsonNetworkDevice.spectrum_table_time_ng</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_ssh_session_table">JsonNetworkDevice.ssh_session_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_tx_bytes_d">JsonNetworkDevice.tx_bytes_d</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_uplink_table">JsonNetworkDevice.uplink_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_vap_table">JsonNetworkDevice.vap_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_vwireEnabled">JsonNetworkDevice.vwireEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_vwire_table">JsonNetworkDevice.vwire_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_wifi_caps">JsonNetworkDevice.wifi_caps</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_wlan_overrides">JsonNetworkDevice.wlan_overrides</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_wlangroup_id_na">JsonNetworkDevice.wlangroup_id_na</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_wlangroup_id_ng">JsonNetworkDevice.wlangroup_id_ng</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_dhcp_server_table">JsonNetworkDevice.dhcp_server_table</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_dot1x_portctrl_enabled">JsonNetworkDevice.dot1x_portctrl_enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_flowctrl_enabled">JsonNetworkDevice.flowctrl_enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_general_temperature">JsonNetworkDevice.general_temperature</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_has_fan">JsonNetworkDevice.has_fan</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_jumboframe_enabled">JsonNetworkDevice.jumboframe_enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_overheating">JsonNetworkDevice.overheating</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_port_overrides">JsonNetworkDevice.port_overrides</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_stp_priority">JsonNetworkDevice.stp_priority</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_stp_version">JsonNetworkDevice.stp_version</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html#UniFiSharp_Json_JsonNetworkDevice_uplink_depth">JsonNetworkDevice.uplink_depth</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS_5G">IJsonObject.GROUP_WIRELESS_5G</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS_2G">IJsonObject.GROUP_WIRELESS_2G</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS">IJsonObject.GROUP_WIRELESS</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRED">IJsonObject.GROUP_WIRED</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_POE">IJsonObject.GROUP_POE</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="UniFiSharp.Orchestration.Devices.html">UniFiSharp.Orchestration.Devices</a></h6>
+  <h6><strong>Assembly</strong>: UniFiSharp.dll</h6>
+  <h5 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class IInfrastructureNetworkedDevice : JsonNetworkDevice, INetworkedDevice</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_API.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.API%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L120">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_API_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.API*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_API" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.API">API</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected UniFiApi API { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UniFiSharp.UniFiApi.html">UniFiApi</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Clients.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Clients%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L108">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Clients_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Clients*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Clients" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Clients">Clients</h4>
+  <div class="markdown level1 summary"><p>Clients attached to the device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;IClientNetworkedDevice&gt; Clients { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html">IClientNetworkedDevice</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_ClientsRecursive.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.ClientsRecursive%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L113">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_ClientsRecursive_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.ClientsRecursive*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_ClientsRecursive" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.ClientsRecursive">ClientsRecursive</h4>
+  <div class="markdown level1 summary"><p>Clients attached to the device and all of its child devices, recursively</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;IClientNetworkedDevice&gt; ClientsRecursive { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html">IClientNetworkedDevice</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_InfrastructureDevices.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.InfrastructureDevices%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L118">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_InfrastructureDevices_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.InfrastructureDevices*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_InfrastructureDevices" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.InfrastructureDevices">InfrastructureDevices</h4>
+  <div class="markdown level1 summary"><p>Other infrastructure devices which are downstream of this device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;IInfrastructureNetworkedDevice&gt; InfrastructureDevices { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.html">IInfrastructureNetworkedDevice</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_LoadAverage.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.LoadAverage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L84">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_LoadAverage_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.LoadAverage*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_LoadAverage" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.LoadAverage">LoadAverage</h4>
+  <div class="markdown level1 summary"><p>Load averages for this device for the previous 1, 5, and 15 minutes</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] LoadAverage { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">Double</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_MemoryTotal.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.MemoryTotal%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L98">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_MemoryTotal_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.MemoryTotal*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_MemoryTotal" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.MemoryTotal">MemoryTotal</h4>
+  <div class="markdown level1 summary"><p>Amount of RAM the infrastructure device has onboard</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long MemoryTotal { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_MemoryUsed.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.MemoryUsed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L103">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_MemoryUsed_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.MemoryUsed*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_MemoryUsed" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.MemoryUsed">MemoryUsed</h4>
+  <div class="markdown level1 summary"><p>Amount of RAM currently in use on the infrastructure device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long MemoryUsed { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_NameOrMac.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.NameOrMac%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L79">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_NameOrMac_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.NameOrMac*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_NameOrMac" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.NameOrMac">NameOrMac</h4>
+  <div class="markdown level1 summary"><p>User-defined name of the device if it exists, otherwise this will return the MAC address</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string NameOrMac { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_StateEnum.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.StateEnum%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L35">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_StateEnum_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.StateEnum*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_StateEnum" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.StateEnum">StateEnum</h4>
+  <div class="markdown level1 summary"><p>Operating state of the device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IInfrastructureNetworkedDevice.NetworkDeviceState StateEnum { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.NetworkDeviceState.html">IInfrastructureNetworkedDevice.NetworkDeviceState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Uptime.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Uptime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L93">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Uptime_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Uptime*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Uptime" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Uptime">Uptime</h4>
+  <div class="markdown level1 summary"><p>Uptime of the infrastructure device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TimeSpan Uptime { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.timespan">TimeSpan</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Adopt.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Adopt%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L149">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Adopt_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Adopt*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Adopt" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Adopt">Adopt()</h4>
+  <div class="markdown level1 summary"><p>Run the adoption process to bring this infrastructure device under the control of the UniFi controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task Adopt()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Forget.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Forget%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L158">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Forget_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Forget*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Forget" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Forget">Forget()</h4>
+  <div class="markdown level1 summary"><p>Instruct the UniFi controller to &quot;forget&quot; about this infrastructure device, making it no longer managed</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task Forget()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Locate_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Locate(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L128">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Locate_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Locate*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_Locate_System_Int32_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.Locate(System.Int32)">Locate(Int32)</h4>
+  <div class="markdown level1 summary"><p>Activate the &quot;locate&quot; function on the device, which causes its LED to flash for a given number of milliseconds</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task Locate(int durationOfLocateMs = 5000)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">durationOfLocateMs</span></td>
+        <td><p>Amount of time to flash the locator LED for</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_SetName_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.SetName(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/Orchestration/Devices/IInfrastructureNetworkedDevice.cs/#L140">View Source</a>
+  </span>
+  <a id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_SetName_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.SetName*"></a>
+  <h4 id="UniFiSharp_Orchestration_Devices_IInfrastructureNetworkedDevice_SetName_System_String_" data-uid="UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.SetName(System.String)">SetName(String)</h4>
+  <div class="markdown level1 summary"><p>Set the user-defined name of the infrastructure device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task SetName(string newName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">newName</span></td>
+        <td><p>User-defined name</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.INetworkedDevice.html">INetworkedDevice</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_IdentifierMatches_UniFiSharp_Json_IJsonObject_System_String_">ObjectVisibilityExtensions.IdentifierMatches(IJsonObject, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetVisibleProperties_UniFiSharp_Json_IJsonObject_UniFiSharp_Json_Attributes_Levels_">ObjectVisibilityExtensions.GetVisibleProperties(IJsonObject, Levels)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetMultipleViewColumns_UniFiSharp_Json_IJsonObject_">ObjectVisibilityExtensions.GetMultipleViewColumns(IJsonObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetPropertyGroups_UniFiSharp_Json_IJsonObject_UniFiSharp_Json_Attributes_Levels_">ObjectVisibilityExtensions.GetPropertyGroups(IJsonObject, Levels)</a>
+  </div>
+</article>
+              
+                </div>
+            </main>
+        </div>
+
+        
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<script type="text/javascript" src="../styles/jquery.twbsPagination.js"></script>
+<script type="text/javascript" src="../styles/url.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script type="text/javascript" src="../styles/docfx.js"></script>
+<script type="text/javascript" src="../styles/main.js"></script>
+
+    </body>
+
+</html>

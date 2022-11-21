@@ -1,0 +1,397 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WirelessClientNetworkedDevice
+   | UniFiSharp Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WirelessClientNetworkedDevice
+   | UniFiSharp Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../UniFiSharp/UniFiSharpLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/night-owl.min.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" href="../styles/discord.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+
+  <body>
+        <div class="top-navbar">
+
+            <a href="javascript:void(0);" class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="24" height="24" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+            
+            <a class="brand" href="../index.html">
+              <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+              <span class="brand-title">UniFiSharp</span>
+            </a>
+        </div>
+
+        <div class="body-content">
+
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+
+                <div class="sidebar">
+                    
+                    
+                    
+                    
+                    <div>
+                      
+                      <a class="brand" href="../index.html">
+                        <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+                        <span class="brand-title">UniFiSharp</span>
+                      </a>
+                      <div id="navbar">
+                    
+                      </div>
+                    
+                    </div>
+                    
+
+                    <div class="sidebar-item-separator"></div>
+
+                        
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+
+                </div>
+
+                <div class="footer">
+                  UniFiSharp (c) 2017-2022 <a href='https://anthturner.com'>Anthony Turner</a><br>DocFX, <a href='https://github.com/jbltx/DiscordFX/'>DiscordFX</a> theme.
+                  
+                </div>
+            </nav>
+
+            <main class="main-panel">
+
+                <div role="main" class="hide-when-search">
+
+                        
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                    <article class="content wrap" id="_content" data-uid="UniFiSharp.Orchestration.Devices.WirelessClientNetworkedDevice">
+  
+  
+  <h1 id="UniFiSharp_Orchestration_Devices_WirelessClientNetworkedDevice" data-uid="UniFiSharp.Orchestration.Devices.WirelessClientNetworkedDevice" class="text-break">Class WirelessClientNetworkedDevice
+  </h1>
+  <div class="markdown level0 summary"><p>A client device attached to the network via a wireless connection</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="UniFiSharp.Json.IJsonObject.html">IJsonObject</a></div>
+    <div class="level2"><a class="xref" href="UniFiSharp.Json.JsonClient.html">JsonClient</a></div>
+    <div class="level3"><a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html">IClientNetworkedDevice</a></div>
+    <div class="level4"><span class="xref">WirelessClientNetworkedDevice</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="UniFiSharp.Orchestration.Devices.INetworkedDevice.html">INetworkedDevice</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html#UniFiSharp_Orchestration_Devices_IClientNetworkedDevice_NameOrMac">IClientNetworkedDevice.NameOrMac</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html#UniFiSharp_Orchestration_Devices_IClientNetworkedDevice_FirstSeen">IClientNetworkedDevice.FirstSeen</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html#UniFiSharp_Orchestration_Devices_IClientNetworkedDevice_LastSeen">IClientNetworkedDevice.LastSeen</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html#UniFiSharp_Orchestration_Devices_IClientNetworkedDevice_ActivityKbps">IClientNetworkedDevice.ActivityKbps</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html#UniFiSharp_Orchestration_Devices_IClientNetworkedDevice_Uptime">IClientNetworkedDevice.Uptime</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html#UniFiSharp_Orchestration_Devices_IClientNetworkedDevice_API">IClientNetworkedDevice.API</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html#UniFiSharp_Orchestration_Devices_IClientNetworkedDevice_ForceReconnect">IClientNetworkedDevice.ForceReconnect()</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__id">JsonClient._id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__is_guest_by_uap">JsonClient._is_guest_by_uap</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__is_guest_by_ugw">JsonClient._is_guest_by_ugw</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__is_guest_by_usw">JsonClient._is_guest_by_usw</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__last_seen_by_uap">JsonClient._last_seen_by_uap</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__last_seen_by_ugw">JsonClient._last_seen_by_ugw</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__last_seen_by_usw">JsonClient._last_seen_by_usw</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__uptime_by_uap">JsonClient._uptime_by_uap</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__uptime_by_ugw">JsonClient._uptime_by_ugw</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient__uptime_by_usw">JsonClient._uptime_by_usw</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_ap_mac">JsonClient.ap_mac</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_assoc_time">JsonClient.assoc_time</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_authorized">JsonClient.authorized</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_bssid">JsonClient.bssid</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_bytes_r">JsonClient.bytes_r</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_ccq">JsonClient.ccq</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_channel">JsonClient.channel</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_essid">JsonClient.essid</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_first_seen">JsonClient.first_seen</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_gw_mac">JsonClient.gw_mac</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_hostname">JsonClient.hostname</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_idletime">JsonClient.idletime</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_ip">JsonClient.ip</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_is_guest">JsonClient.is_guest</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_is_wired">JsonClient.is_wired</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_last_seen">JsonClient.last_seen</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_latest_assoc_time">JsonClient.latest_assoc_time</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_mac">JsonClient.mac</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_network">JsonClient.network</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_network_id">JsonClient.network_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_noise">JsonClient.noise</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_noted">JsonClient.noted</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_oui">JsonClient.oui</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_powersave_enabled">JsonClient.powersave_enabled</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_qos_policy_applied">JsonClient.qos_policy_applied</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_radio">JsonClient.radio</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_radio_proto">JsonClient.radio_proto</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_rssi">JsonClient.rssi</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_rx_bytes">JsonClient.rx_bytes</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_rx_bytes_r">JsonClient.rx_bytes_r</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_rx_packets">JsonClient.rx_packets</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_rx_rate">JsonClient.rx_rate</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_signal">JsonClient.signal</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_site_id">JsonClient.site_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_sw_depth">JsonClient.sw_depth</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_sw_mac">JsonClient.sw_mac</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_sw_port">JsonClient.sw_port</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_tx_bytes">JsonClient.tx_bytes</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_tx_bytes_r">JsonClient.tx_bytes_r</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_tx_packets">JsonClient.tx_packets</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_tx_power">JsonClient.tx_power</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_tx_rate">JsonClient.tx_rate</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_uptime">JsonClient.uptime</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_user_id">JsonClient.user_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_usergroup_id">JsonClient.usergroup_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_dpi_stats">JsonClient.dpi_stats</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_dpi_stats_last_updated">JsonClient.dpi_stats_last_updated</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_blocked">JsonClient.blocked</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_fixed_ip">JsonClient.fixed_ip</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_name">JsonClient.name</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_use_fixedip">JsonClient.use_fixedip</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_dev_cat">JsonClient.dev_cat</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_dev_family">JsonClient.dev_family</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_dev_id">JsonClient.dev_id</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_dev_vendor">JsonClient.dev_vendor</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_os_class">JsonClient.os_class</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.JsonClient.html#UniFiSharp_Json_JsonClient_os_name">JsonClient.os_name</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS_5G">IJsonObject.GROUP_WIRELESS_5G</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS_2G">IJsonObject.GROUP_WIRELESS_2G</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRELESS">IJsonObject.GROUP_WIRELESS</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_WIRED">IJsonObject.GROUP_WIRED</a>
+    </div>
+    <div>
+      <a class="xref" href="UniFiSharp.Json.IJsonObject.html#UniFiSharp_Json_IJsonObject_GROUP_POE">IJsonObject.GROUP_POE</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="UniFiSharp.Orchestration.Devices.html">UniFiSharp.Orchestration.Devices</a></h6>
+  <h6><strong>Assembly</strong>: UniFiSharp.dll</h6>
+  <h5 id="UniFiSharp_Orchestration_Devices_WirelessClientNetworkedDevice_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class WirelessClientNetworkedDevice : IClientNetworkedDevice, INetworkedDevice</code></pre>
+  </div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="UniFiSharp.Orchestration.Devices.INetworkedDevice.html">INetworkedDevice</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_IdentifierMatches_UniFiSharp_Json_IJsonObject_System_String_">ObjectVisibilityExtensions.IdentifierMatches(IJsonObject, String)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetVisibleProperties_UniFiSharp_Json_IJsonObject_UniFiSharp_Json_Attributes_Levels_">ObjectVisibilityExtensions.GetVisibleProperties(IJsonObject, Levels)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetMultipleViewColumns_UniFiSharp_Json_IJsonObject_">ObjectVisibilityExtensions.GetMultipleViewColumns(IJsonObject)</a>
+  </div>
+  <div>
+      <a class="xref" href="UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html#UniFiSharp_Json_Attributes_ObjectVisibilityExtensions_GetPropertyGroups_UniFiSharp_Json_IJsonObject_UniFiSharp_Json_Attributes_Levels_">ObjectVisibilityExtensions.GetPropertyGroups(IJsonObject, Levels)</a>
+  </div>
+</article>
+              
+                </div>
+            </main>
+        </div>
+
+        
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<script type="text/javascript" src="../styles/jquery.twbsPagination.js"></script>
+<script type="text/javascript" src="../styles/url.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script type="text/javascript" src="../styles/docfx.js"></script>
+<script type="text/javascript" src="../styles/main.js"></script>
+
+    </body>
+
+</html>

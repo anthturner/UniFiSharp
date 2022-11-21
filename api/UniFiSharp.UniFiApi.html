@@ -1,0 +1,3500 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class UniFiApi
+   | UniFiSharp Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class UniFiApi
+   | UniFiSharp Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../UniFiSharp/UniFiSharpLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/night-owl.min.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" href="../styles/discord.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+
+  <body>
+        <div class="top-navbar">
+
+            <a href="javascript:void(0);" class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="24" height="24" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+            
+            <a class="brand" href="../index.html">
+              <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+              <span class="brand-title">UniFiSharp</span>
+            </a>
+        </div>
+
+        <div class="body-content">
+
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+
+                <div class="sidebar">
+                    
+                    
+                    
+                    
+                    <div>
+                      
+                      <a class="brand" href="../index.html">
+                        <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+                        <span class="brand-title">UniFiSharp</span>
+                      </a>
+                      <div id="navbar">
+                    
+                      </div>
+                    
+                    </div>
+                    
+
+                    <div class="sidebar-item-separator"></div>
+
+                        
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+
+                </div>
+
+                <div class="footer">
+                  UniFiSharp (c) 2017-2022 <a href='https://anthturner.com'>Anthony Turner</a><br>DocFX, <a href='https://github.com/jbltx/DiscordFX/'>DiscordFX</a> theme.
+                  
+                </div>
+            </nav>
+
+            <main class="main-panel">
+
+                <div role="main" class="hide-when-search">
+
+                        
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                    <article class="content wrap" id="_content" data-uid="UniFiSharp.UniFiApi">
+  
+  
+  <h1 id="UniFiSharp_UniFiApi" data-uid="UniFiSharp.UniFiApi" class="text-break">Class UniFiApi
+  </h1>
+  <div class="markdown level0 summary"><p>Encapsulates the functionality to manage a network powered by Ubiquiti UniFi networking devices</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><span class="xref">UniFiApi</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="UniFiSharp.html">UniFiSharp</a></h6>
+  <h6><strong>Assembly</strong>: UniFiSharp.dll</h6>
+  <h5 id="UniFiSharp_UniFiApi_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class UniFiApi : IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi__ctor_System_Uri_System_String_System_String_System_String_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.%23ctor(System.Uri%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L30">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi__ctor_" data-uid="UniFiSharp.UniFiApi.#ctor*"></a>
+  <h4 id="UniFiSharp_UniFiApi__ctor_System_Uri_System_String_System_String_System_String_System_Boolean_System_Boolean_" data-uid="UniFiSharp.UniFiApi.#ctor(System.Uri,System.String,System.String,System.String,System.Boolean,System.Boolean)">UniFiApi(Uri, String, String, String, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Main API interface for controlling Ubiquiti UniFi devices via a controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniFiApi(Uri baseUrl, string username, string password, string site = &quot;default&quot;, bool ignoreSslValidation = false, bool useModernApi = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">baseUrl</span></td>
+        <td><p>URL to the controller</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">username</span></td>
+        <td><p>Controller username</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Controller password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">site</span></td>
+        <td><p>Site name (or <code>default</code>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">ignoreSslValidation</span></td>
+        <td><p>Ignore self signed certificate errors</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">useModernApi</span></td>
+        <td><p>Use the 2020-era UniFi API</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi__ctor_System_Uri_System_String_System_String_System_String_System_Boolean_System_Boolean_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.%23ctor(System.Uri%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L78">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi__ctor_" data-uid="UniFiSharp.UniFiApi.#ctor*"></a>
+  <h4 id="UniFiSharp_UniFiApi__ctor_System_Uri_System_String_System_String_System_String_System_Boolean_System_Boolean_System_Int32_" data-uid="UniFiSharp.UniFiApi.#ctor(System.Uri,System.String,System.String,System.String,System.Boolean,System.Boolean,System.Int32)">UniFiApi(Uri, String, String, String, Boolean, Boolean, Int32)</h4>
+  <div class="markdown level1 summary"><p>Main API interface for controlling Ubiquiti UniFi devices via a controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniFiApi(Uri baseUrl, string username, string password, string site = &quot;default&quot;, bool ignoreSslValidation = false, bool useModernApi = true, int timeout = 1000)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">baseUrl</span></td>
+        <td><p>URL to the controller</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">username</span></td>
+        <td><p>Controller username</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Controller password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">site</span></td>
+        <td><p>Site name (or <code>default</code>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">ignoreSslValidation</span></td>
+        <td><p>Ignore self signed certificate errors</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">useModernApi</span></td>
+        <td><p>Use the 2020-era UniFi API</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">timeout</span></td>
+        <td><p>HTTP Timeout</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi__ctor_System_Uri_System_String_System_String_System_String_System_String_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.%23ctor(System.Uri%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L46">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi__ctor_" data-uid="UniFiSharp.UniFiApi.#ctor*"></a>
+  <h4 id="UniFiSharp_UniFiApi__ctor_System_Uri_System_String_System_String_System_String_System_String_System_Boolean_System_Boolean_" data-uid="UniFiSharp.UniFiApi.#ctor(System.Uri,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">UniFiApi(Uri, String, String, String, String, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Main API interface for controlling Ubiquiti UniFi devices via a controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniFiApi(Uri baseUrl, string username, string password, string code, string site = &quot;default&quot;, bool ignoreSslValidation = false, bool useModernApi = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">baseUrl</span></td>
+        <td><p>URL to the controller</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">username</span></td>
+        <td><p>Controller username</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Controller password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">code</span></td>
+        <td><p>2FA Code</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">site</span></td>
+        <td><p>Site name (or <code>default</code>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">ignoreSslValidation</span></td>
+        <td><p>Ignore self signed certificate errors</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">useModernApi</span></td>
+        <td><p>Use the 2020-era UniFi API</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi__ctor_System_Uri_System_String_System_String_System_Text_Encoding_System_String_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.%23ctor(System.Uri%2CSystem.String%2CSystem.String%2CSystem.Text.Encoding%2CSystem.String%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L62">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi__ctor_" data-uid="UniFiSharp.UniFiApi.#ctor*"></a>
+  <h4 id="UniFiSharp_UniFiApi__ctor_System_Uri_System_String_System_String_System_Text_Encoding_System_String_System_Boolean_System_Boolean_" data-uid="UniFiSharp.UniFiApi.#ctor(System.Uri,System.String,System.String,System.Text.Encoding,System.String,System.Boolean,System.Boolean)">UniFiApi(Uri, String, String, Encoding, String, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Main API interface for controlling Ubiquiti UniFi devices via a controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniFiApi(Uri baseUrl, string username, string password, Encoding encoding, string site = &quot;default&quot;, bool ignoreSslValidation = false, bool useModernApi = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uri">Uri</a></td>
+        <td><span class="parametername">baseUrl</span></td>
+        <td><p>URL to the controller</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">username</span></td>
+        <td><p>Controller username</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Controller password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.text.encoding">Encoding</a></td>
+        <td><span class="parametername">encoding</span></td>
+        <td><p>Defines the encoding of API calls</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">site</span></td>
+        <td><p>Site name (or <code>default</code>)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">ignoreSslValidation</span></td>
+        <td><p>Ignore self signed certificate errors</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">useModernApi</span></td>
+        <td><p>Use the 2020-era UniFi API</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi__ctor_UniFiSharp_IUniFiRestClient_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.%23ctor(UniFiSharp.IUniFiRestClient%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L89">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi__ctor_" data-uid="UniFiSharp.UniFiApi.#ctor*"></a>
+  <h4 id="UniFiSharp_UniFiApi__ctor_UniFiSharp_IUniFiRestClient_System_String_" data-uid="UniFiSharp.UniFiApi.#ctor(UniFiSharp.IUniFiRestClient,System.String)">UniFiApi(IUniFiRestClient, String)</h4>
+  <div class="markdown level1 summary"><p>Main API interface for controlling Ubiquiti UniFi devices via a controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UniFiApi(IUniFiRestClient restClient, string site = &quot;default&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UniFiSharp.IUniFiRestClient.html">IUniFiRestClient</a></td>
+        <td><span class="parametername">restClient</span></td>
+        <td><p>UniFi REST client implementation to use for data services</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">site</span></td>
+        <td><p>Site name (or <code>default</code>)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_Site.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.Site%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L19">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_Site_" data-uid="UniFiSharp.UniFiApi.Site*"></a>
+  <h4 id="UniFiSharp_UniFiApi_Site" data-uid="UniFiSharp.UniFiApi.Site">Site</h4>
+  <div class="markdown level1 summary"><p>UniFi Site name (normally 'default')</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Site { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ActiveStreamList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ActiveStreamList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UnifiApi.Stream.cs/#L64">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ActiveStreamList_" data-uid="UniFiSharp.UniFiApi.ActiveStreamList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ActiveStreamList" data-uid="UniFiSharp.UniFiApi.ActiveStreamList">ActiveStreamList()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonStreamStatus&gt;&gt; ActiveStreamList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonStreamStatus.html">JsonStreamStatus</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_Authenticate.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.Authenticate%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L109">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_Authenticate_" data-uid="UniFiSharp.UniFiApi.Authenticate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_Authenticate" data-uid="UniFiSharp.UniFiApi.Authenticate">Authenticate()</h4>
+  <div class="markdown level1 summary"><p>Force the wrapper to authenticate with the controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonLoginResult&gt; Authenticate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonLoginResult.html">JsonLoginResult</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_BroadcastGroupCreate_System_String_System_String___.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.BroadcastGroupCreate(System.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.BroadcastGroup.cs/#L46">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_BroadcastGroupCreate_" data-uid="UniFiSharp.UniFiApi.BroadcastGroupCreate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_BroadcastGroupCreate_System_String_System_String___" data-uid="UniFiSharp.UniFiApi.BroadcastGroupCreate(System.String,System.String[])">BroadcastGroupCreate(String, String[])</h4>
+  <div class="markdown level1 summary"><p>Create a new broadcast group</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonBroadcastGroup&gt; BroadcastGroupCreate(string groupName, string[] memberTable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">groupName</span></td>
+        <td><p>Name of the broadcast group</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>[]</td>
+        <td><span class="parametername">memberTable</span></td>
+        <td><p>MAC addresses of the devices to include in the group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonBroadcastGroup.html">JsonBroadcastGroup</a>&gt;</td>
+        <td><p>JSON object containing details of the created group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_BroadcastGroupDelete_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.BroadcastGroupDelete(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.BroadcastGroup.cs/#L35">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_BroadcastGroupDelete_" data-uid="UniFiSharp.UniFiApi.BroadcastGroupDelete*"></a>
+  <h4 id="UniFiSharp_UniFiApi_BroadcastGroupDelete_System_String_" data-uid="UniFiSharp.UniFiApi.BroadcastGroupDelete(System.String)">BroadcastGroupDelete(String)</h4>
+  <div class="markdown level1 summary"><p>Delete a broadcast group</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task BroadcastGroupDelete(string groupId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">groupId</span></td>
+        <td><p>ID of the broadcast group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_BroadcastGroupGet_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.BroadcastGroupGet(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.BroadcastGroup.cs/#L25">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_BroadcastGroupGet_" data-uid="UniFiSharp.UniFiApi.BroadcastGroupGet*"></a>
+  <h4 id="UniFiSharp_UniFiApi_BroadcastGroupGet_System_String_" data-uid="UniFiSharp.UniFiApi.BroadcastGroupGet(System.String)">BroadcastGroupGet(String)</h4>
+  <div class="markdown level1 summary"><p>Retrieve info about a single broadcast group</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonBroadcastGroup&gt; BroadcastGroupGet(string groupId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">groupId</span></td>
+        <td><p>ID of the group to query</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonBroadcastGroup.html">JsonBroadcastGroup</a>&gt;</td>
+        <td><p>JSON object describing the group and listing the devices in the group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_BroadcastGroupList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.BroadcastGroupList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.BroadcastGroup.cs/#L15">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_BroadcastGroupList_" data-uid="UniFiSharp.UniFiApi.BroadcastGroupList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_BroadcastGroupList" data-uid="UniFiSharp.UniFiApi.BroadcastGroupList">BroadcastGroupList()</h4>
+  <div class="markdown level1 summary"><p>Get all broadcast groups on the controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonBroadcastGroup&gt;&gt; BroadcastGroupList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonBroadcastGroup.html">JsonBroadcastGroup</a>&gt;&gt;</td>
+        <td><p>Collection of JSON objects containing the broadcast groups and devices in each group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_BroadcastGroupUpdate_System_String_System_String_System_String___.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.BroadcastGroupUpdate(System.String%2CSystem.String%2CSystem.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.BroadcastGroup.cs/#L62">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_BroadcastGroupUpdate_" data-uid="UniFiSharp.UniFiApi.BroadcastGroupUpdate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_BroadcastGroupUpdate_System_String_System_String_System_String___" data-uid="UniFiSharp.UniFiApi.BroadcastGroupUpdate(System.String,System.String,System.String[])">BroadcastGroupUpdate(String, String, String[])</h4>
+  <div class="markdown level1 summary"><p>Update an existing broadcast group</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonBroadcastGroup&gt; BroadcastGroupUpdate(string groupId, string groupName, string[] memberTable)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">groupId</span></td>
+        <td><p>ID of the group to update</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">groupName</span></td>
+        <td><p>Name of the broadcast group</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>[]</td>
+        <td><span class="parametername">memberTable</span></td>
+        <td><p>MAC addresses of the devices to include in the group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonBroadcastGroup.html">JsonBroadcastGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ClientAuthorize_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ClientAuthorize(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Clients.cs/#L36">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ClientAuthorize_" data-uid="UniFiSharp.UniFiApi.ClientAuthorize*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ClientAuthorize_System_String_" data-uid="UniFiSharp.UniFiApi.ClientAuthorize(System.String)">ClientAuthorize(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task ClientAuthorize(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ClientBlock_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ClientBlock(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Clients.cs/#L45">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ClientBlock_" data-uid="UniFiSharp.UniFiApi.ClientBlock*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ClientBlock_System_String_" data-uid="UniFiSharp.UniFiApi.ClientBlock(System.String)">ClientBlock(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task ClientBlock(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ClientForceReconnect_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ClientForceReconnect(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Clients.cs/#L19">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ClientForceReconnect_" data-uid="UniFiSharp.UniFiApi.ClientForceReconnect*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ClientForceReconnect_System_String_" data-uid="UniFiSharp.UniFiApi.ClientForceReconnect(System.String)">ClientForceReconnect(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task ClientForceReconnect(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ClientGet_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ClientGet(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Clients.cs/#L14">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ClientGet_" data-uid="UniFiSharp.UniFiApi.ClientGet*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ClientGet_System_String_" data-uid="UniFiSharp.UniFiApi.ClientGet(System.String)">ClientGet(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonClient&gt; ClientGet(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonClient.html">JsonClient</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ClientList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ClientList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Clients.cs/#L9">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ClientList_" data-uid="UniFiSharp.UniFiApi.ClientList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ClientList" data-uid="UniFiSharp.UniFiApi.ClientList">ClientList()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonClient&gt;&gt; ClientList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonClient.html">JsonClient</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ClientUnauthorize_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ClientUnauthorize(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Clients.cs/#L27">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ClientUnauthorize_" data-uid="UniFiSharp.UniFiApi.ClientUnauthorize*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ClientUnauthorize_System_String_" data-uid="UniFiSharp.UniFiApi.ClientUnauthorize(System.String)">ClientUnauthorize(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task ClientUnauthorize(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ClientUnblock_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ClientUnblock(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Clients.cs/#L54">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ClientUnblock_" data-uid="UniFiSharp.UniFiApi.ClientUnblock*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ClientUnblock_System_String_" data-uid="UniFiSharp.UniFiApi.ClientUnblock(System.String)">ClientUnblock(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task ClientUnblock(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_ControllerSiteList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.ControllerSiteList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L100">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_ControllerSiteList_" data-uid="UniFiSharp.UniFiApi.ControllerSiteList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_ControllerSiteList" data-uid="UniFiSharp.UniFiApi.ControllerSiteList">ControllerSiteList()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of sites managed by this controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonSite&gt;&gt; ControllerSiteList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonSite.html">JsonSite</a>&gt;&gt;</td>
+        <td><p>A list of JSON objects describing sites managed by this controller</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_DiscoverControllers.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.DiscoverControllers%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Discovery.cs/#L58">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_DiscoverControllers_" data-uid="UniFiSharp.UniFiApi.DiscoverControllers*"></a>
+  <h4 id="UniFiSharp_UniFiApi_DiscoverControllers" data-uid="UniFiSharp.UniFiApi.DiscoverControllers">DiscoverControllers()</h4>
+  <div class="markdown level1 summary"><p>Discover Ubiquiti UniFi devices by sending requests to the broadcast and multicast addresses.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;List&lt;DeviceInformation&gt;&gt; DiscoverControllers()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="UniFiSharp.Discovery.DeviceInformation.html">DeviceInformation</a>&gt;&gt;</td>
+        <td><p>List of discovered devices that responded to the broadcast/multicast</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="UniFiSharp_UniFiApi_DiscoverControllers_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only works if L2 discovery is enabled on the device!</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_DiscoverControllers_System_Collections_Generic_IEnumerable_System_Net_IPAddress__.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.DiscoverControllers(System.Collections.Generic.IEnumerable%7BSystem.Net.IPAddress%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Discovery.cs/#L27">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_DiscoverControllers_" data-uid="UniFiSharp.UniFiApi.DiscoverControllers*"></a>
+  <h4 id="UniFiSharp_UniFiApi_DiscoverControllers_System_Collections_Generic_IEnumerable_System_Net_IPAddress__" data-uid="UniFiSharp.UniFiApi.DiscoverControllers(System.Collections.Generic.IEnumerable{System.Net.IPAddress})">DiscoverControllers(IEnumerable&lt;IPAddress&gt;)</h4>
+  <div class="markdown level1 summary"><p>Discover Ubiquiti UniFi devices by sending requests to a given list of IP addresses on the standard multicast port (10001).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static async Task&lt;List&lt;DeviceInformation&gt;&gt; DiscoverControllers(IEnumerable&lt;IPAddress&gt; ipAddresses)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.net.ipaddress">IPAddress</a>&gt;</td>
+        <td><span class="parametername">ipAddresses</span></td>
+        <td><p>IEnumerable of IP addresses to scan</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="UniFiSharp.Discovery.DeviceInformation.html">DeviceInformation</a>&gt;&gt;</td>
+        <td><p>List of discovered devices from given range</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="UniFiSharp_UniFiApi_DiscoverControllers_System_Collections_Generic_IEnumerable_System_Net_IPAddress___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only works if L2 discovery is enabled on the device!</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotGuestList_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotGuestList(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L112">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotGuestList_" data-uid="UniFiSharp.UniFiApi.HotspotGuestList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotGuestList_System_Int32_" data-uid="UniFiSharp.UniFiApi.HotspotGuestList(System.Int32)">HotspotGuestList(Int32)</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of guests using the hotspots</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonGuest&gt;&gt; HotspotGuestList(int withinNHours = -1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">withinNHours</span></td>
+        <td><p>If specified, returns guests who have accessed the hotspots in the last N hours</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonGuest.html">JsonGuest</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotOperatorAdd_System_String_System_String_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotOperatorAdd(System.String%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L25">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotOperatorAdd_" data-uid="UniFiSharp.UniFiApi.HotspotOperatorAdd*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotOperatorAdd_System_String_System_String_System_String_" data-uid="UniFiSharp.UniFiApi.HotspotOperatorAdd(System.String,System.String,System.String)">HotspotOperatorAdd(String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Create a new operator for hotspots run from this controller for this site</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonHotspotOperator&gt; HotspotOperatorAdd(string name, string password, string note = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Operator name</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">password</span></td>
+        <td><p>Operator password</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">note</span></td>
+        <td><p>Note to store with user record</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonHotspotOperator.html">JsonHotspotOperator</a>&gt;</td>
+        <td><p>A JSON object that describes the new operator</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotOperatorList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotOperatorList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L13">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotOperatorList_" data-uid="UniFiSharp.UniFiApi.HotspotOperatorList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotOperatorList" data-uid="UniFiSharp.UniFiApi.HotspotOperatorList">HotspotOperatorList()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of operators created for the hotspots run from this controller for this site</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonHotspotOperator&gt;&gt; HotspotOperatorList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonHotspotOperator.html">JsonHotspotOperator</a>&gt;&gt;</td>
+        <td><p>A collection of JSON objects that describe operators registered on this controller for this site</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotPaymentList_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotPaymentList(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L125">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotPaymentList_" data-uid="UniFiSharp.UniFiApi.HotspotPaymentList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotPaymentList_System_Int32_" data-uid="UniFiSharp.UniFiApi.HotspotPaymentList(System.Int32)">HotspotPaymentList(Int32)</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of guests' payment information for guests using the hotspots</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonPaymentTransactionInformation&gt;&gt; HotspotPaymentList(int withinNHours = -1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">withinNHours</span></td>
+        <td><p>If specified, returns payment information for guests who have accessed the hotspots in the last N hours</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonPaymentTransactionInformation.html">JsonPaymentTransactionInformation</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotVoucherAdd_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Int32_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotVoucherAdd(System.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.Nullable%7BSystem.Int64%7D%2CSystem.String%2CSystem.Int32%2CSystem.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L64">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotVoucherAdd_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherAdd*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotVoucherAdd_System_Nullable_System_Int64__System_Nullable_System_Int64__System_Nullable_System_Int64__System_String_System_Int32_System_String_System_Int32_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherAdd(System.Nullable{System.Int64},System.Nullable{System.Int64},System.Nullable{System.Int64},System.String,System.Int32,System.String,System.Int32)">HotspotVoucherAdd(Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, Nullable&lt;Int64&gt;, String, Int32, String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Create a new voucher for hotspots run from this controller for this site</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonHotspotVoucher&gt; HotspotVoucherAdd(long? bytes, long? down, long? up, string expire, int quota, string note, int count)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td><span class="parametername">bytes</span></td>
+        <td><p>Quota in MBytes</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td><span class="parametername">down</span></td>
+        <td><p>Bandwidth limit for download in bytes/s</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.nullable-1">Nullable</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a>&gt;</td>
+        <td><span class="parametername">up</span></td>
+        <td><p>Bandwidth limit for upload in bytes/s</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">expire</span></td>
+        <td><p>Voucher validty time in minutes</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">quota</span></td>
+        <td><p>Allowed login counts per voucher</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">note</span></td>
+        <td><p>Custom note</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">count</span></td>
+        <td><p>Number of vouchers</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonHotspotVoucher.html">JsonHotspotVoucher</a>&gt;</td>
+        <td><p>A JSON object that describes the new vouches</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotVoucherDelete_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotVoucherDelete(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L84">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotVoucherDelete_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherDelete*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotVoucherDelete_System_String_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherDelete(System.String)">HotspotVoucherDelete(String)</h4>
+  <div class="markdown level1 summary"><p>Delete a voucher from hotspots run from this controller for this site</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task HotspotVoucherDelete(string id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Voucher ID to delete</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotVoucherGet_System_Int64_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotVoucherGet(System.Int64)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L48">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotVoucherGet_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherGet*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotVoucherGet_System_Int64_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherGet(System.Int64)">HotspotVoucherGet(Int64)</h4>
+  <div class="markdown level1 summary"><p>Retrieve a vouchers created for the hotspots run from this controller for this site filtered by create_time</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonHotspotVoucher&gt;&gt; HotspotVoucherGet(long create_time)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int64">Int64</a></td>
+        <td><span class="parametername">create_time</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonHotspotVoucher.html">JsonHotspotVoucher</a>&gt;&gt;</td>
+        <td><p>A collection of JSON objects that describe vouchers registered on this controller for this site</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotVoucherList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotVoucherList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L39">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotVoucherList_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotVoucherList" data-uid="UniFiSharp.UniFiApi.HotspotVoucherList">HotspotVoucherList()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of vouchers created for the hotspots run from this controller for this site</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonHotspotVoucher&gt;&gt; HotspotVoucherList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonHotspotVoucher.html">JsonHotspotVoucher</a>&gt;&gt;</td>
+        <td><p>A collection of JSON objects that describe vouchers registered on this controller for this site</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_HotspotVoucherTerminate_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.HotspotVoucherTerminate(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Hotspot.cs/#L98">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_HotspotVoucherTerminate_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherTerminate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_HotspotVoucherTerminate_System_String_" data-uid="UniFiSharp.UniFiApi.HotspotVoucherTerminate(System.String)">HotspotVoucherTerminate(String)</h4>
+  <div class="markdown level1 summary"><p>Disconnects a guest from hotspots run from this controller for this site</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task HotspotVoucherTerminate(string id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Guest ID of guest to disconnect</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_Logout.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.Logout%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.cs/#L118">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_Logout_" data-uid="UniFiSharp.UniFiApi.Logout*"></a>
+  <h4 id="UniFiSharp_UniFiApi_Logout" data-uid="UniFiSharp.UniFiApi.Logout">Logout()</h4>
+  <div class="markdown level1 summary"><p>End the active session</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task Logout()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_MediaFileCreate_System_String_System_Byte___System_String_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.MediaFileCreate(System.String%2CSystem.Byte%5B%5D%2CSystem.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Media.cs/#L49">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_MediaFileCreate_" data-uid="UniFiSharp.UniFiApi.MediaFileCreate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_MediaFileCreate_System_String_System_Byte___System_String_System_String_" data-uid="UniFiSharp.UniFiApi.MediaFileCreate(System.String,System.Byte[],System.String,System.String)">MediaFileCreate(String, Byte[], String, String)</h4>
+  <div class="markdown level1 summary"><p>Uploads a media file to the UniFi controller. Note that OGG files are the only known supported file type (recommended quality 4).
+Other audio formats will upload but cannot be played by AP-AC-EDU devices</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task MediaFileCreate(string name, byte[] fileData, string fileName = &quot;&quot;, string contentType = &quot;audio/ogg&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Human readable name for the file</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.byte">Byte</a>[]</td>
+        <td><span class="parametername">fileData</span></td>
+        <td><p>Byte array containing the file data</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">fileName</span></td>
+        <td><p>Optional file name for internal use</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">contentType</span></td>
+        <td><p>Content type of media</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_MediaFileDelete_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.MediaFileDelete(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Media.cs/#L34">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_MediaFileDelete_" data-uid="UniFiSharp.UniFiApi.MediaFileDelete*"></a>
+  <h4 id="UniFiSharp_UniFiApi_MediaFileDelete_System_String_" data-uid="UniFiSharp.UniFiApi.MediaFileDelete(System.String)">MediaFileDelete(String)</h4>
+  <div class="markdown level1 summary"><p>Deletes a specific uploaded media file from the controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task MediaFileDelete(string fileId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td><p>Collection of JSON objects describing sample media files stored on this controller</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_MediaFileGet_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.MediaFileGet(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Media.cs/#L25">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_MediaFileGet_" data-uid="UniFiSharp.UniFiApi.MediaFileGet*"></a>
+  <h4 id="UniFiSharp_UniFiApi_MediaFileGet_System_String_" data-uid="UniFiSharp.UniFiApi.MediaFileGet(System.String)">MediaFileGet(String)</h4>
+  <div class="markdown level1 summary"><p>Retrieves a specific file uploaded to the controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonMediaFile&gt; MediaFileGet(string fileId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">fileId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonMediaFile.html">JsonMediaFile</a>&gt;</td>
+        <td><p>Collection of JSON objects describing media files stored on this controller</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_MediaFileList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.MediaFileList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Media.cs/#L16">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_MediaFileList_" data-uid="UniFiSharp.UniFiApi.MediaFileList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_MediaFileList" data-uid="UniFiSharp.UniFiApi.MediaFileList">MediaFileList()</h4>
+  <div class="markdown level1 summary"><p>Retrieves all the media files uploaded to the controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonMediaFile&gt;&gt; MediaFileList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonMediaFile.html">JsonMediaFile</a>&gt;&gt;</td>
+        <td><p>Collection of JSON objects describing media files stored on this controller</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceAdopt_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceAdopt(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L75">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceAdopt_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceAdopt*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceAdopt_System_String_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceAdopt(System.String)">NetworkDeviceAdopt(String)</h4>
+  <div class="markdown level1 summary"><p>Configure ('adopt') an unconfigured UniFi device to be managed by this controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDeviceAdopt(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>MAC Address of the UniFi device to adopt</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceConfigure_System_String_UniFiSharp_NetworkDeviceConfigurations_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceConfigure(System.String%2CUniFiSharp.NetworkDeviceConfigurations)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L15">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceConfigure_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceConfigure*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceConfigure_System_String_UniFiSharp_NetworkDeviceConfigurations_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceConfigure(System.String,UniFiSharp.NetworkDeviceConfigurations)">NetworkDeviceConfigure(String, NetworkDeviceConfigurations)</h4>
+  <div class="markdown level1 summary"><p>Apply configuration options to a UniFi device managed by this controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDeviceConfigure(string deviceId, NetworkDeviceConfigurations configuration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">deviceId</span></td>
+        <td><p>Device ID of the UniFi device to configure</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UniFiSharp.NetworkDeviceConfigurations.html">NetworkDeviceConfigurations</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>Configuration element to set</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceForget_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceForget(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L89">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceForget_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceForget*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceForget_System_String_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceForget(System.String)">NetworkDeviceForget(String)</h4>
+  <div class="markdown level1 summary"><p>Remove ('forget') a configured UniFi device from this controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDeviceForget(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>MAC Address of the UniFi device to forget</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceGet_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceGet(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L34">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceGet_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceGet*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceGet_System_String_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceGet(System.String)">NetworkDeviceGet(String)</h4>
+  <div class="markdown level1 summary"><p>Retrieve a single UniFi device managed by this controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonNetworkDevice&gt; NetworkDeviceGet(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>MAC Address of the UniFi device to retrieve</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html">JsonNetworkDevice</a>&gt;</td>
+        <td><p>JSON object describing the requested UniFi device, or <code>NULL</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L24">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceList_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceList" data-uid="UniFiSharp.UniFiApi.NetworkDeviceList">NetworkDeviceList()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a collection of all UniFi devices managed by this controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonNetworkDevice&gt;&gt; NetworkDeviceList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonNetworkDevice.html">JsonNetworkDevice</a>&gt;&gt;</td>
+        <td><p>Collection of JSON objects describing UniFi devices managed by this controller</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceLocate_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceLocate(System.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L104">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceLocate_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceLocate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceLocate_System_String_System_Boolean_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceLocate(System.String,System.Boolean)">NetworkDeviceLocate(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Toggle the status of the device LED to flash (&quot;locate mode&quot;)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDeviceLocate(string macAddress, bool isFlashingLocator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>Device MAC address</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">isFlashingLocator</span></td>
+        <td><p><code>TRUE</code> if the LED should be flashing, otherwise <code>FALSE</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDevicePowerCyclePort_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDevicePowerCyclePort(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L45">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDevicePowerCyclePort_" data-uid="UniFiSharp.UniFiApi.NetworkDevicePowerCyclePort*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDevicePowerCyclePort_System_String_System_Int32_" data-uid="UniFiSharp.UniFiApi.NetworkDevicePowerCyclePort(System.String,System.Int32)">NetworkDevicePowerCyclePort(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Power-cycle a single port on a UniFi device managed by this controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDevicePowerCyclePort(string macAddress, int portIndex)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>MAC Address of the UniFi device to power cycle a port on</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">portIndex</span></td>
+        <td><p>Index of the port to power cycle</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceRestart_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceRestart(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L60">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceRestart_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceRestart*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceRestart_System_String_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceRestart(System.String)">NetworkDeviceRestart(String)</h4>
+  <div class="markdown level1 summary"><p>Restart a UniFi device managed by this controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDeviceRestart(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>MAC Address of the UniFi device to restart</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceRfScan_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceRfScan(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L118">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceRfScan_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceRfScan*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceRfScan_System_String_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceRfScan(System.String)">NetworkDeviceRfScan(String)</h4>
+  <div class="markdown level1 summary"><p>Start an RF spectrum scan on an access point (takes ~15min, AP unavailable while running)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDeviceRfScan(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>Device MAC Address</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceRfScanStatus_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceRfScanStatus(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L132">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceRfScanStatus_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceRfScanStatus*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceRfScanStatus_System_String_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceRfScanStatus(System.String)">NetworkDeviceRfScanStatus(String)</h4>
+  <div class="markdown level1 summary"><p>Retrieve the status of an RF spectrum scan on an access point</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonSpectrumScan&gt; NetworkDeviceRfScanStatus(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>Device MAC Address</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonSpectrumScan.html">JsonSpectrumScan</a>&gt;</td>
+        <td><p>JSON object describing the status of an RF spectrum scan</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceSetVolume_System_String_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceSetVolume(System.String%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L153">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceSetVolume_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceSetVolume*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceSetVolume_System_String_System_Int32_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceSetVolume(System.String,System.Int32)">NetworkDeviceSetVolume(String, Int32)</h4>
+  <div class="markdown level1 summary"><p>Set the volume of the device's speaker</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDeviceSetVolume(string macAddress, int volume)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>Device MAC Address</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">volume</span></td>
+        <td><p>Volume to set the speaker to (range 0 - 100)</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_NetworkDeviceUpgrade_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.NetworkDeviceUpgrade(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.NetworkDevices.cs/#L142">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_NetworkDeviceUpgrade_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceUpgrade*"></a>
+  <h4 id="UniFiSharp_UniFiApi_NetworkDeviceUpgrade_System_String_" data-uid="UniFiSharp.UniFiApi.NetworkDeviceUpgrade(System.String)">NetworkDeviceUpgrade(String)</h4>
+  <div class="markdown level1 summary"><p>Upgrade the firmware on a device</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task NetworkDeviceUpgrade(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td><p>Device MAC Address</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SampleFileList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SampleFileList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Media.cs/#L64">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SampleFileList_" data-uid="UniFiSharp.UniFiApi.SampleFileList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SampleFileList" data-uid="UniFiSharp.UniFiApi.SampleFileList">SampleFileList()</h4>
+  <div class="markdown level1 summary"><p>Retrieves all the sample media files on the controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonSampleMedia&gt;&gt; SampleFileList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonSampleMedia.html">JsonSampleMedia</a>&gt;&gt;</td>
+        <td><p>Collection of JSON objects describing sample media files stored on this controller</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SampleStreamStart_System_String_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SampleStreamStart(System.String%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UnifiApi.Stream.cs/#L15">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SampleStreamStart_" data-uid="UniFiSharp.UniFiApi.SampleStreamStart*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SampleStreamStart_System_String_System_String_" data-uid="UniFiSharp.UniFiApi.SampleStreamStart(System.String,System.String)">SampleStreamStart(String, String)</h4>
+  <div class="markdown level1 summary"><p>Plays a sample file on a specific access point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonStreamStatus&gt;&gt; SampleStreamStart(string filename, string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">filename</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonStreamStatus.html">JsonStreamStatus</a>&gt;&gt;</td>
+        <td><p>Collection of JSON objects describing sample media files stored on this controller</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteHealthGet.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteHealthGet%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L13">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteHealthGet_" data-uid="UniFiSharp.UniFiApi.SiteHealthGet*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteHealthGet" data-uid="UniFiSharp.UniFiApi.SiteHealthGet">SiteHealthGet()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of health statistics for the site</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonSystemHealth&gt;&gt; SiteHealthGet()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonSystemHealth.html">JsonSystemHealth</a>&gt;&gt;</td>
+        <td><p>Collection of JSON objects describing the system health, per-subsystem</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteLedToggle_System_Boolean_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteLedToggle(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L23">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteLedToggle_" data-uid="UniFiSharp.UniFiApi.SiteLedToggle*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteLedToggle_System_Boolean_" data-uid="UniFiSharp.UniFiApi.SiteLedToggle(System.Boolean)">SiteLedToggle(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Toggle the device LEDs for all devices in the site (who do not override the site settings)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task SiteLedToggle(bool isOn)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">isOn</span></td>
+        <td><p><code>TRUE</code> if the LED is lit during normal operation, otherwise <code>FALSE</code></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SitePortForwardsCreate_System_String_System_String_System_String_System_String_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SitePortForwardsCreate(System.String%2CSystem.String%2CSystem.String%2CSystem.String%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L41">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SitePortForwardsCreate_" data-uid="UniFiSharp.UniFiApi.SitePortForwardsCreate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SitePortForwardsCreate_System_String_System_String_System_String_System_String_System_Int32_System_Int32_" data-uid="UniFiSharp.UniFiApi.SitePortForwardsCreate(System.String,System.String,System.String,System.String,System.Int32,System.Int32)">SitePortForwardsCreate(String, String, String, String, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Add a new port to be forwarded by a UniFi Security Gateway (router)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonPortForward&gt; SitePortForwardsCreate(string name, string proto, string source, string dest, int fromPort, int toPort)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Rule name</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">proto</span></td>
+        <td><p>Protocol</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">source</span></td>
+        <td><p>Source IP</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">dest</span></td>
+        <td><p>Destination IP</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">fromPort</span></td>
+        <td><p>Source Port</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">toPort</span></td>
+        <td><p>Destination Port</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonPortForward.html">JsonPortForward</a>&gt;</td>
+        <td><p>JSON object describing the new port forwarding entry</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SitePortForwardsDelete_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SitePortForwardsDelete(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L59">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SitePortForwardsDelete_" data-uid="UniFiSharp.UniFiApi.SitePortForwardsDelete*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SitePortForwardsDelete_System_String_" data-uid="UniFiSharp.UniFiApi.SitePortForwardsDelete(System.String)">SitePortForwardsDelete(String)</h4>
+  <div class="markdown level1 summary"><p>Delete a port forwarding entry from a UniFi Security Gateway (router)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task SitePortForwardsDelete(string id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>Rule ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SitePortForwardsList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SitePortForwardsList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L68">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SitePortForwardsList_" data-uid="UniFiSharp.UniFiApi.SitePortForwardsList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SitePortForwardsList" data-uid="UniFiSharp.UniFiApi.SitePortForwardsList">SitePortForwardsList()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of ports that have been forwarded on a UniFi Security Gateway (router)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonPortForward&gt;&gt; SitePortForwardsList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonPortForward.html">JsonPortForward</a>&gt;&gt;</td>
+        <td><p>List of JSON objects describing configured port forwarding entries</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteRogueApList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteRogueApList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L77">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteRogueApList_" data-uid="UniFiSharp.UniFiApi.SiteRogueApList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteRogueApList" data-uid="UniFiSharp.UniFiApi.SiteRogueApList">SiteRogueApList()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of rogue access points that have been detected by this site's UniFi controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonRogueAp&gt;&gt; SiteRogueApList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonRogueAp.html">JsonRogueAp</a>&gt;&gt;</td>
+        <td><p>List of JSON objects describing rogue access points</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteUserGroupsCreate_System_String_System_Int32_System_Int32_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteUserGroupsCreate(System.String%2CSystem.Int32%2CSystem.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L89">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteUserGroupsCreate_" data-uid="UniFiSharp.UniFiApi.SiteUserGroupsCreate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteUserGroupsCreate_System_String_System_Int32_System_Int32_" data-uid="UniFiSharp.UniFiApi.SiteUserGroupsCreate(System.String,System.Int32,System.Int32)">SiteUserGroupsCreate(String, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Create a new user group on the UniFi controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonUserGroup&gt; SiteUserGroupsCreate(string name, int qosRateMaxDown = -1, int qosRateMaxUp = -1)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of new user group</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">qosRateMaxDown</span></td>
+        <td><p>QoS downstream maximum rate</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">qosRateMaxUp</span></td>
+        <td><p>QoS upstream maximum rate</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonUserGroup.html">JsonUserGroup</a>&gt;</td>
+        <td><p>JSON object describing the new user group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteUserGroupsDelete_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteUserGroupsDelete(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L104">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteUserGroupsDelete_" data-uid="UniFiSharp.UniFiApi.SiteUserGroupsDelete*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteUserGroupsDelete_System_String_" data-uid="UniFiSharp.UniFiApi.SiteUserGroupsDelete(System.String)">SiteUserGroupsDelete(String)</h4>
+  <div class="markdown level1 summary"><p>Delete a user group from the UniFi controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task SiteUserGroupsDelete(string id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>User group ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteUserGroupsList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteUserGroupsList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L113">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteUserGroupsList_" data-uid="UniFiSharp.UniFiApi.SiteUserGroupsList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteUserGroupsList" data-uid="UniFiSharp.UniFiApi.SiteUserGroupsList">SiteUserGroupsList()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of user groups configured on the UniFi controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonUserGroup&gt;&gt; SiteUserGroupsList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonUserGroup.html">JsonUserGroup</a>&gt;&gt;</td>
+        <td><p>A list of JSON objects describing configured user groups</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteWlanGroupsCreate_System_String_System_String_System_Int32_System_Int32_System_Boolean_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteWlanGroupsCreate(System.String%2CSystem.String%2CSystem.Int32%2CSystem.Int32%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L127">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteWlanGroupsCreate_" data-uid="UniFiSharp.UniFiApi.SiteWlanGroupsCreate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteWlanGroupsCreate_System_String_System_String_System_Int32_System_Int32_System_Boolean_" data-uid="UniFiSharp.UniFiApi.SiteWlanGroupsCreate(System.String,System.String,System.Int32,System.Int32,System.Boolean)">SiteWlanGroupsCreate(String, String, Int32, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Create a new WLAN group on the UniFi controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonWlanGroup&gt; SiteWlanGroupsCreate(string name, string radioType, int channelNa, int channelNg, bool pmfMode)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>Name of new WLAN group</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">radioType</span></td>
+        <td><p>Radio type (na or ng)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelNa</span></td>
+        <td><p>Default channel for NA radio</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a></td>
+        <td><span class="parametername">channelNg</span></td>
+        <td><p>Default channel for NG radio</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a></td>
+        <td><span class="parametername">pmfMode</span></td>
+        <td><p>Whether or not to use WPA2 protected management frames</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonWlanGroup.html">JsonWlanGroup</a>&gt;</td>
+        <td><p>JSON object describing the new WLAN group</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteWlanGroupsDelete_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteWlanGroupsDelete(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L144">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteWlanGroupsDelete_" data-uid="UniFiSharp.UniFiApi.SiteWlanGroupsDelete*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteWlanGroupsDelete_System_String_" data-uid="UniFiSharp.UniFiApi.SiteWlanGroupsDelete(System.String)">SiteWlanGroupsDelete(String)</h4>
+  <div class="markdown level1 summary"><p>Delete a WLAN group from the UniFi controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task SiteWlanGroupsDelete(string id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">id</span></td>
+        <td><p>WLAN group ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_SiteWlanGroupsList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.SiteWlanGroupsList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Site.cs/#L153">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_SiteWlanGroupsList_" data-uid="UniFiSharp.UniFiApi.SiteWlanGroupsList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_SiteWlanGroupsList" data-uid="UniFiSharp.UniFiApi.SiteWlanGroupsList">SiteWlanGroupsList()</h4>
+  <div class="markdown level1 summary"><p>Retrieve a list of WLAN groups configured on the UniFi controller</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonWlanGroup&gt;&gt; SiteWlanGroupsList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonWlanGroup.html">JsonWlanGroup</a>&gt;&gt;</td>
+        <td><p>A list of JSON objects describing configured WLAN groups</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_StreamCreate_UniFiSharp_Json_JsonStreamInfo_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.StreamCreate(UniFiSharp.Json.JsonStreamInfo)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UnifiApi.Stream.cs/#L31">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_StreamCreate_" data-uid="UniFiSharp.UniFiApi.StreamCreate*"></a>
+  <h4 id="UniFiSharp_UniFiApi_StreamCreate_UniFiSharp_Json_JsonStreamInfo_" data-uid="UniFiSharp.UniFiApi.StreamCreate(UniFiSharp.Json.JsonStreamInfo)">StreamCreate(JsonStreamInfo)</h4>
+  <div class="markdown level1 summary"><p>Creates a stream with the specified options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonStreamStatus&gt; StreamCreate(JsonStreamInfo streamInfo)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UniFiSharp.Json.JsonStreamInfo.html">JsonStreamInfo</a></td>
+        <td><span class="parametername">streamInfo</span></td>
+        <td><p>Options for the specified stream, such as broadcast group and file</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonStreamStatus.html">JsonStreamStatus</a>&gt;</td>
+        <td><p>Details of the created stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_StreamStart_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.StreamStart(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UnifiApi.Stream.cs/#L55">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_StreamStart_" data-uid="UniFiSharp.UniFiApi.StreamStart*"></a>
+  <h4 id="UniFiSharp_UniFiApi_StreamStart_System_String_" data-uid="UniFiSharp.UniFiApi.StreamStart(System.String)">StreamStart(String)</h4>
+  <div class="markdown level1 summary"><p>Starts a stream with a given ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonStreamStatus&gt; StreamStart(string streamId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">streamId</span></td>
+        <td><p>ID of the stream to start</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonStreamStatus.html">JsonStreamStatus</a>&gt;</td>
+        <td><p>Status of the started stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_StreamStop_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.StreamStop(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UnifiApi.Stream.cs/#L41">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_StreamStop_" data-uid="UniFiSharp.UniFiApi.StreamStop*"></a>
+  <h4 id="UniFiSharp_UniFiApi_StreamStop_System_String_" data-uid="UniFiSharp.UniFiApi.StreamStop(System.String)">StreamStop(String)</h4>
+  <div class="markdown level1 summary"><p>Stops a stream with a given ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonStreamStatus&gt; StreamStop(string streamId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">streamId</span></td>
+        <td><p>ID of the stream to start</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonStreamStatus.html">JsonStreamStatus</a>&gt;</td>
+        <td><p>Status of the stopped stream</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_UserGet_System_String_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.UserGet(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Users.cs/#L14">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_UserGet_" data-uid="UniFiSharp.UniFiApi.UserGet*"></a>
+  <h4 id="UniFiSharp_UniFiApi_UserGet_System_String_" data-uid="UniFiSharp.UniFiApi.UserGet(System.String)">UserGet(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;JsonUser&gt; UserGet(string macAddress)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a></td>
+        <td><span class="parametername">macAddress</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonUser.html">JsonUser</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_UserList.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.UserList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Users.cs/#L9">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_UserList_" data-uid="UniFiSharp.UniFiApi.UserList*"></a>
+  <h4 id="UniFiSharp_UniFiApi_UserList" data-uid="UniFiSharp.UniFiApi.UserList">UserList()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;IEnumerable&lt;JsonUser&gt;&gt; UserList()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1">Task</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="UniFiSharp.Json.JsonUser.html">JsonUser</a>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_UserSetUsergroup_UniFiSharp_Json_JsonUser_UniFiSharp_Json_JsonUserGroup_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.UserSetUsergroup(UniFiSharp.Json.JsonUser%2CUniFiSharp.Json.JsonUserGroup)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Users.cs/#L20">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_UserSetUsergroup_" data-uid="UniFiSharp.UniFiApi.UserSetUsergroup*"></a>
+  <h4 id="UniFiSharp_UniFiApi_UserSetUsergroup_UniFiSharp_Json_JsonUser_UniFiSharp_Json_JsonUserGroup_" data-uid="UniFiSharp.UniFiApi.UserSetUsergroup(UniFiSharp.Json.JsonUser,UniFiSharp.Json.JsonUserGroup)">UserSetUsergroup(JsonUser, JsonUserGroup)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task UserSetUsergroup(JsonUser user, JsonUserGroup userGroup)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UniFiSharp.Json.JsonUser.html">JsonUser</a></td>
+        <td><span class="parametername">user</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="UniFiSharp.Json.JsonUserGroup.html">JsonUserGroup</a></td>
+        <td><span class="parametername">userGroup</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/anthturner/UniFiSharp/new/master/apiSpec/new?filename=UniFiSharp_UniFiApi_UserUnsetUsergroup_UniFiSharp_Json_JsonUser_.md&amp;value=---%0Auid%3A%20UniFiSharp.UniFiApi.UserUnsetUsergroup(UniFiSharp.Json.JsonUser)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/anthturner/UniFiSharp/blob/master/UniFiSharp/UniFiApi.Users.cs/#L28">View Source</a>
+  </span>
+  <a id="UniFiSharp_UniFiApi_UserUnsetUsergroup_" data-uid="UniFiSharp.UniFiApi.UserUnsetUsergroup*"></a>
+  <h4 id="UniFiSharp_UniFiApi_UserUnsetUsergroup_UniFiSharp_Json_JsonUser_" data-uid="UniFiSharp.UniFiApi.UserUnsetUsergroup(UniFiSharp.Json.JsonUser)">UserUnsetUsergroup(JsonUser)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task UserUnsetUsergroup(JsonUser user)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="UniFiSharp.Json.JsonUser.html">JsonUser</a></td>
+        <td><span class="parametername">user</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.tasks.task">Task</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">System.IDisposable</a>
+  </div>
+</article>
+              
+                </div>
+            </main>
+        </div>
+
+        
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<script type="text/javascript" src="../styles/jquery.twbsPagination.js"></script>
+<script type="text/javascript" src="../styles/url.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script type="text/javascript" src="../styles/docfx.js"></script>
+<script type="text/javascript" src="../styles/main.js"></script>
+
+    </body>
+
+</html>

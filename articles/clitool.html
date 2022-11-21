@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Command Line Tool | UniFiSharp Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Command Line Tool | UniFiSharp Documentation ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../UniFiSharp/UniFiSharpLogo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/night-owl.min.css">
+    <link rel="stylesheet" href="../styles/colors.css">
+    <link rel="stylesheet" href="../styles/discord.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+
+  <body>
+        <div class="top-navbar">
+
+            <a href="javascript:void(0);" class="burger-icon" onclick="toggleMenu()">
+                <svg name="Hamburger" style="vertical-align: middle;" width="24" height="24" viewbox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M20 6H4V9H20V6ZM4 10.999H20V13.999H4V10.999ZM4 15.999H20V18.999H4V15.999Z"></path></svg>
+            </a>
+
+            
+            <a class="brand" href="../index.html">
+              <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+              <span class="brand-title">UniFiSharp</span>
+            </a>
+        </div>
+
+        <div class="body-content">
+
+            <div id="blackout" class="blackout" onclick="toggleMenu()"></div>
+
+            <nav id="sidebar" role="navigation">
+
+                <div class="sidebar">
+                    
+                    
+                    
+                    
+                    <div>
+                      
+                      <a class="brand" href="../index.html">
+                        <img src="../UniFiSharp/UniFiSharpLogo.png" alt="UniFiSharp" class="logomark">
+                        <span class="brand-title">UniFiSharp</span>
+                      </a>
+                      <div id="navbar">
+                    
+                      </div>
+                    
+                    </div>
+                    
+
+                    <div class="sidebar-item-separator"></div>
+
+                        
+                        <div id="sidetoggle">
+                          <div id="sidetoc"></div>
+                        </div>
+
+                </div>
+
+                <div class="footer">
+                  UniFiSharp (c) 2017-2022 <a href='https://anthturner.com'>Anthony Turner</a><br>DocFX, <a href='https://github.com/jbltx/DiscordFX/'>DiscordFX</a> theme.
+                  
+                </div>
+            </nav>
+
+            <main class="main-panel">
+
+                <div role="main" class="hide-when-search">
+
+                        
+                        <div class="subnav navbar navbar-default">
+                          <div class="container hide-when-search" id="breadcrumb">
+                            <ul class="breadcrumb">
+                              <li></li>
+                            </ul>
+                          </div>
+                        </div>
+
+                    <article class="content wrap" id="_content" data-uid="">
+<h1 id="command-line-tool">Command Line Tool</h1>
+
+<p><code>unifi-cli</code> is a new tool to expose the functionality of UniFiSharp to the command line, so that other scripts can leverage the SDK for automation without needing to write C# code.</p>
+<h2 id="available-commands">Available Commands</h2>
+<p>The CLI tool attempts to expose all commands and information available through the UniFiSharp SDK as if you were using it in a C# application. You can find a full list of commands and some examples by typing:</p>
+<p><code>unifi-cli --help</code></p>
+<p>For commands which either run and create output, or simply provide information, you can pass the <code>--json</code> flag to output the information in JSON; otherwise, it will be formatted to be viewed by a human being through the use of tables.</p>
+<h2 id="explorer-mode">Explorer Mode</h2>
+<p>This tool allows you to interactively explore your network topology in a similar way to a file system. That is, you begin at the router (or outermost component of your perimeter) and can <code>cd</code> to network devices which are children of that component. You can do this for as many levels as is appropriate, and even <code>cd</code> into client devices.</p>
+<p>All devices support the <code>info</code> command, which dumps all information which the system knows about the device.</p>
+<p>You can also use commands such as <code>rssi</code> and <code>signal</code> to list the wirelessly connected client devices and their RSSI and signal strength to their access points.</p>
+<p>For a full list of command functions, type <code>help</code>.</p>
+<h2 id="topology-mode">Topology Mode</h2>
+<p>This mode outputs a visual formatted tree based on the converged topology from the Orchestrator component. It shows the relationship between network devices and their children, as well as where each client is connected on your network.</p>
+<h2 id="interactive-mode">Interactive Mode</h2>
+<p>Since the CLI tool exposes a significant number of commands, if you want to do maintenance, you can load the tool in interactive mode. Running it this way allows you to specify the controller URI, username, and password once, rather than needing to specify it on each run of the tool for a single operation. For example:</p>
+<p><code>unifi-cli interactive https://192.168.1.1 administrator myPassword123</code></p>
+<p>This session will run any commands against <code>192.168.1.1</code> with the credentials above.</p>
+</article>
+              
+                </div>
+            </main>
+        </div>
+
+        
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<script type="text/javascript" src="../styles/jquery.twbsPagination.js"></script>
+<script type="text/javascript" src="../styles/url.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/anchor-js/anchor.min.js"></script>
+<script type="text/javascript" src="../styles/docfx.js"></script>
+<script type="text/javascript" src="../styles/main.js"></script>
+
+    </body>
+
+</html>
