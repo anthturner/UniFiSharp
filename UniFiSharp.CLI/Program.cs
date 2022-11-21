@@ -1,20 +1,31 @@
 using Spectre.Console;
 using Spectre.Console.Cli;
+using System.Reflection;
 using UniFiSharp.CLI.Commands;
 
 namespace UniFiSharp.CLI
 {
     internal class Program
     {
-        private static string Version => "v1.5.1";
         internal static bool Quiet { get; private set; } = false;
         internal static CommandApp App { get; private set; } = new CommandApp();
         static void Main(string[] args)
         {
             Console.WriteLine();
 
+            // ---
+            var version = Assembly.GetAssembly(typeof(UniFiApi))?.GetName()?.Version?.ToString(3);
+            version = null;
+            if (version == null)
+            {
+                AnsiConsole.MarkupLine("[red bold]CRITICAL: UniFiSharp library not loaded properly.[/]");
+                return;
+            }
+            // ---
+
+
             if (!args.Any(a => a == "-q" || a == "--quiet"))
-                DrawUniFiSharpLogo();
+                DrawUniFiSharpLogo(version);
             else Quiet = true;
 
             App.Configure(config =>
@@ -177,7 +188,7 @@ namespace UniFiSharp.CLI
             Console.WriteLine();
         }
 
-        private static void DrawUniFiSharpLogo()
+        private static void DrawUniFiSharpLogo(string version)
         {
             var c1 = "[blue]";
             var c2 = "[#666666]";
@@ -188,7 +199,7 @@ namespace UniFiSharp.CLI
 
             AnsiConsole.Write(new Rule().RuleStyle("blue dim"));
             AnsiConsole.MarkupLine($"{c1} __ {e}{c3}   __ {e}{c1}  __ __{e}");
-            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  |{e}{c1}_/ // /_{e}\t{c1}UniFi Command Line Tool{e} {v}{Version}{e}");
+            AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  |{e}{c1}_/ // /_{e}\t{c1}UniFi Command Line Tool{e} {v}{version}{e}");
             AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  |  {e}{c1}/_  _  __/{e}\t{l}https://github.com/anthturner/UniFiSharp{e}");
             AnsiConsole.MarkupLine($"{c1}|  |{e}{c3}  | {e}{c1}/_  _  __/{e}");
             AnsiConsole.MarkupLine($"{c1}|  \\{e}{c2}--{e}{c3}^-`{e}{c1}/_//_/{e}\t\t{c2}This tool is not supported or affiliated{e}");
