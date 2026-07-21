@@ -286,3 +286,6 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# Local credentials for live-device integration tests
+UniFiSharp.DeviceTests/device-test-settings*.json
