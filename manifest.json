@@ -1,0 +1,855 @@
+{
+  "sitemap": {
+    "baseUrl": "https://anthturner.github.io/UniFiSharp/",
+    "changefreq": "monthly",
+    "lastmod": "2022-04-26T23:00:00+00:00"
+  },
+  "source_base_path": "D:/a/UniFiSharp/UniFiSharp/UniFiSharp/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "source_relative_path": "../UniFiSharp/UniFiSharpLogo.png",
+      "output": {
+        "resource": {
+          "relative_path": "UniFiSharp/UniFiSharpLogo.png"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.DataTypeConversionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.DataTypeConversionExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Discovery.DeviceInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Discovery.DeviceInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Discovery.DeviceInformationV1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Discovery.DeviceInformationV1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Discovery.DeviceInformationV2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Discovery.DeviceInformationV2.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Discovery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Discovery.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.IUniFiRestClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.IUniFiRestClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.Attributes.GroupAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.Attributes.GroupAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.Attributes.IdentifierAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.Attributes.IdentifierAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.Attributes.Levels.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.Attributes.Levels.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.Attributes.ObjectVisibilityExtensions.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.Attributes.ShowWithAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.Attributes.ShowWithAttribute.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.Attributes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.Attributes.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.IJsonObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.IJsonObject.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonBroadcastDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonBroadcastDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonBroadcastGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonBroadcastGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonClient.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonGuest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonGuest.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonHotspotOperator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonHotspotOperator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonHotspotVoucher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonHotspotVoucher.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonLoginResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonLoginResult.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonMediaFile.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonMediaFile.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonConfigNetwork.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonConfigNetwork.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonEthernetTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonEthernetTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonLink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonLink.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonLldpTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonLldpTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonMacTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonMacTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonNetworkTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonNetworkTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonPortOverride.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonPortOverride.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonPortTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonPortTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonRadioTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonRadioTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonSpeedtestStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonSpeedtestStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonSysStats.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonSysStats.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonVapTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.JsonVapTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonNetworkDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonPaymentTransactionInformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonPaymentTransactionInformation.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonPortForward.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonPortForward.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonRogueAp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonRogueAp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonSampleMedia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonSampleMedia.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonSite.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonSite.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonSpectrumScan.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonSpectrumScan.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonSpectrumTable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonSpectrumTable.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonStreamInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonStreamInfo.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonStreamStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonStreamStatus.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonSystemHealth.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonSystemHealth.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonUser.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonUserGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonUserGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.JsonWlanGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.JsonWlanGroup.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Json.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Json.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.NetworkDeviceConfigurations-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.NetworkDeviceConfigurations-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.NetworkDeviceConfigurations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.NetworkDeviceConfigurations.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Collections.ClientNetworkedDeviceCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Collections.ClientNetworkedDeviceCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Collections.InfrastructureNetworkedDeviceCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Collections.InfrastructureNetworkedDeviceCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Collections.PortForwardCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Collections.PortForwardCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Collections.RemotedDataCollection-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Collections.RemotedDataCollection-1.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Collections.UserGroupCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Collections.UserGroupCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Collections.WlanGroupCollection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Collections.WlanGroupCollection.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Collections.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Collections.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.AccessPointInfrastructureNetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.AccessPointInfrastructureNetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.IClientNetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.NetworkDeviceState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.NetworkDeviceState.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.IInfrastructureNetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.INetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.INetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.RouterInfrastructureNetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.RouterInfrastructureNetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.SwitchInfrastructureNetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.SwitchInfrastructureNetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.UnknownInfrastructureNetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.UnknownInfrastructureNetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.WiredClientNetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.WiredClientNetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.WirelessClientNetworkedDevice.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.WirelessClientNetworkedDevice.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.Devices.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.Devices.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.UniFiOrchestrator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.UniFiOrchestrator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.Orchestration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.Orchestration.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.UniFiApi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.UniFiApi.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/UniFiSharp.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/UniFiSharp.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/clitool.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/clitool.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/example.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/example.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/orchestrator.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/orchestrator.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html"
+        },
+        ".json": {
+          "relative_path": "articles/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "robots.txt",
+      "output": {
+        "resource": {
+          "relative_path": "robots.txt"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
