@@ -13,29 +13,28 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
           fetch-depth: 0
           path: ./UniFiSharp
           
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: |
-            6.0.x
+            8.0.x
             
       - name: Restore dependencies
         run: dotnet restore ./UniFiSharp
         
       - name: Setup DocFX
-        uses: crazy-max/ghaction-chocolatey@v1
-        with:
-          args: install docfx
+        working-directory: ./UniFiSharp
+        run: dotnet tool restore
 
       - name: DocFX Build
         working-directory: ./UniFiSharp/docs
-        run: docfx docfx.json --force
+        run: dotnet tool run docfx docfx.json
         continue-on-error: false
      
       - name: Publish Docs
