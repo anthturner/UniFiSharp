@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using Newtonsoft.Json;
+using RestSharp;
 using RestSharp.Serializers;
 using System.IO;
 
@@ -16,11 +17,7 @@ namespace UniFiSharp.Serialization
             this.serializer = serializer;
         }
 
-        public string ContentType
-        {
-            get { return "application/json"; } // Probably used for Serialization?
-            set { }
-        }
+        public ContentType ContentType { get; set; } = RestSharp.ContentType.Json;
 
         public string DateFormat { get; set; }
 
