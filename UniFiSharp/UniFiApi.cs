@@ -114,10 +114,17 @@ namespace UniFiSharp
         /// <summary>
         /// End the active session
         /// </summary>
+        /// <remarks>
+        /// The legacy controller endpoint is <c>/api/logout</c>. UniFi OS uses
+        /// <c>/api/auth/logout</c> outside the <c>/proxy/network</c> path.
+        /// </remarks>
         /// <returns></returns>
         public async Task Logout()
         {
-            await RestClient.UniFiPost("api/logout", new { });
+            if (RestClient is IUniFiSessionRestClient sessionClient)
+                await sessionClient.Logout();
+            else
+                await RestClient.UniFiPost("api/logout", new { });
         }
 
         public void Dispose() { }

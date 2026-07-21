@@ -10,7 +10,12 @@ using UniFiSharp.Json;
 
 namespace UniFiSharp
 {
-    internal class DefaultUniFiRestClient : RestClient, IUniFiRestClient
+    internal interface IUniFiSessionRestClient
+    {
+        Task Logout();
+    }
+
+    internal class DefaultUniFiRestClient : RestClient, IUniFiRestClient, IUniFiSessionRestClient
     {
         private const string CSRF_HEADER = "X-CSRF-Token";
         private readonly string _username, _password, _code;
@@ -156,6 +161,7 @@ namespace UniFiSharp
                 await ApplyRequestHeaders(request);
 
                 var response = await this.ExecuteAsync<JsonLoginResult>(request);
+                CaptureCsrfToken(response);
                 return response.Data;
             }
             else
@@ -184,8 +190,7 @@ namespace UniFiSharp
                 var response = await this.ExecuteAsync<JsonMessageEnvelope<T>>(request);
                 var envelope = response.Data;
 
-                if (response.Headers.Any(h => h.Name == CSRF_HEADER))
-                    _csrf_token = response.Headers.Where(x => x.Name == CSRF_HEADER).FirstOrDefault().Value.ToString();
+                CaptureCsrfToken(response);
 
                 if (envelope == null && !response.IsSuccessful)
                     throw response.ErrorException;
@@ -209,6 +214,35 @@ namespace UniFiSharp
                 }
                 throw;
             }
+        }
+
+        public async Task Logout()
+        {
+            if (!_useModernApi)
+            {
+                await UniFiPost("api/logout", new { });
+                return;
+            }
+
+            // UniFi OS authentication endpoints live at the console root, not below
+            // /proxy/network like Network application endpoints.
+            var request = new RestRequest("api/auth/logout", Method.Post);
+            await ApplyRequestHeaders(request);
+            await this.ExecuteAsync(request);
+        }
+
+        /// <summary>
+        /// Captures a CSRF token when a controller provides one. Older UniFi OS releases use
+        /// cookie-only sessions and do not return this header, so its absence is intentionally
+        /// accepted and must not make authentication or subsequent requests fail.
+        /// </summary>
+        private void CaptureCsrfToken(RestResponse response)
+        {
+            var csrfHeader = response.Headers?
+                .FirstOrDefault(x => string.Equals(x.Name, CSRF_HEADER, StringComparison.OrdinalIgnoreCase));
+            var csrfToken = csrfHeader?.Value?.ToString();
+            if (!string.IsNullOrWhiteSpace(csrfToken))
+                _csrf_token = csrfToken;
         }
 
         /// <summary>
@@ -255,20 +289,25 @@ namespace UniFiSharp
         {
             request.AddHeader("Referrer", _baseUrl.ToString());
 
-            if (Options.CookieContainer.GetCookies(_baseUrl).Count > 0 && Options.CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value != null)
-                _csrf_token = Options.CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value;
+            // Some intermediate UniFi OS versions supplied the token as a cookie rather than
+            // (or in addition to) the login response header.
+            var cookies = Options.CookieContainer.GetCookies(_baseUrl);
+            var cookieToken = cookies["csrf_token"]?.Value;
+            if (!string.IsNullOrWhiteSpace(cookieToken))
+                _csrf_token = cookieToken;
 
-            if (_csrf_token == null)
+            if (string.IsNullOrWhiteSpace(_csrf_token))
             {
+                // A few releases expose the token only on the console root after login. This
+                // probe is best-effort: a controller that returns no token continues with its
+                // authenticated cookies, preserving legacy-modern behavior.
                 var baseUrl = new RestRequest("/", Method.Get);
                 var baseUrlResponse = await this.ExecuteAsync(baseUrl);
-                _csrf_token = baseUrlResponse.Headers.FirstOrDefault(x => x.Name == CSRF_HEADER)?.Value.ToString();
+                CaptureCsrfToken(baseUrlResponse);
             }
 
-            if (_csrf_token != null)
-            {
+            if (!string.IsNullOrWhiteSpace(_csrf_token))
                 request.AddHeader(CSRF_HEADER, _csrf_token);
-            }
         }
     }
 }

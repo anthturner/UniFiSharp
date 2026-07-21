@@ -12,6 +12,11 @@ namespace UniFiSharp
         /// <summary>
         /// Retrieves all the media files uploaded to the controller
         /// </summary>
+        /// <remarks>
+        /// This is a legacy UniFi EDU public-address endpoint for UAP-AC-EDU speakers.
+        /// UAP-AC-EDU is a legacy product, and current UniFi Network releases may return
+        /// HTTP 400 because the media-file endpoint is unavailable.
+        /// </remarks>
         /// <returns>Collection of JSON objects describing media files stored on this controller</returns>
         public async Task<IEnumerable<JsonMediaFile>> MediaFileList()
         {
@@ -21,6 +26,10 @@ namespace UniFiSharp
         /// <summary>
         /// Retrieves a specific file uploaded to the controller
         /// </summary>
+        /// <remarks>
+        /// Legacy UniFi EDU public-address functionality. This endpoint may be unavailable on
+        /// current UniFi Network releases and may return HTTP 400.
+        /// </remarks>
         /// <returns>Collection of JSON objects describing media files stored on this controller</returns>
         public async Task<JsonMediaFile> MediaFileGet(string fileId)
         {
@@ -30,6 +39,10 @@ namespace UniFiSharp
         /// <summary>
         /// Deletes a specific uploaded media file from the controller
         /// </summary>
+        /// <remarks>
+        /// Legacy UniFi EDU public-address functionality for the legacy UAP-AC-EDU product.
+        /// This endpoint may be unavailable on current UniFi Network releases.
+        /// </remarks>
         /// <returns>Collection of JSON objects describing sample media files stored on this controller</returns>
         public async Task MediaFileDelete(string fileId)
         {
@@ -41,6 +54,10 @@ namespace UniFiSharp
         /// Uploads a media file to the UniFi controller. Note that OGG files are the only known supported file type (recommended quality 4).
         /// Other audio formats will upload but cannot be played by AP-AC-EDU devices
         /// </summary>
+        /// <remarks>
+        /// Legacy UniFi EDU public-address functionality for the legacy UAP-AC-EDU product.
+        /// This endpoint may be unavailable on current UniFi Network releases.
+        /// </remarks>
         /// <param name="name">Human readable name for the file</param>
         /// <param name="fileData">Byte array containing the file data</param>
         /// <param name="fileName">Optional file name for internal use</param>
@@ -60,6 +77,10 @@ namespace UniFiSharp
         /// <summary>
         /// Retrieves all the sample media files on the controller
         /// </summary>
+        /// <remarks>
+        /// This is a legacy UniFi EDU public-address endpoint for UAP-AC-EDU speakers.
+        /// Current UniFi Network releases may reject it with HTTP 403 or omit it entirely.
+        /// </remarks>
         /// <returns>Collection of JSON objects describing sample media files stored on this controller</returns>
         public async Task<IEnumerable<JsonSampleMedia>> SampleFileList()
         {

@@ -11,6 +11,11 @@ namespace UniFiSharp
         /// <summary>
         /// Get all broadcast groups on the controller
         /// </summary>
+        /// <remarks>
+        /// This is a legacy UniFi EDU public-address endpoint for UAP-AC-EDU speakers; it is
+        /// unrelated to Wi-Fi/SSID broadcasts. UAP-AC-EDU is a legacy product, and current
+        /// UniFi Network releases may return HTTP 400 because the EDU endpoint is unavailable.
+        /// </remarks>
         /// <returns>Collection of JSON objects containing the broadcast groups and devices in each group</returns>
         public async Task<IEnumerable<JsonBroadcastGroup>> BroadcastGroupList()
         {
@@ -20,6 +25,10 @@ namespace UniFiSharp
         /// <summary>
         /// Retrieve info about a single broadcast group
         /// </summary>
+        /// <remarks>
+        /// Legacy UniFi EDU public-address functionality. This endpoint may be unavailable on
+        /// current UniFi Network releases and may return HTTP 400.
+        /// </remarks>
         /// <param name="groupId">ID of the group to query</param>
         /// <returns>JSON object describing the group and listing the devices in the group</returns>
         public async Task<JsonBroadcastGroup> BroadcastGroupGet(string groupId)
@@ -30,6 +39,10 @@ namespace UniFiSharp
         /// <summary>
         /// Delete a broadcast group
         /// </summary>
+        /// <remarks>
+        /// Legacy UniFi EDU public-address functionality for the legacy UAP-AC-EDU product.
+        /// This endpoint may be unavailable on current UniFi Network releases.
+        /// </remarks>
         /// <param name="groupId">ID of the broadcast group</param>
         /// <returns></returns>
         public async Task BroadcastGroupDelete(string groupId)
@@ -40,6 +53,10 @@ namespace UniFiSharp
         /// <summary>
         /// Create a new broadcast group
         /// </summary>
+        /// <remarks>
+        /// Legacy UniFi EDU public-address functionality for the legacy UAP-AC-EDU product.
+        /// This endpoint may be unavailable on current UniFi Network releases.
+        /// </remarks>
         /// <param name="groupName">Name of the broadcast group</param>
         /// <param name="memberTable">MAC addresses of the devices to include in the group</param>
         /// <returns>JSON object containing details of the created group</returns>
@@ -55,6 +72,10 @@ namespace UniFiSharp
         /// <summary>
         /// Update an existing broadcast group
         /// </summary>
+        /// <remarks>
+        /// Legacy UniFi EDU public-address functionality for the legacy UAP-AC-EDU product.
+        /// This endpoint may be unavailable on current UniFi Network releases.
+        /// </remarks>
         /// <param name="groupId">ID of the group to update</param>
         /// <param name="groupName">Name of the broadcast group</param>
         /// <param name="memberTable">MAC addresses of the devices to include in the group</param>
