@@ -1260,7 +1260,7 @@ namespace UniFiSharp.Json
             [DisplayName("TX Dropped")]
             [ShowWith(Levels.Extended)]
             [JsonProperty("tx_dropped")]
-            public int tx_dropped { get; set; }
+            public long tx_dropped { get; set; }
 
             /// <summary>
             /// Number of errors sent on port
@@ -1268,7 +1268,7 @@ namespace UniFiSharp.Json
             [DisplayName("TX Errors")]
             [ShowWith(Levels.Extended)]
             [JsonProperty("tx_errors")]
-            public int tx_errors { get; set; }
+            public long tx_errors { get; set; }
 
             /// <summary>
             /// Number of packets sent on port
@@ -1868,7 +1868,7 @@ namespace UniFiSharp.Json
             [DisplayName("TX Dropped")]
             [ShowWith(Levels.Extended)]
             [JsonProperty("tx_dropped")]
-            public int tx_dropped { get; set; }
+            public long tx_dropped { get; set; }
 
             /// <summary>
             /// Number of errors sent on port
@@ -1876,7 +1876,7 @@ namespace UniFiSharp.Json
             [DisplayName("TX Errors")]
             [ShowWith(Levels.Extended)]
             [JsonProperty("tx_errors")]
-            public int tx_errors { get; set; }
+            public long tx_errors { get; set; }
 
             /// <summary>
             /// Number of packets sent on port
@@ -2273,7 +2273,7 @@ namespace UniFiSharp.Json
             [DisplayName("TX Dropped")]
             [ShowWith(Levels.Extended)]
             [JsonProperty("tx_dropped")]
-            public int tx_dropped { get; set; }
+            public long tx_dropped { get; set; }
 
             /// <summary>
             /// Number of errors sent on VAP
@@ -2281,7 +2281,7 @@ namespace UniFiSharp.Json
             [DisplayName("TX Errors")]
             [ShowWith(Levels.Extended)]
             [JsonProperty("tx_errors")]
-            public int tx_errors { get; set; }
+            public long tx_errors { get; set; }
 
             /// <summary>
             /// Number of packets sent on VAP
