@@ -50,14 +50,14 @@ jobs:
     steps:
     - name: Set publish directory
       id: pubdir
-      run: echo ::set-output name=output::./UniFiSharp.CLI/bin/Release/net6.0/${{ matrix.target }}/publish/
+      run: echo ::set-output name=output::./UniFiSharp.CLI/bin/Release/net8.0/${{ matrix.target }}/publish/
     
     # Configure Agent
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
         
     # Build/Publish Artifact
     - name: Restore dependencies
