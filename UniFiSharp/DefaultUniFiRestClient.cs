@@ -35,16 +35,15 @@ namespace UniFiSharp
                 // Bodge to work around the fact uploads don't return the normal metadata if unauthorized (migrated to RestClientOptions)
                 FollowRedirects = true,
                 Encoding = encoding ?? Encoding.UTF8,
-                Timeout = timeout,
+                Timeout = TimeSpan.FromMilliseconds(timeout),
                 ThrowOnAnyError = true
-            })
+            }, configureSerialization: serializerConfig => serializerConfig.UseNewtonsoftJson())
         {
             _username = username;
             _password = password;
             _useModernApi = useModernApi;
             _baseUrl = baseUrl;
 
-            this.UseNewtonsoftJson();
         }
 #nullable disable
 
@@ -256,8 +255,8 @@ namespace UniFiSharp
         {
             request.AddHeader("Referrer", _baseUrl.ToString());
 
-            if (CookieContainer.GetCookies(_baseUrl).Count > 0 && CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value != null)
-                _csrf_token = CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value;
+            if (Options.CookieContainer.GetCookies(_baseUrl).Count > 0 && Options.CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value != null)
+                _csrf_token = Options.CookieContainer.GetCookies(_baseUrl)["csrf_token"]?.Value;
 
             if (_csrf_token == null)
             {
